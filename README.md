@@ -1,8 +1,5 @@
 mtbeach ("moment tensor beachballs")
-
-Carl Tape
-University of Alaska Fairbanks
-ctape@alaska.edu
+contact: Carl Tape, University of Alaska Fairbanks, ctape@alaska.edu
 
 download the zipped file or use this command:  
 git clone --depth=1 https://github.com/carltape/mtbeach
