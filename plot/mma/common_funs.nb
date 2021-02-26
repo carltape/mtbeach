@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[    155186,       4209]
-NotebookOptionsPosition[    152223,       4112]
-NotebookOutlinePosition[    153414,       4155]
-CellTagsIndexPosition[    153371,       4152]
+NotebookDataLength[    130341,       3749]
+NotebookOptionsPosition[    127659,       3665]
+NotebookOutlinePosition[    128852,       3708]
+CellTagsIndexPosition[    128809,       3705]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,8 +28,6 @@ for ",
  CellChangeTimes->{{3.4892616449648027`*^9, 3.4892616872876763`*^9}, {
   3.4892635901517944`*^9, 3.4892635921953983`*^9}, {3.6571673188845243`*^9, 
   3.6571673455605707`*^9}}],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -72,23 +70,6 @@ Cell[BoxData[{
  RowBox[{"DateSequence", "[", 
   RowBox[{
    RowBox[{"DateList", "[", "]"}], ",", "\"\<no\>\""}], "]"}]}], "Input"],
-
-Cell[BoxData[
- TemplateBox[{"3","\"-\"","5","\"-\"","2017"},
-  "RowDefault"]], "Output",
- CellChangeTimes->CompressedData["
-1:eJwBpQFa/iFib1JlAQAAADMAAAA5NcvhPP/pQfAeIwQ9/+lBBt1kKWL/6UHs
-NMKL7wnqQfzaw/m3D+pBDFjj7YAT6kGUxlJutRTqQYeOQnT7FOpBHADRPAwV
-6kHC5NKejhXqQb4csW75FepBEEWFmFUa6kHee4jPfxrqQXwA7pCcHepBpnOF
-DOAe6kFSAqOz2x/qQaqAXbp2IupB9jCTU5km6kGkpIgYvSjqQbhD5kyOKupB
-VqkdibAs6kHM5ON5Dy7qQf75DdKLMepByLUXwcBD6kEcKjnNP0fqQSy2JEg2
-SOpBxHaGsgtJ6kES2pOexFLqQVRmCvh2U+pBJHHds4hd6kHknaI/W2bqQZId
-P3/kdupB1LbG8w+D6kGgpNwmDITqQVRBiZZGnepBxPEbm6+h6kF4GKmz9KHq
-QVNowdsCuOpBoQdD/W7I6kEskmr888jqQZKuM1/Z4upBuke2XlPw6kG4Y+Rn
-jPfqQbrYSt/+DetBhA7UN2Qk60EweeXvuCjrQYz6yKIsLutBHIJDNH4/60FO
-F/bazGjrQX5G7uLAgOtBeuXZb+WM60H+Dtes
-  "]]
-}, Open  ]],
 
 Cell[BoxData[{
  RowBox[{
@@ -211,13 +192,14 @@ Cell[BoxData[{
      RowBox[{"N", "."}]}],
     FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"SignedAngle", "[", 
-   RowBox[{"A_", ",", "B_", ",", "N_"}], "]"}], ":=", " ", 
-  RowBox[{"Theta", "[", 
-   RowBox[{
-    RowBox[{"Transpose", "[", 
-     RowBox[{"UU", "[", 
-      RowBox[{"A", ",", "N"}], "]"}], "]"}], ".", "B"}], "]"}], " ", 
+  RowBox[{
+   RowBox[{"SignedAngle", "[", 
+    RowBox[{"A_", ",", "B_", ",", "N_"}], "]"}], ":=", " ", 
+   RowBox[{"Theta", "[", 
+    RowBox[{
+     RowBox[{"Transpose", "[", 
+      RowBox[{"UU", "[", 
+       RowBox[{"A", ",", "N"}], "]"}], "]"}], ".", "B"}], "]"}]}], " ", 
   RowBox[{"(*", " ", 
    StyleBox[
     RowBox[{
@@ -227,12 +209,66 @@ Cell[BoxData[{
      RowBox[{
      "and", " ", "N", " ", "must", " ", "be", " ", "a", " ", "unit", " ", 
       "vector"}]}],
+    FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Theta", "[", 
+     RowBox[{"{", 
+      RowBox[{"x_", ",", "y_", ",", "z_"}], "}"}], "]"}], ":=", 
+    RowBox[{"ArcTan", "[", 
+     RowBox[{"x", ",", "y"}], "]"}]}], ";"}], "  ", 
+  RowBox[{"(*", 
+   StyleBox[" ",
+    FontColor->RGBColor[1, 0, 0]], 
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"\[Theta]", " ", 
+       StyleBox[
+        RowBox[{"i", 
+         StyleBox["n",
+          FontColor->RGBColor[1, 0, 0]]}]], 
+       StyleBox[" ",
+        FontColor->RGBColor[1, 0, 0]], 
+       StyleBox["rad",
+        FontColor->RGBColor[1, 0, 0]]}], "ians"}], ",", " ", 
+     RowBox[{
+      RowBox[{"from", " ", "-", 
+       RowBox[{"\[Pi]", " ", "to", " ", "\[Pi]"}]}], ";", " ", 
+      RowBox[{"changed", " ", "April", " ", "2018"}]}]}],
+    FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Theta", "[", 
+     RowBox[{"{", 
+      RowBox[{"x_", ",", "y_"}], "}"}], "]"}], ":=", 
+    RowBox[{"ArcTan", "[", 
+     RowBox[{"x", ",", "y"}], "]"}]}], ";"}], "  ", 
+  RowBox[{"(*", 
+   StyleBox[" ",
+    FontColor->RGBColor[1, 0, 0]], 
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"\[Theta]", " ", 
+       StyleBox[
+        RowBox[{"i", 
+         StyleBox["n",
+          FontColor->RGBColor[1, 0, 0]]}]], 
+       StyleBox[" ",
+        FontColor->RGBColor[1, 0, 0]], 
+       StyleBox["rad",
+        FontColor->RGBColor[1, 0, 0]]}], "ians"}], ",", " ", 
+     RowBox[{
+      RowBox[{"from", " ", "-", 
+       RowBox[{"\[Pi]", " ", "to", " ", "\[Pi]"}]}], ";", " ", 
+      RowBox[{"changed", " ", "April", " ", "2018"}]}]}],
     FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}]}], "Input",
  CellChangeTimes->{{3.734628431840602*^9, 3.734628477450066*^9}, {
   3.734628913185296*^9, 3.734628918091556*^9}, {3.7346317198290963`*^9, 
-  3.734631725641618*^9}}],
-
-Cell[CellGroupData[{
+  3.734631725641618*^9}, {3.7460429495891056`*^9, 3.7460429506773715`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -279,23 +315,6 @@ Cell[BoxData[{
   3.7346314218285146`*^9}, {3.7346314919536543`*^9, 3.7346315158755755`*^9}, {
   3.734631620750781*^9, 3.734631707610323*^9}}],
 
-Cell[BoxData["True"], "Output",
- CellChangeTimes->{
-  3.7346288964196324`*^9, 3.7346289600760107`*^9, {3.734631325265831*^9, 
-   3.734631334328349*^9}, {3.7346313727346754`*^9, 3.7346314227191277`*^9}, {
-   3.7346314930161543`*^9, 3.734631517203706*^9}, {3.7346316523602047`*^9, 
-   3.7346317085322*^9}}],
-
-Cell[BoxData["True"], "Output",
- CellChangeTimes->{
-  3.7346288964196324`*^9, 3.7346289600760107`*^9, {3.734631325265831*^9, 
-   3.734631334328349*^9}, {3.7346313727346754`*^9, 3.7346314227191277`*^9}, {
-   3.7346314930161543`*^9, 3.734631517203706*^9}, {3.7346316523602047`*^9, 
-   3.7346317085322*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"SignedAngle", "[", 
   RowBox[{
@@ -313,13 +332,6 @@ Cell[BoxData[
     RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.734651160060381*^9, 3.7346512273573875`*^9}, {
   3.73465373134128*^9, 3.7346537359194264`*^9}}],
-
-Cell[BoxData[
- RowBox[{"-", 
-  FractionBox["\[Pi]", "6"]}]], "Output",
- CellChangeTimes->{{3.7346512134979343`*^9, 3.7346512284198475`*^9}, {
-  3.7346537330131164`*^9, 3.734653736700636*^9}}]
-}, Open  ]],
 
 Cell[BoxData[
  RowBox[{
@@ -525,7 +537,7 @@ Cell[BoxData[{
       RowBox[{"w", ",", 
        RowBox[{"{", 
         RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "}"}], " ", "must", " ", 
-     "have", " ", "length", " ", "one"}],
+     "have", " ", "unit", " ", "length"}],
     FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -620,6 +632,28 @@ Cell[BoxData[{
     RowBox[{
     "v3", " ", "and", " ", "v1", " ", "must", " ", "be", " ", "orthonormal"}],
     FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"CircleOnSphere", "[", 
+    RowBox[{"center_", ",", "radius_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"ROT", "[", 
+       RowBox[{"\[Pi]", ",", 
+        RowBox[{"Unit", "[", 
+         RowBox[{"center", "+", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}]}], "]"}], ".", 
+      RowBox[{"ZRot", "[", "#", "]"}], ".", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Sin", "[", "radius", "]"}], ",", "0", ",", 
+        RowBox[{"Cos", "[", "radius", "]"}]}], "}"}]}], "&"}], "/@", 
+    RowBox[{"Range", "[", 
+     RowBox[{
+      RowBox[{"-", "\[Pi]"}], ",", "\[Pi]", ",", 
+      RowBox[{".01", "\[Pi]"}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -798,7 +832,7 @@ Cell[BoxData[{
   RowBox[{
    RowBox[{"id", "=", 
     RowBox[{"IdentityMatrix", "[", "3", "]"}]}], ";"}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"sign", "[", "x_", "]"}], ":=", 
@@ -903,7 +937,7 @@ Cell[BoxData[{
     RowBox[{
     "changed", " ", "Feb", " ", "2009", " ", "also", " ", "eliminated", " ", 
      "carets"}],
-    FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+    FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\n", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
@@ -954,62 +988,6 @@ Cell[BoxData[{
       RowBox[{"from", " ", "-", 
        RowBox[{"\[Pi]", " ", "to", " ", "\[Pi]"}]}], ";", " ", 
       RowBox[{"used", " ", "for", " ", "lune", " ", "coordinates"}]}]}],
-    FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"Theta", "[", 
-     RowBox[{"{", 
-      RowBox[{"x_", ",", "y_", ",", "z_"}], "}"}], "]"}], ":=", 
-    RowBox[{"ArcTan", "[", 
-     RowBox[{"x", ",", "y"}], "]"}]}], ";"}], "  ", 
-  RowBox[{"(*", 
-   StyleBox[" ",
-    FontColor->RGBColor[1, 0, 0]], 
-   StyleBox[
-    RowBox[{
-     RowBox[{
-      RowBox[{"\[Theta]", " ", 
-       StyleBox[
-        RowBox[{"i", 
-         StyleBox["n",
-          FontColor->RGBColor[1, 0, 0]]}]], 
-       StyleBox[" ",
-        FontColor->RGBColor[1, 0, 0]], 
-       StyleBox["rad",
-        FontColor->RGBColor[1, 0, 0]]}], "ians"}], ",", " ", 
-     RowBox[{
-      RowBox[{"from", " ", "-", 
-       RowBox[{"\[Pi]", " ", "to", " ", "\[Pi]"}]}], ";", " ", 
-      RowBox[{"changed", " ", "April", " ", "2018"}]}]}],
-    FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"Theta", "[", 
-     RowBox[{"{", 
-      RowBox[{"x_", ",", "y_"}], "}"}], "]"}], ":=", 
-    RowBox[{"ArcTan", "[", 
-     RowBox[{"x", ",", "y"}], "]"}]}], ";"}], "  ", 
-  RowBox[{"(*", 
-   StyleBox[" ",
-    FontColor->RGBColor[1, 0, 0]], 
-   StyleBox[
-    RowBox[{
-     RowBox[{
-      RowBox[{"\[Theta]", " ", 
-       StyleBox[
-        RowBox[{"i", 
-         StyleBox["n",
-          FontColor->RGBColor[1, 0, 0]]}]], 
-       StyleBox[" ",
-        FontColor->RGBColor[1, 0, 0]], 
-       StyleBox["rad",
-        FontColor->RGBColor[1, 0, 0]]}], "ians"}], ",", " ", 
-     RowBox[{
-      RowBox[{"from", " ", "-", 
-       RowBox[{"\[Pi]", " ", "to", " ", "\[Pi]"}]}], ";", " ", 
-      RowBox[{"changed", " ", "April", " ", "2018"}]}]}],
     FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"theta2d", "[", "v_", "]"}], ":=", 
@@ -1765,7 +1743,8 @@ Cell[BoxData[{
   RowBox[{
    RowBox[{
     RowBox[{"arc", "[", 
-     RowBox[{"a_", ",", "b_"}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{"a_", ",", "b_"}], "}"}], "]"}], ":=", 
     RowBox[{
      RowBox[{
       RowBox[{
@@ -1784,15 +1763,15 @@ Cell[BoxData[{
      RowBox[{"myRange", "[", 
       RowBox[{
        RowBox[{"0", "+", 
-        RowBox[{"1", 
+        RowBox[{"0", 
          StyleBox["Degree",
           FontColor->RGBColor[1, 0, 0]]}]}], ",", 
        RowBox[{
         RowBox[{"Angle", "[", 
          RowBox[{"a", ",", "b"}], "]"}], "-", 
-        RowBox[{"1", 
+        RowBox[{"0", 
          StyleBox["Degree",
-          FontColor->RGBColor[1, 0, 0]]}]}], ",", "30"}], "]"}]}]}], ";"}], 
+          FontColor->RGBColor[1, 0, 0]]}]}], ",", "31"}], "]"}]}]}], ";"}], 
   "  ", 
   RowBox[{"(*", " ", 
    StyleBox[
@@ -1980,10 +1959,14 @@ Cell[BoxData[{
    3.7346179430399103`*^9, 3.734617955993041*^9}, {3.734628196652638*^9, 
    3.7346282214183187`*^9}, {3.734628275902807*^9, 3.734628299449718*^9}, {
    3.7346283505904465`*^9, 3.73462838573114*^9}, 3.734628420246833*^9, 
-   3.7346284796375732`*^9, 3.734653704466226*^9, 3.7350941129877977`*^9},
+   3.7346284796375732`*^9, 3.734653704466226*^9, 3.7350941129877977`*^9, {
+   3.7460429353723526`*^9, 3.7460429393171883`*^9}, {3.7576449198371625`*^9, 
+   3.757644924040283*^9}, {3.7875080058443265`*^9, 3.787508006892823*^9}, {
+   3.7875151727983875`*^9, 3.787515179298891*^9}, 3.7875944736793284`*^9, 
+   3.7978629561501727`*^9, {3.79786348460015*^9, 3.7978634898001633`*^9}, 
+   3.797972350692809*^9, 3.802206037420579*^9, 3.8022061516795697`*^9, 
+   3.802301107500579*^9},
  AspectRatioFixed->True],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -2069,56 +2052,6 @@ Cell[BoxData[{
   3.5938234707032056`*^9}, {3.5945191585479183`*^9, 3.5945191911104636`*^9}, {
   3.594519344284678*^9, 3.5945193458346806`*^9}}],
 
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"{", 
-   RowBox[{
-    RowBox[{"a", "\[Rule]", 
-     RowBox[{"\[Lambda]1", "-", "\[Lambda]2"}]}], ",", 
-    RowBox[{"b", "\[Rule]", 
-     RowBox[{
-      RowBox[{"-", 
-       FractionBox["2", "3"]}], " ", 
-      RowBox[{"(", 
-       RowBox[{"\[Lambda]1", "-", 
-        RowBox[{"2", " ", "\[Lambda]2"}], "+", "\[Lambda]3"}], ")"}]}]}], ",", 
-    RowBox[{"c", "\[Rule]", 
-     RowBox[{
-      FractionBox["1", "3"], " ", 
-      RowBox[{"(", 
-       RowBox[{
-        RowBox[{"-", "\[Lambda]1"}], "-", "\[Lambda]2", "-", "\[Lambda]3"}], 
-       ")"}]}]}]}], "}"}], "}"}]], "Output",
- CellChangeTimes->{3.5945193554846935`*^9, 3.5947458342146816`*^9, 
-  3.5950182114603434`*^9, 3.608595194095061*^9, 3.615660789896256*^9, 
-  3.619447615447173*^9, 3.6312163785289564`*^9, 3.642958270836772*^9, 
-  3.6452289273585463`*^9, 3.648087318680585*^9, 3.6571672663904333`*^9, 
-  3.6788241520373306`*^9, 3.6913825517999125`*^9, 3.6977488636530123`*^9}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   RowBox[{"\[Lambda]1", "-", "\[Lambda]2"}], ",", 
-   RowBox[{
-    RowBox[{"-", 
-     FractionBox[
-      RowBox[{"2", " ", "\[Lambda]1"}], "3"]}], "+", 
-    FractionBox[
-     RowBox[{"4", " ", "\[Lambda]2"}], "3"], "-", 
-    FractionBox[
-     RowBox[{"2", " ", "\[Lambda]3"}], "3"]}], ",", 
-   RowBox[{
-    RowBox[{"-", 
-     FractionBox["\[Lambda]1", "3"]}], "-", 
-    FractionBox["\[Lambda]2", "3"], "-", 
-    FractionBox["\[Lambda]3", "3"]}]}], "}"}]], "Output",
- CellChangeTimes->{3.5945193554846935`*^9, 3.5947458342146816`*^9, 
-  3.5950182114603434`*^9, 3.608595194095061*^9, 3.615660789896256*^9, 
-  3.619447615447173*^9, 3.6312163785289564`*^9, 3.642958270836772*^9, 
-  3.6452289273585463`*^9, 3.648087318680585*^9, 3.6571672663904333`*^9, 
-  3.6788241520373306`*^9, 3.6913825517999125`*^9, 3.6977488636686*^9}]
-}, Open  ]],
-
 Cell["ARROW2D IS FOR 2-DIMENSIONAL.  REDONE JUNE 2002", "SmallText",
  Evaluatable->False,
  AspectRatioFixed->True,
@@ -2195,8 +2128,6 @@ Cell[BoxData[{
   3.683388936627301*^9}, {3.683396547896555*^9, 3.6833965487526894`*^9}},
  AspectRatioFixed->True],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"Graphics", "[", 
   RowBox[{
@@ -2207,17 +2138,6 @@ Cell[BoxData[
    3.6833885077237625`*^9, 3.683388533888088*^9}, {3.683388885507532*^9, 
    3.683388913453946*^9}, {3.683391790409665*^9, 3.683391797768368*^9}, 
    3.683396514650652*^9}],
-
-Cell[BoxData[
- GraphicsBox[LineBox[{{0, 0}, {-2, 1}, {-1.2, 0}, {-2, -1}, {0, 0}}],
-  AspectRatio->Automatic,
-  Axes->True,
-  ImageSize->{108., Automatic}]], "Output",
- CellChangeTimes->{{3.683388396729209*^9, 3.683388413084169*^9}, {
-   3.6833885154973974`*^9, 3.6833885346329336`*^9}, {3.6833889020058074`*^9, 
-   3.683388927879713*^9}, 3.683391799124265*^9, 3.6833965587146254`*^9, 
-   3.6913825518689137`*^9, 3.697748863762389*^9}]
-}, Open  ]],
 
 Cell[BoxData[{
  RowBox[{
@@ -2310,8 +2230,6 @@ Cell[BoxData[{
    3.71087483028846*^9, 3.710874838160901*^9}, {3.710874879680277*^9, 
    3.7108748932330556`*^9}, 3.7108756004805655`*^9, {3.736194997883952*^9, 
    3.7361950278057995`*^9}}],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"GraphicsRow", "[", 
@@ -2422,173 +2340,6 @@ Cell[BoxData[
   3.710874235408381*^9}, {3.7108742793288965`*^9, 3.7108743178241005`*^9}, {
   3.710874366080868*^9, 3.71087466840018*^9}, {3.7422518021341333`*^9, 
   3.7422518888995514`*^9}}],
-
-Cell[BoxData[
- GraphicsBox[{{}, {InsetBox[
-     Graphics3DBox[{{
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 3], 0}, {-1, Rational[1, 2] 
-            3^Rational[-1, 2], Rational[1, 6]}, {-1, Rational[1, 6], 
-            Rational[1, 2] 3^Rational[-1, 2]}, {-1, 0, Rational[1, 3]}, {-1, 
-            Rational[-1, 6], Rational[1, 2] 3^Rational[-1, 2]}, {-1, 
-            Rational[-1, 2] 3^Rational[-1, 2], Rational[1, 6]}, {-1, 
-            Rational[-1, 3], 0}}, {{-1, 0.3333333333333333, 0}, {-1, 
-            0.2886751345948129, 0.16666666666666666`}, {-1, 
-            0.16666666666666666`, 0.2886751345948129}, {-1, 0, 
-            0.3333333333333333}, {-1, -0.16666666666666666`, 
-            0.2886751345948129}, {-1, -0.2886751345948129, 
-            0.16666666666666666`}, {-1, -0.3333333333333333, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 3], 0}, {-1, Rational[1, 2] 
-            3^Rational[-1, 2], Rational[1, 6]}, {0, 0, 
-           0}}, {{-1, 0.3333333333333333, 0}, {-1, 0.2886751345948129, 
-            0.16666666666666666`}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 2] 3^Rational[-1, 2], Rational[1, 6]}, {-1, 
-            Rational[1, 6], Rational[1, 2] 3^Rational[-1, 2]}, {0, 0, 
-           0}}, {{-1, 0.2886751345948129, 0.16666666666666666`}, {-1, 
-            0.16666666666666666`, 0.2886751345948129}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 6], Rational[1, 2] 3^Rational[-1, 2]}, {-1, 
-            0, Rational[1, 3]}, {0, 0, 
-           0}}, {{-1, 0.16666666666666666`, 0.2886751345948129}, {-1, 0, 
-            0.3333333333333333}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, 0, Rational[1, 3]}, {-1, Rational[-1, 6], 
-            Rational[1, 2] 3^Rational[-1, 2]}, {0, 0, 
-           0}}, {{-1, 0, 0.3333333333333333}, {-1, -0.16666666666666666`, 
-            0.2886751345948129}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[-1, 6], Rational[1, 2] 3^Rational[-1, 2]}, {-1,
-             Rational[-1, 2] 3^Rational[-1, 2], Rational[1, 6]}, {0, 0, 
-           0}}, {{-1, -0.16666666666666666`, 
-            0.2886751345948129}, {-1, -0.2886751345948129, 
-            0.16666666666666666`}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[-1, 2] 3^Rational[-1, 2], Rational[1, 6]}, {-1,
-             Rational[-1, 3], 0}, {0, 0, 
-           0}}, {{-1, -0.2886751345948129, 
-            0.16666666666666666`}, {-1, -0.3333333333333333, 0}, {0, 0, 
-           0}}]]}, 
-       {RGBColor[1, 0, 0], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 2], 0}, {-1, Rational[-1, 2], 0}, {
-           0, Rational[-1, 2], 0}, {
-           0, Rational[1, 2], 0}}, {{-1, 0.5, 0}, {-1, -0.5, 0}, {
-           0, -0.5, 0}, {0, 0.5, 0}}]]}, 
-       {PointSize[0.02], 
-        Point3DBox[
-         NCache[{-1, 0, Rational[-1, 3]}, {-1, 0, -0.3333333333333333}]]}},
-      ViewPoint->
-       NCache[{Rational[-5, 2] 3^Rational[1, 2] Cos[40 Degree], 
-         Rational[-5, 2] 3^Rational[1, 2] Sin[40 Degree], 
-         Rational[5, 2]}, {-3.3170697408446914`, -2.783351996132096, 2.5}]], {192., -189.},
-      ImageScaled[{0.5, 0.5}], {360., 360.},
-     ContentSelectable->True], InsetBox[
-     Graphics3DBox[{{
-        Polygon3DBox[
-         NCache[{{-1, 0, Rational[1, 3]}, {-1, Rational[-1, 6], 
-            Rational[1, 2] 3^Rational[-1, 2]}, {-1, Rational[-1, 2] 
-            3^Rational[-1, 2], Rational[1, 6]}, {-1, Rational[-1, 3], 0}, {-1,
-             Rational[-1, 2] 3^Rational[-1, 2], Rational[-1, 6]}, {-1, 
-            Rational[-1, 6], Rational[-1, 2] 3^Rational[-1, 2]}, {-1, 0, 
-            Rational[-1, 3]}, {-1, Rational[1, 6], Rational[-1, 2] 
-            3^Rational[-1, 2]}, {-1, Rational[1, 2] 3^Rational[-1, 2], 
-            Rational[-1, 6]}, {-1, Rational[1, 3], 0}, {-1, Rational[1, 2] 
-            3^Rational[-1, 2], Rational[1, 6]}, {-1, Rational[1, 6], 
-            Rational[1, 2] 3^Rational[-1, 2]}, {-1, 0, Rational[1, 3]}}, {{-1,
-             0, 0.3333333333333333}, {-1, -0.16666666666666666`, 
-            0.2886751345948129}, {-1, -0.2886751345948129, 
-            0.16666666666666666`}, {-1, -0.3333333333333333, 
-            0}, {-1, -0.2886751345948129, -0.16666666666666666`}, {-1, \
--0.16666666666666666`, -0.2886751345948129}, {-1, 
-            0, -0.3333333333333333}, {-1, 
-            0.16666666666666666`, -0.2886751345948129}, {-1, 
-            0.2886751345948129, -0.16666666666666666`}, {-1, 
-            0.3333333333333333, 0}, {-1, 0.2886751345948129, 
-            0.16666666666666666`}, {-1, 0.16666666666666666`, 
-            0.2886751345948129}, {-1, 0, 0.3333333333333333}}]], 
-        Polygon3DBox[
-         NCache[{{-1, 0, Rational[1, 3]}, {-1, Rational[-1, 6], 
-            Rational[1, 2] 3^Rational[-1, 2]}, {0, 0, 
-           0}}, {{-1, 0, 0.3333333333333333}, {-1, -0.16666666666666666`, 
-            0.2886751345948129}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[-1, 6], Rational[1, 2] 3^Rational[-1, 2]}, {-1,
-             Rational[-1, 2] 3^Rational[-1, 2], Rational[1, 6]}, {0, 0, 
-           0}}, {{-1, -0.16666666666666666`, 
-            0.2886751345948129}, {-1, -0.2886751345948129, 
-            0.16666666666666666`}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[-1, 2] 3^Rational[-1, 2], Rational[1, 6]}, {-1,
-             Rational[-1, 3], 0}, {0, 0, 
-           0}}, {{-1, -0.2886751345948129, 
-            0.16666666666666666`}, {-1, -0.3333333333333333, 0}, {0, 0, 0}}]],
-         Polygon3DBox[
-         NCache[{{-1, Rational[-1, 3], 0}, {-1, Rational[-1, 2] 
-            3^Rational[-1, 2], Rational[-1, 6]}, {0, 0, 
-           0}}, {{-1, -0.3333333333333333, 
-            0}, {-1, -0.2886751345948129, -0.16666666666666666`}, {0, 0, 
-           0}}]], Polygon3DBox[
-         NCache[{{-1, Rational[-1, 2] 3^Rational[-1, 2], 
-            Rational[-1, 6]}, {-1, Rational[-1, 6], Rational[-1, 2] 
-            3^Rational[-1, 2]}, {0, 0, 
-           0}}, {{-1, -0.2886751345948129, -0.16666666666666666`}, {-1, \
--0.16666666666666666`, -0.2886751345948129}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[-1, 6], Rational[-1, 2] 
-            3^Rational[-1, 2]}, {-1, 0, Rational[-1, 3]}, {0, 0, 
-           0}}, {{-1, -0.16666666666666666`, -0.2886751345948129}, {-1, 
-            0, -0.3333333333333333}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, 0, Rational[-1, 3]}, {-1, Rational[1, 6], 
-            Rational[-1, 2] 3^Rational[-1, 2]}, {0, 0, 
-           0}}, {{-1, 0, -0.3333333333333333}, {-1, 
-            0.16666666666666666`, -0.2886751345948129}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 6], Rational[-1, 2] 3^Rational[-1, 2]}, {-1,
-             Rational[1, 2] 3^Rational[-1, 2], Rational[-1, 6]}, {0, 0, 
-           0}}, {{-1, 0.16666666666666666`, -0.2886751345948129}, {-1, 
-            0.2886751345948129, -0.16666666666666666`}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 2] 3^Rational[-1, 2], Rational[-1, 6]}, {-1,
-             Rational[1, 3], 0}, {0, 0, 
-           0}}, {{-1, 0.2886751345948129, -0.16666666666666666`}, {-1, 
-            0.3333333333333333, 0}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 3], 0}, {-1, Rational[1, 2] 
-            3^Rational[-1, 2], Rational[1, 6]}, {0, 0, 
-           0}}, {{-1, 0.3333333333333333, 0}, {-1, 0.2886751345948129, 
-            0.16666666666666666`}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 2] 3^Rational[-1, 2], Rational[1, 6]}, {-1, 
-            Rational[1, 6], Rational[1, 2] 3^Rational[-1, 2]}, {0, 0, 
-           0}}, {{-1, 0.2886751345948129, 0.16666666666666666`}, {-1, 
-            0.16666666666666666`, 0.2886751345948129}, {0, 0, 0}}]], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 6], Rational[1, 2] 3^Rational[-1, 2]}, {-1, 
-            0, Rational[1, 3]}, {0, 0, 
-           0}}, {{-1, 0.16666666666666666`, 0.2886751345948129}, {-1, 0, 
-            0.3333333333333333}, {0, 0, 0}}]]}, 
-       {RGBColor[0, 1, 0], Thickness[0.02], 
-        Line3DBox[{{0, 0, 0}, {1, 0, 0}}]}, 
-       {RGBColor[1, 0, 0], 
-        Polygon3DBox[
-         NCache[{{-1, Rational[1, 2], 0}, {-1, Rational[-1, 2], 0}, {
-           0, Rational[-1, 2], 0}, {
-           0, Rational[1, 2], 0}}, {{-1, 0.5, 0}, {-1, -0.5, 0}, {
-           0, -0.5, 0}, {0, 0.5, 0}}]]}},
-      ViewPoint->
-       NCache[{Rational[-5, 2] 3^Rational[1, 2] Cos[40 Degree], 
-         Rational[-5, 2] 3^Rational[1, 2] Sin[40 Degree], 
-         Rational[5, 2]}, {-3.3170697408446914`, -2.783351996132096, 2.5}]], {576., -189.},
-      ImageScaled[{0.5, 0.5}], {360., 360.},
-     ContentSelectable->True]}, {}},
-  ContentSelectable->True,
-  PlotRangePadding->{6, 5}]], "Output",
- CellChangeTimes->{{3.710874641146619*^9, 3.710874669258226*^9}, 
-   3.7422518365558863`*^9, 3.7422518915401106`*^9}]
-}, Open  ]],
 
 Cell[BoxData[{
  RowBox[{
@@ -3249,8 +3000,6 @@ Cell["EXAMPLE:", "SmallText",
  CellChangeTimes->{{3.5947403421074266`*^9, 3.594740361376954*^9}},
  FontColor->RGBColor[1, 0, 0]],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{
   RowBox[{"eye", "=", 
@@ -3274,523 +3023,6 @@ Cell[BoxData[
  CellChangeTimes->{{3.5469995769448175`*^9, 3.5469996772373924`*^9}, {
   3.546999727890681*^9, 3.5469997352070937`*^9}, {3.594740385729488*^9, 
   3.5947404707731094`*^9}}],
-
-Cell[BoxData[
- Graphics3DBox[{
-   {RGBColor[1, 0, 0], Thickness[0.002], 
-    Line3DBox[
-     NCache[{{1, 0, 0}, {Cos[3 Degree], Sin[3 Degree], 0}}, {{1, 0, 0}, {
-       0.9986295347545738, 0.052335956242943835`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[9 Degree], Sin[9 Degree], 0}, {
-       Cos[12 Degree], Sin[12 Degree], 0}}, {{
-       0.9876883405951378, 0.15643446504023087`, 0}, {
-       0.9781476007338057, 0.20791169081775934`, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (-1 + 5^Rational[1, 2]), 0}, {
-       Cos[21 Degree], Sin[21 Degree], 0}}, {{
-       0.9510565162951535, 0.30901699437494745`, 0}, {
-       0.9335804264972017, 0.35836794954530027`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[27 Degree], Sin[27 Degree], 0}, {
-       Rational[1, 2] 3^Rational[1, 2], Rational[1, 2], 0}}, {{
-       0.8910065241883679, 0.45399049973954675`, 0}, {
-       0.8660254037844386, 0.5, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (1 + 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
-       Cos[39 Degree], Sin[39 Degree], 0}}, {{
-       0.8090169943749475, 0.5877852522924731, 0}, {
-       0.7771459614569709, 0.6293203910498374, 0}}]], 
-    Line3DBox[
-     NCache[{{2^Rational[-1, 2], 2^Rational[-1, 2], 0}, {
-       Sin[42 Degree], Cos[42 Degree], 0}}, {{
-       0.7071067811865475, 0.7071067811865475, 0}, {
-       0.6691306063588582, 0.7431448254773942, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (1 + 5^Rational[1, 2]), 0}, {
-       Sin[33 Degree], Cos[33 Degree], 0}}, {{
-       0.5877852522924731, 0.8090169943749475, 0}, {
-       0.5446390350150271, 0.838670567945424, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[27 Degree], Cos[27 Degree], 0}, {
-       Sin[24 Degree], Cos[24 Degree], 0}}, {{
-       0.45399049973954675`, 0.8910065241883679, 0}, {
-       0.4067366430758002, 0.9135454576426009, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (-1 + 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 
-        0}, {(Rational[1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), (
-         Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), 0}}, {{
-       0.30901699437494745`, 0.9510565162951535, 0}, {
-       0.2588190451025207, 0.9659258262890682, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[9 Degree], Cos[9 Degree], 0}, {
-       Sin[6 Degree], Cos[6 Degree], 0}}, {{
-       0.15643446504023087`, 0.9876883405951378, 0}, {
-       0.10452846326765347`, 0.9945218953682733, 0}}]], 
-    Line3DBox[
-     NCache[{{0, 1, 0}, {-Sin[3 Degree], Cos[3 Degree], 0}}, {{0, 1, 
-       0}, {-0.052335956242943835`, 0.9986295347545738, 0}}]], 
-    Line3DBox[
-     NCache[{{-Sin[9 Degree], Cos[9 Degree], 0}, {-Sin[12 Degree], Cos[
-        12 Degree], 0}}, {{-0.15643446504023087`, 0.9876883405951378, 
-        0}, {-0.20791169081775934`, 0.9781476007338057, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (1 - 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {-
-        Sin[21 Degree], Cos[21 Degree], 0}}, {{-0.30901699437494745`, 
-        0.9510565162951535, 0}, {-0.35836794954530027`, 0.9335804264972017, 
-        0}}]], Line3DBox[
-     NCache[{{-Sin[27 Degree], Cos[27 Degree], 0}, {
-       Rational[-1, 2], Rational[1, 2] 3^Rational[1, 2], 
-        0}}, {{-0.45399049973954675`, 0.8910065241883679, 0}, {-0.5, 
-        0.8660254037844386, 0}}]], 
-    Line3DBox[
-     NCache[{{-(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
-         Rational[1, 2], Rational[1, 4] (1 + 5^Rational[1, 2]), 0}, {-
-        Sin[39 Degree], Cos[39 Degree], 0}}, {{-0.5877852522924731, 
-        0.8090169943749475, 0}, {-0.6293203910498374, 0.7771459614569709, 
-        0}}]], Line3DBox[
-     NCache[{{-2^Rational[-1, 2], 2^Rational[-1, 2], 0}, {-Cos[42 Degree], 
-        Sin[42 Degree], 0}}, {{-0.7071067811865475, 0.7071067811865475, 
-        0}, {-0.7431448254773942, 0.6691306063588582, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (-1 - 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {-
-        Cos[33 Degree], Sin[33 Degree], 0}}, {{-0.8090169943749475, 
-        0.5877852522924731, 0}, {-0.838670567945424, 0.5446390350150271, 
-        0}}]], Line3DBox[
-     NCache[{{-Cos[27 Degree], Sin[27 Degree], 0}, {-Cos[24 Degree], Sin[
-        24 Degree], 0}}, {{-0.8910065241883679, 0.45399049973954675`, 
-        0}, {-0.9135454576426009, 0.4067366430758002, 0}}]], 
-    Line3DBox[
-     NCache[{{-(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
-         Rational[1, 2], Rational[1, 4] (-1 + 5^Rational[1, 2]), 
-        0}, {(Rational[-1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), (
-         Rational[1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), 
-        0}}, {{-0.9510565162951535, 0.30901699437494745`, 
-        0}, {-0.9659258262890682, 0.2588190451025207, 0}}]], 
-    Line3DBox[
-     NCache[{{-Cos[9 Degree], Sin[9 Degree], 0}, {-Cos[6 Degree], Sin[
-        6 Degree], 0}}, {{-0.9876883405951378, 0.15643446504023087`, 
-        0}, {-0.9945218953682733, 0.10452846326765347`, 0}}]], 
-    Line3DBox[
-     NCache[{{-1, 0, 0}, {-Cos[3 Degree], -Sin[3 Degree], 0}}, {{-1, 0, 
-       0}, {-0.9986295347545738, -0.052335956242943835`, 0}}]], 
-    Line3DBox[
-     NCache[{{-Cos[9 Degree], -Sin[9 Degree], 0}, {-Cos[12 Degree], -
-        Sin[12 Degree], 0}}, {{-0.9876883405951378, -0.15643446504023087`, 
-        0}, {-0.9781476007338057, -0.20791169081775934`, 0}}]], 
-    Line3DBox[
-     NCache[{{-(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
-         Rational[1, 2], Rational[1, 4] (1 - 5^Rational[1, 2]), 0}, {-
-        Cos[21 Degree], -Sin[21 Degree], 
-        0}}, {{-0.9510565162951535, -0.30901699437494745`, 
-        0}, {-0.9335804264972017, -0.35836794954530027`, 0}}]], 
-    Line3DBox[
-     NCache[{{-Cos[27 Degree], -Sin[27 Degree], 0}, {
-       Rational[-1, 2] 3^Rational[1, 2], Rational[-1, 2], 
-        0}}, {{-0.8910065241883679, -0.45399049973954675`, 
-        0}, {-0.8660254037844386, -0.5, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (-1 - 5^
-         Rational[1, 2]), -(Rational[5, 8] + 
-          Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {-
-        Cos[39 Degree], -Sin[39 Degree], 
-        0}}, {{-0.8090169943749475, -0.5877852522924731, 
-        0}, {-0.7771459614569709, -0.6293203910498374, 0}}]], 
-    Line3DBox[
-     NCache[{{-2^Rational[-1, 2], -2^Rational[-1, 2], 0}, {-Sin[42 Degree], -
-        Cos[42 Degree], 0}}, {{-0.7071067811865475, -0.7071067811865475, 
-        0}, {-0.6691306063588582, -0.7431448254773942, 0}}]], 
-    Line3DBox[
-     NCache[{{-(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
-         Rational[1, 2], Rational[1, 4] (-1 - 5^Rational[1, 2]), 0}, {-
-        Sin[33 Degree], -Cos[33 Degree], 
-        0}}, {{-0.5877852522924731, -0.8090169943749475, 
-        0}, {-0.5446390350150271, -0.838670567945424, 0}}]], 
-    Line3DBox[
-     NCache[{{-Sin[27 Degree], -Cos[27 Degree], 0}, {-Sin[24 Degree], -
-        Cos[24 Degree], 0}}, {{-0.45399049973954675`, -0.8910065241883679, 
-        0}, {-0.4067366430758002, -0.9135454576426009, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (1 - 5^
-         Rational[1, 2]), -(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
-         Rational[1, 2], 
-        0}, {(Rational[-1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), (
-         Rational[-1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), 
-        0}}, {{-0.30901699437494745`, -0.9510565162951535, 
-        0}, {-0.2588190451025207, -0.9659258262890682, 0}}]], 
-    Line3DBox[
-     NCache[{{-Sin[9 Degree], -Cos[9 Degree], 0}, {-Sin[6 Degree], -
-        Cos[6 Degree], 0}}, {{-0.15643446504023087`, -0.9876883405951378, 
-        0}, {-0.10452846326765347`, -0.9945218953682733, 0}}]], 
-    Line3DBox[
-     NCache[{{0, -1, 0}, {Sin[3 Degree], -Cos[3 Degree], 0}}, {{0, -1, 0}, {
-       0.052335956242943835`, -0.9986295347545738, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[9 Degree], -Cos[9 Degree], 0}, {
-       Sin[12 Degree], -Cos[12 Degree], 0}}, {{
-       0.15643446504023087`, -0.9876883405951378, 0}, {
-       0.20791169081775934`, -0.9781476007338057, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (-1 + 
-         5^Rational[1, 2]), -(Rational[5, 8] + 
-          Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
-       Sin[21 Degree], -Cos[21 Degree], 0}}, {{
-       0.30901699437494745`, -0.9510565162951535, 0}, {
-       0.35836794954530027`, -0.9335804264972017, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[27 Degree], -Cos[27 Degree], 0}, {
-       Rational[1, 2], Rational[-1, 2] 3^Rational[1, 2], 0}}, {{
-       0.45399049973954675`, -0.8910065241883679, 0}, {
-       0.5, -0.8660254037844386, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (-1 - 5^Rational[1, 2]), 0}, {
-       Sin[39 Degree], -Cos[39 Degree], 0}}, {{
-       0.5877852522924731, -0.8090169943749475, 0}, {
-       0.6293203910498374, -0.7771459614569709, 0}}]], 
-    Line3DBox[
-     NCache[{{2^Rational[-1, 2], -2^Rational[-1, 2], 0}, {
-       Cos[42 Degree], -Sin[42 Degree], 0}}, {{
-       0.7071067811865475, -0.7071067811865475, 0}, {
-       0.7431448254773942, -0.6691306063588582, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (1 + 
-         5^Rational[1, 2]), -(Rational[5, 8] + 
-          Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
-       Cos[33 Degree], -Sin[33 Degree], 0}}, {{
-       0.8090169943749475, -0.5877852522924731, 0}, {
-       0.838670567945424, -0.5446390350150271, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[27 Degree], -Sin[27 Degree], 0}, {
-       Cos[24 Degree], -Sin[24 Degree], 0}}, {{
-       0.8910065241883679, -0.45399049973954675`, 0}, {
-       0.9135454576426009, -0.4067366430758002, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (1 - 5^Rational[1, 2]), 
-        0}, {(Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), (
-         Rational[-1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), 0}}, {{
-       0.9510565162951535, -0.30901699437494745`, 0}, {
-       0.9659258262890682, -0.2588190451025207, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[9 Degree], -Sin[9 Degree], 0}, {
-       Cos[6 Degree], -Sin[6 Degree], 0}}, {{
-       0.9876883405951378, -0.15643446504023087`, 0}, {
-       0.9945218953682733, -0.10452846326765347`, 0}}]]}, 
-   {RGBColor[1, 0, 0], Thickness[0.003], 
-    Line3DBox[
-     NCache[{{1, 0, 0}, {Cos[3 Degree], Sin[3 Degree], 0}}, {{1, 0, 0}, {
-       0.9986295347545738, 0.052335956242943835`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[3 Degree], Sin[3 Degree], 0}, {
-       Cos[6 Degree], Sin[6 Degree], 0}}, {{
-       0.9986295347545738, 0.052335956242943835`, 0}, {
-       0.9945218953682733, 0.10452846326765347`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[6 Degree], Sin[6 Degree], 0}, {
-       Cos[9 Degree], Sin[9 Degree], 0}}, {{
-       0.9945218953682733, 0.10452846326765347`, 0}, {
-       0.9876883405951378, 0.15643446504023087`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[9 Degree], Sin[9 Degree], 0}, {
-       Cos[12 Degree], Sin[12 Degree], 0}}, {{
-       0.9876883405951378, 0.15643446504023087`, 0}, {
-       0.9781476007338057, 0.20791169081775934`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[12 Degree], Sin[12 Degree], 
-        0}, {(Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), (
-         Rational[1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), 0}}, {{
-       0.9781476007338057, 0.20791169081775934`, 0}, {
-       0.9659258262890682, 0.2588190451025207, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), (
-         Rational[1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), 
-        0}, {(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (-1 + 5^Rational[1, 2]), 0}}, {{
-       0.9659258262890682, 0.2588190451025207, 0}, {
-       0.9510565162951535, 0.30901699437494745`, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (-1 + 5^Rational[1, 2]), 0}, {
-       Cos[21 Degree], Sin[21 Degree], 0}}, {{
-       0.9510565162951535, 0.30901699437494745`, 0}, {
-       0.9335804264972017, 0.35836794954530027`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[21 Degree], Sin[21 Degree], 0}, {
-       Cos[24 Degree], Sin[24 Degree], 0}}, {{
-       0.9335804264972017, 0.35836794954530027`, 0}, {
-       0.9135454576426009, 0.4067366430758002, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[24 Degree], Sin[24 Degree], 0}, {
-       Cos[27 Degree], Sin[27 Degree], 0}}, {{
-       0.9135454576426009, 0.4067366430758002, 0}, {
-       0.8910065241883679, 0.45399049973954675`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[27 Degree], Sin[27 Degree], 0}, {
-       Rational[1, 2] 3^Rational[1, 2], Rational[1, 2], 0}}, {{
-       0.8910065241883679, 0.45399049973954675`, 0}, {
-       0.8660254037844386, 0.5, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 2] 3^Rational[1, 2], Rational[1, 2], 0}, {
-       Cos[33 Degree], Sin[33 Degree], 0}}, {{0.8660254037844386, 0.5, 0}, {
-       0.838670567945424, 0.5446390350150271, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[33 Degree], Sin[33 Degree], 0}, {
-       Rational[1, 4] (1 + 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}}, {{
-       0.838670567945424, 0.5446390350150271, 0}, {
-       0.8090169943749475, 0.5877852522924731, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (1 + 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
-       Cos[39 Degree], Sin[39 Degree], 0}}, {{
-       0.8090169943749475, 0.5877852522924731, 0}, {
-       0.7771459614569709, 0.6293203910498374, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[39 Degree], Sin[39 Degree], 0}, {
-       Cos[42 Degree], Sin[42 Degree], 0}}, {{
-       0.7771459614569709, 0.6293203910498374, 0}, {
-       0.7431448254773942, 0.6691306063588582, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[42 Degree], Sin[42 Degree], 0}, {
-       2^Rational[-1, 2], 2^Rational[-1, 2], 0}}, {{
-       0.7431448254773942, 0.6691306063588582, 0}, {
-       0.7071067811865475, 0.7071067811865475, 0}}]], 
-    Line3DBox[
-     NCache[{{2^Rational[-1, 2], 2^Rational[-1, 2], 0}, {
-       Sin[42 Degree], Cos[42 Degree], 0}}, {{
-       0.7071067811865475, 0.7071067811865475, 0}, {
-       0.6691306063588582, 0.7431448254773942, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[42 Degree], Cos[42 Degree], 0}, {
-       Sin[39 Degree], Cos[39 Degree], 0}}, {{
-       0.6691306063588582, 0.7431448254773942, 0}, {
-       0.6293203910498374, 0.7771459614569709, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[39 Degree], Cos[39 Degree], 
-        0}, {(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (1 + 5^Rational[1, 2]), 0}}, {{
-       0.6293203910498374, 0.7771459614569709, 0}, {
-       0.5877852522924731, 0.8090169943749475, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (1 + 5^Rational[1, 2]), 0}, {
-       Sin[33 Degree], Cos[33 Degree], 0}}, {{
-       0.5877852522924731, 0.8090169943749475, 0}, {
-       0.5446390350150271, 0.838670567945424, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[33 Degree], Cos[33 Degree], 0}, {
-       Rational[1, 2], Rational[1, 2] 3^Rational[1, 2], 0}}, {{
-       0.5446390350150271, 0.838670567945424, 0}, {
-       0.5, 0.8660254037844386, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 2], Rational[1, 2] 3^Rational[1, 2], 0}, {
-       Sin[27 Degree], Cos[27 Degree], 0}}, {{0.5, 0.8660254037844386, 0}, {
-       0.45399049973954675`, 0.8910065241883679, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[27 Degree], Cos[27 Degree], 0}, {
-       Sin[24 Degree], Cos[24 Degree], 0}}, {{
-       0.45399049973954675`, 0.8910065241883679, 0}, {
-       0.4067366430758002, 0.9135454576426009, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[24 Degree], Cos[24 Degree], 0}, {
-       Sin[21 Degree], Cos[21 Degree], 0}}, {{
-       0.4067366430758002, 0.9135454576426009, 0}, {
-       0.35836794954530027`, 0.9335804264972017, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[21 Degree], Cos[21 Degree], 0}, {
-       Rational[1, 4] (-1 + 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}}, {{
-       0.35836794954530027`, 0.9335804264972017, 0}, {
-       0.30901699437494745`, 0.9510565162951535, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (-1 + 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 
-        0}, {(Rational[1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), (
-         Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), 0}}, {{
-       0.30901699437494745`, 0.9510565162951535, 0}, {
-       0.2588190451025207, 0.9659258262890682, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), (
-         Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), 0}, {
-       Sin[12 Degree], Cos[12 Degree], 0}}, {{
-       0.2588190451025207, 0.9659258262890682, 0}, {
-       0.20791169081775934`, 0.9781476007338057, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[12 Degree], Cos[12 Degree], 0}, {
-       Sin[9 Degree], Cos[9 Degree], 0}}, {{
-       0.20791169081775934`, 0.9781476007338057, 0}, {
-       0.15643446504023087`, 0.9876883405951378, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[9 Degree], Cos[9 Degree], 0}, {
-       Sin[6 Degree], Cos[6 Degree], 0}}, {{
-       0.15643446504023087`, 0.9876883405951378, 0}, {
-       0.10452846326765347`, 0.9945218953682733, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[6 Degree], Cos[6 Degree], 0}, {
-       Sin[3 Degree], Cos[3 Degree], 0}}, {{
-       0.10452846326765347`, 0.9945218953682733, 0}, {
-       0.052335956242943835`, 0.9986295347545738, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[3 Degree], Cos[3 Degree], 0}, {0, 1, 0}}, {{
-       0.052335956242943835`, 0.9986295347545738, 0}, {0, 1, 0}}]], 
-    Line3DBox[
-     NCache[{{0, 1, 0}, {-Sin[3 Degree], Cos[3 Degree], 0}}, {{0, 1, 
-       0}, {-0.052335956242943835`, 0.9986295347545738, 0}}]], 
-    Line3DBox[
-     NCache[{{-Sin[3 Degree], Cos[3 Degree], 0}, {-Sin[6 Degree], Cos[
-        6 Degree], 0}}, {{-0.052335956242943835`, 0.9986295347545738, 
-        0}, {-0.10452846326765347`, 0.9945218953682733, 0}}]], 
-    Line3DBox[
-     NCache[{{-Sin[6 Degree], Cos[6 Degree], 0}, {-Sin[9 Degree], Cos[
-        9 Degree], 0}}, {{-0.10452846326765347`, 0.9945218953682733, 
-        0}, {-0.15643446504023087`, 0.9876883405951378, 0}}]], 
-    Line3DBox[
-     NCache[{{-Sin[9 Degree], Cos[9 Degree], 0}, {-Sin[12 Degree], Cos[
-        12 Degree], 0}}, {{-0.15643446504023087`, 0.9876883405951378, 
-        0}, {-0.20791169081775934`, 0.9781476007338057, 0}}]], 
-    Line3DBox[
-     NCache[{{-Sin[12 Degree], Cos[12 Degree], 
-        0}, {(Rational[-1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), (
-         Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), 
-        0}}, {{-0.20791169081775934`, 0.9781476007338057, 
-        0}, {-0.2588190451025207, 0.9659258262890682, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[-1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), (
-         Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), 0}, {
-       Rational[1, 4] (1 - 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 
-        0}}, {{-0.2588190451025207, 0.9659258262890682, 
-        0}, {-0.30901699437494745`, 0.9510565162951535, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (1 - 5^Rational[1, 2]), (Rational[5, 8] + 
-         Rational[1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {-
-        Sin[21 Degree], Cos[21 Degree], 0}}, {{-0.30901699437494745`, 
-        0.9510565162951535, 0}, {-0.35836794954530027`, 0.9335804264972017, 
-        0}}]], Line3DBox[
-     NCache[{{-Sin[21 Degree], Cos[21 Degree], 0}, {-Sin[24 Degree], Cos[
-        24 Degree], 0}}, {{-0.35836794954530027`, 0.9335804264972017, 
-        0}, {-0.4067366430758002, 0.9135454576426009, 0}}]], 
-    Line3DBox[
-     NCache[{{-Sin[24 Degree], Cos[24 Degree], 0}, {-Sin[27 Degree], Cos[
-        27 Degree], 0}}, {{-0.4067366430758002, 0.9135454576426009, 
-        0}, {-0.45399049973954675`, 0.8910065241883679, 0}}]], 
-    Line3DBox[
-     NCache[{{-Sin[27 Degree], Cos[27 Degree], 0}, {
-       Rational[-1, 2], Rational[1, 2] 3^Rational[1, 2], 
-        0}}, {{-0.45399049973954675`, 0.8910065241883679, 0}, {-0.5, 
-        0.8660254037844386, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[5, 8] + Rational[-1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (-1 - 5^Rational[1, 2]), 0}, {
-       Sin[39 Degree], -Cos[39 Degree], 0}}, {{
-       0.5877852522924731, -0.8090169943749475, 0}, {
-       0.6293203910498374, -0.7771459614569709, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[39 Degree], -Cos[39 Degree], 0}, {
-       Sin[42 Degree], -Cos[42 Degree], 0}}, {{
-       0.6293203910498374, -0.7771459614569709, 0}, {
-       0.6691306063588582, -0.7431448254773942, 0}}]], 
-    Line3DBox[
-     NCache[{{Sin[42 Degree], -Cos[42 Degree], 0}, {
-       2^Rational[-1, 2], -2^Rational[-1, 2], 0}}, {{
-       0.6691306063588582, -0.7431448254773942, 0}, {
-       0.7071067811865475, -0.7071067811865475, 0}}]], 
-    Line3DBox[
-     NCache[{{2^Rational[-1, 2], -2^Rational[-1, 2], 0}, {
-       Cos[42 Degree], -Sin[42 Degree], 0}}, {{
-       0.7071067811865475, -0.7071067811865475, 0}, {
-       0.7431448254773942, -0.6691306063588582, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[42 Degree], -Sin[42 Degree], 0}, {
-       Cos[39 Degree], -Sin[39 Degree], 0}}, {{
-       0.7431448254773942, -0.6691306063588582, 0}, {
-       0.7771459614569709, -0.6293203910498374, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[39 Degree], -Sin[39 Degree], 0}, {
-       Rational[1, 4] (1 + 
-         5^Rational[1, 2]), -(Rational[5, 8] + 
-          Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}}, {{
-       0.7771459614569709, -0.6293203910498374, 0}, {
-       0.8090169943749475, -0.5877852522924731, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 4] (1 + 
-         5^Rational[1, 2]), -(Rational[5, 8] + 
-          Rational[-1, 8] 5^Rational[1, 2])^Rational[1, 2], 0}, {
-       Cos[33 Degree], -Sin[33 Degree], 0}}, {{
-       0.8090169943749475, -0.5877852522924731, 0}, {
-       0.838670567945424, -0.5446390350150271, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[33 Degree], -Sin[33 Degree], 0}, {
-       Rational[1, 2] 3^Rational[1, 2], Rational[-1, 2], 0}}, {{
-       0.838670567945424, -0.5446390350150271, 0}, {
-       0.8660254037844386, -0.5, 0}}]], 
-    Line3DBox[
-     NCache[{{Rational[1, 2] 3^Rational[1, 2], Rational[-1, 2], 0}, {
-       Cos[27 Degree], -Sin[27 Degree], 0}}, {{0.8660254037844386, -0.5, 0}, {
-       0.8910065241883679, -0.45399049973954675`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[27 Degree], -Sin[27 Degree], 0}, {
-       Cos[24 Degree], -Sin[24 Degree], 0}}, {{
-       0.8910065241883679, -0.45399049973954675`, 0}, {
-       0.9135454576426009, -0.4067366430758002, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[24 Degree], -Sin[24 Degree], 0}, {
-       Cos[21 Degree], -Sin[21 Degree], 0}}, {{
-       0.9135454576426009, -0.4067366430758002, 0}, {
-       0.9335804264972017, -0.35836794954530027`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[21 Degree], -Sin[21 Degree], 
-        0}, {(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (1 - 5^Rational[1, 2]), 0}}, {{
-       0.9335804264972017, -0.35836794954530027`, 0}, {
-       0.9510565162951535, -0.30901699437494745`, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[5, 8] + Rational[1, 8] 5^Rational[1, 2])^
-        Rational[1, 2], Rational[1, 4] (1 - 5^Rational[1, 2]), 
-        0}, {(Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), (
-         Rational[-1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), 0}}, {{
-       0.9510565162951535, -0.30901699437494745`, 0}, {
-       0.9659258262890682, -0.2588190451025207, 0}}]], 
-    Line3DBox[
-     NCache[{{(Rational[1, 2] 2^Rational[-1, 2]) (1 + 3^Rational[1, 2]), (
-         Rational[-1, 2] 2^Rational[-1, 2]) (-1 + 3^Rational[1, 2]), 0}, {
-       Cos[12 Degree], -Sin[12 Degree], 0}}, {{
-       0.9659258262890682, -0.2588190451025207, 0}, {
-       0.9781476007338057, -0.20791169081775934`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[12 Degree], -Sin[12 Degree], 0}, {
-       Cos[9 Degree], -Sin[9 Degree], 0}}, {{
-       0.9781476007338057, -0.20791169081775934`, 0}, {
-       0.9876883405951378, -0.15643446504023087`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[9 Degree], -Sin[9 Degree], 0}, {
-       Cos[6 Degree], -Sin[6 Degree], 0}}, {{
-       0.9876883405951378, -0.15643446504023087`, 0}, {
-       0.9945218953682733, -0.10452846326765347`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[6 Degree], -Sin[6 Degree], 0}, {
-       Cos[3 Degree], -Sin[3 Degree], 0}}, {{
-       0.9945218953682733, -0.10452846326765347`, 0}, {
-       0.9986295347545738, -0.052335956242943835`, 0}}]], 
-    Line3DBox[
-     NCache[{{Cos[3 Degree], -Sin[3 Degree], 0}, {1, 0, 0}}, {{
-       0.9986295347545738, -0.052335956242943835`, 0}, {1, 0, 0}}]]}},
-  ViewPoint->{30, 20, 10}]], "Output",
- CellChangeTimes->{{3.546999659562562*^9, 3.5469996775961933`*^9}, 
-   3.5469997362522955`*^9, {3.594740391361497*^9, 3.5947403989035087`*^9}, {
-   3.5947404375110617`*^9, 3.594740471803111*^9}, 3.594745841984692*^9, 
-   3.595018220510356*^9, 3.6085952062250776`*^9, 3.61566079994877*^9, 
-   3.6194476165571747`*^9, 3.6312163815189605`*^9, 3.642958273616776*^9, 
-   3.6452289296010804`*^9, 3.648087321290589*^9, 3.6571672679504356`*^9, 
-   3.6788241526244993`*^9, 3.6913825531175575`*^9, 3.6977488659342318`*^9}]
-}, Open  ]],
 
 Cell[TextData[{
  "FOR DOTTING POLYGONAL CURVES. MAKE ",
@@ -3998,11 +3230,11 @@ Cell[BoxData[{
 Cell["\<\
 A LIST OF SEGMENTS.  LENGTH OF POINTLIST MAKES A DIFFERENCE FOR ENDS OF \
 CURVE. USED FOR CIRCULAR HALOS IN MONTE CARLO.\
-\>", "SmallText",
+\>", "Text",
  Evaluatable->False,
  CellChangeTimes->{3.6184195825867977`*^9},
  AspectRatioFixed->True,
- FontSize->10,
+ FontSize->12,
  FontColor->RGBColor[1, 0, 0]],
 
 Cell[BoxData[{
@@ -4092,28 +3324,349 @@ Cell[BoxData[{
      RowBox[{"eps4", "[", "eye", "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"PreCelSphereList", "[", "eye_", "]"}], ":=", 
    RowBox[{
-    RowBox[{"PreCelSphereList", "[", "eye", "]"}], "=", 
+    RowBox[{"PreCelSphereList", "[", "eye_", "]"}], ":=", 
     RowBox[{
+     RowBox[{"PreCelSphereList", "[", "eye", "]"}], "=", 
      RowBox[{
-      RowBox[{"CelSpherePt", "[", 
-       RowBox[{"#", ",", "eye"}], "]"}], "&"}], "/@", 
-     RowBox[{"Range", "[", 
       RowBox[{
-       RowBox[{"-", "90."}], ",", "270"}], "]"}]}]}]}], ";", 
+       RowBox[{"CelSpherePt", "[", 
+        RowBox[{"#", ",", "eye"}], "]"}], "&"}], "/@", 
+      RowBox[{"Range", "[", 
+       RowBox[{
+        RowBox[{"-", "90."}], ",", "270"}], "]"}]}]}]}], ";"}], 
   RowBox[{"(*", 
    RowBox[{"Range", "[", 
     RowBox[{"0", ",", "180"}], "]"}], "*)"}]}]}], "Input",
  CellChangeTimes->{{3.500396498459106*^9, 3.500396681369425*^9}, {
    3.543325224153449*^9, 3.543325226087852*^9}, {3.6890501808053646`*^9, 
    3.6890501873250184`*^9}, 3.7322283707322245`*^9, {3.7322284095522814`*^9, 
-   3.7322284315273*^9}}]
+   3.7322284315273*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Principal axes as vectors", "Subsection",
+ CellChangeTimes->{{3.6927429504269824`*^9, 3.6927429703332586`*^9}, {
+  3.6927430126146345`*^9, 3.6927430463803253`*^9}, {3.731945785194048*^9, 
+  3.7319457883590517`*^9}}],
+
+Cell["\<\
+WantArrowColor can be \"TriColor\", \"Custom\", or \"Gray\".
+   ArrowColor is some Hue, but only relevant if WantArrowColor = \"Custom\".\
+\>", "Text",
+ CellChangeTimes->{{3.715714996393337*^9, 3.7157150016902084`*^9}, {
+  3.715715819423092*^9, 3.7157159643609123`*^9}},
+ FontColor->RGBColor[1, 0, 0]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Paxes", "[", 
+   RowBox[{
+   "t1_", ",", "t2_", ",", "t3_", ",", "u_", ",", "c_", ",", "lengthAxis_", 
+    ",", "BBrad_", ",", "ArrowScale_", ",", "tkns_", ",", "WantArrowColor_", 
+    ",", "ArrowColor_"}], "]"}], ":=", 
+  RowBox[{"{", "      ", 
+   RowBox[{"(*", " ", 
+    StyleBox[
+     RowBox[{"changed", " ", "Sept", " ", "2017"}],
+     FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{"t1", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "tkns", "]"}], ",", "       ", 
+          RowBox[{"Line", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"c", "+", 
+              RowBox[{"u", ".", "#"}]}], "&"}], "/@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"BBrad", ",", "0", ",", "0"}], "}"}], ",", 
+              RowBox[{"ShortenForArrow", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"lengthAxis", ",", "0", ",", "0"}], "}"}], ",", 
+                "ArrowScale"}], "]"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"WantArrowColor", "\[Equal]", "\"\<TriColor\>\""}], ",", 
+            RowBox[{"Hue", "[", 
+             RowBox[{".01", ",", ".8", ",", "1"}], "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"WantArrowColor", "\[Equal]", "\"\<Custom\>\""}], ",", 
+            "ArrowColor"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"WantArrowColor", "\[Equal]", "\"\<Gray\>\""}], ",", 
+            RowBox[{"GrayLevel", "[", ".6", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Arrow3D", "[", 
+           RowBox[{
+            RowBox[{"c", "+", 
+             RowBox[{"u", ".", 
+              RowBox[{"{", 
+               RowBox[{"lengthAxis", ",", "0", ",", "0"}], "}"}]}]}], ",", 
+            RowBox[{"u", ".", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], ",", "ArrowScale"}],
+            "]"}]}], "}"}]}], "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{"t2", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "tkns", "]"}], ",", "       ", 
+          RowBox[{"Line", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"c", "+", 
+              RowBox[{"u", ".", "#"}]}], "&"}], "/@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "BBrad", ",", "0"}], "}"}], ",", 
+              RowBox[{"ShortenForArrow", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "lengthAxis", ",", "0"}], "}"}], ",", 
+                "ArrowScale"}], "]"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"WantArrowColor", "\[Equal]", "\"\<TriColor\>\""}], ",", 
+            RowBox[{"Hue", "[", 
+             RowBox[{".6", ",", ".9", ",", "1"}], "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"WantArrowColor", "\[Equal]", "\"\<Custom\>\""}], ",", 
+            "ArrowColor"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"WantArrowColor", "\[Equal]", "\"\<Gray\>\""}], ",", 
+            RowBox[{"GrayLevel", "[", ".6", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Arrow3D", "[", 
+           RowBox[{
+            RowBox[{"c", "+", 
+             RowBox[{"u", ".", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "lengthAxis", ",", "0"}], "}"}]}]}], ",", 
+            RowBox[{"u", ".", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], ",", "ArrowScale"}],
+            "]"}]}], "}"}]}], "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{"t3", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "tkns", "]"}], ",", "       ", 
+          RowBox[{"Line", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"c", "+", 
+              RowBox[{"u", ".", "#"}]}], "&"}], "/@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "BBrad"}], "}"}], ",", 
+              RowBox[{"ShortenForArrow", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0", ",", "lengthAxis"}], "}"}], ",", 
+                "ArrowScale"}], "]"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"WantArrowColor", "\[Equal]", "\"\<TriColor\>\""}], ",", 
+            RowBox[{"Hue", "[", ".15", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"WantArrowColor", "\[Equal]", "\"\<Custom\>\""}], ",", 
+            "ArrowColor"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"WantArrowColor", "\[Equal]", "\"\<Gray\>\""}], ",", 
+            RowBox[{"GrayLevel", "[", ".6", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Arrow3D", "[", 
+           RowBox[{
+            RowBox[{"c", "+", 
+             RowBox[{"u", ".", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "lengthAxis"}], "}"}]}]}], ",", 
+            RowBox[{"u", ".", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], ",", "ArrowScale"}],
+            "]"}]}], "}"}]}], "}"}]}], "]"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.710884862433217*^9, 3.710885007042824*^9}, {
+   3.710885057824211*^9, 3.710885080152393*^9}, {3.710885123496228*^9, 
+   3.710885138761883*^9}, {3.710885295230939*^9, 3.710885325262247*^9}, {
+   3.7148818954088717`*^9, 3.7148819325808067`*^9}, {3.7148820064247136`*^9, 
+   3.7148820424560337`*^9}, {3.715712432333237*^9, 3.7157124636770716`*^9}, {
+   3.715713383015217*^9, 3.715713383858967*^9}, {3.715713463359124*^9, 
+   3.715713467265382*^9}, {3.715715040315297*^9, 3.7157150468622227`*^9}, 
+   3.7157150782528715`*^9, {3.7157152995501757`*^9, 3.7157153238940125`*^9}, 
+   3.7157154168004107`*^9, {3.7157155132068825`*^9, 3.7157155339725485`*^9}, {
+   3.715715590832035*^9, 3.715715603816439*^9}, 3.7157157965324593`*^9}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"u", "=", 
+    RowBox[{
+     RowBox[{"xrot", "[", "20", "]"}], ".", 
+     RowBox[{"zrot", "[", "30", "]"}]}]}], ";", "\[IndentingNewLine]", 
+   RowBox[{"WantArrowColor", "=", "True"}], ";", 
+   RowBox[{"lengthAxis", "=", "1.2"}], ";", 
+   RowBox[{"c", "=", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], ";", 
+   RowBox[{"tkns", "=", ".008"}], ";", 
+   RowBox[{"BBrad", "=", ".3"}], ";", 
+   RowBox[{"ArrowScale", "=", ".25"}], ";", 
+   RowBox[{
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{"Paxes", "[", 
+      RowBox[{
+      "True", ",", "True", ",", "True", ",", "u", ",", "c", ",", "lengthAxis",
+        ",", "BBrad", ",", "ArrowScale", ",", "tkns", ",", "\"\<TriColor\>\"",
+        ",", "ArrowColor"}], "]"}], "]"}], "\[IndentingNewLine]", 
+    RowBox[{"Clear", "[", "u", "]"}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.7108754544001923`*^9, 3.71087548307283*^9}, 
+   3.710875547888542*^9, {3.710875625632994*^9, 3.7108756517924924`*^9}, {
+   3.71087568574444*^9, 3.7108756886566067`*^9}, {3.710875924482112*^9, 
+   3.710875950783614*^9}, 3.7108850241054087`*^9, {3.710885449207987*^9, 
+   3.7108855285831556`*^9}, 3.7157160585485964`*^9, {3.740767875026726*^9, 
+   3.7407678796829767`*^9}, {3.74225050490302*^9, 3.74225050948112*^9}, {
+   3.74225354975469*^9, 3.742253552895356*^9}, {3.7440452247291107`*^9, 
+   3.744045249275935*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Principal axes as lines, no arrows.", "Subsection",
+ CellChangeTimes->{{3.6927429504269824`*^9, 3.6927429703332586`*^9}, {
+  3.6927430126146345`*^9, 3.6927430463803253`*^9}, {3.731945785194048*^9, 
+  3.731945812149082*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"PrincipalAxes", "[", 
+    RowBox[{
+    "t1_", ",", "t2_", ",", "t3_", ",", "u_", ",", "c_", ",", "lengthAxis_", 
+     ",", "BBrad_", ",", "tkns_"}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Thickness", "[", "tkns", "]"}], ",", "  ", 
+     RowBox[{"(*", " ", 
+      StyleBox[
+       RowBox[{"lines", ",", " ", 
+        RowBox[{"no", " ", "arrows"}]}],
+       FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{"t1", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Hue", "[", 
+          RowBox[{".01", ",", "1", ",", ".9"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"c", "+", 
+             RowBox[{"u", ".", "#"}]}], "&"}], "/@", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "lengthAxis"}], ",", "0", ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"lengthAxis", ",", "0", ",", "0"}], "}"}]}], "}"}]}], 
+          "]"}]}], "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{"t2", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Hue", "[", 
+          RowBox[{".57", ",", "1", ",", "1"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"c", "+", 
+             RowBox[{"u", ".", "#"}]}], "&"}], "/@", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"-", "lengthAxis"}], ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "lengthAxis", ",", "0"}], "}"}]}], "}"}]}], 
+          "]"}]}], "}"}]}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{"t3", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Hue", "[", 
+          RowBox[{".15", ",", "1", ",", ".9"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"c", "+", 
+             RowBox[{"u", ".", "#"}]}], "&"}], "/@", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0", ",", 
+               RowBox[{"-", "lengthAxis"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0", ",", "lengthAxis"}], "}"}]}], "}"}]}], 
+          "]"}]}], "}"}]}], "]"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.504471849812714*^9, 3.5044718903327703`*^9}, {
+   3.5044719323628283`*^9, 3.5044719941229134`*^9}, {3.5122275063263364`*^9, 
+   3.5122275300227776`*^9}, {3.5122278033508544`*^9, 3.51222780634606*^9}, {
+   3.512227916029851*^9, 3.51222798997398*^9}, {3.5122280516876874`*^9, 
+   3.512228053700091*^9}, {3.512228085165346*^9, 3.5122281150705976`*^9}, {
+   3.5123939753233414`*^9, 3.5123939753533416`*^9}, {3.5183042958838587`*^9, 
+   3.518304332216322*^9}, {3.51830439414843*^9, 3.5183044095612564`*^9}, {
+   3.522959570528062*^9, 3.522959584538081*^9}, {3.52295998940864*^9, 
+   3.5229600030186586`*^9}, {3.5468753296470337`*^9, 
+   3.5468753366358457`*^9}, {3.546875437568022*^9, 3.546875439268425*^9}, {
+   3.546920669441621*^9, 3.5469206878652525`*^9}, {3.547069861331265*^9, 
+   3.547069899816532*^9}, {3.5479172086508427`*^9, 3.547917209774045*^9}, {
+   3.559264686152985*^9, 3.5592646885553894`*^9}, {3.5944937685858965`*^9, 
+   3.594493777165909*^9}, {3.698767816765506*^9, 3.698767817358539*^9}, 
+   3.6987687967186327`*^9, {3.698768832365678*^9, 3.6987688341737814`*^9}, 
+   3.698777024974787*^9, {3.69877829283139*^9, 3.698778315407683*^9}, {
+   3.7359402899442945`*^9, 3.7359403467568765`*^9}}]
+}, Open  ]]
 },
 WindowToolbars->"RulerBar",
 CellGrouping->Manual,
-WindowSize->{1231, 815},
-WindowMargins->{{Automatic, 15}, {Automatic, 0}},
+WindowSize->{1231, 878},
+WindowMargins->{{160, Automatic}, {37, Automatic}},
 PrintingCopies->1,
 PrintingPageRange->{Automatic, Automatic},
 PageHeaders->{{
@@ -4154,63 +3707,50 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[545, 20, 357, 9, 49, "Text"],
+Cell[545, 20, 357, 9, 51, "Text"],
+Cell[905, 31, 1448, 40, 77, "Input"],
+Cell[2356, 73, 6246, 197, 500, "Input"],
+Cell[8605, 272, 1570, 43, 121, "Input"],
+Cell[10178, 317, 566, 16, 32, "Input"],
+Cell[10747, 335, 113, 3, 32, "Input"],
 Cell[CellGroupData[{
-Cell[927, 33, 1448, 40, 77, "Input"],
-Cell[2378, 75, 717, 14, 32, "Output"]
-}, Open  ]],
-Cell[3110, 92, 4461, 140, 456, "Input"],
-Cell[CellGroupData[{
-Cell[7596, 236, 1570, 43, 121, "Input"],
-Cell[9169, 281, 304, 5, 32, "Output"],
-Cell[9476, 288, 304, 5, 32, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[9817, 298, 566, 16, 32, "Input"],
-Cell[10386, 316, 191, 4, 52, "Output"]
-}, Open  ]],
-Cell[10592, 323, 113, 3, 31, "Input"],
-Cell[CellGroupData[{
-Cell[10730, 330, 55781, 1653, 3266, "Input",
+Cell[10885, 342, 55247, 1626, 3676, "Input",
  PageBreakWithin->Automatic,
  PageBreakBelow->Automatic],
-Cell[CellGroupData[{
-Cell[66536, 1987, 2830, 82, 132, "Input"],
-Cell[69369, 2071, 972, 24, 55, "Output"],
-Cell[70344, 2097, 860, 21, 55, "Output"]
-}, Open  ]],
-Cell[71219, 2121, 145, 3, 28, "SmallText",
+Cell[66135, 1970, 2830, 82, 143, "Input"],
+Cell[68968, 2054, 145, 3, 28, "SmallText",
  Evaluatable->False],
-Cell[71367, 2126, 2220, 69, 92, "Input",
+Cell[69116, 2059, 2220, 69, 99, "Input",
  PageBreakBelow->Automatic],
-Cell[CellGroupData[{
-Cell[73612, 2199, 463, 9, 31, "Input"],
-Cell[74078, 2210, 435, 8, 118, "Output"]
-}, Open  ]],
-Cell[74528, 2221, 3225, 90, 178, "Input"],
-Cell[CellGroupData[{
-Cell[77778, 2315, 3862, 108, 132, "Input"],
-Cell[81643, 2425, 8955, 164, 203, "Output"]
-}, Open  ]],
-Cell[90613, 2592, 4558, 113, 172, "Input"],
-Cell[95174, 2707, 14232, 370, 601, "Input"],
-Cell[109409, 3079, 362, 14, 47, "SmallText",
+Cell[71339, 2130, 463, 9, 32, "Input"],
+Cell[71805, 2141, 3225, 90, 218, "Input"],
+Cell[75033, 2233, 3862, 108, 143, "Input"],
+Cell[78898, 2343, 4558, 113, 209, "Input"],
+Cell[83459, 2458, 14232, 370, 769, "Input"],
+Cell[97694, 2830, 362, 14, 47, "SmallText",
  Evaluatable->False],
-Cell[109774, 3095, 5526, 149, 263, "Input"]
+Cell[98059, 2846, 5526, 149, 330, "Input"]
 }, Open  ]],
-Cell[115315, 3247, 128, 2, 28, "SmallText"],
-Cell[CellGroupData[{
-Cell[115468, 3253, 818, 22, 31, "Input"],
-Cell[116289, 3277, 26025, 514, 360, "Output"]
-}, Open  ]],
-Cell[142329, 3794, 499, 19, 47, "SmallText"],
-Cell[142831, 3815, 4133, 124, 212, "Input"],
-Cell[146967, 3941, 1682, 54, 140, "Input"],
-Cell[148652, 3997, 285, 8, 25, "SmallText",
+Cell[103600, 2998, 128, 2, 28, "SmallText"],
+Cell[103731, 3002, 818, 22, 55, "Input"],
+Cell[104552, 3026, 499, 19, 47, "SmallText"],
+Cell[105054, 3047, 4133, 124, 231, "Input"],
+Cell[109190, 3173, 1682, 54, 150, "Input"],
+Cell[110875, 3229, 280, 8, 29, "Text",
  Evaluatable->False],
-Cell[148940, 4007, 843, 25, 52, "Input"],
-Cell[149786, 4034, 141, 4, 28, "SmallText"],
-Cell[149930, 4040, 2289, 70, 241, "Input"]
+Cell[111158, 3239, 843, 25, 55, "Input"],
+Cell[112004, 3266, 141, 4, 28, "SmallText"],
+Cell[112148, 3272, 2313, 71, 260, "Input"],
+Cell[CellGroupData[{
+Cell[114486, 3347, 221, 3, 43, "Subsection"],
+Cell[114710, 3352, 311, 6, 51, "Text"],
+Cell[115024, 3360, 7182, 172, 451, "Input"],
+Cell[122209, 3534, 1417, 30, 99, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[123663, 3569, 229, 3, 45, "Subsection"],
+Cell[123895, 3574, 3748, 88, 99, "Input"]
+}, Open  ]]
 }
 ]
 *)
