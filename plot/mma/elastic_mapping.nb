@@ -10,40 +10,26 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     54626,       1338]
-NotebookOptionsPosition[     52605,       1273]
-NotebookOutlinePosition[     52941,       1288]
-CellTagsIndexPosition[     52898,       1285]
+NotebookDataLength[     61106,       1489]
+NotebookOptionsPosition[     59024,       1424]
+NotebookOutlinePosition[     59392,       1440]
+CellTagsIndexPosition[     59349,       1437]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
 Cell["\<\
-Equation numbers and section numbers are from the paper.
-They need to be checked or filled in after the paper is published.\
-\>", "Subsubsection",
- CellChangeTimes->{{3.82339448341864*^9, 3.8233945224461765`*^9}, {
-  3.82339498946817*^9, 3.8233950205896225`*^9}, {3.823435917791237*^9, 
-  3.823435918158383*^9}}],
+Supporting software for W. Tape and C. Tape,
+\[OpenCurlyDoubleQuote]Elastic symmetry with beachball pictures\
+\[CloseCurlyDoubleQuote] (2021 GJI).
+Equation/section/figure numbers are from the paper. 
 
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.8233945272572002`*^9, 3.82339452815829*^9}, 
-   3.823435929416893*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["\<\
-Evaluate common_funs and then common_MTfuns\
+Evaluate common_funs.nb and then common_MTfuns.nb before running this notebook.
+\
 \>", "Subsubsection",
  CellChangeTimes->{{3.823395561256716*^9, 3.823395597101345*^9}, 
-   3.8233986511201973`*^9, {3.823435890037825*^9, 3.823435910838903*^9}}],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.823395602788568*^9, 3.8233956132387185`*^9}}]
-}, Open  ]],
+   3.8233986511201973`*^9, {3.829239841508174*^9, 3.829239887023471*^9}, {
+   3.8292401146810503`*^9, 3.829240120992628*^9}}],
 
 Cell[CellGroupData[{
 
@@ -119,7 +105,10 @@ Cell[BoxData[{
   RowBox[{"(*", " ", 
    StyleBox[
     RowBox[{
-     RowBox[{"Try", " ", "E"}], " ", "=", " ", 
+     RowBox[{"Eq", " ", 
+      RowBox[{
+       RowBox[{"(", "22", ")"}], ".", " ", "Or"}], " ", "try", " ", "E"}], 
+     " ", "=", " ", 
      RowBox[{
       RowBox[{"BB", "[", "3", "]"}], " ", "or", " ", "try", " ", "your", " ", 
       "own", " ", "E"}]}],
@@ -134,7 +123,7 @@ Cell[BoxData[{
       RowBox[{"MatrixForm", "[", 
        RowBox[{"FullSimplify", "[", 
         RowBox[{"denominator", " ", "Tmat"}], "]"}], "]"}]}], ",", " ", 
-     "\"\<      (Eq xx in paper)\>\""}], "]"}], ";"}], 
+     "\"\<      (Eq (23) in paper)\>\""}], "]"}], ";"}], 
   "  "}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -241,7 +230,9 @@ FontSize->14]]\) = \>\"", ",",
    3.8228437891104712`*^9, 3.822843842724476*^9}, {3.822844310886476*^9, 
    3.822844373141479*^9}, {3.822844451190479*^9, 3.8228444778294687`*^9}, {
    3.8228445219744887`*^9, 3.822844587477478*^9}, {3.823014323040011*^9, 
-   3.823014329767253*^9}, {3.8230144121705246`*^9, 3.8230144281450987`*^9}}]
+   3.823014329767253*^9}, {3.8230144121705246`*^9, 3.8230144281450987`*^9}, {
+   3.829234040415694*^9, 3.829234059604354*^9}, {3.8292341181163692`*^9, 
+   3.829234120146386*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -271,10 +262,16 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"U", "=", 
    RowBox[{"ZRot", "[", "\[Xi]", "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{"MatrixForm", "[", 
-  RowBox[{"Simplify", "[", 
-   RowBox[{"MatrixUbar", "[", "U", "]"}], "]"}], "]"}]}], "Input",
- CellChangeTimes->{{3.823014926786584*^9, 3.8230149956345963`*^9}}],
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"Simplify", "[", 
+      RowBox[{"MatrixUbar", "[", "U", "]"}], "]"}], "]"}], ",", 
+    "\"\<   (This is Eq (60) )\>\""}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.823014926786584*^9, 3.8230149956345963`*^9}, {
+  3.829234249039051*^9, 3.82923425380811*^9}, {3.829234287968212*^9, 
+  3.8292343335214615`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -291,7 +288,7 @@ Cell[BoxData[{
 Cell[CellGroupData[{
 
 Cell["\<\
-The \[CapitalDelta] test (Eq  xx). This example is from Section 3.3.1 of the \
+The \[CapitalDelta] test (Eqs 70). This example is from Section 3.3.1 of the \
 paper.\
 \>", "Subsubsection",
  CellChangeTimes->{{3.784485966855825*^9, 3.7844860394164658`*^9}, {
@@ -304,7 +301,8 @@ paper.\
    3.82284475685247*^9, {3.822844787380469*^9, 3.822844794563491*^9}, {
    3.8228450171084843`*^9, 3.8228450531234703`*^9}, {3.8228450944994974`*^9, 
    3.8228451039394865`*^9}, {3.8233948966480465`*^9, 3.823394898313395*^9}, {
-   3.8233950350061164`*^9, 3.823395041419774*^9}}],
+   3.8233950350061164`*^9, 3.823395041419774*^9}, {3.8292343981992855`*^9, 
+   3.8292344055372133`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -442,13 +440,15 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"\[Lambda]", "[", "5", "]"}], "=", "4"}], ";", 
+   RowBox[{"\[Lambda]", "[", "5", "]"}], "=", "4"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
    RowBox[{"\[Lambda]", "[", "6", "]"}], "=", "6"}], ";"}]}], "Input",
  CellChangeTimes->{{3.823013308163568*^9, 3.823013354928096*^9}, {
    3.8230134095325813`*^9, 3.823013431138136*^9}, {3.823013515169823*^9, 
    3.8230136179362917`*^9}, {3.8230137287214847`*^9, 3.8230137387805943`*^9}, 
-   3.8233956847858653`*^9}],
+   3.8233956847858653`*^9, 3.829234515009821*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -460,6 +460,15 @@ Cell[BoxData[
    RowBox[{"\[Lambda]", "[", "5", "]"}], ",", 
    RowBox[{"\[Lambda]", "[", "6", "]"}]}], "}"}]], "Input",
  CellChangeTimes->{{3.8230137476407347`*^9, 3.823013780867922*^9}}],
+
+Cell["\<\
+The command for TmatFromEigensystem is in the file AAcommonMomentTensorFns.  \
+It is Eq (49) of the paper.\
+\>", "Text",
+ CellChangeTimes->{{3.8292346041714334`*^9, 3.8292346225105963`*^9}, {
+  3.829234812657359*^9, 3.829234822091813*^9}, {3.829234853521439*^9, 
+  3.8292348683758945`*^9}, {3.829235306796377*^9, 3.8292353141723366`*^9}},
+ FontColor->GrayLevel[0]],
 
 Cell[BoxData[{
  RowBox[{
@@ -1269,10 +1278,153 @@ Fig 20. :\
  CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
   3.823011466609136*^9, 3.8230114995845547`*^9}, {3.8230117199663897`*^9, 
   3.823011879761632*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"To", " ", "go", " ", "back", " ", "and", " ", "forth", " ", 
+  SubscriptBox[
+   RowBox[{
+    RowBox[{"between", "  ", "[", "T", " ", "]"}], " "}], 
+   "\[DoubleStruckCapitalB]\[DoubleStruckCapitalB]"], " ", "and", " ", "the", 
+  " ", "Voigt", " ", "matrix", " ", 
+  RowBox[{"C", ".", "  ", "\[IndentingNewLine]", 
+   RowBox[{"(", 
+    RowBox[{
+    "Eqs", " ", "S28", " ", "and", " ", "S29", " ", "in", " ", "the", " ", 
+     "Supporting", " ", "Information"}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TmatForISO", " ", "is", " ", 
+   SubscriptBox["T", "ISO"], " ", "from", " ", "our", " ", "Table", " ", "4.",
+    " ", "Try", " ", "also", " ", "TmatForXISO"}], ",", " ", "TmatForCUBE", 
+  ",", " ", 
+  RowBox[{
+   RowBox[{"etc", ".", " ", "from"}], " ", "the", " ", 
+   RowBox[{"table", "."}]}]}]}], "Subsubsection",
+ CellChangeTimes->{{3.823727703556188*^9, 3.823727822451173*^9}, 
+   3.8237278871401834`*^9, {3.8237279893641787`*^9, 3.823727993108195*^9}, {
+   3.8237281387401867`*^9, 3.823728234324175*^9}, {3.8237285018121767`*^9, 
+   3.823728540388178*^9}, {3.8237286189321747`*^9, 3.8237286473961763`*^9}},
+ FontFamily->"Arial"],
+
+Cell[BoxData[
+ RowBox[{"TmatForCUBE", ";", "TmatForTRIG", ";"}]], "Input",
+ CellChangeTimes->{{3.82372791091518*^9, 3.8237279377801743`*^9}, 
+   3.8237279804041996`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{
+   "a", ",", "b", ",", "c", ",", "d", ",", "e", ",", "f", ",", "g", ",", "h", 
+    ",", "i", ",", "j", ",", "k", ",", "m", ",", "n", ",", "o", ",", "p", ",",
+     "q", ",", "r", ",", "s", ",", "t", ",", "u", ",", "v"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TmatInput", "=", "TmatForISO"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<A given matrix [T\!\(\*SubscriptBox[\"]\", 
+StyleBox[\"\[DoubleStruckCapitalB]\[DoubleStruckCapitalB]\",
+FontSize->12]]\) is \>\"", ",", 
+     RowBox[{"MatrixForm", "[", "TmatInput", "]"}]}], " ", "]"}], ";"}], 
+  "   ", 
+  RowBox[{"(*", " ", 
+   StyleBox[
+    RowBox[{"TmatForISO", " ", "is", " ", 
+     SubscriptBox["T", "ISO"], " ", "from", " ", "our", " ", "Table", " ", 
+     "4"}],
+    FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<The Voigt matrix for the same T is \>\"", ",", 
+     RowBox[{"MatrixForm", "[", 
+      RowBox[{"Simplify", "[", 
+       RowBox[{"CmatOfTmat", "[", "TmatInput", "]"}], "]"}], "]"}]}], "]"}], 
+   ";"}], "   ", 
+  RowBox[{"(*", " ", 
+   StyleBox[
+    RowBox[{"the", " ", "corresponding", " ", "Voigt", " ", "matrix"}],
+    FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   RowBox[{"TmatOfCmat", "[", 
+    RowBox[{"CmatOfTmat", "[", "TmatInput", "]"}], "]"}], "==", "TmatInput"}],
+   "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"CmatInput", "=", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"C11", "C12", "C12", "0", "0", "0"},
+       {"C12", "C11", "C12", "0", "0", "0"},
+       {"C12", "C12", "C11", "0", "0", "0"},
+       {"0", "0", "0", 
+        FractionBox[
+         RowBox[{"C11", "-", "C12"}], "2"], "0", "0"},
+       {"0", "0", "0", "0", 
+        FractionBox[
+         RowBox[{"C11", "-", "C12"}], "2"], "0"},
+       {"0", "0", "0", "0", "0", 
+        FractionBox[
+         RowBox[{"C11", "-", "C12"}], "2"]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}], ";"}], 
+  "   ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Cmat", " ", "for", " ", "ISO"}], ",", " ", 
+    RowBox[{"from", " ", "Nye"}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<A given Voigt matrix is \>\"", ",", 
+    RowBox[{"MatrixForm", "[", "CmatInput", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<The corresponding [T\!\(\*SubscriptBox[\"]\", 
+StyleBox[\"\[DoubleStruckCapitalB]\[DoubleStruckCapitalB]\",
+FontSize->12]]\) is \>\"", ",", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"Simplify", "[", 
+      RowBox[{"TmatOfCmat", "[", "CmatInput", "]"}], "]"}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    RowBox[{"CmatOfTmat", "[", 
+     RowBox[{"TmatOfCmat", "[", "CmatInput", "]"}], "]"}], "==", 
+    "CmatInput"}], "]"}], "    "}]}], "Input",
+ CellChangeTimes->{{3.823726961331175*^9, 3.823727005043182*^9}, {
+   3.823727049140192*^9, 3.823727084868194*^9}, {3.823727272180188*^9, 
+   3.8237272867881975`*^9}, 3.823727344980175*^9, {3.823727410492194*^9, 
+   3.8237274698121853`*^9}, {3.8237275073961773`*^9, 3.823727570164183*^9}, {
+   3.8237276062761855`*^9, 3.823727649972178*^9}, {3.823727680837183*^9, 
+   3.823727682342183*^9}, {3.823728003461176*^9, 3.823728115477178*^9}, {
+   3.823733645717176*^9, 3.823733646855175*^9}, {3.829235697570421*^9, 
+   3.82923581361923*^9}, 3.829235856014263*^9, 3.8292358939691544`*^9, {
+   3.8292359342397585`*^9, 3.8292359780545015`*^9}, {3.82923621314151*^9, 
+   3.829236242560804*^9}, {3.8292363062614326`*^9, 3.8292363999527845`*^9}, 
+   3.82923644753543*^9, {3.829236487569416*^9, 3.829236489343206*^9}, 
+   3.82923653349363*^9, {3.829236597329005*^9, 3.8292367074016542`*^9}, {
+   3.829236743092601*^9, 3.829236778848982*^9}, {3.8292369869798627`*^9, 
+   3.8292369874365797`*^9}}]
 }, Open  ]]
 },
-WindowSize->{977, 743},
-WindowMargins->{{148, Automatic}, {Automatic, 0}},
+WindowSize->{977, 808},
+WindowMargins->{{Automatic, 835}, {Automatic, -3}},
+Magnification:>1.25 Inherited,
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1287,58 +1439,57 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 506, 11, 227, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[580, 22, 322, 6, 59, "Subsubsection"],
-Cell[905, 30, 119, 2, 32, "Input"]
+Cell[1089, 35, 780, 12, 35, "Subsubsection"],
+Cell[1872, 49, 1134, 31, 145, "Input"],
+Cell[3009, 82, 7361, 152, 466, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1061, 37, 216, 4, 36, "Subsubsection"],
-Cell[1280, 43, 94, 1, 32, "Input"]
+Cell[10407, 239, 963, 17, 44, "Subsubsection"],
+Cell[11373, 258, 605, 15, 89, "Input"],
+Cell[11981, 275, 367, 9, 89, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1411, 49, 780, 12, 35, "Subsubsection"],
-Cell[2194, 63, 1134, 31, 114, "Input"],
-Cell[3331, 96, 7168, 147, 376, "Input"]
+Cell[12385, 289, 954, 15, 75, "Subsubsection"],
+Cell[13342, 306, 1156, 28, 164, "Input"],
+Cell[14501, 336, 798, 17, 64, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10536, 248, 963, 17, 37, "Subsubsection"],
-Cell[11502, 267, 391, 9, 77, "Input"],
-Cell[11896, 278, 367, 9, 77, "Input"]
+Cell[15336, 358, 912, 14, 75, "Subsubsection"],
+Cell[16251, 374, 681, 18, 64, "Input"],
+Cell[16935, 394, 114, 1, 38, "Text"],
+Cell[17052, 397, 598, 16, 64, "Input"],
+Cell[17653, 415, 221, 4, 38, "Input"],
+Cell[17877, 421, 1001, 29, 189, "Input"],
+Cell[18881, 452, 402, 9, 38, "Input"],
+Cell[19286, 463, 374, 7, 63, "Text"],
+Cell[19663, 472, 921, 20, 89, "Input"],
+Cell[20587, 494, 105, 1, 38, "Text"],
+Cell[20695, 497, 618, 17, 64, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12300, 292, 900, 14, 35, "Subsubsection"],
-Cell[13203, 308, 1156, 28, 143, "Input"],
-Cell[14362, 338, 798, 17, 55, "Input"]
+Cell[21350, 519, 559, 9, 75, "Subsubsection"],
+Cell[21912, 530, 3602, 105, 242, "Input"],
+Cell[25517, 637, 6896, 191, 265, "Input"],
+Cell[32416, 830, 1012, 24, 114, "Input"],
+Cell[33431, 856, 248, 4, 63, "Text"],
+Cell[33682, 862, 919, 23, 64, "Input"],
+Cell[34604, 887, 687, 16, 64, "Input"],
+Cell[35294, 905, 796, 20, 89, "Input"],
+Cell[36093, 927, 134, 1, 38, "Text"],
+Cell[36230, 930, 720, 17, 114, "Input"],
+Cell[36953, 949, 325, 7, 38, "Input"],
+Cell[37281, 958, 180, 2, 38, "Text"],
+Cell[37464, 962, 164, 2, 38, "Text"],
+Cell[37631, 966, 935, 22, 90, "Input"],
+Cell[38569, 990, 14152, 279, 739, "Input"],
+Cell[52724, 1271, 441, 8, 91, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15197, 360, 912, 14, 59, "Subsubsection"],
-Cell[16112, 376, 681, 18, 55, "Input"],
-Cell[16796, 396, 114, 1, 31, "Text"],
-Cell[16913, 399, 598, 16, 32, "Input"],
-Cell[17514, 417, 221, 4, 32, "Input"],
-Cell[17738, 423, 941, 27, 143, "Input"],
-Cell[18682, 452, 402, 9, 32, "Input"],
-Cell[19087, 463, 921, 20, 55, "Input"],
-Cell[20011, 485, 105, 1, 31, "Text"],
-Cell[20119, 488, 618, 17, 32, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[20774, 510, 559, 9, 59, "Subsubsection"],
-Cell[21336, 521, 3602, 105, 213, "Input"],
-Cell[24941, 628, 6896, 191, 231, "Input"],
-Cell[31840, 821, 1012, 24, 77, "Input"],
-Cell[32855, 847, 248, 4, 51, "Text"],
-Cell[33106, 853, 919, 23, 55, "Input"],
-Cell[34028, 878, 687, 16, 55, "Input"],
-Cell[34718, 896, 796, 20, 77, "Input"],
-Cell[35517, 918, 134, 1, 31, "Text"],
-Cell[35654, 921, 720, 17, 55, "Input"],
-Cell[36377, 940, 325, 7, 32, "Input"],
-Cell[36705, 949, 180, 2, 31, "Text"],
-Cell[36888, 953, 164, 2, 31, "Text"],
-Cell[37055, 957, 935, 22, 79, "Input"],
-Cell[37993, 981, 14152, 279, 583, "Input"],
-Cell[52148, 1262, 441, 8, 51, "Text"]
+Cell[53202, 1284, 1175, 24, 149, "Subsubsection"],
+Cell[54380, 1310, 169, 3, 38, "Input"],
+Cell[54552, 1315, 4456, 106, 546, "Input"]
 }, Open  ]]
 }
 ]
