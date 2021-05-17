@@ -10,16 +10,31 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     46056,       1085]
-NotebookOptionsPosition[     44079,       1027]
-NotebookOutlinePosition[     44416,       1042]
-CellTagsIndexPosition[     44373,       1039]
+NotebookDataLength[     47426,       1115]
+NotebookOptionsPosition[     45407,       1056]
+NotebookOutlinePosition[     45738,       1071]
+CellTagsIndexPosition[     45695,       1068]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell["\<\
+Supporting software for W. Tape and C. Tape,
+\[OpenCurlyDoubleQuote]Elastic symmetry with beachball pictures\
+\[CloseCurlyDoubleQuote] (2021 GJI).
+Equation/section/figure numbers are from the paper. 
+
+Evaluate common_funs.nb and then common_MTfuns.nb before running this notebook.
+\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.823395561256716*^9, 3.823395597101345*^9}, 
+   3.8233986511201973`*^9, {3.829239841508174*^9, 3.829239887023471*^9}, {
+   3.8292401146810503`*^9, 3.829240120992628*^9}, {3.8298243059093733`*^9, 
+   3.829824312759672*^9}, {3.830281519760976*^9, 3.830281544582182*^9}, {
+   3.830281631417397*^9, 3.830281660010106*^9}}],
 
 Cell[CellGroupData[{
+
 Cell["Transverse isotropic (Section 15.4)", "Subsubsection",
  CellChangeTimes->{{3.8073040598693795`*^9, 3.8073040783263817`*^9}, {
    3.8074582942787724`*^9, 3.8074583087338605`*^9}, {3.8076345900081215`*^9, 
@@ -191,7 +206,17 @@ Cell[BoxData[
     RowBox[{
      RowBox[{
       RowBox[{"Print", "[", 
-       RowBox[{"Simplify", "[", 
+       RowBox[{
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox[
+            StyleBox["FullSimplify", "Code",
+             FontColor->GrayLevel[0]], "Code",
+            FontColor->GrayLevel[0]], "Code",
+           FontColor->GrayLevel[0]], "Code",
+          FontColor->GrayLevel[0]], "Code",
+         FontColor->GrayLevel[0]], "[", 
         RowBox[{
          RowBox[{"Tprime", ".", 
           RowBox[{
@@ -327,23 +352,22 @@ Cell[BoxData[
       RowBox[{"i", ",", "6"}], "}"}]}], "]"}], ";"}], "Code",
   FontColor->GrayLevel[0]]], "Input",
  CellChangeTimes->{{3.829764146216107*^9, 3.8297642005747204`*^9}, 
-   3.829764275601715*^9, {3.829827004862569*^9, 3.829827014852272*^9}}],
+   3.829764275601715*^9, {3.829827004862569*^9, 3.829827014852272*^9}, 
+   3.830281262143519*^9}],
 
-Cell[TextData[{
- StyleBox["Test for orthonormality of the basis ",
-  FontColor->GrayLevel[0]],
- "(will be diagonal if all eigenVALUES are simple, but may be diagonal \
-otherwise):  "
-}], "Text",
+Cell[TextData[StyleBox["Test for orthonormality of the basis (will be \
+diagonal if all eigenvalues are simple, but may be diagonal otherwise):  ",
+ FontColor->GrayLevel[0]]], "Text",
  CellChangeTimes->{{3.823011313104916*^9, 3.8230113906961527`*^9}, 
    3.829761199298924*^9, {3.8297657374871583`*^9, 3.8297657478821507`*^9}, {
    3.8298257492583942`*^9, 3.829825761449608*^9}, {3.8299203405242596`*^9, 
-   3.829920346577359*^9}, {3.829921215142467*^9, 3.829921255298896*^9}},
+   3.829920346577359*^9}, {3.829921215142467*^9, 3.829921255298896*^9}, {
+   3.830280453386647*^9, 3.830280454018262*^9}},
  FontColor->RGBColor[1, 0, 0]],
 
 Cell[BoxData[
  RowBox[{"MatrixForm", "[", 
-  RowBox[{"Simplify", "[", 
+  RowBox[{"FullSimplify", "[", 
    RowBox[{"Table", "[", 
     RowBox[{
      RowBox[{
@@ -360,11 +384,11 @@ Cell[BoxData[
    3.8229624148270125`*^9}, 3.8230081280953646`*^9, {3.8230081617811832`*^9, 
    3.823008193775448*^9}, {3.823008234958743*^9, 3.8230082653574133`*^9}, 
    3.8297658665081677`*^9, {3.829766237757383*^9, 3.8297662448466406`*^9}, {
-   3.8298270361294107`*^9, 3.82982704103516*^9}}],
+   3.8298270361294107`*^9, 3.82982704103516*^9}, 3.8302812649623423`*^9}],
 
 Cell[TextData[{
- "Indices of the eigenvectors having lamda=1.\n",
- StyleBox["An orthogonal basis for the (3D) eigenspace for \[Lambda] = 1 :",
+ "O",
+ StyleBox["rthogonal basis for the (2D) eigenspace for \[Lambda] = 1 :",
   FontColor->GrayLevel[0]]
 }], "Text",
  CellChangeTimes->{{3.823011313104916*^9, 3.8230113906961527`*^9}, 
@@ -373,7 +397,8 @@ Cell[TextData[{
    3.829826852249213*^9}, {3.829915900384255*^9, 3.829915970548061*^9}, {
    3.8299175395104218`*^9, 3.829917571090434*^9}, {3.829926703068841*^9, 
    3.829926703148407*^9}, {3.8300040010456123`*^9, 3.8300040011121817`*^9}, {
-   3.830005130829114*^9, 3.830005146188383*^9}}],
+   3.830005130829114*^9, 3.830005146188383*^9}, {3.83028067277087*^9, 
+   3.830280690708934*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -396,7 +421,7 @@ Cell[BoxData[{
     RowBox[{"ilam1a", ",", "ilam1b"}], "}"}], "]"}], 
   "]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"OrthogonalBasisForNDEigenspace1", "=", 
+  RowBox[{"OrthogonalBasisForNDEigenspacelam1", "=", 
    RowBox[{"FullSimplify", "[", 
     RowBox[{"Orthogonalize", "[", 
      RowBox[{"{", 
@@ -406,18 +431,19 @@ Cell[BoxData[{
        RowBox[{"Evecs", "[", 
         RowBox[{"[", "ilam1b", "]"}], "]"}]}], "}"}], "]"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"ColumnForm", "[", "OrthogonalBasisForNDEigenspace1", 
+ RowBox[{"ColumnForm", "[", "OrthogonalBasisForNDEigenspacelam1", 
   "]"}]}], "Input",
  CellChangeTimes->{{3.829917409918928*^9, 3.829917491511136*^9}, {
   3.829917583904018*^9, 3.829917638736298*^9}, {3.829917722320965*^9, 
   3.829917783547079*^9}, {3.829926705493456*^9, 3.829926716715645*^9}, {
   3.829928258398251*^9, 3.829928292182973*^9}, {3.830004002568161*^9, 
   3.830004015356102*^9}, {3.8300051536991777`*^9, 3.830005154259606*^9}, {
-  3.830274040108575*^9, 3.8302740425657177`*^9}}],
+  3.830274040108575*^9, 3.8302740425657177`*^9}, {3.830280696610344*^9, 
+  3.830280700148231*^9}}],
 
 Cell[TextData[{
- "Indices of the eigenvectors having lamda=3.\n",
- StyleBox["An orthogonal basis for the (3D) eigenspace for \[Lambda] = 3 :",
+ "O",
+ StyleBox["rthogonal basis for the (2D) eigenspace for \[Lambda] = 3 :",
   FontColor->GrayLevel[0]]
 }], "Text",
  CellChangeTimes->{{3.823011313104916*^9, 3.8230113906961527`*^9}, 
@@ -427,7 +453,8 @@ Cell[TextData[{
    3.8299175395104218`*^9, 3.829917571090434*^9}, {3.829926703068841*^9, 
    3.829926703148407*^9}, {3.8300040010456123`*^9, 3.8300040011121817`*^9}, {
    3.830004075498433*^9, 3.83000407559904*^9}, {3.830005174926301*^9, 
-   3.830005176524012*^9}}],
+   3.830005176524012*^9}, {3.830280675122221*^9, 3.83028068652561*^9}, {
+   3.830281294818722*^9, 3.830281305824499*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -450,7 +477,7 @@ Cell[BoxData[{
     RowBox[{"ilam3a", ",", "ilam3b"}], "}"}], "]"}], 
   "]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"OrthogonalBasisForNDEigenspace3", "=", 
+  RowBox[{"OrthogonalBasisForNDEigenspacelam3", "=", 
    RowBox[{"FullSimplify", "[", 
     RowBox[{"Orthogonalize", "[", 
      RowBox[{"{", 
@@ -460,7 +487,7 @@ Cell[BoxData[{
        RowBox[{"Evecs", "[", 
         RowBox[{"[", "ilam3b", "]"}], "]"}]}], "}"}], "]"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"ColumnForm", "[", "OrthogonalBasisForNDEigenspace3", 
+ RowBox[{"ColumnForm", "[", "OrthogonalBasisForNDEigenspacelam3", 
   "]"}]}], "Input",
  CellChangeTimes->{{3.829917409918928*^9, 3.829917491511136*^9}, {
   3.829917583904018*^9, 3.829917638736298*^9}, {3.829917722320965*^9, 
@@ -468,7 +495,7 @@ Cell[BoxData[{
   3.829928258398251*^9, 3.829928292182973*^9}, {3.830004002568161*^9, 
   3.830004015356102*^9}, {3.8300040772739067`*^9, 3.8300040957715282`*^9}, {
   3.830005169300074*^9, 3.830005169773278*^9}, {3.830274044187788*^9, 
-  3.830274044668116*^9}}],
+  3.830274044668116*^9}, {3.830280701954043*^9, 3.830280704370116*^9}}],
 
 Cell[TextData[{
  StyleBox["An orthonormal eigenbasis for ",
@@ -489,13 +516,13 @@ Cell[BoxData[
     RowBox[{"Unit", "/@", 
      RowBox[{"{", 
       RowBox[{
-       RowBox[{"OrthogonalBasisForNDEigenspace1", "[", 
+       RowBox[{"OrthogonalBasisForNDEigenspacelam1", "[", 
         RowBox[{"[", "1", "]"}], "]"}], ",", 
-       RowBox[{"OrthogonalBasisForNDEigenspace1", "[", 
+       RowBox[{"OrthogonalBasisForNDEigenspacelam1", "[", 
         RowBox[{"[", "2", "]"}], "]"}], ",", 
-       RowBox[{"OrthogonalBasisForNDEigenspace3", "[", 
+       RowBox[{"OrthogonalBasisForNDEigenspacelam3", "[", 
         RowBox[{"[", "1", "]"}], "]"}], ",", 
-       RowBox[{"OrthogonalBasisForNDEigenspace3", "[", 
+       RowBox[{"OrthogonalBasisForNDEigenspacelam3", "[", 
         RowBox[{"[", "2", "]"}], "]"}], ",", 
        RowBox[{"Evecs", "[", 
         RowBox[{"[", "5", "]"}], "]"}], ",", 
@@ -505,7 +532,8 @@ Cell[BoxData[
   3.8299209756681805`*^9, {3.829921017470467*^9, 3.8299210231839952`*^9}, {
    3.829921185282895*^9, 3.829921192370437*^9}, {3.829924838315936*^9, 
    3.829924838639206*^9}, {3.829926758891861*^9, 3.8299268149483757`*^9}, {
-   3.830004135943289*^9, 3.830004184266197*^9}}],
+   3.830004135943289*^9, 3.830004184266197*^9}, {3.830280707800864*^9, 
+   3.830280713746044*^9}}],
 
 Cell[BoxData[
  RowBox[{"MatrixForm", "/@", "basisR6"}]], "Input",
@@ -628,7 +656,7 @@ Figure out the inessential scale factor that was ignored in Equation (174).\
 
 Cell[BoxData[{
  RowBox[{"fac", "=", 
-  RowBox[{"Simplify", "[", 
+  RowBox[{"FullSimplify", "[", 
    RowBox[{
     RowBox[{"(", 
      RowBox[{
@@ -647,8 +675,9 @@ Cell[BoxData[{
     RowBox[{"G5", "/", "fac"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"MatrixForm", "[", "G5", "]"}]}], "Input",
  CellChangeTimes->{{3.82993515011696*^9, 3.829935245081192*^9}, {
-  3.829996651169932*^9, 3.829996653405302*^9}, {3.830001190081115*^9, 
-  3.830001202283785*^9}, {3.83000432716921*^9, 3.830004377019779*^9}}],
+   3.829996651169932*^9, 3.829996653405302*^9}, {3.830001190081115*^9, 
+   3.830001202283785*^9}, {3.83000432716921*^9, 3.830004377019779*^9}, 
+   3.830281271669393*^9}],
 
 Cell["Get the eigensystem of G5.", "Text",
  CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
@@ -1026,7 +1055,7 @@ Compare the above diagram with Figure 22.\
 }, Open  ]]
 },
 WindowSize->{1460, 962},
-WindowMargins->{{361, Automatic}, {5, Automatic}},
+WindowMargins->{{Automatic, 246}, {33, 19}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1041,51 +1070,52 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 654, 13, 156, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[580, 22, 734, 10, 35, "Subsubsection"],
-Cell[1317, 34, 4876, 114, 249, "Input"],
-Cell[6196, 150, 529, 8, 31, "Text"],
-Cell[6728, 160, 900, 19, 77, "Input"],
-Cell[7631, 181, 229, 3, 31, "Text"],
-Cell[7863, 186, 5442, 143, 32, "Input"],
-Cell[13308, 331, 519, 10, 31, "Text"],
-Cell[13830, 343, 851, 19, 32, "Input"],
-Cell[14684, 364, 671, 11, 51, "Text"],
-Cell[15358, 377, 1478, 38, 143, "Input"],
-Cell[16839, 417, 720, 12, 51, "Text"],
-Cell[17562, 431, 1527, 39, 143, "Input"],
-Cell[19092, 472, 374, 10, 33, "Text"],
-Cell[19469, 484, 1007, 23, 55, "Input"],
-Cell[20479, 509, 178, 3, 32, "Input"],
-Cell[20660, 514, 604, 16, 32, "Input"],
-Cell[21267, 532, 840, 16, 77, "Input"],
-Cell[22110, 550, 196, 2, 31, "Text"],
-Cell[22309, 554, 307, 7, 32, "Input"],
-Cell[22619, 563, 308, 4, 31, "Text"],
-Cell[22930, 569, 334, 6, 32, "Input"],
-Cell[23267, 577, 572, 9, 51, "Text"],
-Cell[23842, 588, 760, 11, 31, "Text"],
-Cell[24605, 601, 591, 13, 55, "Input"],
-Cell[25199, 616, 664, 10, 31, "Text"],
-Cell[25866, 628, 782, 22, 117, "Input"],
-Cell[26651, 652, 736, 10, 31, "Text"],
-Cell[27390, 664, 763, 17, 77, "Input"],
-Cell[28156, 683, 847, 13, 31, "Text"],
-Cell[29006, 698, 898, 22, 121, "Input"],
-Cell[29907, 722, 579, 9, 31, "Text"],
-Cell[30489, 733, 1192, 30, 143, "Input"],
-Cell[31684, 765, 581, 8, 31, "Text"],
-Cell[32268, 775, 1265, 22, 55, "Input"],
-Cell[33536, 799, 1667, 33, 77, "Input"],
-Cell[35206, 834, 482, 6, 31, "Text"],
-Cell[35691, 842, 1487, 31, 88, "Input"],
-Cell[37181, 875, 481, 12, 55, "Input"],
-Cell[37665, 889, 978, 22, 128, "Input"],
-Cell[38646, 913, 278, 5, 31, "Text"],
-Cell[38927, 920, 2724, 56, 143, "Input"],
-Cell[41654, 978, 322, 6, 31, "Text"],
-Cell[41979, 986, 1553, 27, 99, "Input"],
-Cell[43535, 1015, 528, 9, 31, "Text"]
+Cell[1237, 37, 734, 10, 29, "Subsubsection"],
+Cell[1974, 49, 4876, 114, 249, "Input"],
+Cell[6853, 165, 529, 8, 31, "Text"],
+Cell[7385, 175, 900, 19, 77, "Input"],
+Cell[8288, 196, 229, 3, 31, "Text"],
+Cell[8520, 201, 5797, 154, 32, "Input"],
+Cell[14320, 357, 558, 8, 31, "Text"],
+Cell[14881, 367, 879, 19, 32, "Input"],
+Cell[15763, 388, 672, 12, 31, "Text"],
+Cell[16438, 402, 1533, 39, 143, "Input"],
+Cell[17974, 443, 767, 13, 31, "Text"],
+Cell[18744, 458, 1579, 39, 143, "Input"],
+Cell[20326, 499, 374, 10, 33, "Text"],
+Cell[20703, 511, 1069, 24, 55, "Input"],
+Cell[21775, 537, 178, 3, 32, "Input"],
+Cell[21956, 542, 604, 16, 32, "Input"],
+Cell[22563, 560, 840, 16, 77, "Input"],
+Cell[23406, 578, 196, 2, 31, "Text"],
+Cell[23605, 582, 307, 7, 32, "Input"],
+Cell[23915, 591, 308, 4, 31, "Text"],
+Cell[24226, 597, 334, 6, 32, "Input"],
+Cell[24563, 605, 572, 9, 51, "Text"],
+Cell[25138, 616, 760, 11, 31, "Text"],
+Cell[25901, 629, 591, 13, 55, "Input"],
+Cell[26495, 644, 664, 10, 31, "Text"],
+Cell[27162, 656, 814, 23, 117, "Input"],
+Cell[27979, 681, 736, 10, 31, "Text"],
+Cell[28718, 693, 763, 17, 77, "Input"],
+Cell[29484, 712, 847, 13, 31, "Text"],
+Cell[30334, 727, 898, 22, 121, "Input"],
+Cell[31235, 751, 579, 9, 31, "Text"],
+Cell[31817, 762, 1192, 30, 143, "Input"],
+Cell[33012, 794, 581, 8, 31, "Text"],
+Cell[33596, 804, 1265, 22, 55, "Input"],
+Cell[34864, 828, 1667, 33, 77, "Input"],
+Cell[36534, 863, 482, 6, 31, "Text"],
+Cell[37019, 871, 1487, 31, 88, "Input"],
+Cell[38509, 904, 481, 12, 55, "Input"],
+Cell[38993, 918, 978, 22, 128, "Input"],
+Cell[39974, 942, 278, 5, 31, "Text"],
+Cell[40255, 949, 2724, 56, 143, "Input"],
+Cell[42982, 1007, 322, 6, 31, "Text"],
+Cell[43307, 1015, 1553, 27, 99, "Input"],
+Cell[44863, 1044, 528, 9, 31, "Text"]
 }, Open  ]]
 }
 ]
