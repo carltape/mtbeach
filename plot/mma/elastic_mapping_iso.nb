@@ -1,0 +1,187 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6984,        178]
+NotebookOptionsPosition[      6279,        150]
+NotebookOutlinePosition[      6617,        165]
+CellTagsIndexPosition[      6574,        162]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Supporting software for W. Tape and C. Tape,
+\[OpenCurlyDoubleQuote]Elastic symmetry with beachball pictures\
+\[CloseCurlyDoubleQuote] (2021 GJI).
+Equation/section/figure numbers are from the paper. 
+
+Evaluate common_funs.nb and then common_MTfuns.nb before running this notebook.
+\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.823395561256716*^9, 3.823395597101345*^9}, 
+   3.8233986511201973`*^9, {3.829239841508174*^9, 3.829239887023471*^9}, {
+   3.8292401146810503`*^9, 3.829240120992628*^9}, {3.8298243059093733`*^9, 
+   3.829824312759672*^9}, {3.830281519760976*^9, 3.830281544582182*^9}, {
+   3.830281631417397*^9, 3.830281660010106*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Isotropic (note that Tprime and T would have the same form)", \
+"Subsubsection",
+ CellChangeTimes->{{3.8073040598693795`*^9, 3.8073040783263817`*^9}, {
+   3.8074582942787724`*^9, 3.8074583087338605`*^9}, {3.8076345900081215`*^9, 
+   3.8076345929680567`*^9}, {3.8083201202076893`*^9, 
+   3.8083201211666584`*^9}, {3.822961142968864*^9, 3.822961164953*^9}, {
+   3.8230074006439915`*^9, 3.8230074253969574`*^9}, {3.823011254323928*^9, 
+   3.823011284465339*^9}, {3.8297552689521437`*^9, 3.8297552865594587`*^9}, 
+   3.829760099124411*^9, {3.829926244795003*^9, 3.82992624508467*^9}, {
+   3.829926347325835*^9, 3.829926355660852*^9}, 3.829933133599841*^9, {
+   3.830011731039393*^9, 3.830011747990817*^9}, 3.830022401247658*^9, {
+   3.830394895356056*^9, 3.8303948975223618`*^9}, {3.830395247553244*^9, 
+   3.8303952560221567`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   StyleBox["Clear",
+    FontColor->GrayLevel[0]], "[", 
+   RowBox[{"a", ",", "f", ",", "x", ",", "y", ",", "z"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T", "=", "TmatForISO"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "[", "T", "]"}]}], "Input",
+ CellChangeTimes->{{3.8303948535111933`*^9, 3.830394929072633*^9}, {
+  3.8304358558436747`*^9, 3.830435861300046*^9}, {3.830435923029667*^9, 
+  3.8304359252847137`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Get the symmetries of T", "Subsubsection",
+ CellChangeTimes->{{3.8073040598693795`*^9, 3.8073040783263817`*^9}, {
+   3.8074582942787724`*^9, 3.8074583087338605`*^9}, {3.8076345900081215`*^9, 
+   3.8076345929680567`*^9}, {3.8083201202076893`*^9, 
+   3.8083201211666584`*^9}, {3.822961142968864*^9, 3.822961164953*^9}, {
+   3.8230074006439915`*^9, 3.8230074253969574`*^9}, {3.823011254323928*^9, 
+   3.823011284465339*^9}, {3.8297552689521437`*^9, 3.8297552865594587`*^9}, 
+   3.829760099124411*^9, {3.829926244795003*^9, 3.82992624508467*^9}, {
+   3.8303546297539167`*^9, 3.830354639320745*^9}, {3.8303585216634483`*^9, 
+   3.83035853542423*^9}, 3.8303954110603228`*^9}],
+
+Cell[BoxData[{
+ RowBox[{"v", "=", 
+  RowBox[{"{", 
+   RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "[", 
+  RowBox[{"Ux", "[", "v", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8304360226877127`*^9, 3.830436026851697*^9}, {
+  3.830436415347746*^9, 3.830436424675747*^9}}],
+
+Cell["Consider an arbitrary 3D rotation.", "Text",
+ CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
+  3.823011466609136*^9, 3.8230114995845547`*^9}, {3.8230117199663897`*^9, 
+  3.823011879761632*^9}, {3.829335456685166*^9, 3.8293354570609083`*^9}, {
+  3.829825048471854*^9, 3.8298250493988333`*^9}, {3.8299251564550467`*^9, 
+  3.829925163021648*^9}, {3.8299347983437643`*^9, 3.82993483559157*^9}, {
+  3.830003063627037*^9, 3.830003064163588*^9}, {3.830019037363598*^9, 
+  3.830019037642407*^9}, {3.830367409043151*^9, 3.830367419067307*^9}, {
+  3.830395416409669*^9, 3.830395426525495*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Ux", "[", "v_", "]"}], ":=", 
+   RowBox[{"ROT", "[", "v", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"denominator", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"PrintForSymmetryTest", "[", 
+  RowBox[{"T", ",", 
+   RowBox[{"Ux", "[", "v", "]"}], ",", "denominator"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8303568275081367`*^9, 3.83035683082122*^9}, {
+   3.8303575737893143`*^9, 3.830357584623337*^9}, {3.830361003961198*^9, 
+   3.830361005077767*^9}, {3.8303612922911243`*^9, 3.830361293911599*^9}, {
+   3.830367378695747*^9, 3.830367501761653*^9}, {3.830368868985696*^9, 
+   3.830368890234123*^9}, 3.8303951006875668`*^9, {3.8303952165653143`*^9, 
+   3.830395262561632*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+UsHat is another parameterization of rotation matrices. See the definition in \
+AAcommonMathematicaFns.\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.8304363087397327`*^9, 3.8304363452193656`*^9}, {
+  3.8304368068676972`*^9, 3.830436835715756*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{"\[Theta]", ",", "\[Sigma]", ",", "\[Phi]"}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.830436354221244*^9, 3.8304363583886433`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"denominator", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"PrintForSymmetryTest", "[", 
+  RowBox[{"T", ",", 
+   RowBox[{"UsHat", "[", 
+    RowBox[{"{", 
+     RowBox[{"\[Theta]", ",", "\[Sigma]", ",", "\[Phi]"}], "}"}], "]"}], ",", 
+   "denominator"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8303568275081367`*^9, 3.83035683082122*^9}, {
+   3.8303575737893143`*^9, 3.830357584623337*^9}, {3.830361003961198*^9, 
+   3.830361005077767*^9}, {3.8303612922911243`*^9, 3.830361293911599*^9}, {
+   3.830367378695747*^9, 3.830367501761653*^9}, {3.830368868985696*^9, 
+   3.830368890234123*^9}, 3.8303951006875668`*^9, {3.8303952165653143`*^9, 
+   3.830395262561632*^9}, {3.8304362239557114`*^9, 3.830436225059722*^9}, {
+   3.83043629069173*^9, 3.830436297251731*^9}}]
+}, Open  ]]
+},
+WindowSize->{1137, 917},
+WindowMargins->{{426, Automatic}, {Automatic, 17}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 654, 13, 156, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[1237, 37, 834, 12, 29, "Subsubsection"],
+Cell[2074, 51, 489, 12, 77, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2600, 68, 675, 9, 35, "Subsubsection"],
+Cell[3278, 79, 318, 7, 55, "Input"],
+Cell[3599, 88, 608, 8, 31, "Text"],
+Cell[4210, 98, 750, 15, 77, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4997, 118, 257, 5, 59, "Subsubsection"],
+Cell[5257, 125, 200, 5, 32, "Input"],
+Cell[5460, 132, 803, 15, 55, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
