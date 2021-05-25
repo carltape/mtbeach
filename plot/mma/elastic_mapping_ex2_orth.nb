@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     43412,       1014]
-NotebookOptionsPosition[     41153,        946]
-NotebookOutlinePosition[     41491,        961]
-CellTagsIndexPosition[     41448,        958]
+NotebookDataLength[     46031,       1083]
+NotebookOptionsPosition[     43693,       1013]
+NotebookOutlinePosition[     44031,       1028]
+CellTagsIndexPosition[     43988,       1025]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -419,13 +419,13 @@ Cell[BoxData[
   3.823010767850778*^9}, {3.830281419862382*^9, 3.8302814211647453`*^9}}],
 
 Cell["\<\
-G1-G2-G3 are DC, G4 is generic, as are G5-G6 that comprise the 2D eigenspace.\
+G1-G2-G3 are DC, G4-G5-G6 are generic. G5-G6 comprise a 2D eigenspace.\
 \>", "Text",
  CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
   3.823011466609136*^9, 3.8230114995845547`*^9}, {3.829827278033305*^9, 
   3.8298273000643597`*^9}, {3.829827473840158*^9, 3.8298274836802473`*^9}, {
   3.829827706664126*^9, 3.829827706943432*^9}, {3.8299270243748198`*^9, 
-  3.829927051392144*^9}}],
+  3.829927051392144*^9}, {3.830971881824204*^9, 3.8309718952559147`*^9}}],
 
 Cell["\<\
 Extract G4, which is the matrix associated with the eigenvalue lambda = 4.\
@@ -441,23 +441,20 @@ Extract G4, which is the matrix associated with the eigenvalue lambda = 4.\
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"G4", "=", 
-   RowBox[{"basisG", "[", 
-    RowBox[{"[", "4", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{"MatrixForm", "[", "G4", "]"}]}], "Input",
- CellChangeTimes->{{3.829827353432991*^9, 3.829827364248329*^9}, {
-  3.8298275030139*^9, 3.8298275583602743`*^9}, {3.829827599221492*^9, 
-  3.829827637589505*^9}, {3.8298276713200693`*^9, 3.829827690991905*^9}, {
-  3.8298277549855747`*^9, 3.82982778392667*^9}, {3.829828183538537*^9, 
-  3.829828238884296*^9}, {3.829838129759055*^9, 3.8298381308048897`*^9}, {
-  3.8298386856216297`*^9, 3.829838723757915*^9}, {3.829838802789536*^9, 
-  3.829838836753325*^9}, {3.829838992257216*^9, 3.8298390134483337`*^9}, {
-  3.82983904358362*^9, 3.829839047810261*^9}, {3.829839135959291*^9, 
-  3.829839136453006*^9}, {3.8298392018900833`*^9, 3.829839266473618*^9}, {
-  3.829839326674474*^9, 3.829839386654142*^9}, {3.829924857470818*^9, 
-  3.8299248575478067`*^9}, {3.829927068329043*^9, 3.829927090008788*^9}, {
-  3.8299273246015778`*^9, 3.829927326091566*^9}, {3.829935053547247*^9, 
-  3.829935063648823*^9}}],
+  RowBox[{"ipick", " ", "=", "4"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Evals", "[", 
+  RowBox[{"[", "ipick", "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "[", 
+  RowBox[{"basisG", "[", 
+   RowBox[{"[", "ipick", "]"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQAWIQLXBb9/GFjjeOAZ/an4Doe4UPvoLouPbTf0B0mdhz
+xotA2uruJjYQzWT3igtEb9gbzwuir3TGi4Joj+V/JUD0JuuPXiBa3edOIIjW
+87JQuwakVxyMBNMpTzZng+jrDhUFIPqhc2QViLaVnlEHomWtOSaB6AMR66aA
+aJa1RTPA+t/+BNPNm/4tBtFs9XxLQPSEaps1YHPU/beAaK+pV3eD6N3vQg6D
+6I8C+vUMnW8cF7UbgunW9q7JjED6n7vDNBCt4DB5M4iWeXcITPM0b6xkBdIa
+h79UgWgmrndH/3e9cdx2bMIxEM33s28rQzcwfHo37ALRAE5dsNc=
+  "]],
 
 Cell["\<\
 Figure out the inessential scale factor that was ignored in Equation (174).\
@@ -472,7 +469,7 @@ Figure out the inessential scale factor that was ignored in Equation (174).\
   3.829935408647626*^9, 3.829935410052353*^9}}],
 
 Cell[BoxData[{
- RowBox[{"f", "=", 
+ RowBox[{"fac", "=", 
   RowBox[{"FullSimplify", "[", 
    RowBox[{
     RowBox[{"(", 
@@ -487,11 +484,22 @@ Cell[BoxData[{
       SqrtBox["8"], "+", 
       SqrtBox["3"]}], ")"}]}], "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"G4", "=", 
+  RowBox[{
+   RowBox[{"basisG", "[", 
+    RowBox[{"[", "ipick", "]"}], "]"}], "=", 
    RowBox[{"FullSimplify", "[", 
-    RowBox[{"G4", "/", "f"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"basisG", "[", 
+      RowBox[{"[", "ipick", "]"}], "]"}], "/", "fac"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"G4", "=", 
+   RowBox[{"basisG", "[", 
+    RowBox[{"[", "ipick", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"MatrixForm", "[", "G4", "]"}]}], "Input",
- CellChangeTimes->{{3.82993515011696*^9, 3.829935245081192*^9}}],
+ CellChangeTimes->{{3.82993515011696*^9, 3.829935245081192*^9}, {
+  3.830971910689312*^9, 3.830971933005618*^9}, {3.830971969465962*^9, 
+  3.8309719897023067`*^9}, {3.8309738751967087`*^9, 3.830973882249655*^9}}],
 
 Cell["\<\
 Get the eigensystem of G4 and sort from largest to smallest eigenvalue.\
@@ -657,6 +665,69 @@ Cell[BoxData[{
   3.829839632274544*^9, 3.8298396342550583`*^9}, {3.829927597167282*^9, 
   3.829927639367824*^9}, {3.829935354220449*^9, 3.829935357586101*^9}}],
 
+Cell["\<\
+Modified basis (note: H4 was printed above) :\
+\>", "Text",
+ CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
+  3.823011528688262*^9, 3.823011549857715*^9}, {3.8302660893207617`*^9, 
+  3.83026612249611*^9}, {3.830266728600277*^9, 3.830266731711629*^9}, {
+  3.830266773176055*^9, 3.830266774338895*^9}, {3.830820374296001*^9, 
+  3.830820376271624*^9}, {3.8308243050778017`*^9, 3.830824311669794*^9}, {
+  3.830964673304504*^9, 3.830964674021248*^9}, {3.830974003940374*^9, 
+  3.830974004127091*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   StyleBox["basisH",
+    FontColor->GrayLevel[0]], 
+   StyleBox["=",
+    FontColor->GrayLevel[0]], 
+   RowBox[{
+    StyleBox["FullSimplify",
+     FontColor->GrayLevel[0]], 
+    StyleBox["[",
+     FontColor->GrayLevel[0]], 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Transpose", "[", "U", "]"}], ".", "#", ".", "U"}], "&"}], "/@",
+      "basisG"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "[", "U", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "[", 
+  RowBox[{"N", "[", 
+   StyleBox[
+    RowBox[{"basisH", "[", 
+     RowBox[{"[", "ipick", "]"}], "]"}],
+    FontColor->GrayLevel[0]], 
+   StyleBox["]",
+    FontColor->GrayLevel[0]]}], 
+  StyleBox["]",
+   FontColor->GrayLevel[0]]}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "/@", 
+  RowBox[{"(", 
+   RowBox[{"1.", "basisH"}], ")"}]}]}], "Input",
+ CellChangeTimes->{{3.830819952475648*^9, 3.8308199558452883`*^9}, {
+  3.830820364012745*^9, 3.830820364396202*^9}, {3.830820419737142*^9, 
+  3.830820420006569*^9}, {3.8308240435231667`*^9, 3.830824074082494*^9}, {
+  3.830824290276025*^9, 3.830824295923355*^9}, {3.830964697000388*^9, 
+  3.8309647844375477`*^9}, {3.830964835459257*^9, 3.830964836808649*^9}, {
+  3.830966708147476*^9, 3.8309667085897293`*^9}, {3.8309684595456867`*^9, 
+  3.830968461920368*^9}, {3.8309717639275303`*^9, 3.830971769844884*^9}}],
+
+Cell["\<\
+Compute the matrix of the elastic map T (reference orientation) :\
+\>", "Text",
+ CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
+  3.823011528688262*^9, 3.823011549857715*^9}, {3.8302660893207617`*^9, 
+  3.83026612249611*^9}, {3.830266728600277*^9, 3.830266731711629*^9}, {
+  3.830266773176055*^9, 3.830266774338895*^9}, {3.830820374296001*^9, 
+  3.830820376271624*^9}, {3.8308243050778017`*^9, 3.830824311669794*^9}, {
+  3.830964673304504*^9, 3.830964674021248*^9}, {3.830972027815652*^9, 
+  3.830972030726781*^9}, {3.8309721452870398`*^9, 3.830972153830592*^9}, {
+  3.830972284543359*^9, 3.830972291190319*^9}, {3.830973819422799*^9, 
+  3.830973821163808*^9}}],
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"Ubar", " ", "=", 
@@ -666,12 +737,8 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"Print", "[", 
    RowBox[{"\"\<Ubar = \>\"", ",", 
-    RowBox[{"MatrixForm", "[", "Ubar", "]"}]}], "]"}], ";"}]}], "Input",
- CellChangeTimes->{{3.82982781143981*^9, 3.829827830807839*^9}, {
-  3.829837519673523*^9, 3.829837522528144*^9}, {3.8299139229158907`*^9, 
-  3.829913923517959*^9}}],
-
-Cell[BoxData[{
+    RowBox[{"MatrixForm", "[", "Ubar", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"T", " ", "=", 
    RowBox[{"FullSimplify", "[", 
@@ -685,14 +752,14 @@ Cell[BoxData[{
      RowBox[{"5", " ", "T"}], "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Print", "[", 
-   RowBox[{"\"\<T = \!\(\*FractionBox[\(1\), \(5\)]\)\>\"", ",", 
+   RowBox[{"\"\<T = \>\"", ",", 
     RowBox[{"MatrixForm", "[", 
-     RowBox[{"N", "[", 
-      RowBox[{"5", " ", "T"}], "]"}], "]"}]}], "]"}], ";"}]}], "Input",
+     RowBox[{"N", "[", "T", "]"}], "]"}]}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.8298278726090317`*^9, 3.8298279239019547`*^9}, {
   3.8298280210783043`*^9, 3.829828039748643*^9}, {3.8298397717183723`*^9, 
   3.829839813104558*^9}, {3.829913960637534*^9, 3.829913965249241*^9}, {
-  3.829931322351025*^9, 3.8299313307309217`*^9}}],
+  3.829931322351025*^9, 3.8299313307309217`*^9}, {3.830973758027257*^9, 
+  3.830973762112793*^9}, {3.8309742498378973`*^9, 3.830974250444428*^9}}],
 
 Cell["\<\
 Custom plotting features for ShowBalls :\
@@ -944,8 +1011,8 @@ Cell[BoxData[{
    3.830394312036338*^9, 3.830394330135964*^9}}]
 }, Open  ]]
 },
-WindowSize->{1249, 743},
-WindowMargins->{{Automatic, 479}, {Automatic, 14}},
+WindowSize->{1301, 932},
+WindowMargins->{{Automatic, 28}, {Automatic, -22}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -983,38 +1050,40 @@ Cell[15947, 393, 196, 2, 31, "Text"],
 Cell[16146, 397, 307, 7, 32, "Input"],
 Cell[16456, 406, 308, 4, 31, "Text"],
 Cell[16767, 412, 336, 6, 32, "Input"],
-Cell[17106, 420, 417, 7, 31, "Text"],
-Cell[17526, 429, 660, 10, 31, "Text"],
-Cell[18189, 441, 1092, 18, 55, "Input"],
-Cell[19284, 461, 664, 10, 31, "Text"],
-Cell[19951, 473, 628, 20, 117, "Input"],
-Cell[20582, 495, 607, 9, 31, "Text"],
-Cell[21192, 506, 1665, 35, 143, "Input"],
-Cell[22860, 543, 733, 12, 51, "Text"],
-Cell[23596, 557, 1128, 25, 55, "Input"],
-Cell[24727, 584, 1593, 34, 99, "Input"],
-Cell[26323, 620, 482, 6, 31, "Text"],
-Cell[26808, 628, 1428, 29, 94, "Input"],
-Cell[28239, 659, 481, 12, 55, "Input"],
-Cell[28723, 673, 925, 21, 128, "Input"],
-Cell[29651, 696, 278, 5, 31, "Text"],
-Cell[29932, 703, 2819, 59, 187, "Input"],
-Cell[32754, 764, 322, 6, 31, "Text"],
-Cell[33079, 772, 1654, 30, 99, "Input"],
-Cell[34736, 804, 532, 9, 51, "Text"]
+Cell[17106, 420, 458, 7, 31, "Text"],
+Cell[17567, 429, 660, 10, 31, "Text"],
+Cell[18230, 441, 690, 15, 77, "Input"],
+Cell[18923, 458, 664, 10, 31, "Text"],
+Cell[19590, 470, 1043, 31, 139, "Input"],
+Cell[20636, 503, 607, 9, 31, "Text"],
+Cell[21246, 514, 1665, 35, 143, "Input"],
+Cell[22914, 551, 733, 12, 51, "Text"],
+Cell[23650, 565, 1128, 25, 55, "Input"],
+Cell[24781, 592, 1593, 34, 99, "Input"],
+Cell[26377, 628, 482, 6, 31, "Text"],
+Cell[26862, 636, 1428, 29, 94, "Input"],
+Cell[28293, 667, 524, 9, 31, "Text"],
+Cell[28820, 678, 1392, 37, 99, "Input"],
+Cell[30215, 717, 690, 11, 31, "Text"],
+Cell[30908, 730, 1280, 31, 147, "Input"],
+Cell[32191, 763, 278, 5, 31, "Text"],
+Cell[32472, 770, 2819, 59, 165, "Input"],
+Cell[35294, 831, 322, 6, 31, "Text"],
+Cell[35619, 839, 1654, 30, 99, "Input"],
+Cell[37276, 871, 532, 9, 51, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[35305, 818, 672, 11, 35, "Subsubsection"],
-Cell[35980, 831, 305, 6, 55, "Input"],
-Cell[36288, 839, 748, 21, 77, "Input"]
+Cell[37845, 885, 672, 11, 35, "Subsubsection"],
+Cell[38520, 898, 305, 6, 55, "Input"],
+Cell[38828, 906, 748, 21, 77, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[37073, 865, 887, 13, 35, "Subsubsection"],
-Cell[37963, 880, 1268, 27, 77, "Input"]
+Cell[39613, 932, 887, 13, 35, "Subsubsection"],
+Cell[40503, 947, 1268, 27, 77, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[39268, 912, 899, 12, 35, "Subsubsection"],
-Cell[40170, 926, 967, 17, 55, "Input"]
+Cell[41808, 979, 899, 12, 35, "Subsubsection"],
+Cell[42710, 993, 967, 17, 55, "Input"]
 }, Open  ]]
 }
 ]
