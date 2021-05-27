@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     94328,       2346]
-NotebookOptionsPosition[     90494,       2230]
-NotebookOutlinePosition[     90829,       2245]
-CellTagsIndexPosition[     90786,       2242]
+NotebookDataLength[    110516,       2705]
+NotebookOptionsPosition[    106225,       2576]
+NotebookOutlinePosition[    106562,       2591]
+CellTagsIndexPosition[    106519,       2588]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -26,13 +26,14 @@ Equation/section/figure numbers are from the paper.
 version: May 17, 2021
 
 Evaluate common_funs.nb and then common_MTfuns.nb before running this notebook.
-See also notebooks elastic_mapping_XXXX.nb for the examples in Section 15.
+See also notebooks elastic_mapping_exX_XXXX.nb for the examples in Section 15.
 \
 \>", "Subsubsection",
  CellChangeTimes->{{3.823395561256716*^9, 3.823395597101345*^9}, 
    3.8233986511201973`*^9, {3.829239841508174*^9, 3.829239887023471*^9}, {
    3.8292401146810503`*^9, 3.829240120992628*^9}, {3.8298243059093733`*^9, 
-   3.829824312759672*^9}, {3.830281519760976*^9, 3.830281544582182*^9}}],
+   3.829824312759672*^9}, {3.830281519760976*^9, 3.830281544582182*^9}, {
+   3.8311161931833076`*^9, 3.8311161949648533`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -352,12 +353,6 @@ Cell["Equation 2", "Subsubsection",
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"Print", "[", 
-   RowBox[{"DateSequence", "[", 
-    RowBox[{
-     RowBox[{"DateList", "[", "]"}], ",", "\"\<yes\>\""}], "]"}], "]"}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
   RowBox[{"Clear", "[", "c", "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -421,7 +416,7 @@ Cell[BoxData[{
     FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}]}], "Input",
  CellChangeTimes->{{3.8292470227075977`*^9, 3.8292470472992077`*^9}, {
   3.8292498384683437`*^9, 3.829249890206977*^9}, {3.8292499578118973`*^9, 
-  3.8292499720658517`*^9}}]
+  3.8292499720658517`*^9}, {3.831115969562543*^9, 3.831115970348872*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -892,6 +887,14 @@ Cell[BoxData[{
       "own", " ", "E"}]}],
     FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"Fvec", "=", 
+   RowBox[{"Tmat", ".", 
+    RowBox[{"BBcoords", "[", "Emat", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Fmat", "=", 
+   RowBox[{"MatrixFromBBcoords", "[", "Fvec", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
    RowBox[{"Print", "[", 
     RowBox[{"\"\<[T\!\(\*SubscriptBox[\(]\), \(BB\)]\) = \>\"", ",", 
@@ -933,11 +936,9 @@ FontSize->14]]\) = \>\"", ",",
     RowBox[{"FullSimplify", "[", 
      RowBox[{
       StyleBox["denominator",
-       FontColor->RGBColor[1, 0, 0]], 
+       FontColor->GrayLevel[0]], 
       StyleBox[" ",
-       FontColor->RGBColor[1, 0, 0]], 
-      RowBox[{"Tmat", ".", 
-       RowBox[{"BBcoords", "[", "Emat", "]"}]}]}], "]"}]}], "]"}], 
+       FontColor->RGBColor[1, 0, 0]], "Fmat"}], "]"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{"Print", "[", 
   RowBox[{"\"\<T(E) = \>\"", ",", 
@@ -946,13 +947,11 @@ FontSize->14]]\) = \>\"", ",",
     RowBox[{"FullSimplify", "[", 
      RowBox[{
       StyleBox["denominator",
-       FontColor->RGBColor[1, 0, 0]], 
+       FontColor->GrayLevel[0]], 
       StyleBox[" ",
        FontColor->RGBColor[1, 0, 0]], 
-      RowBox[{"MatrixFromBBcoords", "[", 
-       RowBox[{"Tmat", ".", 
-        RowBox[{"BBcoords", "[", "Emat", "]"}]}], "]"}]}], "]"}], "]"}]}], 
-  "]"}]}], "Input",
+      StyleBox["Fmat",
+       FontColor->GrayLevel[0]]}], "]"}], "]"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.784485753063143*^9, 3.784485840109955*^9}, {
    3.784486154112197*^9, 3.7844862106623316`*^9}, {3.7844898567201667`*^9, 
    3.7844898853498583`*^9}, {3.7844902337576303`*^9, 
@@ -1009,7 +1008,362 @@ FontSize->14]]\) = \>\"", ",",
    3.8228445219744887`*^9, 3.822844587477478*^9}, {3.823014323040011*^9, 
    3.823014329767253*^9}, {3.8230144121705246`*^9, 3.8230144281450987`*^9}, {
    3.829234040415694*^9, 3.829234059604354*^9}, {3.8292341181163692`*^9, 
-   3.829234120146386*^9}, {3.830345749350686*^9, 3.830345754297881*^9}}]
+   3.829234120146386*^9}, {3.830345749350686*^9, 3.830345754297881*^9}, {
+   3.831124784588636*^9, 3.831124825367519*^9}, {3.831125493788682*^9, 
+   3.8311255584868107`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Section 2.2.2 [optional] : visualizing the input and output beachballs\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.784485966855825*^9, 3.7844860394164658`*^9}, {
+   3.784486274471085*^9, 3.7844862754085846`*^9}, {3.7844900486130314`*^9, 
+   3.784490053691377*^9}, {3.784490156711029*^9, 3.7844901920340133`*^9}, 
+   3.784490283004094*^9, {3.7860464312100005`*^9, 3.78604646673001*^9}, {
+   3.7867559416570377`*^9, 3.786755947977048*^9}, {3.7867622442813787`*^9, 
+   3.7867622447933755`*^9}, {3.7875042934553957`*^9, 
+   3.7875043187264433`*^9}, {3.8094017037826767`*^9, 3.8094017291427574`*^9}, 
+   3.82284475685247*^9, {3.823014467466748*^9, 3.8230144692648273`*^9}, {
+   3.8230145172388773`*^9, 3.8230145382989864`*^9}, {3.823395639305503*^9, 
+   3.8233956406158333`*^9}, {3.8293319731901197`*^9, 3.829331975374164*^9}, {
+   3.831134949381502*^9, 3.83113496713999*^9}}],
+
+Cell["Eigenvalues and norms :", "Text",
+ CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
+  3.823011528688262*^9, 3.823011549857715*^9}, {3.8302660893207617`*^9, 
+  3.83026612249611*^9}, {3.830266728600277*^9, 3.830266731711629*^9}, {
+  3.830266773176055*^9, 3.830266774338895*^9}, {3.831133744859105*^9, 
+  3.831133745178101*^9}, {3.8311346002604103`*^9, 3.8311346523733387`*^9}, {
+  3.831135007117797*^9, 3.831135027648512*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"1.", 
+  RowBox[{
+  "\[CapitalLambda]ofMnotNormalized", "[", "Emat", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"1.", 
+  RowBox[{
+  "\[CapitalLambda]ofMnotNormalized", "[", "Fmat", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"NormMatrix", "[", 
+  RowBox[{"1.", "Emat"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"NormMatrix", "[", 
+  RowBox[{"1.", "Fmat"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"GEvals", ",", "GEvecs"}], "}"}], "=", 
+     RowBox[{"FullSimplify", "[", 
+      RowBox[{"Eigensystem", "[", "Fmat", "]"}], "]"}]}], ";"}], " ", 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.831130899531124*^9, 3.8311309330022326`*^9}, 
+   3.831131027673217*^9, {3.8311316375793285`*^9, 3.8311316446663294`*^9}, {
+   3.831135020158161*^9, 3.831135049204363*^9}}],
+
+Cell["\<\
+Plot a beachball for the input E (strain) :
+(We perturb the beachball to emphasize that it is NOT an isotropic beachball.)\
+\>", "Text",
+ CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
+  3.823011528688262*^9, 3.823011549857715*^9}, {3.8302660893207617`*^9, 
+  3.83026612249611*^9}, {3.830266728600277*^9, 3.830266731711629*^9}, {
+  3.830266773176055*^9, 3.830266774338895*^9}, {3.831133744859105*^9, 
+  3.831133745178101*^9}, {3.8311346002604103`*^9, 3.8311346523733387`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  StyleBox[
+   RowBox[{"mat3x3", "=", "Emat"}],
+   FontColor->RGBColor[1, 0, 0]], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eye", "=", 
+   RowBox[{"30", 
+    RowBox[{"xyztp", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "30"}], ",", "65"}], "}"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tkns", "=", ".013"}], ";", 
+  RowBox[{"BBrad", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ArrowScale", "=", ".2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", "\[Epsilon]In", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Epsilon]In", "  ", "=", 
+   RowBox[{"-", "1.015"}]}], ";", "   ", 
+  RowBox[{"(*", " ", 
+   StyleBox[
+    RowBox[{"For", " ", 
+     RowBox[{"Emat", ".", " ", "Get"}], " ", "from", " ", "its", " ", 
+     RowBox[{"eigenvaues", ".", "  ", "Make"}], " ", "zero", " ", "if", " ", 
+     "you", " ", "do", " ", "not", " ", "want", " ", "to", " ", "perturb", 
+     " ", "the", " ", "beachball"}],
+    FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+  "PrintEye", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<BBrad = \>\"", ",", "BBrad"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"\[Epsilon]In", "\[NotEqual]", "0."}], ",", 
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<The beachball is \!\(\*\n\
+StyleBox[\\\"perturbed\\\",\\nFontColor->RGBColor[1, 0, 0]]\),   \
+\[CapitalLambda] + \[Epsilon](1,1,1) = \>\"", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"PaddedForm", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"{", 
+           RowBox[{"5", ",", "3"}], "}"}]}], "]"}], "&"}], "/@", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"\[CapitalLambda]ofMnotNormalized", "[", "mat3x3", "]"}], 
+         "+", 
+         RowBox[{"\[Epsilon]In", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "1", ",", "1"}], "}"}]}]}], ")"}]}], ",", 
+      "\"\<,   \[Epsilon]In  = \>\"", ",", "\[Epsilon]In"}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<mat3x3 = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", "mat3x3", "]"}], ",", 
+    "\"\<,  but the beachball is not scaled\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"BeachballForM", "[", 
+      RowBox[{
+       RowBox[{"1.", 
+        RowBox[{"PerturbMatrix", "[", 
+         RowBox[{"mat3x3", ",", "\[Epsilon]In"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"NormMatrix", "[", "mat3x3", "]"}], "*)"}], "BBrad"}], "]"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"Paxes", "[", 
+      RowBox[{"True", ",", 
+       StyleBox["False",
+        FontColor->RGBColor[1, 0, 0]], 
+       StyleBox[",",
+        FontColor->RGBColor[1, 0, 0]], 
+       StyleBox["False",
+        FontColor->RGBColor[1, 0, 0]], ",", 
+       RowBox[{
+        RowBox[{"Uraw", "[", "mat3x3", "]"}], ".", 
+        RowBox[{"XRot", "[", "\[Pi]", "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"1.5", "BBrad"}], ",", "BBrad", ",", "ArrowScale", ",", 
+       RowBox[{".8", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
+      "]"}]}], " ", "\[IndentingNewLine]", "}"}], ",", 
+   RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "300"}], ",", 
+   RowBox[{"ViewPoint", "\[Rule]", "eye"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.831125423096257*^9, 3.831125425156006*^9}, {
+   3.831125645552698*^9, 3.831125698428095*^9}, {3.8311290957090025`*^9, 
+   3.831129167449684*^9}, {3.831129431113014*^9, 3.8311294321057615`*^9}, {
+   3.8311295684593554`*^9, 3.8311296246521587`*^9}, {3.8311296614330435`*^9, 
+   3.831129663977043*^9}, {3.831129811769062*^9, 3.831129836425065*^9}, {
+   3.831129998633086*^9, 3.8311301040730996`*^9}, {3.831130410429171*^9, 
+   3.8311304742651463`*^9}, {3.8311305143131514`*^9, 
+   3.8311305154500628`*^9}, {3.8311305607931576`*^9, 3.831130653543282*^9}, {
+   3.8311307190297966`*^9, 3.8311307736112194`*^9}, {3.8311309419152403`*^9, 
+   3.831130944539238*^9}, {3.83113098857224*^9, 3.831131036889218*^9}, {
+   3.8311310745882397`*^9, 3.831131109977227*^9}, 3.831131143913231*^9, 
+   3.8311311838828487`*^9, {3.831131227785242*^9, 3.831131256745246*^9}, {
+   3.83113129204125*^9, 3.8311313208572536`*^9}, {3.831131429802594*^9, 
+   3.8311314328908696`*^9}, {3.831131483671266*^9, 3.8311316193233204`*^9}, {
+   3.831131660444327*^9, 3.8311317209053125`*^9}, {3.831131820585249*^9, 
+   3.8311318390173197`*^9}, {3.831132436377613*^9, 3.831132453611096*^9}, {
+   3.83113255780179*^9, 3.8311325955912237`*^9}, 3.831132649699299*^9, {
+   3.831132701484988*^9, 3.8311327058991103`*^9}, {3.831132740568945*^9, 
+   3.8311328035631104`*^9}, {3.8311328346205606`*^9, 
+   3.8311328352560787`*^9}, {3.831132919051882*^9, 3.831133008460001*^9}, {
+   3.8311330475774317`*^9, 3.8311330607151594`*^9}, {3.8311331611485786`*^9, 
+   3.831133334780611*^9}, {3.8311335966346655`*^9, 3.831133613145096*^9}, {
+   3.831133678635686*^9, 3.831133695577468*^9}, {3.831134507178109*^9, 
+   3.831134507641377*^9}, {3.831134701680153*^9, 3.831134711731854*^9}, {
+   3.8311347801734858`*^9, 3.831134816696011*^9}, {3.831134858556459*^9, 
+   3.831134890541*^9}, {3.831135691276381*^9, 3.831135724252001*^9}, 
+   3.831135812971092*^9}],
+
+Cell["\<\
+Plot a beachball for the output F (stress) :
+(We perturb the beachball to emphasize that it is NOT an isotropic beachball.)\
+\>", "Text",
+ CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
+  3.823011528688262*^9, 3.823011549857715*^9}, {3.8302660893207617`*^9, 
+  3.83026612249611*^9}, {3.830266728600277*^9, 3.830266731711629*^9}, {
+  3.830266773176055*^9, 3.830266774338895*^9}, {3.831133744859105*^9, 
+  3.831133745178101*^9}, {3.8311346002604103`*^9, 3.831134682125046*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  StyleBox[
+   RowBox[{"mat3x3", "=", "Fmat"}],
+   FontColor->RGBColor[1, 0, 0]], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Clear", "[", "\[Epsilon]In", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Epsilon]In", "  ", "=", 
+   RowBox[{"-", "1.21"}]}], ";", "   ", 
+  RowBox[{"(*", " ", 
+   StyleBox[
+    RowBox[{"For", " ", 
+     RowBox[{"Fmat", "."}]}],
+    FontColor->RGBColor[1, 0, 0]], 
+   StyleBox[" ",
+    FontColor->RGBColor[1, 0, 0]], "*)"}], "\[IndentingNewLine]", "PrintEye", 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<BBrad = \>\"", ",", "BBrad"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"\[Epsilon]In", "\[NotEqual]", "0."}], ",", 
+    RowBox[{"Print", "[", 
+     RowBox[{
+     "\"\<The beachball is \!\(\*\n\
+StyleBox[\\\"perturbed\\\",\\nFontColor->RGBColor[1, 0, 0]]\),   \
+\[CapitalLambda] + \[Epsilon](1,1,1) = \>\"", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"PaddedForm", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"{", 
+           RowBox[{"5", ",", "3"}], "}"}]}], "]"}], "&"}], "/@", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"\[CapitalLambda]ofMnotNormalized", "[", "mat3x3", "]"}], 
+         "+", 
+         RowBox[{"\[Epsilon]In", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "1", ",", "1"}], "}"}]}]}], ")"}]}], ",", 
+      "\"\<,   \[Epsilon]In  = \>\"", ",", "\[Epsilon]In"}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<mat3x3 = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", "mat3x3", "]"}], ",", 
+    "\"\<,  but the beachball is not scaled\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"BeachballForM", "[", 
+      RowBox[{
+       RowBox[{"1.", 
+        RowBox[{"PerturbMatrix", "[", 
+         RowBox[{"mat3x3", ",", "\[Epsilon]In"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"NormMatrix", "[", "mat3x3", "]"}], "*)"}], "BBrad"}], "]"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"Paxes", "[", 
+      RowBox[{"True", ",", 
+       StyleBox["True",
+        FontColor->RGBColor[1, 0, 0]], 
+       StyleBox[",",
+        FontColor->RGBColor[1, 0, 0]], 
+       StyleBox["True",
+        FontColor->RGBColor[1, 0, 0]], ",", 
+       RowBox[{
+        RowBox[{"Uraw", "[", "mat3x3", "]"}], ".", 
+        RowBox[{"XRot", "[", "\[Pi]", "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"1.5", "BBrad"}], ",", "BBrad", ",", "ArrowScale", ",", 
+       RowBox[{".8", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
+      "]"}]}], " ", "\[IndentingNewLine]", "}"}], ",", 
+   RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "300"}], ",", 
+   RowBox[{"ViewPoint", "\[Rule]", "eye"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.831125423096257*^9, 3.831125425156006*^9}, {
+   3.831125645552698*^9, 3.831125698428095*^9}, {3.8311290957090025`*^9, 
+   3.831129167449684*^9}, {3.831129431113014*^9, 3.8311294321057615`*^9}, {
+   3.8311295684593554`*^9, 3.8311296246521587`*^9}, {3.8311296614330435`*^9, 
+   3.831129663977043*^9}, {3.831129811769062*^9, 3.831129836425065*^9}, {
+   3.831129998633086*^9, 3.8311301040730996`*^9}, {3.831130410429171*^9, 
+   3.8311304742651463`*^9}, {3.8311305143131514`*^9, 
+   3.8311305154500628`*^9}, {3.8311305607931576`*^9, 3.831130653543282*^9}, {
+   3.8311307190297966`*^9, 3.8311307736112194`*^9}, {3.8311309419152403`*^9, 
+   3.831130944539238*^9}, {3.83113098857224*^9, 3.831131036889218*^9}, {
+   3.8311310745882397`*^9, 3.831131109977227*^9}, 3.831131143913231*^9, 
+   3.8311311838828487`*^9, {3.831131227785242*^9, 3.831131256745246*^9}, {
+   3.83113129204125*^9, 3.8311313208572536`*^9}, {3.831131429802594*^9, 
+   3.8311314328908696`*^9}, {3.831131483671266*^9, 3.8311316193233204`*^9}, {
+   3.831131660444327*^9, 3.8311317209053125`*^9}, {3.831131820585249*^9, 
+   3.8311318390173197`*^9}, {3.831132436377613*^9, 3.831132453611096*^9}, {
+   3.83113255780179*^9, 3.8311325955912237`*^9}, 3.831132649699299*^9, {
+   3.831132701484988*^9, 3.8311327058991103`*^9}, {3.831132740568945*^9, 
+   3.8311328035631104`*^9}, {3.8311328346205606`*^9, 
+   3.8311328352560787`*^9}, {3.831132919051882*^9, 3.831133008460001*^9}, {
+   3.8311330475774317`*^9, 3.8311330607151594`*^9}, {3.8311331611485786`*^9, 
+   3.831133334780611*^9}, {3.8311335966346655`*^9, 3.831133613145096*^9}, {
+   3.831133678635686*^9, 3.831133695577468*^9}, {3.831134507178109*^9, 
+   3.831134507641377*^9}, {3.831134718713263*^9, 3.831134745748781*^9}, {
+   3.831135400664568*^9, 3.831135431232826*^9}, {3.831135602381033*^9, 
+   3.831135617907707*^9}, {3.8311357387331142`*^9, 3.831135809506493*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Section 2.2.2 [optional] : Voigt matrix (cijkl) for the example\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.784485966855825*^9, 3.7844860394164658`*^9}, {
+   3.784486274471085*^9, 3.7844862754085846`*^9}, {3.7844900486130314`*^9, 
+   3.784490053691377*^9}, {3.784490156711029*^9, 3.7844901920340133`*^9}, 
+   3.784490283004094*^9, {3.7860464312100005`*^9, 3.78604646673001*^9}, {
+   3.7867559416570377`*^9, 3.786755947977048*^9}, {3.7867622442813787`*^9, 
+   3.7867622447933755`*^9}, {3.7875042934553957`*^9, 
+   3.7875043187264433`*^9}, {3.8094017037826767`*^9, 3.8094017291427574`*^9}, 
+   3.82284475685247*^9, {3.823014467466748*^9, 3.8230144692648273`*^9}, {
+   3.8230145172388773`*^9, 3.8230145382989864`*^9}, {3.823395639305503*^9, 
+   3.8233956406158333`*^9}, {3.8293319731901197`*^9, 3.829331975374164*^9}, {
+   3.831134949381502*^9, 3.83113496713999*^9}, {3.831135162165905*^9, 
+   3.8311351759427547`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<A given matrix [T\!\(\*SubscriptBox[\"]\", 
+StyleBox[\"\[DoubleStruckCapitalB]\[DoubleStruckCapitalB]\",
+FontSize->12]]\) is \>\"", ",", 
+     RowBox[{"MatrixForm", "[", "Tmat", "]"}]}], " ", "]"}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Print", "[", 
+    RowBox[{"\"\<The Voigt matrix for the same T is \>\"", ",", 
+     RowBox[{"MatrixForm", "[", 
+      RowBox[{"FullSimplify", "[", 
+       RowBox[{"CmatOfTmat", "[", "Tmat", "]"}], "]"}], "]"}]}], "]"}], ";"}],
+   " "}]}], "Input",
+ CellChangeTimes->{{3.831135213753593*^9, 3.8311352161086187`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1417,9 +1771,7 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["\<\
-Equations 148b, 160 (Theorem 17)\
-\>", "Subsubsection",
+Cell["Equations 148b, 160 (Theorem 17)", "Subsubsection",
  CellChangeTimes->{{3.8073040598693795`*^9, 3.8073040783263817`*^9}, {
    3.8074582942787724`*^9, 3.8074583087338605`*^9}, {3.8076345900081215`*^9, 
    3.8076345929680567`*^9}, {3.8083201202076893`*^9, 
@@ -1544,9 +1896,7 @@ Cell[BoxData[{
    3.8303496753972187`*^9, 3.83034967583001*^9}, {3.8303497106152267`*^9, 
    3.830349711088723*^9}}],
 
-Cell["\<\
-Reorder eigenvectors and eigenvalues to match the paper.\
-\>", "Text",
+Cell["Reorder eigenvectors and eigenvalues to match the paper.", "Text",
  CellChangeTimes->{{3.823011313104916*^9, 3.8230113906961527`*^9}, 
    3.829761199298924*^9, {3.8297618054993134`*^9, 3.829761810285828*^9}, {
    3.829824366685021*^9, 3.829824368773164*^9}, {3.829826840185865*^9, 
@@ -2065,9 +2415,7 @@ Cell[BoxData[{
    3.8230069812570815`*^9, 3.8230070076612835`*^9}, {3.8230100562248244`*^9, 
    3.823010061023743*^9}}],
 
-Cell["\<\
-Custom plotting features for ShowBalls :\
-\>", "Text",
+Cell["Custom plotting features for ShowBalls :", "Text",
  CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
   3.823011528688262*^9, 3.823011549857715*^9}, {3.8302660893207617`*^9, 
   3.830266098523676*^9}, {3.830266718800262*^9, 3.8302667195385847`*^9}}],
@@ -2132,9 +2480,7 @@ Cell[BoxData[{
    3.830266653797977*^9, 3.830266654769516*^9}, {3.830267224618827*^9, 
    3.830267227313549*^9}, {3.830342845720648*^9, 3.830342881586296*^9}}],
 
-Cell["\<\
-Main commands to plot six beachballs :\
-\>", "Text",
+Cell["Main commands to plot six beachballs :", "Text",
  CellChangeTimes->{{3.823009967025115*^9, 3.823010016929533*^9}, {
   3.823011528688262*^9, 3.823011549857715*^9}, {3.8302660893207617`*^9, 
   3.83026612249611*^9}, {3.830266728600277*^9, 3.830266731711629*^9}, {
@@ -2228,8 +2574,8 @@ Cell[BoxData[{
    3.829934930074991*^9, 3.829934931275535*^9}, 3.830389318490815*^9}]
 }, Open  ]]
 },
-WindowSize->{1218, 743},
-WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+WindowSize->{1365, 882},
+WindowMargins->{{Automatic, 76}, {26, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -2244,109 +2590,122 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 701, 14, 205, "Subsubsection"],
+Cell[558, 20, 759, 15, 205, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[1284, 38, 224, 4, 29, "Subsubsection"],
-Cell[1511, 44, 5242, 164, 231, "Input"],
-Cell[6756, 210, 5371, 133, 187, "Input"]
+Cell[1342, 39, 224, 4, 29, "Subsubsection"],
+Cell[1569, 45, 5242, 164, 231, "Input"],
+Cell[6814, 211, 5371, 133, 165, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12164, 348, 154, 2, 35, "Subsubsection"],
-Cell[12321, 352, 2357, 71, 143, "Input"]
+Cell[12222, 349, 154, 2, 35, "Subsubsection"],
+Cell[12379, 353, 2215, 65, 121, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14715, 428, 867, 12, 35, "Subsubsection"],
-Cell[15585, 442, 278, 4, 32, "Input"]
+Cell[14631, 423, 867, 12, 35, "Subsubsection"],
+Cell[15501, 437, 278, 4, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15900, 451, 861, 19, 63, "Subsubsection"],
-Cell[16764, 472, 9247, 215, 320, "Input"],
-Cell[26014, 689, 3846, 57, 105, "Input"]
+Cell[15816, 446, 861, 19, 63, "Subsubsection"],
+Cell[16680, 467, 9247, 215, 298, "Input"],
+Cell[25930, 684, 3846, 57, 105, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[29897, 751, 822, 11, 35, "Subsubsection"],
-Cell[30722, 764, 776, 20, 63, "Input"],
-Cell[31501, 786, 723, 16, 103, "Input"]
+Cell[29813, 746, 822, 11, 35, "Subsubsection"],
+Cell[30638, 759, 776, 20, 63, "Input"],
+Cell[31417, 781, 723, 16, 65, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[32261, 807, 768, 10, 35, "Subsubsection"],
-Cell[33032, 819, 1419, 39, 114, "Input"],
-Cell[34454, 860, 7390, 151, 280, "Input"]
+Cell[32177, 802, 768, 10, 35, "Subsubsection"],
+Cell[32948, 814, 1419, 39, 114, "Input"],
+Cell[34370, 855, 7598, 157, 323, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[41881, 1016, 944, 15, 35, "Subsubsection"],
-Cell[42828, 1033, 681, 18, 55, "Input"],
-Cell[43512, 1053, 114, 1, 31, "Text"],
-Cell[43629, 1056, 598, 16, 32, "Input"],
-Cell[44230, 1074, 221, 4, 32, "Input"],
-Cell[44454, 1080, 1001, 29, 165, "Input"],
-Cell[45458, 1111, 402, 9, 32, "Input"],
-Cell[45863, 1122, 374, 7, 31, "Text"],
-Cell[46240, 1131, 921, 20, 55, "Input"],
-Cell[47164, 1153, 105, 1, 31, "Text"],
-Cell[47272, 1156, 618, 17, 32, "Input"]
+Cell[42005, 1017, 882, 13, 35, "Subsubsection"],
+Cell[42890, 1032, 447, 6, 31, "Text"],
+Cell[43340, 1040, 870, 24, 121, "Input"],
+Cell[44213, 1066, 505, 8, 51, "Text"],
+Cell[44721, 1076, 5673, 127, 363, "Input"],
+Cell[50397, 1205, 504, 8, 51, "Text"],
+Cell[50904, 1215, 5069, 112, 297, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[47927, 1178, 889, 12, 35, "Subsubsection"],
-Cell[48819, 1192, 399, 9, 32, "Input"]
+Cell[56010, 1332, 927, 14, 35, "Subsubsection"],
+Cell[56940, 1348, 667, 17, 55, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[49255, 1206, 963, 17, 37, "Subsubsection"],
-Cell[50221, 1225, 605, 15, 77, "Input"],
-Cell[50829, 1242, 367, 9, 77, "Input"]
+Cell[57644, 1370, 944, 15, 35, "Subsubsection"],
+Cell[58591, 1387, 681, 18, 55, "Input"],
+Cell[59275, 1407, 114, 1, 31, "Text"],
+Cell[59392, 1410, 598, 16, 32, "Input"],
+Cell[59993, 1428, 221, 4, 32, "Input"],
+Cell[60217, 1434, 1001, 29, 165, "Input"],
+Cell[61221, 1465, 402, 9, 32, "Input"],
+Cell[61626, 1476, 374, 7, 31, "Text"],
+Cell[62003, 1485, 921, 20, 55, "Input"],
+Cell[62927, 1507, 105, 1, 31, "Text"],
+Cell[63035, 1510, 618, 17, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[51233, 1256, 1056, 18, 35, "Subsubsection"],
-Cell[52292, 1276, 1156, 28, 143, "Input"],
-Cell[53451, 1306, 798, 17, 55, "Input"]
+Cell[63690, 1532, 889, 12, 35, "Subsubsection"],
+Cell[64582, 1546, 399, 9, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[54286, 1328, 662, 11, 83, "Subsubsection"],
-Cell[54951, 1341, 1678, 41, 143, "Input"],
-Cell[56632, 1384, 1104, 30, 123, "Input"]
+Cell[65018, 1560, 963, 17, 37, "Subsubsection"],
+Cell[65984, 1579, 605, 15, 77, "Input"],
+Cell[66592, 1596, 367, 9, 77, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[57773, 1419, 712, 11, 35, "Subsubsection"],
-Cell[58488, 1432, 1141, 22, 121, "Input"],
-Cell[59632, 1456, 898, 23, 101, "Input"]
+Cell[66996, 1610, 1056, 18, 35, "Subsubsection"],
+Cell[68055, 1630, 1156, 28, 143, "Input"],
+Cell[69214, 1660, 798, 17, 55, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[60567, 1484, 698, 9, 35, "Subsubsection"],
-Cell[61268, 1495, 1801, 49, 190, "Input"],
-Cell[63072, 1546, 493, 8, 31, "Text"],
-Cell[63568, 1556, 930, 19, 77, "Input"],
-Cell[64501, 1577, 397, 10, 33, "Text"],
-Cell[64901, 1589, 544, 11, 32, "Input"],
-Cell[65448, 1602, 201, 3, 32, "Input"],
-Cell[65652, 1607, 630, 16, 32, "Input"],
-Cell[66285, 1625, 861, 16, 77, "Input"],
-Cell[67149, 1643, 1224, 29, 159, "Input"],
-Cell[68376, 1674, 356, 6, 31, "Text"]
+Cell[70049, 1682, 662, 11, 83, "Subsubsection"],
+Cell[70714, 1695, 1678, 41, 143, "Input"],
+Cell[72395, 1738, 1104, 30, 123, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[68769, 1685, 709, 12, 84, "Subsubsection"],
-Cell[69481, 1699, 6753, 185, 289, "Input"],
-Cell[76237, 1886, 1012, 24, 55, "Input"],
-Cell[77252, 1912, 248, 4, 31, "Text"],
-Cell[77503, 1918, 919, 23, 55, "Input"],
-Cell[78425, 1943, 1720, 41, 143, "Input"],
-Cell[80148, 1986, 286, 5, 31, "Text"],
-Cell[80437, 1993, 272, 8, 32, "Input"],
-Cell[80712, 2003, 159, 2, 31, "Text"],
-Cell[80874, 2007, 720, 17, 32, "Input"],
-Cell[81597, 2026, 325, 7, 32, "Input"],
-Cell[81925, 2035, 180, 2, 31, "Text"],
-Cell[82108, 2039, 164, 2, 31, "Text"],
-Cell[82275, 2043, 935, 22, 79, "Input"],
-Cell[83213, 2067, 278, 5, 31, "Text"],
-Cell[83494, 2074, 2772, 58, 187, "Input"],
-Cell[86269, 2134, 322, 6, 31, "Text"],
-Cell[86594, 2142, 2004, 41, 121, "Input"],
-Cell[88601, 2185, 558, 9, 51, "Text"]
+Cell[73536, 1773, 704, 9, 35, "Subsubsection"],
+Cell[74243, 1784, 1141, 22, 121, "Input"],
+Cell[75387, 1808, 898, 23, 101, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[89196, 2199, 621, 10, 35, "Subsubsection"],
-Cell[89820, 2211, 658, 16, 99, "Input"]
+Cell[76322, 1836, 698, 9, 35, "Subsubsection"],
+Cell[77023, 1847, 1801, 49, 190, "Input"],
+Cell[78827, 1898, 485, 6, 31, "Text"],
+Cell[79315, 1906, 930, 19, 77, "Input"],
+Cell[80248, 1927, 397, 10, 33, "Text"],
+Cell[80648, 1939, 544, 11, 32, "Input"],
+Cell[81195, 1952, 201, 3, 32, "Input"],
+Cell[81399, 1957, 630, 16, 32, "Input"],
+Cell[82032, 1975, 861, 16, 77, "Input"],
+Cell[82896, 1993, 1224, 29, 159, "Input"],
+Cell[84123, 2024, 356, 6, 31, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[84516, 2035, 709, 12, 84, "Subsubsection"],
+Cell[85228, 2049, 6753, 185, 195, "Input"],
+Cell[91984, 2236, 1012, 24, 55, "Input"],
+Cell[92999, 2262, 248, 4, 31, "Text"],
+Cell[93250, 2268, 919, 23, 55, "Input"],
+Cell[94172, 2293, 1720, 41, 121, "Input"],
+Cell[95895, 2336, 286, 5, 31, "Text"],
+Cell[96184, 2343, 272, 8, 32, "Input"],
+Cell[96459, 2353, 159, 2, 31, "Text"],
+Cell[96621, 2357, 720, 17, 32, "Input"],
+Cell[97344, 2376, 325, 7, 32, "Input"],
+Cell[97672, 2385, 180, 2, 30, "Text"],
+Cell[97855, 2389, 164, 2, 31, "Text"],
+Cell[98022, 2393, 935, 22, 79, "Input"],
+Cell[98960, 2417, 270, 3, 31, "Text"],
+Cell[99233, 2422, 2772, 58, 165, "Input"],
+Cell[102008, 2482, 314, 4, 31, "Text"],
+Cell[102325, 2488, 2004, 41, 121, "Input"],
+Cell[104332, 2531, 558, 9, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[104927, 2545, 621, 10, 35, "Subsubsection"],
+Cell[105551, 2557, 658, 16, 99, "Input"]
 }, Open  ]]
 }
 ]
