@@ -9,6 +9,7 @@ if any([a b]~=3), error('U must be 3 x 3 x n'); end
 Uout = Uin;
 for ii=1:n
    U0 = Uout(:,:,ii);
+   if any(isnan(U0(:))), continue; end
    if det(U0) < 0
        %disp(sprintf('det(U) < 0: flipping sign of 2nd column (%i/%i)',ii,n));
        Uout(:,:,ii) = [U0(:,1) -U0(:,2) U0(:,3)];
@@ -28,6 +29,7 @@ end
 % check
 for ii=1:n
    U0 = Uout(:,:,ii);
+   if any(isnan(U0(:))), continue; end
    if det(U0) < 0
        detU = det(Uout(:,:,ii)) 
        UUt = Uout(:,:,ii) * Uout(:,:,ii)'

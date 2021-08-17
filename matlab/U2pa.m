@@ -17,9 +17,9 @@ function Uout = U2pa(Uin,itype,iorthoU)
 % OUTPUT
 %   Uout    3 x 3 x n array of bases
 %
-%   pl1,az1 plunge and azimuth for 1st eigenvector
-%   pl2,az2 plunge and azimuth for 2nd eigenvector
-%   pl3,az3 plunge and azimuth for 3rd eigenvector
+%   pl1,az1 plunge and azimuth for 1st eigenvector (T)
+%   pl2,az2 plunge and azimuth for 2nd eigenvector (B)
+%   pl3,az3 plunge and azimuth for 3rd eigenvector (P)
 %   eigenvectors ordered as lam1 >= lam2 >= lam3
 % 
 % The basis U has convention SOUTH-EAST-UP. You may need to convert your
@@ -29,7 +29,7 @@ function Uout = U2pa(Uin,itype,iorthoU)
 % input or output U are orthogonal. Or a different typoe of
 % orthogonalizatrion can be specified. See Uorth.m.
 %
-% Carl Tape, 12-August-2011
+% Carl Tape, 2011-09-12
 %
 
 % by default we will orthogonalize the input U and the output U
@@ -114,7 +114,7 @@ else
     
     % transform from east-north-up to south-east-up
     P = [0 1 0 ; -1 0 0 ; 0 0 1];
-    for ii=1:n
+    for ii = 1:n
         Uout(:,:,ii) = P'*squeeze(Uout(:,:,ii));
     end
     

@@ -125,23 +125,21 @@ for ilab = imin:imax            % loop over different text labels
         end
 
         fac = 10^-iexp_all(ii);
+        
+        Mx = M(:,ii);
+        % do not write out NaN moment tensors
+        if any(isnan(Mx)), continue; end
 
         if ilab==5
             stfmt = '%14.6f%14.6f%14.6f%14.6e%14.6e%14.6e%14.6e%14.6e%14.6e%4i\n';
             fprintf(fid1,stfmt,...
-                lon(ii), lat(ii), dep(ii),...
-                M(1,ii)*fac, M(2,ii)*fac, M(3,ii)*fac,...
-                M(4,ii)*fac, M(5,ii)*fac, M(6,ii)*fac,...
-                iexp_all(ii));
+                lon(ii), lat(ii), dep(ii),Mx*fac,iexp_all(ii));
         else
             % originally had 16 char for final string; changed to open
             stfmt = '%14.6f%14.6f%14.6f%14.6e%14.6e%14.6e%14.6e%14.6e%14.6e%4i%14.6e%14.6e %s\n';
             %stfmt = '%14.6f%14.6f%14.6f%14.6f%14.6f%14.6f%14.6f%14.6f%14.6f%4i%14.6f%14.6f %s\n';
             fprintf(fid1,stfmt,...
-                lon(ii), lat(ii), dep(ii),...
-                M(1,ii)*fac, M(2,ii)*fac, M(3,ii)*fac,...
-                M(4,ii)*fac, M(5,ii)*fac, M(6,ii)*fac,...
-                iexp_all(ii),...
+                lon(ii), lat(ii), dep(ii),Mx*fac,iexp_all(ii),...
                 lon(ii), lat(ii), cmtlabel);
         end
     end
@@ -156,7 +154,9 @@ if ~isempty(otime)
     % write a list of event IDs (useful to have for other scripts)
     file_eid = [filename '_eid'];
     fid = fopen(file_eid,'w');
-    for ii=1:n, fprintf(fid,'%s\n',char(eid{ii})); end
+    for ii=1:n
+        if ~any(isnan(M(:,ii))), fprintf(fid,'%s\n',char(eid{ii})); end
+    end
     fclose(fid);
     disp(sprintf('output file: %s',file_eid));
 end

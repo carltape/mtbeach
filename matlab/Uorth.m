@@ -35,7 +35,10 @@ Uout = Uin;  % initialize
 dtUin = NaN(n,1);
 dtUout = NaN(n,1);
 for ii=1:n
-   U0 = Uin(:,:,ii); 
+   U0 = Uin(:,:,ii);
+   
+   if any(isnan(U0(:))), continue; end
+   
    switch itype
        case 1
            % svd (optimal choice)

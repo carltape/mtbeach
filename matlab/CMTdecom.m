@@ -28,8 +28,8 @@ M12 = M(4,:); M13 = M(5,:); M23 = M(6,:);
 % compute eigenvalues and orthonormal eigenvectors
 % NOTE: lams(M) = lams(Mdev) + lams(Miso)
 
-lam = zeros(3,n);
-U = zeros(3,3,n);
+lam = NaN(3,n);
+U = NaN(3,3,n);
 
 % sorting of eigenvalues
 % 1: highest to lowest, algebraic: lam1 >= lam2 >= lam3
@@ -51,6 +51,8 @@ for ii = 1:n
              M12(ii) M22(ii) M23(ii) ;
              M13(ii) M23(ii) M33(ii) ];
 
+    if any(isnan(Mx(:))), continue; end
+         
     % Matlab eigenvalue ordering is lowest to highest in ALGEBRAIC sense
     [V,D] = eig(Mx);
     lams = diag(D);
