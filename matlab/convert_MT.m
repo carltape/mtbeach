@@ -21,7 +21,7 @@ function [Mout,T] = convert_MT(i1,i2,M,boption)
 % Convention 2: north-east-down (Aki and Richards, 1980)
 % Convention 3: north-west-down (Stein and Wysession (2003)
 % Convention 4: east-north-up
-% Convention 5: south-east-down
+% Convention 5: south-east-up
 %
 % See also convertv.m, the vector version of this function.
 %
