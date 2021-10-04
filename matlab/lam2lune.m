@@ -9,6 +9,7 @@ function [gamma,delta,M0,thetadc,lamdev,lamiso] = lam2lune(lam)
 %   delta       angle from deviatoric plane to lune point (-90 <= delta <= 90)
 %   M0          seismic moment, M0 = ||lam|| / sqrt(2)
 %   thetadc     angle from DC to lune point (0 <= thetadc <= 90)
+%                  (see also zeta angle in lam2phizeta.m)
 %   lamdev      eigenvalues of deviatoric component
 %   lamiso      eigenvalues of isotropic component
 %
@@ -47,14 +48,18 @@ gamma = atan((-lam(1,:) + 2*lam(2,:) - lam(3,:)) ./ (sqrt(3)*(lam(1,:) - lam(3,:
 biso = lam(1,:)==lam(3,:);
 gamma(biso) = 0;
 
+% TapeTape2013, Eq. S1 (from Eq. 12)
+% thetadc: the angle between the DC and the lune point
+% (This arc distance will be equal to the angular distance in matrix space
+% between a full moment tensor and a double couple moment tensor having the
+% same frame and same magnitude.)
+%thetadc = acos( cos(delta/deg) .* cos(gamma/deg) ) * deg;
+thetadc = acos( (lam(1,:) - lam(3,:)) ./ (sqrt(2)*lammag) ) * deg;
+
 % extra output
 trM = sum(lam); 
 lamiso = repmat(1/3*trM,3,1);
 lamdev = lam - lamiso;
-
-% compute thetadc -- the angle between the DC and the lune point
-%theta = acos( cos(delta/deg) .* cos(gamma/deg) ) * deg;
-thetadc = acos( (lam(1,:) - lam(3,:)) ./ (sqrt(2)*lammag) ) * deg;
 
 % column vectors
 delta = delta(:);
@@ -67,6 +72,7 @@ thetadc = thetadc(:);
 
 if 0==1
     clear, close all, clc
+    % generate moment tensor source types (on the lune) having fixed magnitude
     gvec = linspace(-30,30,100);
     bvec = linspace(-89,89,100);
     [G,B] = meshgrid(gvec,bvec);
@@ -77,11 +83,12 @@ if 0==1
     
     [gamma,delta,M0,thetadc] = lam2lune(lam);
     
-    figure; nr=2; nc=2;
+    figure; nr=3; nc=1;
     subplot(nr,nc,1); plot(gamma-gamma0,'.'); title('gamma residual');
     subplot(nr,nc,2); plot(delta-delta0,'.'); title('delta residual');
     subplot(nr,nc,3); plot(M0-M00,'.'); title('M0 residual');
     
+    % thetadc on the lune
     figure; scatter(gamma,delta,4^2,thetadc,'filled');
     caxis([0 90]); colorbar;
     xlabel('gamma, deg'); ylabel('delta, deg');
