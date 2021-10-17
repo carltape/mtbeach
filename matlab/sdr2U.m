@@ -12,9 +12,11 @@ function U = sdr2U(kappa,theta,sigma)
 % See WTape and CTape (2012) "A geometric setting for moment tensors" (TT2012).
 %
 % See examples in U2sdr.m
+%
+% calls sd2NK.m
 % called by TT2CMT.m
 %
-% Carl Tape, 2012/12
+% Carl Tape, 2012-12-01
 %
 
 nk = length(kappa);
@@ -34,28 +36,11 @@ for ii=1:n
     end
 end
 
-% NOTE: Algorithmically, it would be simpler to compute V directly from the
-% expression in TT2012 Proposition 2, since this requires fewer calculations.
-% (In the case here, we do not need the fault vectors at all.)
-% The implementaion below is more conceptual.
-% The basis is specified from the components of the north and zenith vectors.
+[N,K] = sd2NK(kappa,theta);
 
-% for north-west-up basis (TT2012)
-%north = [1 0 0]'; zenith = [0 0 1]';
-
-% for south-east-up basis (TT2013)
-north = [-1 0 0]'; zenith = [0 0 1]';
-
-% TT2012, p. 485
-phi = -kappa;
-
-% TT2012, Eq 27abc
-K = NaN(3,n);
-N = NaN(3,n);
+% TT2012, Eq 27c
 S = NaN(3,n);
 for ii=1:n
-    K(:,ii) = rotmat(phi(ii),3) * north;
-    N(:,ii) = rotmat_gen(K(:,ii),theta(ii)) * zenith;
     S(:,ii) = rotmat_gen(N(:,ii),sigma(ii)) * K(:,ii);
 end
 
