@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     27504,        674]
-NotebookOptionsPosition[     25934,        625]
-NotebookOutlinePosition[     26273,        640]
-CellTagsIndexPosition[     26230,        637]
+NotebookDataLength[     27610,        676]
+NotebookOptionsPosition[     26042,        627]
+NotebookOutlinePosition[     26379,        642]
+CellTagsIndexPosition[     26336,        639]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -85,15 +85,16 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"{", 
-    RowBox[{"Evals", ",", "Evecs"}], "}"}], "=", 
+    RowBox[{"Evals0", ",", "Evecs0"}], "}"}], "=", 
    RowBox[{"FullSimplify", "[", 
     RowBox[{"Eigensystem", "[", "Tprime", "]"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", "Evals", "\[IndentingNewLine]", "Evecs"}], \
+  ";"}], "\[IndentingNewLine]", "Evals0", "\[IndentingNewLine]", "Evecs0"}], \
 "Input",
  CellChangeTimes->{{3.8230142368022685`*^9, 3.823014252527461*^9}, 
    3.82301431802474*^9, {3.829332013202524*^9, 3.829332023752008*^9}, {
    3.8303496753972187`*^9, 3.83034967583001*^9}, {3.8303497106152267`*^9, 
-   3.830349711088723*^9}, {3.8308255262460337`*^9, 3.830825535532587*^9}}],
+   3.830349711088723*^9}, {3.8308255262460337`*^9, 3.830825535532587*^9}, {
+   3.843909247105975*^9, 3.843909250244441*^9}}],
 
 Cell["\<\
 Reorder eigenvectors and eigenvalues to match the paper (near Equation 161) :\
@@ -113,11 +114,11 @@ Cell[BoxData[{
     RowBox[{"6", ",", "5", ",", "4", ",", "3", ",", "2", ",", "1"}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{"Evals", " ", "=", " ", 
-  RowBox[{"Evals", "[", 
+  RowBox[{"Evals0", "[", 
    RowBox[{"[", "inds", "]"}], "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Evecs", " ", "=", " ", 
-   RowBox[{"Evecs", "[", 
+   RowBox[{"Evecs0", "[", 
     RowBox[{"[", "inds", "]"}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.829826867838801*^9, 3.829826884680913*^9}, {
    3.82991578639322*^9, 3.829915793569961*^9}, {3.8299158284590397`*^9, 
@@ -125,7 +126,8 @@ Cell[BoxData[{
    3.829916133481883*^9, 3.829916186124918*^9}, {3.8299172584491177`*^9, 
    3.829917276460236*^9}, {3.829917342114897*^9, 3.8299173479862127`*^9}, {
    3.8299180494274483`*^9, 3.8299180811600237`*^9}, {3.8299265668493967`*^9, 
-   3.829926602595654*^9}, 3.8300224012576103`*^9}],
+   3.829926602595654*^9}, 3.8300224012576103`*^9, {3.843909251648673*^9, 
+   3.8439092538358517`*^9}}],
 
 Cell["Check on eigensystem:", "Text",
  CellChangeTimes->{{3.823011313104916*^9, 3.8230113906961527`*^9}, 
@@ -624,7 +626,7 @@ no single axis in common.)\
 }, Open  ]]
 },
 WindowSize->{1278, 743},
-WindowMargins->{{Automatic, 156}, {Automatic, -11}},
+WindowMargins->{{Automatic, 153}, {Automatic, 0}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -642,39 +644,39 @@ Notebook[{
 Cell[558, 20, 654, 13, 156, "Subsubsection"],
 Cell[CellGroupData[{
 Cell[1237, 37, 677, 9, 29, "Subsubsection"],
-Cell[1917, 48, 1801, 47, 190, "Input"],
-Cell[3721, 97, 566, 9, 31, "Text"],
-Cell[4290, 108, 930, 19, 77, "Input"],
-Cell[5223, 129, 229, 3, 31, "Text"],
-Cell[5455, 134, 751, 20, 32, "Input"],
-Cell[6209, 156, 558, 8, 31, "Text"],
-Cell[6770, 166, 851, 19, 32, "Input"],
-Cell[7624, 187, 397, 10, 33, "Text"],
-Cell[8024, 199, 544, 11, 32, "Input"],
-Cell[8571, 212, 201, 3, 32, "Input"],
-Cell[8775, 217, 630, 16, 32, "Input"],
-Cell[9408, 235, 861, 16, 77, "Input"],
-Cell[10272, 253, 234, 3, 31, "Text"],
-Cell[10509, 258, 1224, 29, 159, "Input"]
+Cell[1917, 48, 1855, 48, 190, "Input"],
+Cell[3775, 98, 566, 9, 31, "Text"],
+Cell[4344, 109, 984, 20, 77, "Input"],
+Cell[5331, 131, 229, 3, 31, "Text"],
+Cell[5563, 136, 751, 20, 32, "Input"],
+Cell[6317, 158, 558, 8, 31, "Text"],
+Cell[6878, 168, 851, 19, 32, "Input"],
+Cell[7732, 189, 397, 10, 33, "Text"],
+Cell[8132, 201, 544, 11, 32, "Input"],
+Cell[8679, 214, 201, 3, 32, "Input"],
+Cell[8883, 219, 630, 16, 32, "Input"],
+Cell[9516, 237, 861, 16, 77, "Input"],
+Cell[10380, 255, 234, 3, 31, "Text"],
+Cell[10617, 260, 1224, 29, 159, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11770, 292, 557, 9, 83, "Subsubsection"],
-Cell[12330, 303, 516, 13, 55, "Input"],
-Cell[12849, 318, 306, 4, 31, "Text"],
-Cell[13158, 324, 481, 15, 55, "Input"],
-Cell[13642, 341, 196, 2, 31, "Text"],
-Cell[13841, 345, 307, 7, 32, "Input"],
-Cell[14151, 354, 308, 4, 31, "Text"],
-Cell[14462, 360, 336, 6, 32, "Input"],
-Cell[14801, 368, 485, 8, 51, "Text"],
-Cell[15289, 378, 731, 20, 99, "Input"],
-Cell[16023, 400, 270, 3, 31, "Text"],
-Cell[16296, 405, 3037, 62, 187, "Input"],
-Cell[19336, 469, 396, 7, 31, "Text"],
-Cell[19735, 478, 168, 4, 32, "Input"],
-Cell[19906, 484, 5092, 114, 209, "Input"],
-Cell[25001, 600, 584, 13, 55, "Input"],
-Cell[25588, 615, 330, 7, 51, "Text"]
+Cell[11878, 294, 557, 9, 83, "Subsubsection"],
+Cell[12438, 305, 516, 13, 55, "Input"],
+Cell[12957, 320, 306, 4, 31, "Text"],
+Cell[13266, 326, 481, 15, 55, "Input"],
+Cell[13750, 343, 196, 2, 31, "Text"],
+Cell[13949, 347, 307, 7, 32, "Input"],
+Cell[14259, 356, 308, 4, 31, "Text"],
+Cell[14570, 362, 336, 6, 32, "Input"],
+Cell[14909, 370, 485, 8, 51, "Text"],
+Cell[15397, 380, 731, 20, 99, "Input"],
+Cell[16131, 402, 270, 3, 31, "Text"],
+Cell[16404, 407, 3037, 62, 187, "Input"],
+Cell[19444, 471, 396, 7, 31, "Text"],
+Cell[19843, 480, 168, 4, 32, "Input"],
+Cell[20014, 486, 5092, 114, 209, "Input"],
+Cell[25109, 602, 584, 13, 55, "Input"],
+Cell[25696, 617, 330, 7, 51, "Text"]
 }, Open  ]]
 }
 ]
