@@ -10,24 +10,14 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     22982,        621]
-NotebookOptionsPosition[     21828,        579]
-NotebookOutlinePosition[     22461,        603]
-CellTagsIndexPosition[     22418,        600]
+NotebookDataLength[     23703,        639]
+NotebookOptionsPosition[     22581,        599]
+NotebookOutlinePosition[     23215,        623]
+CellTagsIndexPosition[     23172,        620]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-
-Cell[CellGroupData[{
-Cell["\<\
-Supplement for W. Tape and C. Tape, \[OpenCurlyDoubleQuote]Visual \
-determination of elastic symmetry\[CloseCurlyDoubleQuote]\
-\>", "Subsection",
- CellChangeTimes->{{3.8357043320214396`*^9, 3.835704411592018*^9}, {
-  3.838310424978956*^9, 3.838310444394754*^9}, {3.8383104977316313`*^9, 
-  3.838310510272951*^9}, {3.8388097615153017`*^9, 3.838809765434513*^9}}],
-
 Cell[BoxData[{
  RowBox[{
   RowBox[{
@@ -329,15 +319,15 @@ Cell[BoxData[{
     FontColor->RGBColor[1, 0, 0]], " ", "*)"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"fOfU", "[", 
-    RowBox[{"Tmat_", ",", "U_", ",", "SymClass_"}], "]"}], ":=", "      ", 
+   RowBox[{"DistToV\[CapitalSigma]ofU", "[", 
+    RowBox[{"Tmat_", ",", "U_", ",", "SymClass_"}], "]"}], ":=", "     ", 
    RowBox[{"(*", " ", 
     StyleBox[
-     RowBox[{"This", " ", "is", " ", "P", 
+     RowBox[{"This", " ", "is", " ", "d", 
       RowBox[{"(", 
        RowBox[{"T", ",", 
         RowBox[{
-         SubscriptBox["V", "MONO"], 
+         SubscriptBox["V", "\[CapitalSigma]"], 
          RowBox[{"(", "U", ")"}]}]}], ")"}], " ", "in", " ", "the", " ", 
       "2022", " ", "paper"}],
      FontColor->RGBColor[1, 0, 0]], " ", "*)"}], 
@@ -362,7 +352,7 @@ Cell[BoxData[{
     RowBox[{"Tmat_", ",", 
      RowBox[{"{", 
       RowBox[{"\[Theta]_", ",", "\[Phi]_"}], "}"}]}], "]"}], ":=", 
-   RowBox[{"fOfU", "[", 
+   RowBox[{"DistToV\[CapitalSigma]ofU", "[", 
     RowBox[{"Tmat", ",", 
      RowBox[{
       RowBox[{"ZRot", "[", "\[Theta]", "]"}], ".", 
@@ -381,20 +371,50 @@ Cell[BoxData[{
    3.8375427703430943`*^9, 3.837542772046219*^9}, {3.837542814429597*^9, 
    3.8375428636075673`*^9}, {3.837542909222314*^9, 3.837542910159814*^9}, {
    3.838308629193669*^9, 3.8383086347096825`*^9}, 3.838308821850387*^9, {
-   3.838315371007059*^9, 3.8383154080262575`*^9}}],
+   3.838315371007059*^9, 3.8383154080262575`*^9}, {3.847470323760597*^9, 
+   3.84747032534461*^9}, {3.8474703849366097`*^9, 3.847470419503902*^9}}],
 
 Cell["", "PageBreak",
- PageBreakBelow->True]
-}, Open  ]],
+ PageBreakBelow->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"DistToV\[CapitalSigma]ofU", "[", 
+    RowBox[{"Tmat_", ",", "U_", ",", "SymClass_"}], "]"}], ":=", "     ", 
+   RowBox[{"(*", " ", 
+    StyleBox[
+     RowBox[{"This", " ", "is", " ", "d", 
+      RowBox[{"(", 
+       RowBox[{"T", ",", 
+        RowBox[{
+         SubscriptBox["V", "\[CapitalSigma]"], 
+         RowBox[{"(", "U", ")"}]}]}], ")"}], " ", "in", " ", "the", " ", 
+      "2022", " ", "paper"}],
+     FontColor->RGBColor[1, 0, 0]], " ", "*)"}], 
+   RowBox[{"NormMatrix", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Transpose", "[", 
+       RowBox[{"MatrixUbar", "[", "U", "]"}], "]"}], ".", "Tmat", ".", 
+      RowBox[{"MatrixUbar", "[", "U", "]"}]}], "-", 
+     RowBox[{"ProjToVSigOfU", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Transpose", "[", 
+         RowBox[{"MatrixUbar", "[", "U", "]"}], "]"}], ".", "Tmat", ".", 
+        RowBox[{"MatrixUbar", "[", "U", "]"}]}], ",", 
+       StyleBox["id",
+        FontColor->RGBColor[1, 0, 0]], ",", "SymClass"}], "]"}]}], "]"}]}], 
+  ";"}]], "Input"],
 
 Cell[CellGroupData[{
 
 Cell["\<\
-This is the cubic example from Section 15.5 of the 2021 beachball paper. 
+This is the cubic example from Section 15.5 of the beachball paper. 
 Change Tmat to suit yourself, but make sure Tmat is symmetric.\
 \>", "Subsection",
- CellChangeTimes->{{3.8357043320214396`*^9, 3.835704411592018*^9}, {
-  3.8388098023869247`*^9, 3.838809802777954*^9}}],
+ CellChangeTimes->{{3.8357043320214396`*^9, 3.835704411592018*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -578,7 +598,7 @@ Cell[BoxData[{
 }, Open  ]]
 },
 WindowSize->{1223, 800},
-WindowMargins->{{50, Automatic}, {Automatic, 68}},
+WindowMargins->{{219, Automatic}, {Automatic, 25}},
 PrintingCopies->1,
 PrintingPageRange->{32000, 32000},
 PrintingOptions->{"Magnification"->1.,
@@ -602,25 +622,23 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 5945, 158, 455, "Input"],
+Cell[6506, 180, 7277, 194, 491, "Input"],
+Cell[13786, 376, 44, 1, 4, "PageBreak",
+ PageBreakBelow->True],
+Cell[13833, 379, 1065, 29, 77, "Input"],
 Cell[CellGroupData[{
-Cell[580, 22, 371, 6, 45, "Subsection"],
-Cell[954, 30, 5945, 158, 455, "Input"],
-Cell[6902, 190, 7128, 193, 491, "Input"],
-Cell[14033, 385, 44, 1, 4, "PageBreak",
- PageBreakBelow->True]
+Cell[14923, 412, 229, 4, 71, "Subsection"],
+Cell[15155, 418, 1426, 47, 159, "Input"],
+Cell[CellGroupData[{
+Cell[16606, 469, 275, 3, 35, "Subsubsection"],
+Cell[16884, 474, 2675, 44, 32, "Input"],
+Cell[19562, 520, 951, 20, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14114, 391, 285, 5, 71, "Subsection"],
-Cell[14402, 398, 1426, 47, 159, "Input"],
-Cell[CellGroupData[{
-Cell[15853, 449, 275, 3, 35, "Subsubsection"],
-Cell[16131, 454, 2675, 44, 32, "Input"],
-Cell[18809, 500, 951, 20, 32, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[19797, 525, 445, 11, 35, "Subsubsection"],
-Cell[20245, 538, 479, 14, 32, "Input"],
-Cell[20727, 554, 1073, 21, 55, "Input"]
+Cell[20550, 545, 445, 11, 35, "Subsubsection"],
+Cell[20998, 558, 479, 14, 32, "Input"],
+Cell[21480, 574, 1073, 21, 55, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
