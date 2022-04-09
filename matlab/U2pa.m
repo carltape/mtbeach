@@ -54,9 +54,9 @@ if itype==1
     ipos2 = find(p2(3,:) < 0);
     ipos3 = find(p3(3,:) < 0);
     [~,~,n] = size(Uin);
-    disp(sprintf('%i/%i p1 vectors need to be flipped',length(ipos1),n));
-    disp(sprintf('%i/%i p2 vectors need to be flipped',length(ipos2),n));
-    disp(sprintf('%i/%i p3 vectors need to be flipped',length(ipos3),n));
+    disp(sprintf('U2pa: %i/%i p1 vectors need to be flipped',length(ipos1),n));
+    disp(sprintf('U2pa: %i/%i p2 vectors need to be flipped',length(ipos2),n));
+    disp(sprintf('U2pa: %i/%i p3 vectors need to be flipped',length(ipos3),n));
 
     % note these angles are with respect to the LOCAL basis
     [lat1(ipos1),lon1(ipos1)] = antipode(lat1(ipos1),lon1(ipos1));
