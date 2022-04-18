@@ -51,6 +51,7 @@ if isempty(hdur)
                                 %source duration is applied in post-processing
     M0 = CMT2m0(1,M);
     hdur = m02hdur(M0);
+    warning('calculating hdur based on M0 to hdur scaling; you might want hdur=0 in wavefield simulations');
 end
 
 % check dimensions of input variables
