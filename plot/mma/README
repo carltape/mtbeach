@@ -2,30 +2,30 @@ README
 Carl Tape, ctape@alaska.edu
 Walt Tape
 
-Mathematica notebooks that can be used for 3D plotting of moment tensors and moment tensor space
+Mathematica notebooks that can be used for:
+a) 3D plotting of moment tensors and moment tensor space
+b) claculations and visualization of elastic maps
 
 References:
 W. Tape and C. Tape (GJI 2012), "A geometric setting for moment tensors"
 W. Tape and C. Tape (GJI 2013), "The classical model for moment tensors"
 W. Tape and C. Tape (GJI 2021), "Elastic symmetry with beachball pictures"
+W. Tape and C. Tape (JE 2022), "Two complementary methods of inferring elastic symmetry"
 https://sites.google.com/alaska.edu/carltape/home/research/beachball
 https://sites.google.com/alaska.edu/carltape/home/research/beachball_gallery
 https://sites.google.com/alaska.edu/carltape/home/research/elasticity
+https://sites.google.com/alaska.edu/carltape/home/research/elasticity2
 
 system requirements:
 Mathematica -- we have tested with 9.0 and 10.0
 
------------
+=====================================================================
+PART A: SEISMIC MOMENT TENSORS
+=====================================================================
 
 Lune.nb
   stand-alone starter notebook for points on the lune
   see Lune.pdf for example output
-
------------
-
-ES_ContourPlots.nb
-ES_FindSymGroups.nb
-  stand-alone notebooks for finding elastic symmetries of an elastic map T
 
 -----------
 For other notebooks, you must first open and evaluate these two notebooks, in order:
@@ -53,16 +53,6 @@ BBcodeExplanation.nb
   a technical explanation of how the beachballs are plotted
   (not apt to be of interest to most people)
 
-elastic_mapping.nb
-  miscellaneous equations in Tape and Tape (2021)
-
-elastic_mapping_XXXX.nb
-  examples from Section 15 of Tape and Tape (2021)
-  XXXX = mono, orth, tetr, xiso, cube, trig, defeat
-
-elastic_mapping_voigt.nb
-  relations between Tbb and Cij Voigt notation (Tape and Tape, 2021, supplement)
-
 -----------
 For the following notebooks, you must first open and evaluate these notebooks, in order:
   common_funs.nb
@@ -72,17 +62,46 @@ For the following notebooks, you must first open and evaluate these notebooks, i
 BBsWithOptions_NK_Alvizuri2018.nb
   ellipsoid figure from Alvizuri and Tape (2018)
 
+=====================================================================
+PART B: ELASTIC MAPS, ELASTIC SYMMETRY
+=====================================================================
+
+The following notebooks on elastic symmetry do not require any library notebooks:
+
+ES_ContourPlots.nb
+  contour plots on the sphere, showing 2-fold axes [TT2022]
+ES_FindSymGroups.nb
+  calculations and lattice diagrams for finding the symmetry group of an elastic map [TT2022]
+
+ES_RefMatricesForCollage.nb
+   reference elastic maps for figures in TT2022; must first run ES_ContourPlots.nb
+
 -----------
+For other notebooks, you must first open and evaluate these two notebooks, in order:
+  common_funs.nb
+  common_MTfuns.nb
+
+elastic_mapping.nb
+  miscellaneous equations in TT2021
+
+elastic_mapping_XXXX.nb
+  examples from Section 15 of TT2021
+  XXXX = mono, orth, tetr, xiso, cube, trig, defeat
+
+elastic_mapping_voigt.nb
+  relations between Tbb and Cij Voigt notation (TT2021 supplement)
+
+=====================================================================
 
 original file names:
-common_funs.nb       <-- AAcommonMathematicaFnsNoHalos_2013-11-26.nb
-common_MTfuns.nb     <-- AAcommonMomentTensorFns_2022-03-29.nb 
-BrickCode.nb         <-- BrickCode_2021-02-24.nb
-FaultBlockPicture.nb <-- FaultBlockPictureWithKappa_2018-04-04.nb
-BBsWithOptions.nb    <-- BBsWithOptions_2022-03-31.nb
+common_funs.nb                     <-- AAcommonMathematicaFnsNoHalos_2013-11-26.nb
+common_MTfuns.nb                   <-- AAcommonMomentTensorFns_2022-03-29.nb 
+BrickCode.nb                       <-- BrickCode_2021-02-24.nb
+FaultBlockPicture.nb               <-- FaultBlockPictureWithKappa_2018-04-04.nb
+BBsWithOptions.nb                  <-- BBsWithOptions_2022-03-31.nb
 BBsWithOptions_AlvizuriTape2018.nb <-- CarlAndCelsoEvents_2022.nb
-elastic_mapping.nb   <-- SSM_ForPublicAbridged.nb
+elastic_mapping.nb                 <-- SSM_ForPublicAbridged.nb
 
 To remove output before saving: Cell --> Delete All Output
 
------------
+=====================================================================

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     84383,       2141]
-NotebookOptionsPosition[     82383,       2075]
-NotebookOutlinePosition[     82721,       2090]
-CellTagsIndexPosition[     82678,       2087]
+NotebookDataLength[     84581,       2137]
+NotebookOptionsPosition[     82709,       2075]
+NotebookOutlinePosition[     83041,       2090]
+CellTagsIndexPosition[     82998,       2087]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -361,50 +361,6 @@ Cell[BoxData[
        StyleBox["id",
         FontColor->RGBColor[1, 0, 0]], ",", "SymClass"}], "]"}]}], "]"}]}], 
   ";"}]], "Input"],
-
-Cell[CellGroupData[{
-
-Cell[TextData[{
- "RefMatrix is a reference matrix for P(T, ",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{
-     SubscriptBox["\[ScriptCapitalV]", "\[CapitalSigma]"], "(", "U", ")"}], 
-    ")"}], TraditionalForm]],
-  FormatType->"TraditionalForm"],
- ".  It is a reference matrix for T if the symmetry of T is at least Sigma \
-and if ",
- StyleBox["U",
-  FontSlant->"Italic"],
- " is a \[CapitalSigma]-minimizer."
-}], "Subsubsection",
- CellChangeTimes->{{3.8435752812023726`*^9, 3.843575328712101*^9}, {
-  3.847468056526307*^9, 3.8474680838709745`*^9}, {3.8474681231202993`*^9, 
-  3.847468172553614*^9}, {3.847468232168193*^9, 3.8474683044480705`*^9}}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"RefMatrix", "[", 
-     RowBox[{"Tmat_", ",", "U_", ",", "Sigma_"}], "]"}], ":=", 
-    RowBox[{"ProjToVSigOfU", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"Transpose", "[", 
-        RowBox[{"MatrixUbar", "[", "U", "]"}], "]"}], ".", "Tmat", ".", 
-       RowBox[{"MatrixUbar", "[", "U", "]"}]}], ",", "id", ",", "Sigma"}], 
-     "]"}]}], ";"}], "  ", 
-  RowBox[{"(*", " ", 
-   StyleBox[
-    RowBox[{
-     RowBox[{"U", " ", "should", " ", "be", " ", "a", " ", "Sigma"}], "-", 
-     RowBox[{"minimizer", " ", "for", " ", "T"}]}],
-    FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}]], "Input",
- CellChangeTimes->{{3.843253283063239*^9, 3.843253398215254*^9}, {
-   3.8435743070154686`*^9, 3.8435743153535213`*^9}, 3.8435752451019926`*^9, 
-   3.843589994670141*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -1233,6 +1189,40 @@ Cell[BoxData[
       RowBox[{
        RowBox[{
         RowBox[{"\[Beta]T", "[", 
+         RowBox[{"Tmat", ",", "Sigma"}], "]"}], "/", "Degree"}], ">", ".01"}],
+       ",", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+       "\"\<[\!\(\*OverscriptBox[\(U\), \(_\)]\)\!\(\*SuperscriptBox[\(]\), \
+\(T\)]\) T [\!\(\*OverscriptBox[\(U\), \(_\)]\)] = \>\"", ",", 
+        RowBox[{"MatrixForm", "[", 
+         RowBox[{"Round", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Transpose", "[", 
+             RowBox[{"MatrixUbar", "[", 
+              RowBox[{"UT", "[", 
+               RowBox[{"Tmat", ",", 
+                StyleBox["Sigma",
+                 FontWeight->"Plain",
+                 FontColor->GrayLevel[0]]}], "]"}], "]"}], "]"}], ".", "Tmat",
+             ".", 
+            RowBox[{"MatrixUbar", "[", 
+             RowBox[{"UT", "[", 
+              RowBox[{"Tmat", ",", 
+               StyleBox["Sigma",
+                FontWeight->"Plain",
+                FontColor->GrayLevel[0]]}], "]"}], "]"}]}], ",", ".001"}], 
+          "]"}], "]"}], ",", "\"\<  ( \!\(\*
+StyleBox[\"NOT\",
+FontColor->RGBColor[1, 0, 0]]\) a \>\"", ",", "Sigma", ",", 
+        "\"\<-ref matrix for T )\>\""}], "]"}]}], "]"}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"\[Beta]T", "[", 
          RowBox[{"Tmat", ",", "Sigma"}], "]"}], "/", "Degree"}], "<", ".01"}],
        ",", "\[IndentingNewLine]", 
       RowBox[{"Print", "[", 
@@ -1246,15 +1236,24 @@ Cell[BoxData[
         RowBox[{"MatrixForm", "[", 
          RowBox[{"Round", "[", 
           RowBox[{
-           RowBox[{"RefMatrix", "[", 
-            RowBox[{"Tmat", ",", 
+           RowBox[{
+            RowBox[{"Transpose", "[", 
+             RowBox[{"MatrixUbar", "[", 
+              RowBox[{"UT", "[", 
+               RowBox[{"Tmat", ",", 
+                StyleBox["Sigma",
+                 FontWeight->"Plain",
+                 FontColor->GrayLevel[0]]}], "]"}], "]"}], "]"}], ".", "Tmat",
+             ".", 
+            RowBox[{"MatrixUbar", "[", 
              RowBox[{"UT", "[", 
               RowBox[{"Tmat", ",", 
                StyleBox["Sigma",
                 FontWeight->"Plain",
-                FontColor->GrayLevel[0]]}], "]"}], ",", "Sigma"}], "]"}], ",",
-            ".001"}], "]"}], "]"}], ",", "\"\<  ( a \>\"", ",", "Sigma", ",", 
-        "\"\<-ref matrix for T )\>\""}], "]"}]}], "]"}]}], ")"}]}]], "Input",
+                FontColor->GrayLevel[0]]}], "]"}], "]"}]}], ",", ".001"}], 
+          "]"}], "]"}], ",", "\"\<  ( a \>\"", ",", "Sigma", ",", 
+        "\"\<-ref matrix for T )\>\""}], "]"}]}], "]"}], ";"}], 
+   ")"}]}]], "Input",
  CellChangeTimes->{{3.838816725963194*^9, 3.838816881281695*^9}, 
    3.8388169161073084`*^9, 3.8388172423383355`*^9, {3.8388174538902965`*^9, 
    3.8388174643868694`*^9}, {3.838817649748008*^9, 3.8388177312967*^9}, 
@@ -1341,7 +1340,8 @@ Cell[BoxData[
    3.853776950375338*^9}, {3.8537775258295355`*^9, 3.8537775541936665`*^9}, {
    3.853777593503098*^9, 3.8537776293540344`*^9}, {3.8537777409440193`*^9, 
    3.8537777442162743`*^9}, {3.859725367216591*^9, 3.859725367972559*^9}, {
-   3.859725414607169*^9, 3.8597254449936438`*^9}}],
+   3.859725414607169*^9, 3.8597254449936438`*^9}, {3.863198579530232*^9, 
+   3.863198614058634*^9}, {3.8632719374333987`*^9, 3.863271956035759*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -1821,14 +1821,13 @@ Cell[BoxData[{
   RowBox[{"999", "Degree"}]}]}], "Input",
  CellChangeTimes->{{3.8388247420699863`*^9, 3.8388247631547327`*^9}, {
    3.8389058151153984`*^9, 3.838905822678522*^9}, 3.8389063656451283`*^9, {
-   3.8389066589746017`*^9, 3.8389066660929866`*^9}}]
-}, Open  ]],
+   3.8389066589746017`*^9, 3.8389066660929866`*^9}}],
 
 Cell[CellGroupData[{
 
 Cell["\<\
-The TET example from Section 15.3 of TapeTape2021. Change Tmat to suit \
-yourself.\
+The TET example from Section 15.3 of TapeTape2021. It is also Eq (76) of \
+TapeTape2022. Change Tmat to suit yourself.\
 \>", "Subsubsection",
  CellChangeTimes->{{3.830909843969966*^9, 3.83090998960639*^9}, {
    3.8309100669819593`*^9, 3.830910086755868*^9}, {3.830964986637933*^9, 
@@ -1836,7 +1835,8 @@ yourself.\
    3.830969122125424*^9, 3.830969130973489*^9}, {3.8312004564763107`*^9, 
    3.8312004706510944`*^9}, 3.83139588745473*^9, 3.8346736712522235`*^9, {
    3.838513165538992*^9, 3.838513178913588*^9}, {3.838557970490553*^9, 
-   3.8385580093052435`*^9}}],
+   3.8385580093052435`*^9}, {3.8630304828199553`*^9, 
+   3.8630304900875063`*^9}, {3.863030633434079*^9, 3.8630306522719555`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -2073,8 +2073,8 @@ Cell[BoxData[
  FontFamily->"Arial"]
 }, Open  ]]
 },
-WindowSize->{1074, 883},
-WindowMargins->{{157, Automatic}, {Automatic, 19}},
+WindowSize->{1191, 780},
+WindowMargins->{{211, 336}, {22, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -2090,58 +2090,54 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 5945, 158, 455, "Input"],
-Cell[6506, 180, 5683, 151, 362, "Input"],
+Cell[6506, 180, 5683, 151, 340, "Input"],
 Cell[12192, 333, 1065, 29, 77, "Input"],
+Cell[13260, 364, 772, 18, 55, "Input"],
+Cell[14035, 384, 15897, 405, 1221, "Input"],
+Cell[29935, 791, 7046, 182, 407, "Input"],
+Cell[36984, 975, 17543, 368, 944, "Input"],
+Cell[54530, 1345, 206, 5, 32, "Input"],
+Cell[54739, 1352, 684, 19, 57, "Input"],
+Cell[55426, 1373, 1065, 28, 77, "Input"],
+Cell[56494, 1403, 17130, 407, 473, "Input"],
+Cell[73627, 1812, 463, 11, 55, "Input"],
 Cell[CellGroupData[{
-Cell[13282, 366, 654, 17, 59, "Subsubsection"],
-Cell[13939, 385, 822, 21, 55, "Input"],
-Cell[14764, 408, 772, 18, 77, "Input"],
-Cell[15539, 428, 15897, 405, 1350, "Input"],
-Cell[31439, 835, 7046, 182, 473, "Input"],
-Cell[38488, 1019, 15839, 324, 871, "Input"],
-Cell[54330, 1345, 206, 5, 32, "Input"],
-Cell[54539, 1352, 684, 19, 57, "Input"],
-Cell[55226, 1373, 1065, 28, 77, "Input"],
-Cell[56294, 1403, 17130, 407, 473, "Input"],
-Cell[73427, 1812, 463, 11, 55, "Input"]
+Cell[74115, 1827, 721, 11, 59, "Subsubsection"],
+Cell[74839, 1840, 3132, 96, 240, "Input"],
+Cell[77974, 1938, 781, 18, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[73927, 1828, 583, 10, 35, "Subsubsection"],
-Cell[74513, 1840, 3132, 96, 240, "Input"],
-Cell[77648, 1938, 781, 18, 55, "Input"]
+Cell[78792, 1961, 294, 6, 117, "Section"],
+Cell[CellGroupData[{
+Cell[79111, 1971, 191, 2, 35, "Subsubsection"],
+Cell[79305, 1975, 159, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[78466, 1961, 294, 6, 117, "Section"],
-Cell[CellGroupData[{
-Cell[78785, 1971, 191, 2, 35, "Subsubsection"],
-Cell[78979, 1975, 159, 3, 32, "Input"]
+Cell[79501, 1983, 193, 2, 35, "Subsubsection"],
+Cell[79697, 1987, 161, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[79175, 1983, 193, 2, 35, "Subsubsection"],
-Cell[79371, 1987, 161, 3, 32, "Input"]
+Cell[79895, 1995, 142, 2, 35, "Subsubsection"],
+Cell[80040, 1999, 184, 4, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[79569, 1995, 142, 2, 35, "Subsubsection"],
-Cell[79714, 1999, 184, 4, 32, "Input"]
+Cell[80261, 2008, 189, 2, 35, "Subsubsection"],
+Cell[80453, 2012, 159, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[79935, 2008, 189, 2, 35, "Subsubsection"],
-Cell[80127, 2012, 159, 3, 32, "Input"]
+Cell[80649, 2020, 191, 2, 35, "Subsubsection"],
+Cell[80843, 2024, 161, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[80323, 2020, 191, 2, 35, "Subsubsection"],
-Cell[80517, 2024, 161, 3, 32, "Input"]
+Cell[81041, 2032, 191, 2, 35, "Subsubsection"],
+Cell[81235, 2036, 161, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[80715, 2032, 191, 2, 35, "Subsubsection"],
-Cell[80909, 2036, 161, 3, 32, "Input"]
+Cell[81433, 2044, 190, 2, 35, "Subsubsection"],
+Cell[81626, 2048, 132, 3, 32, "Input"],
+Cell[81761, 2053, 353, 7, 79, "Input"]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[81107, 2044, 190, 2, 35, "Subsubsection"],
-Cell[81300, 2048, 132, 3, 32, "Input"],
-Cell[81435, 2053, 353, 7, 79, "Input"]
-}, Open  ]],
-Cell[81803, 2063, 564, 9, 35, "Subsubsection"]
+Cell[82129, 2063, 564, 9, 35, "Subsubsection"]
 }, Open  ]]
 }
 ]
