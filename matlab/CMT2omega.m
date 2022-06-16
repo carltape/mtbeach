@@ -5,17 +5,24 @@ function omega = CMT2omega(M1,M2)
 %   M1,M2     6 x n moment tensors: M = [M11 M22 M33 M12 M13 M23]
 %
 % OUTPUT
-%   omega     9-angle between moment tensors
+%   omega     9-angle between two 3x3 moment tensors
 %
 % If M2 is missing, then a reference M is assumed for M1.
 % If M1 or M2 is size 6x1, then all moment tensors in the other set will eb
 % measured w.r.t. the 6x1 matrix.
 %
-% omega is a measure between two moment tensors and combines differences in
-% eigenvalues (source types) and orientation, but not magnitude.
+% omega is the 9-angle between two 3x3 matrices, calculated as the
+% dot-product angle between two 9x1 vectors. omega quantifies the
+% combined differences in eigenvalues (source types) and orientations
+% between two matrices. It does NOT account for differences in magnitudes.
+% + See Equation 1 of TapeTape2016 ("A confidence parameter for seismic moment tensors").
+% + It was also used heavily in TapeTape2017 ("Volume in moment tensor space in terms of distance").
+% + omega was applied to moment tensors in Frohlich and Davis (1999, JGR), Equation 4.
+%
 % omegadc, the angle introduced in TapeTape2012 ("Angle between principal
 % axis triples"), measures a difference in orientation only.
-% omegadc is the 9-angle (or omega angle) between the closest double couples (see CMT2omegadc_xi0.m).
+% omegadc is the 9-angle (or omega angle) between the closest double
+% couples (see CMT2omegadc_xi0.m).
 % 
 % Carl Tape 2/20/2015
 
