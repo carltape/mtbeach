@@ -22,7 +22,8 @@ stlabs = {  'random full moment tensor',
             'regular grid of double couple moment tensors',
             'will generate error (intentionally)',
             'insights into the sin^4(omega) distribution',
-            'insights into random vs uniform grid'};
+            'insights into random vs uniform grid',
+            'grid of moment tensor for fixed nu'};
 nex = length(stlabs);
 disp('run_uniformMT.m examples:');
 for ii=1:nex, disp(sprintf('   %2i : %s',ii,stlabs{ii})); end
@@ -173,6 +174,23 @@ switch iex
     title(sprintf('%i uniform grid points',length(ag)));
     
     error
+    
+    case 10
+        
+    % randomly generated uniform full moment tensors
+    % then take subset for fixed Poisson value
+    n = 1e6;
+    [M,v,w,kappa,sigma,h] = uniformMT(n);
+    lam = CMTdecom(M);
+    [nu,alpha] = lam2nualpha(lam);
+    NUTARGET = 0.25;
+    NUEPSILON = 0.01;
+    % get subset
+    isub = find( abs(nu-NUTARGET) < NUEPSILON );
+    M = M(:,isub);
+    v = v(isub); w = w(isub);
+    kappa = kappa(isub); sigma = sigma(isub); h = h(isub);
+        
 end
 
 %==========================================================================
@@ -201,6 +219,38 @@ n = length(kappa);
 M0 = CMT2m0(1,M);
 theta = acos(h)*deg;
 [gamma,delta] = rect2lune(v,w);
+
+% if 0
+%     % check sigmaproj vs sigma
+%     bdisplay = false;
+%     [nu,alpha,N1,N2,lam] = CMT2faultpar(M,bdisplay);
+%     N = N1; S = N2;
+%     bSproj = true;
+%     [kappax,thetax,sigmax,K,N,S,sigmaprojx] = NS2sdr(N,S,bdisplay,bSproj);
+%     
+%     figure; nr=3; nc=1;
+%     subplot(nr,nc,1); plot_histo(sigma,[-90:4:90]);
+%     subplot(nr,nc,2); plot_histo(sigmax,[-90:4:90]);
+%     subplot(nr,nc,3); plot_histo(sigmaprojx,[-90:4:90]);
+%     
+%     figure; plot(sigmax,sigmaprojx,'.');
+%     grid on; axis([-90 90 -90 90]);
+%     
+%     figure; plot(sigmax,sigma,'.');
+%     grid on; axis([-90 90 -90 90]);
+% 
+%     % fault angles for the two DCs that make up the two CDCs
+%     % (this is slow because CMT2CDC.m is not vectorized)
+%     kappa1 = NaN(n,1); theta1 = NaN(n,1); sigma1 = NaN(n,1);
+%     kappa2 = NaN(n,1); theta2 = NaN(n,1); sigma2 = NaN(n,1);
+%     for ii=1:n
+%         if mod(ii,1000)==0, disp(sprintf('==== %i out of %i ====',ii,n)); end
+%         Mtar = Mvec2Mmat(M(:,ii),1);
+%         [K1,D1,K2,D2] = CMT2CDC(Mtar);
+%         [~,~,~,kappa1(ii),theta1(ii),sigma1(ii)] = CMT2TT(Mvec2Mmat(D1,0),bdisplay);
+%         [~,~,~,kappa2(ii),theta2(ii),sigma2(ii)] = CMT2TT(Mvec2Mmat(D2,0),bdisplay);
+%     end
+% end
 
 % lune longitude, lune latitude, strike, dip, slip
 plotMT_TT(gamma,delta,M0,kappa,theta,sigma);
@@ -234,7 +284,7 @@ axis equal, axis([-1/3 1/3 -3*pi/8 3*pi/8])
 
 error
 
-% ADDITIONAL HISTOGRAMS
+%% ADDITIONAL HISTOGRAMS
 
 rho = sqrt(2)*M0;
 mfac = mean(rho);
@@ -249,6 +299,8 @@ plotMT_Mij(M,Medges);
 plotMT_lam(lam);
 
 error
+
+%% ADDITIONAL HISTOGRAMS
 
 % lune longitude and latitude within latitude bands and longitude bands
 plotMT_lune(gamma,delta);

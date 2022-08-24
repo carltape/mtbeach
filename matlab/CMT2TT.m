@@ -12,7 +12,7 @@ function [gamma,delta,M0,kappa,theta,sigma,K,N,S,thetadc,lam,U] = CMT2TT(M,bdisp
 %   M0          seismic moment, N-m
 %   kappa       strike angle, degrees: [0,360]
 %   theta       dip angle, degrees: [0,90]
-%   sigma       slip (or rake) angle, degrees: [-90,90]
+%   sigma       rake (or slip) angle, degrees: [-90,90]
 % optional:
 %   K           strike vector (SOUTH-EAST-UP)
 %   N           normal vector (SOUTH-EAST-UP)

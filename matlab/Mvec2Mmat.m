@@ -1,12 +1,14 @@
 function Mout = Mvec2Mmat(Min,itype)
-%MVEC2MMAT converts between two representation of a set of moment tensors:
-%    (1) 6 x n
-%    (2) 3 x 3 x n
+%MVEC2MMAT convert between two sets of moment tensors: (1) 6 x n and (3) 3 x 3 x n
 %
 % moment tensor M = [M11 M22 M33 M12 M13 M23]
 % The variable names below are based on 1=r, 2=t, 3=p.
 %
-% Carl Tape, 10-Nov-2010
+% Examples:
+%    n = 4; M = randn(6,n); Mmat = Mvec2Mmat(M,1); Mcheck = Mvec2Mmat(Mmat,0); M, Mcheck
+%    n = 1; M = randn(6,n); Mmat = Mvec2Mmat(M,1); Mcheck = Mvec2Mmat(Mmat,0); M, Mcheck
+%
+% Carl Tape, 2010-11-10
 %
 
 if itype==1     % 6 x n --> 3 x 3 x n
@@ -41,12 +43,3 @@ else            % 3 x 3 x n --> 6 x n
         Mout(6,:) = squeeze(Min(2,3,:))';
     end
 end
-
-%--------------------------------------------------------------------------
-
-if 0==1
-    n = 4; M = randn(6,n); Mmat = Mvec2Mmat(M,1); Mcheck = Mvec2Mmat(Mmat,0); M, Mcheck
-    n = 1; M = randn(6,n); Mmat = Mvec2Mmat(M,1); Mcheck = Mvec2Mmat(Mmat,0); M, Mcheck
-end
-
-%==========================================================================

@@ -1,4 +1,4 @@
-function [kappa,theta,sigma,K,N,S] = NS2sdr(N,S,bdisplay)
+function [kappa,theta,sigma,K,N,S,sigmaproj] = NS2sdr(N,S,bdisplay,bSproj)
 %NS2SDR converts fault and slip vectors to strike-dip-rake angles
 %
 % INPUT
@@ -9,11 +9,14 @@ function [kappa,theta,sigma,K,N,S] = NS2sdr(N,S,bdisplay)
 % OUTPUT
 %   kappa       strike angle, degrees: [0,360]
 %   theta       dip angle, degrees: [0,90]
-%   sigma       slip (or rake) angle, degrees: [-90,90]
+%   sigma       rake (or slip) angle, degrees: [-90,90]
 % optional:
 %   K           strike vector (SOUTH-EAST-UP)
 %   N           normal vector (SOUTH-EAST-UP)
 %   S           slip vector (SOUTH-EAST-UP)
+%   sigmaproj   rake angle for slip vector projected into the fault plane;
+%               note that this is the rake angle of the DC for the CDC
+%               decomposition M = K1 + D1 (see CMT2CDC.m)
 %
 % See WTape and CTape (2012) "A geometric setting for moment tensors" (TT2012).
 %
@@ -25,7 +28,8 @@ function [kappa,theta,sigma,K,N,S] = NS2sdr(N,S,bdisplay)
 global EPSVAL
 EPSVAL = 1e-6;
 
-if nargin==1, bdisplay=false; end
+if nargin<=2, bdisplay=false; end
+if nargin<=3, bSproj=false; end
 
 % N and S are assumed to be 3 x n
 [~,n1] = size(N);
@@ -63,10 +67,10 @@ S1 =  S; N1 =  N;
 S2 = -S; N2 = -N;
 S3 =  N; N3 =  S;
 S4 = -N; N4 = -S;
-[theta1,sigma1,kappa1,K1] = faultvec2ang(S1,N1);
-[theta2,sigma2,kappa2,K2] = faultvec2ang(S2,N2);
-[theta3,sigma3,kappa3,K3] = faultvec2ang(S3,N3);
-[theta4,sigma4,kappa4,K4] = faultvec2ang(S4,N4);
+[theta1,sigma1,kappa1,K1,sigmaproj1] = faultvec2ang(S1,N1,bSproj);
+[theta2,sigma2,kappa2,K2,sigmaproj2] = faultvec2ang(S2,N2,bSproj);
+[theta3,sigma3,kappa3,K3,sigmaproj3] = faultvec2ang(S3,N3,bSproj);
+[theta4,sigma4,kappa4,K4,sigmaproj4] = faultvec2ang(S4,N4,bSproj);
 
 % % reassign ~0 elements to =0; ~1 to =1, ~-1 to =1
 % K1 = setzero(K1); N1 = setzero(N1); S1 = setzero(S1);
@@ -77,25 +81,21 @@ S4 = -N; N4 = -S;
 % display all four options
 if bdisplay
     %xlab = '(kappa, theta, sigma)';
-    xlab = '(strike, dip, slip)';
+    xlab = '(strike, dip, rake)';
     stfmt = '(%7.1f, %7.1f, %7.1f)';
     %stfmt = '(%.16e, %.16e, %.16e)';
     for ii=1:n
         %displayCMTshort(M(:,ii))
-        disp(sprintf(['%4i  S, N %s = ' stfmt],...
-            ii,xlab,kappa1(ii),theta1(ii),sigma1(ii)));
+        disp(sprintf(['%4i  S, N %s = ' stfmt],ii,xlab,kappa1(ii),theta1(ii),sigma1(ii)));
         disp('         K         N         S');
         disp([K1(:,ii) N1(:,ii) S1(:,ii)]);
-        disp(sprintf(['     -S,-N %s = ' stfmt],...
-            xlab,kappa2(ii),theta2(ii),sigma2(ii)));
+        disp(sprintf(['     -S,-N %s = ' stfmt],xlab,kappa2(ii),theta2(ii),sigma2(ii)));
         disp('         K         N         S');
         disp([K2(:,ii) N2(:,ii) S2(:,ii)]);
-        disp(sprintf(['      N, S %s = ' stfmt],...
-            xlab,kappa3(ii),theta3(ii),sigma3(ii)));
+        disp(sprintf(['      N, S %s = ' stfmt],xlab,kappa3(ii),theta3(ii),sigma3(ii)));
         disp('         K         N         S');
         disp([K3(:,ii) N3(:,ii) S3(:,ii)]);
-        disp(sprintf(['     -N,-S %s = ' stfmt],...
-            xlab,kappa4(ii),theta4(ii),sigma4(ii)));
+        disp(sprintf(['     -N,-S %s = ' stfmt],xlab,kappa4(ii),theta4(ii),sigma4(ii)));
         disp('         K         N         S');
         disp([K4(:,ii) N4(:,ii) S4(:,ii)]);
     end
@@ -110,9 +110,12 @@ thetaall = [theta1 theta2 theta3 theta4];
 sigmaall = [sigma1 sigma2 sigma3 sigma4];
 kappaall = [kappa1 kappa2 kappa3 kappa4];
 btheta = thetaall <= 90+EPSVAL;       % dip angles
-bsigma = abs(sigmaall) <= 90+EPSVAL;  % slip angle
+bsigma = abs(sigmaall) <= 90+EPSVAL;  % rake angle
 bmatch = and(btheta,bsigma);
 imatch = NaN(n,1);
+
+simgaprojall = [sigmaproj1 sigmaproj2 sigmaproj3 sigmaproj4];
+
 for ii=1:n
     itemp = find(bmatch(ii,:)==1);
     switch length(itemp)
@@ -125,6 +128,7 @@ for ii=1:n
             i1 = itemp(1);
             i2 = itemp(2);
             ipick = pickP1(thetaall(ii,i1),sigmaall(ii,i1),kappaall(ii,i1),thetaall(ii,i2),sigmaall(ii,i2),kappaall(ii,i2));
+            %if isempty(ipick), ipick = i1; end
             imatch(ii) = itemp(ipick);
             if 0==1     % display output
                 warning('moment tensor on boundary of orientation domain (%i candidates)',length(itemp));
@@ -151,23 +155,28 @@ end
 % get fault vectors
 K = NaN(3,n); N = NaN(3,n); S = NaN(3,n);
 kappa = NaN(n,1); theta = NaN(n,1); sigma = NaN(n,1); 
+sigmaproj = NaN(n,1); 
 for ii=1:n
    kk = imatch(ii);
    switch kk
    case 1, K(:,ii) = K1(:,ii); N(:,ii) = N1(:,ii); S(:,ii) = S1(:,ii);
        kappa(ii) = kappa1(ii); theta(ii) = theta1(ii); sigma(ii) = sigma1(ii);
+       sigmaproj(ii) = sigmaproj1(ii);
    case 2, K(:,ii) = K2(:,ii); N(:,ii) = N2(:,ii); S(:,ii) = S2(:,ii);
        kappa(ii) = kappa2(ii); theta(ii) = theta2(ii); sigma(ii) = sigma2(ii);
+       sigmaproj(ii) = sigmaproj2(ii);
    case 3, K(:,ii) = K3(:,ii); N(:,ii) = N3(:,ii); S(:,ii) = S3(:,ii);
        kappa(ii) = kappa3(ii); theta(ii) = theta3(ii); sigma(ii) = sigma3(ii);
+       sigmaproj(ii) = sigmaproj3(ii);
    case 4, K(:,ii) = K4(:,ii); N(:,ii) = N4(:,ii); S(:,ii) = S4(:,ii);
        kappa(ii) = kappa4(ii); theta(ii) = theta4(ii); sigma(ii) = sigma4(ii);
+       sigmaproj(ii) = sigmaproj4(ii);
    end
 end
 
 %--------------------------------------------------------------------------
 
-function [theta,sigma,kappa,K] = faultvec2ang(S,N)
+function [theta,sigma,kappa,K,sigmaproj] = faultvec2ang(S,N,bSproj)
 % returns fault angles in degrees, assumes input vectors in south-east-up basis
 
 BIGN = 1e5;
@@ -190,6 +199,11 @@ kappa = NaN(n,1);
 theta = NaN(n,1);
 sigma = NaN(n,1);
 K = NaN(3,n);
+sigmaproj = NaN(n,1);
+if bSproj
+    Splane = NaN(3,n);
+    Sperp  = NaN(3,n);
+end
 for ii=1:n
     % strike vector from TT2012, Eq. 29
     v = cross(zenith,N(:,ii));
@@ -210,6 +224,14 @@ for ii=1:n
 
     % TT2012, Figure 14
     sigma(ii) = fangle_signed(K(:,ii),S(:,ii),N(:,ii));
+    
+    if bSproj
+        % see TT2013, Figure 16
+        % projection of slip vector onto fault plane
+        Sperp(:,ii)   = dot(S(:,ii),N(:,ii))/dot(N(:,ii),N(:,ii)) * N(:,ii);
+        Splane(:,ii)  = S(:,ii) - Sperp(:,ii);
+        sigmaproj(ii) = fangle_signed(K(:,ii),Splane(:,ii),N(:,ii));
+    end
 end
 
 kappa = wrap360(kappa);
@@ -248,16 +270,19 @@ global EPSVAL
 
 % these choices are based on the strike angle
 if abs(thetaA - 90) < EPSVAL
-    ipick = find([kappaA kappaB] < 180); return
+    ipick = find([kappaA kappaB] < 180)
 end
 if abs(sigmaA - 90) < EPSVAL
-    ipick = find([kappaA kappaB] < 180); return
+    ipick = find([kappaA kappaB] < 180)
 end
 if abs(sigmaA + 90) < EPSVAL
-    ipick = find([kappaA kappaB] < 180); return
+    ipick = find([kappaA kappaB] < 180)
 end 
 
-thetaA,sigmaA,kappaA,thetaB,sigmaB,kappaB
-error('no selection criterion was met');
+if isempty(ipick)
+    thetaA,sigmaA,kappaA
+    thetaB,sigmaB,kappaB
+    warning('ipick is empty');
+end
     
 %==========================================================================

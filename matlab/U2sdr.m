@@ -8,7 +8,7 @@ function [kappa,theta,sigma,K,N,S] = U2sdr(U,bdisplay)
 % OUTPUT
 %   kappa       strike angle, degrees: [0,360]
 %   theta       dip angle, degrees: [0,90]
-%   sigma       slip (or rake) angle, degrees: [-90,90]
+%   sigma       rake (or slip) angle, degrees: [-90,90]
 % optional:
 %   K           strike vector (SOUTH-EAST-UP)
 %   N           normal vector (SOUTH-EAST-UP)
@@ -40,8 +40,8 @@ S = zeros(3,n);
 N = zeros(3,n);
 for ii=1:n
    V = U(:,:,ii) * Yrot;    % V = U * Yrot (TT2012, p. 487)
-   S(:,ii) = V(:,1);        % slip vector
-   N(:,ii) = V(:,3);        % fault normal
+   S(:,ii) = V(:,1);        % fault slip vector
+   N(:,ii) = V(:,3);        % fault normal vector
 end
 
 [kappa,theta,sigma,K,N,S] = NS2sdr(N,S,bdisplay);

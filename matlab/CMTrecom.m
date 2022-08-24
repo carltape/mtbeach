@@ -6,13 +6,14 @@ function M = CMTrecom(lam,U)
 %   U       3 x 3 x n set of bases
 %
 % OUTPUT
-%   M       6 x n moment tensors in CMT convention
-%           M = [Mrr Mtt Mpp Mrt Mrp Mtp]; r=up, theta=south, phi=east
+%   M       6 x n matrices with rows M11 M22 M33 M12 M13 M23
+%
+% The basis for M will be the same as the basis of the input U.
 %
 % Inverse program to CMTdecom.m
 % See also transform_MT.m
 %
-% Carl Tape, 01-Nov-2007
+% Carl Tape, 2007-11-01
 %
 
 %disp('CMTrecom.m:'); whos lam Q
@@ -34,5 +35,3 @@ for ii = 1:n
 end
 
 M = Mvec2Mmat(Marray,0);
-
-%==========================================================================

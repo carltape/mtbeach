@@ -56,17 +56,21 @@ end
 fsizex = 14;
 
 figure; nr=2; nc=2;
+
+% plots for NU (Poisson parameter)
 subplot(nr,nc,1); hold on;
 plot_histo(nu,edges_nu,itype);
 if PLOT_UNIFORM_CURVES
     npt = 500;
     xplot = linspace(NUMIN,NUMAX,npt);
     if 1==1
+        % Untitled-3.nb
         qplot = 1 - 2*xplot + 3*xplot.^2;
         K = sqrt(2) / (atan((1-3*NUMIN)/sqrt(2)) +  atan((-1+3*NUMAX)/sqrt(2)));
         uplot = K ./ qplot;
         umax = sqrt(2) ./ (2/3 .* (atan((1-3*NUMIN)/sqrt(2)) +  atan((-1+3*NUMAX)/sqrt(2))) );
     else
+        % NuForCarloTOSS.pdf
         qplot = 1./ ((xplot - 1/3).^2 + 2/9);
         dx = xplot(2) - xplot(1);
         C = 1 / (sum(qplot) * dx);    % crude integration (should be analytical)
@@ -85,12 +89,14 @@ end
 box on;    % note sure why this is needed, but it is
 %title('(a)','Units','normalized','Position',[-0.1 1.05],'HorizontalAlignment','left','fontsize',fsizex-2);
 
+% plots for ALPHA (angle between slip and normal vector)
 subplot(nr,nc,2); hold on;
 plot_histo(alpha,edges_alpha,itype);
 if PLOT_UNIFORM_CURVES
     xplot = linspace(0,pi,npt);
     sina = sin(xplot);
     cosa = cos(xplot);
+    % AlphaZetaThetaForCarloTOSS.pdf
     uplot = 27*sina.^3 ./ (2*(3 + cosa.^2).^(5/2));
     plot(xplot,uplot,'r','linewidth',2);
     % maximum of distribution
@@ -105,6 +111,7 @@ end
 %set(gca,'xtick',[0:30:180]);
 %title('(b)','Units','normalized','Position',[-0.1 1.05],'HorizontalAlignment','left','fontsize',fsizex-2);
 
+% plots for PHI (azimuth spoke on the lune; similar to nu)
 subplot(nr,nc,3); hold on;
 plot_histo(phi,edges_phi,itype);
 if PLOT_UNIFORM_CURVES
@@ -120,12 +127,14 @@ end
 %set(gca,'xtick',[-180:60:180]);
 %title('(c)','Units','normalized','Position',[-0.1 1.05],'HorizontalAlignment','left','fontsize',fsizex-2);
 
+% plots for ZETA (crack fraction for the crack-plus-double-couple model)
 subplot(nr,nc,4); hold on;
 plot_histo(zeta,edges_zeta,itype);
 if PLOT_UNIFORM_CURVES
     xplot = linspace(0,pi/2,npt);
     cosz = cos(xplot);
     sinz = sin(xplot);
+    % PDFsForZetaAndTheta.pdf
     uplot = 4*cosz.^3.*sinz;
     plot(xplot,uplot,'r','linewidth',2);
     % maximum of distribution

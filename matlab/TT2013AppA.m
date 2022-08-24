@@ -6,8 +6,8 @@
 %
 % It may be helpful in understanding the equations within the paper.
 %
-% It uses several functions stored within the github project compearth.
-% https://github.com/carltape/compearth
+% It uses several functions stored within the github project surfacevel2strain:
+% https://github.com/carltape/surfacevel2strain/
 %
 % Carl Tape, 2013-10-22
 %
@@ -17,8 +17,8 @@ clear, clc, close all
 deg = 180/pi;
 
 % EXAMPLE DATA: full moment tensors from Minson et al. (2007)
-%sdir = './';
-sdir = '/home/carltape/compearth/momenttensor/matlab/';
+sdir = './';
+%sdir = '/home/carltape/carltape/REPOSITORIES/mtbeach/matlab/';
 ifile = [sdir 'Minson2007_Table8.txt'];
 if ~exist(ifile,'file'), error('set sdir correctly'); end
 [eid3,Tlam,Ttr,Tpl,Nlam,Ntr,Npl,Plam,Ptr,Ppl] = ...
@@ -27,7 +27,7 @@ n3 = length(eid3);
 
 % calculate the basis
 Uin = [Tpl Ttr Npl Ntr Ppl Ptr]
-U = U2pa(Uin,0);
+U = U2pa(Uin,0);    % south-east-up basis
 detUall = detU(U);
 for ii=1:n3, disp(sprintf('%6s det(U) = %20.16f',eid3{ii},detUall(ii))); end
 
@@ -45,7 +45,7 @@ end
 
 % calculate quantities from the eigenvalues
 lambdaall = [Tlam Nlam Plam]' * 1e15;
-MM = CMTrecom(lambdaall,U);    % south-east-up
+MM = CMTrecom(lambdaall,U);    % south-east-up (same as input U)
 [gamma3,delta3,M0,mu,lamdev,lamiso] = lam2lune(lambdaall);
 nuall = lambdaall(2,:) ./ (lambdaall(1,:) + lambdaall(3,:));
 
@@ -53,7 +53,8 @@ nuall = lambdaall(2,:) ./ (lambdaall(1,:) + lambdaall(3,:));
 ipick = 8;
 fac = 1e17;
 lams = lambdaall(:,ipick) / fac;
-Mmat = Mvec2Mmat(MM(:,ipick),1) / fac;
+Mvec = MM(:,ipick) / fac;
+Mmat = Mvec2Mmat(Mvec,1);
 Umat = U(:,:,ipick);                % det(Umat) = 1
 % for every U, there are three equivalent versions.
 % flip sign of two columns to match Eq A3
@@ -86,7 +87,7 @@ lam1 = lams(1);
 lam2 = lams(2);
 lam3 = lams(3);
 
-disp('======= Appendix A of TapeTape2013 ===========');
+disp(sprintf('======= Appendix A of TapeTape2013 (checked %s) ===========',datestr(now,29)));
 
 % Eq A1
 Mmat
@@ -161,11 +162,38 @@ Uh = [t1 0 -t2 ; 0 1 0 ; t2 0 t1]
 %------------
 % Table A2
 
-disp('======= Table A2 ===========');
+disp('======= Table A2 of TapeTape2013 ===========');
 
 % note: Eqs 36 and 56 are the same
 N1 = Umat*rotmat(-alpha/2,2)*[1 0 0]'
 N2 = Umat*rotmat(alpha/2,2)*[1 0 0]'
+
+% checks using other functions
+if 0
+    % check using a different function
+    [nucheck,alphacheck,N1check,N2check,lamcheck] = CMT2faultpar(Mvec,true)
+    % N1check = -N1 and N2check = -N2, but we can flip the sign of BOTH N1 and N2 without consequence
+    % get fault angles from N and S
+    [kappaX,thetaX,sigmaX,KX,NX,SX] = NS2sdr(N1,N2,true)
+    
+    % convert south-east-up to up-south-east
+    [Muse,T] = convert_MT(5,1,Mvec);
+    % calculate TT2012 parameters
+    [gamma,delta,M0,kappa,theta,sigma,K,N,S,thetadc,lam,Useu] = CMT2TT(Muse);
+    beta = 90 - delta
+    
+    % build U from the (non-orthogonal) fault vectors
+    Useu
+    T = (N1 + N2)/norm(N1+N2);
+    P = (N1 - N2)/norm(N1-N2);
+    B = cross(P,T);
+    Useu_check = [T B P]
+    
+    % get eigenvalues, then create M
+    lam_check = nualpha2lam(nu,alpha) * norm(lam);
+    Mseu_check = CMTrecom(lam_check,Useu_check);
+    [Mvec Mseu_check]
+end
 
 % unit double couple tensors
 chi = (180 - alpha)/2;       % Eq 51
@@ -194,9 +222,7 @@ if 1==1
     DU1,DU2x,DU2,DU1x,KU1,KU2x,KU2,KU1x
 end
 
-% CHECK ON 10/22/2013
-%
-% ======= Appendix A ===========
+% ======= Appendix A of TapeTape2013 (checked 2022-08-23) ===========
 % Mmat =
 %     3.1083   -4.8550   -1.9493
 %    -4.8550    3.0444    1.1105
@@ -228,6 +254,8 @@ end
 %    -0.7279
 % w =
 %     5.5050
+% delta =
+%    36.0329
 % beta =
 %    53.9671
 % gamma =
@@ -238,8 +266,6 @@ end
 %     0.3717
 % zeta =
 %    37.4790
-% phi =
-%     7.5323
 % thetadc =
 %    36.3965
 % D =
@@ -291,4 +317,5 @@ end
 %     0.4546   -0.0147   -0.0057
 %    -0.0147    0.7247    0.1060
 %    -0.0057    0.1060    0.4952
-% >> 
+
+%==========================================================================

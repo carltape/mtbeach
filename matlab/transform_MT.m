@@ -6,12 +6,12 @@ function Mout = transform_MT(T,Min)
 %
 % INPUT
 %   T       3 x 3 transformation matrix
-%   Min     6 x n input matrices: M = [M11 M22 M33 M12 M13 M23]
+%   Min     6 x n input matrices with rows M11 M22 M33 M12 M13 M23 
 %
 % OUTPUT
-%   Mout    3 x 3 x n output matrices: M = [M11 M22 M33 M12 M13 M23]
+%   Mout    3 x 3 x n output matrices
 % 
-% Carl Tape, 11-March-2011
+% Carl Tape, 2011-03-11
 %
 
 % check that M is 6 x n
