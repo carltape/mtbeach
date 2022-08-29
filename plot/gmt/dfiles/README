@@ -1,6 +1,8 @@
-compearth/momenttensor/plot/gmt/dfiles/README
+mtbeach/plot/gmt/dfiles/README
 
 This directory contains published data sets of full moment tensors, as well as some reference files for making lune plots. These files may be useful even if you do not use the perl/GMT script lune.pl.
+
+The files listed below were made by Carl Tape using a matlab script (beach_arcs.m).
 
 ---
 [1] lune points from published data sets
@@ -26,13 +28,41 @@ command for Carl:
 ln -s /home/carltape/PROJECTS/cmt/figs/bfiles/beachpts_* .
 
 ---
-[2] reference files for lune plots
+[2] reference files for lune plots (see beach_arcs.m)
 
-beach_points.lonlat
-beach_arc_XX.lonlat
-beach_patch_XX.lonlat
-beachballs_iluneX_irefX_psmeca
+sourcetype_points_lune.dat
+sourcetype_points_rect.dat
 
-These files were made by Carl Tape using a matlab script (beach_arcs.m).
+columns:
+1 gamma or v
+2 delta or w
+3 text eigenvalue triple
+4 text label
+5 justification code
+6 text label shift
+
+sourcetype_arc_XX.lonlat
+
+XX:
+01: deviatoric
+02: DC + isotropic (gamma = 0)
+03: top-isotropic (lambda3 = 0)
+04: bot-isotropic (lambda1 = 0)
+05: CDC(nu=1/4)
+06: lambda2=0 (nu=0)
+07: CDC(nu=0.36)
+
+columns: gamma / delta / v / w
+
+sourcetype_patch_XX.lonlat
+
+patches of regions on the lune (and vw rectangle); see beach_arcs.m
+
+columns: gamma / delta / v / w
+
+beachballs_iptsX_irefX_lune_psmeca
+beachballs_iptsX_irefX_vw_psmeca
+
+various sets of reference beachballs in psmeca file format
 
 ---
