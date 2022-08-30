@@ -1,5 +1,5 @@
 function lam = phizeta2lam(phi,zeta)
-%NUALPHA2LAM converts nu and alpha to unit lambda vector
+%PHIZETA2LAM converts phi and zeta to unit lambda vector
 %
 % INPUT
 %   phi     n-dimensional vector of phi angles on the lune, degrees [-180,180]
@@ -11,7 +11,7 @@ function lam = phizeta2lam(phi,zeta)
 % Reverse function is lam2phizeta.m
 % See Tape and Tape (2013), "The classical model for moment tensors"
 % 
-% Carl Tape, 08-Jan-2013
+% Carl Tape, 2013-01-08
 %
 
 bdisplay = false;
