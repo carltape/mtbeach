@@ -10,7 +10,7 @@ function nu = phi2nu(phi)
 % Note: Here nu is a mathematical parameter, and there are no restrictions
 %       on it, such as the allowable Poisson values of -1 <= nu <= 0.5.
 %
-% See Tape and Tape (2013), "The classical model for moment tensors"
+% See TapeTape2013 "The classical model for moment tensors"
 %
 % See examples below.
 %
@@ -31,7 +31,7 @@ if bfigure
     for ii=1:length(gamma)
         text(gamma(ii),delta(ii),sprintf('(\\nu=%.2f, \\phi=%.0f)',nu(ii),phi(ii)));
     end
-    axis([-40 40 -90 90]); grid on
+    axis([-30 30 -90 90]); grid on
 end
 
 %==========================================================================

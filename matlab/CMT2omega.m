@@ -5,7 +5,7 @@ function omega = CMT2omega(M1,M2)
 %   M1,M2     6 x n moment tensors: M = [M11 M22 M33 M12 M13 M23]
 %
 % OUTPUT
-%   omega     9-angle between two 3x3 moment tensors
+%   omega     9-angle between two 3 x 3 moment tensors
 %
 % If M2 is missing, then a reference M is assumed for M1.
 % If M1 or M2 is size 6x1, then all moment tensors in the other set will eb
@@ -19,12 +19,13 @@ function omega = CMT2omega(M1,M2)
 % + It was also used heavily in TapeTape2017 ("Volume in moment tensor space in terms of distance").
 % + omega was applied to moment tensors in Frohlich and Davis (1999, JGR), Equation 4.
 %
-% omegadc, the angle introduced in TapeTape2012 ("Angle between principal
-% axis triples"), measures a difference in orientation only.
+% omegadc, the angle introduced in TapeTape2012kagan ("Angle between
+% principal axis triples"), measures a difference in orientation only.
 % omegadc is the 9-angle (or omega angle) between the closest double
 % couples (see CMT2omegadc_xi0.m).
 % 
-% Carl Tape 2/20/2015
+% Carl Tape 2015-02-20
+%
 
 bdisplay = false;
 bfigure = true;

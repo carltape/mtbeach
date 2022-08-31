@@ -9,7 +9,7 @@ function [v,w] = lune2rect(gamma,delta)
 %   v       n x 1 vector (like gamma)
 %   w       n x 1 vector (like delta)
 %
-% From Tape and Tape (2015 GJI) "A uniform parameterization for moment tensors"
+% From TapeTape2015 "A uniform parameterization for moment tensors"
 %
 % calls gamma2v.m, beta2u.m
 %

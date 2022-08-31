@@ -6,8 +6,9 @@ function [kappa,theta,sigma] = dcfaultpar2Ubox(kappa,theta,sigma)
 % The box P is 1/4 the size of U and is the box of all possible
 % double couple moment tensors. The four-fold difference arises because you
 % can rotate any moment tensor by 180 about three different axes and still
-% have the same beachball. See Tape and Tape (2012).
-% In other words, there are four possible frames for any moment tensor.
+% have the same beachball. In other words, there are four possible frames
+% for any moment tensor.
+% See TapeTape2012beach "A geometric setting for moment tensors"
 % 
 % INPUT:
 %   kappa   strike (any angle)
@@ -21,7 +22,7 @@ function [kappa,theta,sigma] = dcfaultpar2Ubox(kappa,theta,sigma)
 %
 % See also dcfaultpar2Pbox.m
 %
-% Carl Tape, 10/29/2013
+% Carl Tape, 2013-10-29
 %
 
 % mapping theta (dip) is more complicated than sigma and kappa

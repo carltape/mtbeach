@@ -7,7 +7,7 @@ function u = beta2u(beta)
 % OUTPUT
 %   u       n x 1 vector (u = [0, 3*pi/4])
 %
-% From Tape and Tape (2015 GJI) "A uniform parameterization for moment tensors"
+% From TapeTape2015 "A uniform parameterization for moment tensors"
 %
 % Example values:
 %   beta2u(0) = 0

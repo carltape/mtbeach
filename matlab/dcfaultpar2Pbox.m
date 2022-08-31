@@ -1,13 +1,14 @@
 function [kappaP,thetaP,sigmaP,kappap,thetap,sigmap] = dcfaultpar2Pbox(kappa,theta,sigma)
-%DCFAULTPAR2PBOX convert strike-dip-rake angles to P box of Tape and Tape (2012)
+%DCFAULTPAR2PBOX convert strike-dip-rake angles to P box of TapeTape2012beach
 %
 % The box U contains all possible strike-dip-rake triples;
 % it can be thought of as giving all possible orientations.
 % The box P is 1/4 the size of U and is the box of all possible
 % double couple moment tensors. The four-fold difference arises because you
 % can rotate any moment tensor by 180 about three different axes and still
-% have the same beachball. See Tape and Tape (2012).
-% In other words, there are four possible frames for any moment tensor.
+% have the same beachball. In other words, there are four possible frames
+% for any moment tensor.
+% See TapeTape2012beach "A geometric setting for moment tensors"
 % 
 % INPUT:
 %   kappa   strike (any angle)
@@ -25,7 +26,7 @@ function [kappaP,thetaP,sigmaP,kappap,thetap,sigmap] = dcfaultpar2Pbox(kappa,the
 %       feed it into TT2CMT to get M, then CMT2TT to get the strike-dip-rake
 %       triple that is in P.
 %
-% Carl Tape, 10/29/2013
+% Carl Tape, 2013-10-29
 %
 
 n = length(kappa);

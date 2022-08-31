@@ -14,7 +14,7 @@ function [kappa,theta,sigma,K,N,S] = U2sdr(U,bdisplay)
 %   N           normal vector (SOUTH-EAST-UP)
 %   S           slip vector (SOUTH-EAST-UP)
 %
-% See WTape and CTape (2012) "A geometric setting for moment tensors" (TT2012).
+% See TapeTape2012beach "A geometric setting for moment tensors"
 %
 % calls NS2sdr.m
 % called by CMT2TT.m
@@ -31,7 +31,7 @@ if nargin==1, bdisplay=false; end
 [~,~,n] = size(U);
 
 % moment tensor orientation
-% TT2012, Section 6.3
+% TT2012beach Section 6.3
 
 Yrot = rotmat(45,2);
 
@@ -39,7 +39,7 @@ Yrot = rotmat(45,2);
 S = zeros(3,n);
 N = zeros(3,n);
 for ii=1:n
-   V = U(:,:,ii) * Yrot;    % V = U * Yrot (TT2012, p. 487)
+   V = U(:,:,ii) * Yrot;    % V = U * Yrot (TT2012beach p. 487)
    S(:,ii) = V(:,1);        % fault slip vector
    N(:,ii) = V(:,3);        % fault normal vector
 end

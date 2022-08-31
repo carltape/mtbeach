@@ -20,7 +20,7 @@ function [M,v,w,kappa,sigma,h,lam] = uniformMT(n,gamma0,delta0)
 %   h       cos(dip angle), (0 to 1)
 %   lam     OPTIONAL: eigenvalues
 %
-% See Tape and Tape, 2015, GJI, "A uniform parameterization of moment tensors"
+% See TapeTape2015 "A uniform parameterization of moment tensors"
 %
 % See examples in run_uniformMT.m
 %

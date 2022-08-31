@@ -22,7 +22,7 @@ function [K1,D1,K2,D2,KU1,DU1,KU2,DU2,rho,zeta,U] = CMT2CDC(Mmat,bdisplay)
 %   DU2     
 %
 % References:
-%   Tape and Tape (2013 GJI), Appendix A (see also TT2013AppA.m)
+%   TapeTape2013, Appendix A (see also TT2013AppA.m)
 %   Minson et al. (2007 JGR)
 %   Aki and Richards (1980)
 % Applications:

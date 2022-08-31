@@ -1,5 +1,5 @@
 function [gamma,delta,M0,kappa,theta,sigma,K,N,S,thetadc,lam,U] = CMT2TT(M,bdisplay)
-%CMT2TT converts a moment tensor to six parameters of TapeTape2012
+%CMT2TT converts a moment tensor to six parameters of TapeTape2012beach
 %
 % INPUT
 %   M           6 x n moment tensors in CMT convention (UP-SOUTH-EAST)
@@ -22,9 +22,9 @@ function [gamma,delta,M0,kappa,theta,sigma,K,N,S,thetadc,lam,U] = CMT2TT(M,bdisp
 %   U           basis (SOUTH-EAST-UP)
 %
 % Reverse program for TT2CMT.m
-% See WTape and CTape (2012) "A geometric setting for moment tensors" (TT2012).
+% See TapeTape2012beach "A geometric setting for moment tensors"
 %
-% Carl Tape, 2012/12
+% Carl Tape, 2012-12-01
 %
 
 if nargin==1, bdisplay=false; end
@@ -57,7 +57,7 @@ if n >= BIGN, disp('CMT2TT: lam to lune...'); end
 
 %---------------------
 % PART 2: moment tensor orientation
-% TT2012, Section 6.3
+% TT2012beach Section 6.3
 
 [kappa,theta,sigma,K,N,S] = U2sdr(U,bdisplay);
 

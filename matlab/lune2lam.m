@@ -12,9 +12,9 @@ function lam = lune2lam(gamma,delta,M0)
 %
 % Reverse program for lam2lune.m
 %
-% See TapeTape2012 "A geometric setting for moment tensors".
+% See TapeTape2012beach "A geometric setting for moment tensors".
 %
-% Carl Tape, 08-July-2011
+% Carl Tape, 2011-07-08
 %
 
 disp('entering lune2lam.m');
@@ -37,14 +37,14 @@ else
     end
 end
 
-% magnitude of lambda vectors (TT2012, p. 490 text)
+% magnitude of lambda vectors (TT2012beach p. 490 text)
 rho = M0*sqrt(2);
 
-% convert to eigenvalues (TT2012, Eq. 20)
+% convert to eigenvalues (TT2012beach Eq. 20)
 % matrix to rotate points such that delta = 90 is (1,1,1) and delta = -90 is (-1,-1,-1)
 R = 1/sqrt(6) * [sqrt(3) 0 -sqrt(3) ; -1 2 -1 ; sqrt(2) sqrt(2) sqrt(2)];
 
-% Cartesian points as 3 x n unit vectors (TT2012, Eq. 20)
+% Cartesian points as 3 x n unit vectors (TT2012beach Eq. 20)
 %Pxyz = latlon2xyz(delta,gamma,ones(n,1));
 Pxyz = [cos(gamma/deg).*sin(beta/deg) sin(gamma/deg).*sin(beta/deg) cos(beta/deg)]';
 
@@ -117,7 +117,7 @@ if 0==1
     deg = 180/pi;
     n = 100;
     gamma = linspace(-30,30,n);
-    delta = zeros(1,n);              % DEVIATORIC
+    delta = zeros(1,n);             % DEVIATORIC
     M0 = 1/sqrt(2) * ones(1,n);     % KEY NORMALIZATION
     lam = lune2lam(gamma,delta,M0);
     lam1 = lam(1,:);
@@ -156,7 +156,7 @@ if 0==1
     subplot(nr,nc,3); hold on; grid on;
     plot(gamma,epsilonhat,'b-',gamma,rbailey,'r-',gamma,rkaganmod,'k-');
     legend('epsilon-hat','Bailey2009','Kagan1985mod','location','northwest');
-    xlabel('gamma of TapeTape2012, deg');
+    xlabel('gamma of TapeTape2012beach, deg');
     ylabel('measure of CLVD component');
 %     subplot(nr,nc,2); hold on; grid on;
 %     plot(gamma,atan(epsilonhat)*deg - gamma,'b-');

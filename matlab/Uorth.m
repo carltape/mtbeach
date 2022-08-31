@@ -8,7 +8,7 @@ function [Uout,dtUin,dtUout] = Uorth(Uin,itype,idisplay)
 %
 % Consider using Udetcheck.m to ensure that U is a rotation matrix (det U = 1)
 %
-% Carl Tape, 08/10/2012
+% Carl Tape, 2012-08-10
 %
 
 if itype==0
@@ -45,7 +45,7 @@ for ii=1:n
            [U,S,V] = svd(U0);
            Uout(:,:,ii) = U*V';
        case 2
-           % suggestion in TapeTape2012c Appendix E
+           % suggestion in TapeTape2012kagan Appendix E
            t = Uout(:,1,ii);
            b = Uout(:,2,ii);
            p = cross(t,b);
@@ -95,7 +95,7 @@ if 0==1
     T,Tout
     norm(T-Tout)
     
-    % example in TapeTape2012c, Appendix E
+    % example in TapeTape2012kagan Appendix E
     % transform from south-east-up to north-west-up
     clc, clear
     P = [-1 0 0 ; 0 -1 0 ; 0 0 1];

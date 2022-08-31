@@ -16,7 +16,7 @@ function T = convert_getbasis(i1,i2)
 %   1: north, 2: east, 3: down
 %
 % Convention 3: Stein and Wysession (2003, p. 218)
-%   also TapeTape2012a "A geometric setting for moment tensors" (p. 478)
+%   also TapeTape2012beach (p. 478); see notes at bottom of TT2015AppA.m
 %   also several Kanamori codes
 %   1: north, 2: west, 3: up
 % 
@@ -30,7 +30,7 @@ function T = convert_getbasis(i1,i2)
 %
 % called by convert_MT.m, convertv.m 
 %
-% Carl Tape, 11/2010
+% Carl Tape, 2010-11-01
 %
 
 NTYPE = 5;  % number of right-handed bases to consider

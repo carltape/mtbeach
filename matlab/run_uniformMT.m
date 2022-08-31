@@ -3,7 +3,7 @@
 %
 % run script for uniformMT.m
 % Examples to generate subsets of uniform moment tensors
-% See Tape and Tape, 2015, GJI, "A uniform parameterization of moment tensors"
+% See TapeTape2015 "A uniform parameterization of moment tensors"
 %
 % Carl Tape, 2015-07-26
 %

@@ -1,11 +1,11 @@
 % 
 % TT2012kaganAppE.m
 %
-% Reproduce the results in Appendix E of Tape and Tape (2012c)
+% Reproduce the results in Appendix E of TapeTape2013kagan
 %   "Angle between principal axis triples"
 % These are the same two events used in Kagan (1991).
 %
-% Carl Tape, 10/22/2013
+% Carl Tape, 2013-10-22
 %
 
 close all, clear, clc
@@ -19,7 +19,7 @@ close all, clear, clc
 % oran = [datenum(1980,9,26) datenum(1980,9,27)];
 % [otime2,~,~,lat2,lon2,dep2,M2,M02,Mw2,eid2] = readCMT(oran,ax3,[]);
 
-% Appendix E of TapeTape2012 "Angle betweeen principal axis triples"
+% Appendix E of TapeTape2012kagan "Angle betweeen principal axis triples"
 % Kagan (1991) comparison events from GCMT catalog
 eid1 = 'C010677A'; eid2 = 'C092680B';   % New Guinea
 fac1 = 1e19; fac2 = 1e18;
@@ -72,7 +72,7 @@ for kk=1:4
 end
     
 % now consider the 'difference' matrix U = U1^-1 U2
-% the values for U and q should match the results in TapeTape2012, App. E
+% the values for U and q should match the results in TapeTape2012kagan App. E
 U1 = U14(:,:,4);
 U2 = U24(:,:,4);
 U12 = U1'*U2;

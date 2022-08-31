@@ -9,7 +9,7 @@ function [gamma,delta] = rect2lune(v,w)
 %   gamma   n x 1 vector of gamma angles, degrees
 %   delta   n x 1 vector of delta angles, degrees
 %
-% From Tape and Tape (2015 GJI) "A uniform parameterization for moment tensors"
+% From TapeTape2015 "A uniform parameterization for moment tensors"
 %
 % calls v2gamma.m, u2beta.m
 %

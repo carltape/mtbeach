@@ -9,7 +9,7 @@ function [N,K] = sd2NK(kappa,theta)
 %   N       3 x n set of fault normal vectors in SOUTH-EAST-UP convention
 %   K       3 x n set of stike vectors in SOUTH-EAST-UP convention
 %
-% See WTape and CTape (2012) "A geometric setting for moment tensors" (TT2012).
+% See TapeTape2012beach "A geometric setting for moment tensors"
 %
 % See examples in U2sdr.m
 % called by sdr2U.m
@@ -27,21 +27,21 @@ end
 n = nk;
 
 % NOTE: Algorithmically, it would be simpler to compute V directly from the
-% expression in TT2012 Proposition 2, since this requires fewer calculations.
+% expression in TT2012beach Proposition 2, since this requires fewer calculations.
 % (In the case here, we do not need the fault vectors at all.)
 % The implementaion below is more conceptual.
 % The basis is specified from the components of the north and zenith vectors.
 
-% for north-west-up basis (TT2012)
+% for north-west-up basis (TT2012beach)
 %north = [1 0 0]'; zenith = [0 0 1]';
 
 % for south-east-up basis (TT2013)
 north = [-1 0 0]'; zenith = [0 0 1]';
 
-% TT2012, p. 485
+% TT2012beach p. 485
 phi = -kappa;
 
-% TT2012, Eq 27ab
+% TT2012beach Eq 27ab
 N = NaN(3,n);
 S = NaN(3,n);
 for ii=1:n

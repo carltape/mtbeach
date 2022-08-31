@@ -7,7 +7,7 @@ function beta = u2beta(u)
 % OUTPUT
 %   beta    n x 1 vector of lune colatitudes, radians (beta = [0, pi])
 %
-% From Tape and Tape (2015 GJI) "A uniform parameterization for moment tensors"
+% From TapeTape2015 "A uniform parameterization for moment tensors"
 %
 % note: might want to check the input range of u
 %

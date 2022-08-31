@@ -18,7 +18,7 @@ function [kappa,theta,sigma,K,N,S,sigmaproj] = NS2sdr(N,S,bdisplay,bSproj)
 %               note that this is the rake angle of the DC for the CDC
 %               decomposition M = K1 + D1 (see CMT2CDC.m)
 %
-% See WTape and CTape (2012) "A geometric setting for moment tensors" (TT2012).
+% See TapeTape2012beach "A geometric setting for moment tensors"
 %
 % called by U2sdr.m
 %
@@ -45,7 +45,7 @@ end
 % [~,~,n] = size(U);
 % 
 % % moment tensor orientation
-% % TT2012, Section 6.3
+% % TT2012beach Section 6.3
 % 
 % Yrot = rotmat(45,2);
 % 
@@ -53,7 +53,7 @@ end
 % S = zeros(3,n);
 % N = zeros(3,n);
 % for ii=1:n
-%    V = U(:,:,ii) * Yrot;    % V = U * Yrot (TT2012, p. 487)
+%    V = U(:,:,ii) * Yrot;    % V = U * Yrot (TT2012beach p. 487)
 %    S(:,ii) = V(:,1);        % slip vector
 %    N(:,ii) = V(:,3);        % fault normal
 % end
@@ -62,7 +62,7 @@ end
 N = setzero(N);
 S = setzero(S);
 
-% compute fault angles for four possible combinations (TT2012 Figure 15)
+% compute fault angles for four possible combinations (TT2012beach Figure 15)
 S1 =  S; N1 =  N;
 S2 = -S; N2 = -N;
 S3 =  N; N3 =  S;
@@ -102,7 +102,7 @@ if bdisplay
 end
 
 % There are four combinations of N and S that represent a double couple
-% moment tensor, as shown in Figure 15 of TT2012.
+% moment tensor, as shown in Figure 15 of TT2012beach.
 % From these four combinations, there are two possible fault planes.
 % We want to isolate the combination that is within the bounding
 % region shown in Figures 16 and B1.
@@ -186,13 +186,13 @@ deg = 180/pi;
 [~,n] = size(S);
 if n >= BIGN, disp('CMT2TT: running faultvec2ang...'); end
 
-% for north-west-up basis (as in TT2012)
+% for north-west-up basis (as in TT2012beach)
 %zenith = [0 0 1]'; north  = [1 0 0]';
 
 % for up-south-east basis (GCMT)
 %zenith = [1 0 0]'; north  = [0 -1 0]';
 
-% for south-east-up basis (as in TT2012)
+% for south-east-up basis (as in TT2012beach)
 zenith = [0 0 1]'; north  = [-1 0 0]';
 
 kappa = NaN(n,1);
@@ -205,28 +205,28 @@ if bSproj
     Sperp  = NaN(3,n);
 end
 for ii=1:n
-    % strike vector from TT2012, Eq. 29
+    % strike vector from TT2012beach Eq. 29
     v = cross(zenith,N(:,ii));
     if norm(v)==0
-        % TT2012 Appendix B
+        % TT2012beach Appendix B
         disp('horizontal fault -- strike vector is same as slip vector');
         K(:,ii) = S(:,ii);
     else
         K(:,ii) = v / norm(v);
     end
 
-    % TT2012, Figure 14
+    % TT2012beach Figure 14
     kappa(ii) = fangle_signed(north,K(:,ii),-zenith);
 
-    % TT2012, Figure 14
+    % TT2012beach Figure 14
     costh = dot(N(:,ii),zenith);
     theta(ii) = acos(costh)*deg;
 
-    % TT2012, Figure 14
+    % TT2012beach Figure 14
     sigma(ii) = fangle_signed(K(:,ii),S(:,ii),N(:,ii));
     
     if bSproj
-        % see TT2013, Figure 16
+        % see TT2013 Figure 16
         % projection of slip vector onto fault plane
         Sperp(:,ii)   = dot(S(:,ii),N(:,ii))/dot(N(:,ii),N(:,ii)) * N(:,ii);
         Splane(:,ii)  = S(:,ii) - Sperp(:,ii);
@@ -264,7 +264,7 @@ disp(sprintf('kappas: %5.1f, %5.1f, %5.1f, %5.1f',kappas));
 %--------------------------------------------------------------------------
 
 function ipick = pickP1(thetaA,sigmaA,kappaA,thetaB,sigmaB,kappaB)
-% choose between two moment tensor orientations based on Figure B1 of TT2012
+% choose between two moment tensor orientations based on Figure B1 of TT2012beach
 % NOTE THAT NOT ALL FEATURES OF FIGURE B1 ARE IMPLEMENTED HERE
 global EPSVAL
 

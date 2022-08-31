@@ -13,7 +13,7 @@ function [gamma,epsilon,trM] = CMT2epsilon(M,iepsilon,isort)
 %                   3: | lam1 | >= | lam2 | >= | lam3 |
 %                   4: | lam1 | <= | lam2 | <= | lam3 |
 %
-% Equation for epsilon (see Latex notes):
+% Equation for epsilon (see notes_epsilon.pdf):
 %    Dziewonski et al. (1981), p. 2837
 %    Jost and Herrmann (1989), Eq. 38
 %
@@ -21,7 +21,7 @@ function [gamma,epsilon,trM] = CMT2epsilon(M,iepsilon,isort)
 %
 % calls Mdim.m, CMTdecom_iso.m, CMTdecom.m
 %
-% Carl Tape, 01-April-2011
+% Carl Tape, 2011-04-01
 %
 
 % default choices
@@ -130,15 +130,19 @@ gamma = sg .* acos(gdot) * 180/pi;
 % end
 
 % option to display figure (requires plot_histo.m)
-ifigure = 0;
-if ifigure==1
+bfigure = true;
+if bfigure
     nbin = 31; ymax = 0.12;
     if iepsilon==3, emax = 1.0; else emax = 0.5; end
     figure; nr=2; nc=1;
-    subplot(nr,nc,1); plot_histo(epsilon,linspace(-emax,emax,nbin)); ylim([0 ymax]);
-    xlabel(sprintf('EPSILON (iepsilon = %i, isort = %i)',iepsilon,isort));
-    subplot(nr,nc,2); plot_histo(gamma,linspace(-30,30,nbin)); ylim([0 ymax]);
-    xlabel(sprintf('GAMMA, degrees (isort = %i)',isort));
+    ste = sprintf('EPSILON (iepsilon = %i, isort = %i)',iepsilon,isort);
+    stg = sprintf('GAMMA, degrees (isort = %i)',isort);
+    subplot(nr,nc,1); plot_histo(epsilon,linspace(-emax,emax,nbin)); ylim([0 ymax]); xlabel(ste);
+    subplot(nr,nc,2); plot_histo(gamma,linspace(-30,30,nbin)); ylim([0 ymax]); xlabel(stg);
+    if iepsilon==1
+        figure; hold on; plot(gamma,epsilon,'.'); plot([-30 30],[0.5 -0.5],'r--'); grid on
+        xlabel(stg); ylabel(ste);
+    end
 end
 
 %==========================================================================
@@ -149,18 +153,21 @@ if 0==1
     % get some test moment tensors from CMT catalog
     [otime,~,~,~,~,~,M] = readCMT;
     n = length(otime);
-    
-    [gamma, epsilon, trM] = CMT2epsilon(M,1,1);
-    
-    % check that changing isort will not affect the epsilon values (for fixed iepsilon)
+    % try with bfigure = true (above)
     iepsilon = 1;
+    isort = 1;
+    [gamma,epsilon,trM] = CMT2epsilon(M,iepsilon,isort);
+ 
+    % check that changing isort will not affect the epsilon values (for fixed iepsilon)
+    iepsilon = 1;   % KEY CHOICE
     epsall = zeros(n,4);
     gamall = zeros(n,4);
     for ii=1:4
         isort = ii;
-        [gamma, epsilon, trM] = CMT2epsilon(M,iepsilon,isort);
+        [gamma,epsilon,trM] = CMT2epsilon(M,iepsilon,isort);
         epsall(:,ii) = epsilon;
         gamall(:,ii) = gamma;
+        figure; hold on; plot(gamall,epsall,'.'); plot([-30 30],[0.5 -0.5],'r--'); grid on
     end
     figure; plot(epsall,'.');
     figure; plot(gamall,'.');

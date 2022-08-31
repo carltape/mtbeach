@@ -7,12 +7,14 @@ function plotMT_lune(gamma,delta,gedges,dedges)
 %   gedges  optional: vector of edges of bins for gamma, in degrees
 %   dedges  optional: vector of edges of bins for delta, in degrees
 %
+% Carl Tape, 2015-01-01
+%
 
 deg = 180/pi;
 fsize = 8;
 iplothisto = 3;     % =3: plot histograms as probability density function
 
-% everything needs to be in radians, sincer we are dealing with PDFs
+% everything needs to be in radians, since we are dealing with PDFs
 gamma = gamma/deg;
 delta = delta/deg;
 
@@ -26,7 +28,7 @@ n = length(gamma);
 ndelta = length(dedges)-1;
 ngamma = length(gedges)-1;
 
-% analytical solution (Tape and Tape, 2015)
+% analytical solution (TapeTape2015)
 K = 2/3;        % int[-pi/6,pi/6]( cos(3*gamma) )
 dsmooth = linspace(-30,30,100)/deg;
 csmooth = (1/K) *cos(3*dsmooth);
@@ -48,7 +50,7 @@ for ii=1:ndelta
     fontsize(fsize); 
 end
 
-% analytical solution (Tape and Tape, 2015)
+% analytical solution (TapeTape2015)
 K = 3*pi/8;         % int[0,pi]( sin(beta).^4 ) = int[-pi/2,pi/2]( cos(delta).^4 )
 dsmooth = linspace(-90,90,100)/deg;
 csmooth = (1/K) * cos(dsmooth).^4;

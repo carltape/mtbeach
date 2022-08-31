@@ -9,9 +9,9 @@ function [phi,sigma,theta] = U2pst(U)
 %   sigma   n x 1 vector of longitudinal angle, degrees
 %   theta   n x 1 vector of polar spherical angle, degrees
 %
-% See WTape and CTape (2017) "Volume in moment tensor space in terms of distance"
+% See TapeTape2017 "Volume in moment tensor space in terms of distance"
 %
-% Carl Tape, 2017/11
+% Carl Tape, 2017-11-01
 %
 
 deg = 180/pi;

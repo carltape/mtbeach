@@ -20,11 +20,11 @@ function [M,lam,U] = TT2CMT(gamma,delta,M0,kappa,theta,sigma)
 % Note that the basis for M and U are different.
 %
 % Reverse program for CMT2TT.m
-% See WTape and CTape (2012) "A geometric setting for moment tensors" (TT2012).
+% See TapeTape2012 "A geometric setting for moment tensors"
 %
 % calls lune2lam.m, sdr2U.m
 %
-% Carl Tape, 2012/12
+% Carl Tape, 2012-12-01
 %
 
 n1 = length(gamma);
@@ -62,7 +62,7 @@ lam = lune2lam(gamma,delta,M0);
 % PART 2: moment tensor orientation
 U = sdr2U(kappa,theta,sigma);   % U is south-east-up basis
 
-% TT2012, Eq 28 (or Proposition 2)
+% TT2012beach Eq 28 (or Proposition 2)
 M = NaN(3,3,n);
 for ii=1:n
     Ux = U(:,:,ii);

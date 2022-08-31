@@ -2,7 +2,7 @@ function plotMT_cdc(nu,alpha,phi,zeta)
 %PLOTMT_CDC plot histograms of moment tensor parameters nu,alpha,phi,zeta
 %
 % CDC = crack-plus-double couple model for seismic moment tensors
-% See Tape and Tape (2013 GJI) and also Minson et al. (2007 JGR).
+% See TapeTape2013 and also Minson et al. (2007 JGR).
 %
 % INPUT
 %   nu      vector of Poisson parameter from classical model (-infinity, infinity)
@@ -53,7 +53,7 @@ else
    xtag = 'degrees';
 end
 
-fsizex = 14;
+%fsizex = 14;
 
 figure; nr=2; nc=2;
 
@@ -82,9 +82,9 @@ if PLOT_UNIFORM_CURVES
     plot(1/3,umax,'ro','markerfacecolor','k','markersize',6);
 end
 if buse_greek
-    xlabel('\nu, Poisson ratio','fontsize',fsizex);
+    xlabel('\nu, Poisson ratio');
 else
-    xlabel('nu, Poisson ratio','fontsize',fsizex);
+    xlabel('nu, Poisson ratio');
 end
 box on;    % note sure why this is needed, but it is
 %title('(a)','Units','normalized','Position',[-0.1 1.05],'HorizontalAlignment','left','fontsize',fsizex-2);
@@ -104,9 +104,9 @@ if PLOT_UNIFORM_CURVES
     plot(pi/2,umax,'ro','markerfacecolor','k','markersize',6);
 end
 if buse_greek
-    xlabel(sprintf('\\alpha = \\angle (N, S), %s',xtag),'fontsize',fsizex);
+    xlabel(sprintf('\\alpha = \\angle (N, S), %s',xtag));
 else
-    xlabel(sprintf('alpha = angle(N, S), %s',xtag),'fontsize',fsizex);
+    xlabel(sprintf('alpha = angle(N, S), %s',xtag));
 end
 %set(gca,'xtick',[0:30:180]);
 %title('(b)','Units','normalized','Position',[-0.1 1.05],'HorizontalAlignment','left','fontsize',fsizex-2);
@@ -120,9 +120,9 @@ if PLOT_UNIFORM_CURVES
     plot(xplot,uplot,'r','linewidth',2);
 end
 if buse_greek
-    xlabel(sprintf('\\phi, azimuth on lune, %s',xtag),'fontsize',fsizex);
+    xlabel(sprintf('\\phi, azimuth on lune, %s',xtag));
 else
-    xlabel(sprintf('phi, azimuth on lune, %s',xtag),'fontsize',fsizex);
+    xlabel(sprintf('phi, azimuth on lune, %s',xtag));
 end
 %set(gca,'xtick',[-180:60:180]);
 %title('(c)','Units','normalized','Position',[-0.1 1.05],'HorizontalAlignment','left','fontsize',fsizex-2);
@@ -142,9 +142,9 @@ if PLOT_UNIFORM_CURVES
     plot(pi/6,umax,'ro','markerfacecolor','k','markersize',6);
 end
 if buse_greek
-    xlabel(sprintf('\\zeta, crack fraction, %s',xtag),'fontsize',fsizex);
+    xlabel(sprintf('\\zeta, crack fraction, %s',xtag));
 else
-    xlabel(sprintf('zeta, crack fraction, %s',xtag),'fontsize',fsizex);
+    xlabel(sprintf('zeta, crack fraction, %s',xtag));
 end
 %title('(d)','Units','normalized','Position',[-0.1 1.05],'HorizontalAlignment','left','fontsize',fsizex-2);
 

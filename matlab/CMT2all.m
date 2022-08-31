@@ -9,10 +9,10 @@ function [M0,Mw,hdur,gamma,epsilon,trM] = CMT2all(M)
 %   M = 1e15*[ 0.1230   -3.4360    3.3120   -0.3960    0.0120   -1.8860]';
 %   [M0,Mw,hdur,gamma,epsilon,trM] = CMT2all(M)
 %
-% NOTE: This does not include quantities associated with the lune, such as
-%       those presented in Tape and Tape (2013) -- see TT2013AppA.m
+% NOTE: This does not include quantities associated with the lune,
+%       such as those presented in TapeTape2013 -- see TT2013AppA.m
 %
-% Carl Tape, 01-April-2011
+% Carl Tape, 2011-04-01
 %
 
 % seismic moment (row vector)

@@ -2,7 +2,7 @@
 % TT2013AppA.m
 %
 % This script reproduces the calculations in Appendix A of
-% Tape and Tape (2013), "The Classical Model of Moment Tensors"
+% TapeTape2013 "The classical model of moment tensors"
 %
 % It may be helpful in understanding the equations within the paper.
 %
@@ -178,7 +178,7 @@ if 0
     
     % convert south-east-up to up-south-east
     [Muse,T] = convert_MT(5,1,Mvec);
-    % calculate TT2012 parameters
+    % calculate TT2012beach parameters
     [gamma,delta,M0,kappa,theta,sigma,K,N,S,thetadc,lam,Useu] = CMT2TT(Muse);
     beta = 90 - delta
     

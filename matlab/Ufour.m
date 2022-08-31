@@ -7,9 +7,9 @@ function Ufour = Ufour(U)
 % OUTPUT
 %   Ufour   3 x 3 x 4 set of four equivalent principal axes
 %
-% See TapeTape2012 "Angle between principal axis triples"
+% See TapeTape2012kagan "Angle between principal axis triples"
 % 
-% Carl Tape, 8/12/2012
+% Carl Tape, 2012-08-12
 %
 
 Xpi = diag([1 -1 -1]);

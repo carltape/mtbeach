@@ -2,16 +2,16 @@ function lam = nualpha2lam(nu,alpha)
 %NUALPHA2LAM converts nu and alpha to unit lambda vector
 %
 % INPUT
-%   nu      n-dimensional vector of Poisson ratios (unitless)
-%   alpha   n-dimensional vector of angles between fault normal and slip vector, degrees [0,180]
+%   nu      n x 1 vector of Poisson ratios (unitless)
+%   alpha   n x 1 vector of angles between fault normal and slip vector, degrees [0,180]
 %
 %  OUTPUT
 %   lam     3 x n set of normalized eigenvalue triples, sorted lam1 >= lam2 >= lam3
 %
 % Reverse function is lam2nualpha.m
-% See Tape and Tape (2013), "The classical model for moment tensors"
+% See Tape Tape2013 "The classical model for moment tensors"
 % 
-% Carl Tape, 08-Jan-2013
+% Carl Tape, 2013-01-08
 %
 
 % row vectors

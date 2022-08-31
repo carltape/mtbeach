@@ -8,9 +8,11 @@ function [U,trU] = q2U(q)
 %   U       3 x 3 x n set of rotation matrices
 %   trU     1 x n set of tr(U)
 %
+% TapeTape2012kagan "Angle betweeen principal axis triples"
+%
 % See q2Utrace.m if you only want the trace.
 % 
-% Carl Tape, 8/12/2012
+% Carl Tape, 2012-08-12
 %
 
 [~,n] = size(q);
@@ -26,7 +28,7 @@ x = q(2,:);
 y = q(3,:);
 z = q(4,:);
 
-% TapeTape2012, Eq 7
+% TT2012kagan Eq 7
 U(1,1,:) = w.^2 + x.^2 - y.^2 -z.^2;
 U(1,2,:) = 2*(x.*y - w.*z);
 U(1,3,:) = 2*(w.*y + x.*z);

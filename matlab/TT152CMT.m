@@ -18,9 +18,9 @@ function [M,lam,U] = TT152CMT(rho,v,w,kappa,sigma,h)
 % Note that the basis for M and U are different.
 %
 % Reverse program for CMT2TT15.m
-% See WTape and CTape (2015) "A uniform parameterization for moment tensors"
+% See TapeTape2015 "A uniform parameterization for moment tensors"
 %
-% Carl Tape, 8/7/2015
+% Carl Tape, 2015-08-07
 %
 
 theta = acos(h)*180/pi;

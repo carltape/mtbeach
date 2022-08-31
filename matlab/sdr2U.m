@@ -9,7 +9,7 @@ function U = sdr2U(kappa,theta,sigma)
 % OUTPUT
 %   U       3 x 3 x n set of bases in SOUTH-EAST-UP convention
 %
-% See WTape and CTape (2012) "A geometric setting for moment tensors" (TT2012).
+% See TapeTape2012 "A geometric setting for moment tensors"
 %
 % See examples in U2sdr.m
 %
@@ -38,13 +38,13 @@ end
 
 [N,K] = sd2NK(kappa,theta);
 
-% TT2012, Eq 27c
+% TT2012beach Eq 27c
 S = NaN(3,n);
 for ii=1:n
     S(:,ii) = rotmat_gen(N(:,ii),sigma(ii)) * K(:,ii);
 end
 
-% TT2012, Eq 28 (or Proposition 2)
+% TT2012beach Eq 28 (or Proposition 2)
 U = NaN(3,3,n);
 Yrot = rotmat(-45,2);
 for ii=1:n

@@ -17,8 +17,8 @@ function [omegadc,xi0,U] = CMT2omegadc_xi0(X1,X2,iorthoU,idisplay)
 %
 % The angle omegadc is a more sensible angle than xi00 for comparing the
 % difference between two double couple moment tensors; see Figures 14-15
-% of Tape and Tape (2012 GJI), "Angle between principal axis triples".
-% The omega angle in TapeTape2012 (Eq. 66) is what we denote as omegadc here;
+% of TapeTape2012kagan "Angle between principal axis triples".
+% The omega angle in TapeTape2012kagan (Eq. 66) is what we denote as omegadc here;
 % in the other scripts, we use the notation omega to represent the angle
 % between two moment tensors that are not necessarily double couple moment
 % tensors (see CMT2omega.m).
@@ -120,7 +120,7 @@ end
 % EXAMPLES
 
 if 0==1
-    % Appendix E of TapeTape2012 "Angle betweeen principal axis triples"
+    % Appendix E of TapeTape2012kagan "Angle betweeen principal axis triples"
     % xi0 = 102.5 deg as in Eq E1
     % see TT2012kaganAppE.m for details
     M1 = [-0.4120    0.0840    0.3280    0.3980   -1.2390    1.0580]'*1e19;

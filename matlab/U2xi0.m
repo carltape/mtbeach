@@ -18,9 +18,9 @@ function [xi0,xi,q,ixi0,trALL,imaxtr] = U2xi0(U,iqtype,idisplay)
 %   trALL   OPTIONAL: 4 x n set of tr(U, U*Xpi, etc)
 %   imaxtr  OPTIONAL: index into trALL for the max trace
 %
-% See TapeTape2012, "Angle between principal axis triples"
+% See TapeTape2012kagan "Angle between principal axis triples"
 % 
-% Carl Tape, 8/12/2012
+% Carl Tape, 2012-08-12
 %
 
 if ~exist('idisplay','var'), idisplay = 0; end 
@@ -94,13 +94,13 @@ qy = q(3,:);
 qz = q(4,:);
 
 if iqtype~=0
-    % TT2012 Eq 11
+    % TT2012kagan Eq 11
     qi = [-qx ;  qw ; -qz ; -qy];   % U*Xpi
     qj = [-qy ; -qz ;  qw ;  qx];   % U*Ypi
     qk = [-qz ;  qy ; -qx ;  qw];   % U*Zpi
     
     % max trace(U) equivalent to minimum rotation angle
-    % TT2012, before Eq F9a:
+    % TT2012kagan, before Eq F9a:
     % "For a given U the best choice q0 among qw, qx, qy, qz is therefore
     % determined by which if U, UXpi, UYpi, UZpi has the largest trace or,
     % equivalently, by which has the smallest rotation angle."
@@ -162,7 +162,7 @@ if iqtype~=0
 %         
 %         q  = convertq(q);
 %         
-%         % TT2012 Eq 11: U*Xpi, U*Ypi, U*Zpi
+%         % TT2012kagan Eq 11: U*Xpi, U*Ypi, U*Zpi
 %         w1 = q(1,:);
 %         x1 = q(2,:);
 %         y1 = q(3,:);
@@ -179,12 +179,12 @@ if iqtype~=0
     qk = convertq(qk);
 end
 
-% compute the kagan angle: Eq 34 of TapeTape2012
+% compute the kagan angle: TT2012kagan Eq 34
 [val,ixi0] = max(abs(q));
 xi0 = 2*acos(val)*180/pi;
 xi0 = xi0(:);
 
-% rotation angle: Eq 34 of TapeTape2012
+% rotation angle: TT2012kagan Eq 34
 % note: by convention, the first entry of q will be >0
 xi = 2*acos(q(1,:))*180/pi;
 
@@ -280,8 +280,8 @@ if 0==1
     disp('now consider the matrix U = U1o2T * U2o2:');
     U = U1o2'*U2o2;         % since these are orthogonal, transpose = inverse
     xi0 = U2xi0(U,0,1);
-    xi0 = U2xi0(U,1,1);     % display more (check with TapeTape2012, Eq E1)
-    % this xi0 will differ from the 102.5 in TapeTape2012, Eq E1, because
+    xi0 = U2xi0(U,1,1);     % display more (check with TT2012kagan Eq E1)
+    % this xi0 will differ from the 102.5 in TT2012kagan Eq E1, because
     % here we started with integer-rounded plunge-azimuth angles (see also TT2012AppE.m)
     
     % test for non-orthogonal matrices

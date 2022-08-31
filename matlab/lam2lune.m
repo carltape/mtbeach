@@ -16,45 +16,49 @@ function [gamma,delta,M0,thetadc,lamdev,lamiso] = lam2lune(lam)
 % Reverse program for lune2lam.m
 % See also CMT2all.m
 %
-% See TapeTape2012 "A geometric setting for moment tensors".
+% See TapeTape2012beach "A geometric setting for moment tensors".
 %
-% Carl Tape, 01-April-2011
+% Carl Tape, 2011-04-01
 %
 
 deg = 180/pi;
 
 [lam,n] = lamsort(lam);
+% row vectors
+lam1 = lam(1,:);
+lam2 = lam(2,:);
+lam3 = lam(3,:);
 
-% magnitude of lambda vector (rho of TT2012 -- see p. 490 within text)
-%lammag = sqrt(2) * M0;
-lammag = sqrt(lam(1,:).^2 + lam(2,:).^2 + lam(3,:).^2);
+% magnitude of lambda vector (rho of TT2012beach -- see p. 490 within text)
+rho = sqrt(lam1.^2 + lam2.^2 + lam3.^2);
 
 % seismic moment
-%M0 = sqrt(lam(1,:).^2 + lam(2,:).^2 + lam(3,:).^2);
-M0 = lammag / sqrt(2);
+M0 = rho / sqrt(2);
 
-% TapeTape2012a, Eq. 21a (and 23)
+% TT2012beach Eq. 21a (and 23)
 % numerical safety 1: if trace(M) = 0, delta = 0
 % numerical safety 2: is abs(bdot) > 1, adjust bdot to +1 or -1
 delta = zeros(1,n);         % initialized to delta=0
 idev = find(sum(lam) ~= 0);
-bdot = (lam(1,:) + lam(2,:) + lam(3,:)) ./ (sqrt(3)*lammag);
+bdot = (lam1 + lam2 + lam3) ./ (sqrt(3)*rho);
 bdot(bdot > 1) = 1; bdot(bdot <-1) = -1;
 delta(idev) = 90 - acos(bdot(idev)) * deg;
 
-% TapeTape2012a, Eq. 21a
+% TT2012beach Eq. 21a
+gamma = atan((-lam1 + 2*lam2 - lam3) ./ (sqrt(3)*(lam1 - lam3))) * deg;
 % note: we set gamma=0 for (1,1,1) and (-1,-1,-1)
-gamma = atan((-lam(1,:) + 2*lam(2,:) - lam(3,:)) ./ (sqrt(3)*(lam(1,:) - lam(3,:)))) * deg;
-biso = lam(1,:)==lam(3,:);
+XEPS = 1e-6;
+biso = find(abs(lam1-lam3) < XEPS);
+%biso = lam1==lam3;
 gamma(biso) = 0;
 
-% TapeTape2013, Eq. S1 (from Eq. 12)
+% TT2013 Eq. S1 (from Eq. 12)
 % thetadc: the angle between the DC and the lune point
 % (This arc distance will be equal to the angular distance in matrix space
 % between a full moment tensor and a double couple moment tensor having the
 % same frame and same magnitude.)
 %thetadc = acos( cos(delta/deg) .* cos(gamma/deg) ) * deg;
-thetadc = acos( (lam(1,:) - lam(3,:)) ./ (sqrt(2)*lammag) ) * deg;
+thetadc = acos( (lam1 - lam3) ./ (sqrt(2)*rho) ) * deg;
 
 % extra output
 trM = sum(lam); 

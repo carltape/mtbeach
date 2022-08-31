@@ -7,7 +7,7 @@ function v = gamma2v(gamma)
 % OUTPUT
 %   v       n x 1 vector (v = [-1/3, 1/3])
 %
-% From Tape and Tape (2015 GJI) "A uniform parameterization for moment tensors"
+% From TapeTape2015 "A uniform parameterization for moment tensors"
 %
 % Example values:
 %   gamma2v(-pi/6) = -1/3

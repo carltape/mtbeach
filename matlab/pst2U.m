@@ -11,9 +11,9 @@ function U = pst2U(phi,sigma,theta)
 %
 % See examples in U2pst.m
 %
-% See WTape and CTape (2017) "Volume in moment tensor space in terms of distance"
+% See TapeTape2017 "Volume in moment tensor space in terms of distance"
 %
-% Carl Tape, 2017/11
+% Carl Tape, 2017-11-01
 %
 
 % check input
@@ -29,7 +29,7 @@ n = np;
 % TT2017
 U = NaN(3,3,n);
 for ii=1:n
-    % Tape and Tape (2017), Eq 40a
+    % TT2017 Eq 40a
     Zp = rotmat(phi(ii),3);
     Yt = rotmat(theta(ii),2);
     Zs = rotmat(sigma(ii),3);

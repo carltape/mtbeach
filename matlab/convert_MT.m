@@ -19,7 +19,7 @@ function [Mout,T] = convert_MT(i1,i2,M,boption)
 % See convert_getbasis.m for details
 % Convention 1: up-south-east (GCMT)
 % Convention 2: north-east-down (Aki and Richards, 1980)
-% Convention 3: north-west-down (Stein and Wysession (2003)
+% Convention 3: north-west-up (Stein and Wysession, 2003)
 % Convention 4: east-north-up
 % Convention 5: south-east-up
 %
@@ -27,7 +27,7 @@ function [Mout,T] = convert_MT(i1,i2,M,boption)
 %
 % calls convert_getbasis.m
 %
-% Carl Tape, 11/2010
+% Carl Tape, 2010-11-01
 %
 
 % two options to implement the transformation

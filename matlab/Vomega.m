@@ -13,6 +13,8 @@ function [Vhatp,Vhat,otar,omegacrit] = Vomega(gamma_rad,delta_rad,omega_rad)
 %   otar            omega angles for precomputed Vhat' and Vhat' curves
 %   omegacrit       critical angles for precomputed Vhat curves
 %
+% See TapeTape2016 "A confidence parameter for seismic moment tensors"
+%
 % SEE EXAMPLES AT BOTTOM.
 %
 % calls load_Vgammaomega.m, load_omegacrit.m
@@ -47,6 +49,7 @@ USE_OMEGA_MIDPOINTS = false;
 %    gamma = -[0:0.5:30]*pi/180; gamma(end) = []; for ii=1:length(gamma), Vomega(gamma(ii),0); end
 %WRITE_ASCII_FILES = false;
 
+% this file is in the subdurectory Vhat/
 path_Vhat;
 bdir = Vhatdir_presaved;
 ddir = sprintf('%sVhat_gammap/',bdir);
@@ -107,7 +110,7 @@ for kk=1:nlune
     disp(sprintf('closest pre-computed gamma (for critical values) is %.2f deg (diff %.2f deg)',...
        gamma_deg_crit(imin), gamma*deg - gamma_deg_crit(imin) ));
     
-    % Tape and Tape (2016), Eqs 44, 45, 49
+    % TT2016 Eqs 44, 45, 49
     otemp = omegacritdev{imin};
     ocritdev_rad = otemp(:,1)/deg;
     ocrit_rad = omegadev2omega(delta,ocritdev_rad);
@@ -138,11 +141,11 @@ for kk=1:nlune
     %figure; plot(omegadev_rad, '.'); error
     
     % interpolate to get Vhat_gamma(omega) and Vhat'(omega)
-    % Tape and Tape (2016), Eq 45
+    % TT2016 Eq 45
     Vx = interp2(W,G,V,omegadev_rad,gamma*ones(size(omegadev_rad)),'linear');
     Vdevpx = interp2(Wp,Gp,Vp,omegadev_rad,gamma*ones(size(omegadev_rad)),'linear',EXTRAPVAL);
     
-    % Tape and Tape (2016), Eq 49
+    % TT2016 Eq 49
     wvec = cos(otar/2) ./ sqrt( sin(pi/2-delta_rad(kk)).^2 - sin(otar/2).^2 );
     Vpx = Vdevpx .* wvec;
     %if ~isreal(wvec), error('wvec must be real'); end
@@ -181,7 +184,7 @@ end
 function omegadev_rad = omega2omegadev(delta_rad,omega_rad)
 
 beta_rad = pi/2 - delta_rad;
-% Tape and Tape (2016), Eq 44
+% TT2016 Eq 44, solved for omegadev
 omegadev_rad = 2 * asin( sin(omega_rad/2) / sin(beta_rad) );
 
 %--------------------------------------------------------------------------
@@ -189,7 +192,7 @@ omegadev_rad = 2 * asin( sin(omega_rad/2) / sin(beta_rad) );
 function omega_rad = omegadev2omega(delta_rad,omegadev_rad)
 
 beta_rad = pi/2 - delta_rad;
-% Tape and Tape (2016), Eq 44
+% TT2016 Eq 44, solved for omega
 omega_rad = 2 * asin( sin(beta_rad) .* sin(omegadev_rad/2) );
 
 %==========================================================================

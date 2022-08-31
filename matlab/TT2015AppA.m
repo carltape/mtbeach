@@ -2,11 +2,12 @@
 % TT2015AppA.m
 %
 % This script reproduces the calculations in Appendix A of
-% Tape and Tape (2015), "A uniform parameterization of moment tensors"
+% TapeTape2015 "A uniform parameterization of moment tensors"
 %
 % It may be helpful in understanding the equations within the paper.
 %
-% It uses several functions stored within the github repository 'compearth'.
+% It uses several functions stored within the github project surfacevel2strain:
+% https://github.com/carltape/surfacevel2strain/
 %
 % Carl Tape, 2015-07-14
 %
@@ -76,18 +77,18 @@ U, M
 %--------------------------------------------------------------------------
 % Note about moment tensor basis
 % The choice of basis will matter when checking the entries in the moment
-% tensor. The example calculations in TT2015 and in TT2012 use north-west-up.
+% tensor. The example calculations in TT2015 and in TT2012beach use north-west-up.
 % This is not stated explicitly in TT2015 Appendix A, but here are some passages that do:
 %   TT2015, Section S4.2: "(The vector e1 is assumed north and e3 is up.)"
 %   TT2015, Figure S3 caption: "If the vector e1 points north and e3 points up,
 %           then κ, σ, θ are the strike, slip, and dip angles for
 %           one of the two fault planes of [Λ]_VY−π/4 ."
-%   TT2012, p. 10: "...where the standard basis is e1 (north), e2 (west), e3 (zenith)"
-%   TT2012, Figure 14.
+%   TT2012beach, p. 10: "...where the standard basis is e1 (north), e2 (west), e3 (zenith)"
+%   TT2012beach, Figure 14.
 % see convert_MT.m for referenced publications that use various basis conventions
 
-% comment this break out to run the rest
-break
+% comment this statement out to run the rest
+error
 
 disp('moment tensor in south-east-up (GCMT convention):');
 Mseu = convert_MT(3,1,Mvec2Mmat(M,0));

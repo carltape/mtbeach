@@ -12,9 +12,9 @@ function [phi,zeta] = lam2phizeta(lam)
 %   zeta    n x 1 vector of crack fraction within CDC model [0,90]
 %
 % Reverse function is phizeta2lam.m
-% See Tape and Tape (2013), "The classical model for moment tensors"
+% See TapeTape2013 "The classical model for moment tensors"
 % 
-% Carl Tape, 08-Jan-2013
+% Carl Tape, 2013-01-08
 %
 
 deg = 180/pi;
@@ -25,12 +25,13 @@ lam1 = lam(1,:);
 lam2 = lam(2,:);
 lam3 = lam(3,:);
 
-rho = sqrt(sum(lam.^2));
+rho = sqrt(lam1.^2 + lam2.^2 + lam3.^2);
 
 % TT2013, Eqs 24
-phi = atan2( lam1-2*lam2+lam3, sqrt(2)*(lam1+lam2+lam3) )*deg;
+% note: may want to add special cases for DC, +/-ISO (see lam2tp.m)
+phi = atan2( lam1 - 2*lam2 + lam3 , sqrt(2)*(lam1 + lam2 + lam3) ) * deg;
 
-zeta = acos( sqrt(2*(lam1-lam2).*(lam2-lam3)) ./ rho )*deg;
+zeta = acos( sqrt( 2*(lam1 - lam2) .* (lam2 - lam3) ) ./ rho ) * deg;
 
 % column vectors
 phi = phi(:);

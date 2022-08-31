@@ -2,28 +2,30 @@ function lam = phizeta2lam(phi,zeta)
 %PHIZETA2LAM converts phi and zeta to unit lambda vector
 %
 % INPUT
-%   phi     n-dimensional vector of phi angles on the lune, degrees [-180,180]
-%   zeta    n-dimensional vector of crack fraction within CDC model [0,90]
+%   phi     n x 1 vector of phi angles on the lune, degrees [-180,180]
+%   zeta    n x 1 vector of crack fraction within CDC model [0,90]
 %
 %  OUTPUT
 %   lam     3 x n set of normalized eigenvalue triples, sorted lam1 >= lam2 >= lam3
 %
 % Reverse function is lam2phizeta.m
-% See Tape and Tape (2013), "The classical model for moment tensors"
+% See TapeTape2013 "The classical model for moment tensors"
 % 
 % Carl Tape, 2013-01-08
 %
 
 bdisplay = false;
 
+deg = 180/pi;
+
 % row vectors
 phi = phi(:)';
 zeta = zeta(:)';
 
-cosp = cos(phi*pi/180);
-sinp = sin(phi*pi/180);
-cosz = cos(zeta*pi/180);
-sinz = sin(zeta*pi/180);
+cosp = cos(phi/deg);
+sinp = sin(phi/deg);
+cosz = cos(zeta/deg);
+sinz = sin(zeta/deg);
 
 % TapeTape2013
 D  = 1/sqrt(2)*[0 0 1 ; 0 0 0 ; 1 0 0];         % Eq 42
@@ -57,14 +59,14 @@ lam1 = lam(1,:);
 lam2 = lam(2,:);
 lam3 = lam(3,:);
 lam = [lam1 ; lam2 ; lam3];
-mag = sqrt( lam1.^2 + lam2.^2 + lam3.^2 );
-lam = lam ./ repmat(mag,3,1);
+rho = sqrt( lam1.^2 + lam2.^2 + lam3.^2 );
+lam = lam ./ repmat(rho,3,1);
 
 %==========================================================================
 % EXAMPLE
 
 if 0==1
-    %% grid of phi-zeta values
+    % grid of phi-zeta values
     pvec = -175:5:175;
     zvec = 5:5:85;
     [phi,zeta] = meshgrid(pvec,zvec);

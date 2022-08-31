@@ -1,5 +1,5 @@
 function plotMT_TT(gamma,delta,M0,kappa,theta,sigma,bvw)
-%PLOTMT_TT plot histograms of the parameters of TapeTape2012
+%PLOTMT_TT plot histograms of the parameters of TapeTape2012beach
 %
 % INPUT
 %   gamma       angle from DC meridian to MT point (-30 <= gamma <= 30)
@@ -38,7 +38,7 @@ iplothisto = 3;
 
 theta = theta/deg;          % convert dip to radians
 if ~bvw
-    % use lune longitude and lune latitude of Tape and Tape (2012)
+    % use lune longitude and lune latitude of TapeTape2012beach
     g1 = -30/deg; g2 = 30/deg;
     d1 = -90/deg; d2 = 90/deg;
     glab = 'lune longitude, deg';
@@ -50,7 +50,7 @@ if ~bvw
     gamma = gamma/deg;
     delta = delta/deg;
     
-    % see Tape and Tape (2015)
+    % see TapeTape2015
     % lune longitude
     gsmooth  = linspace(g1,g2,ns);
     xgsmooth = cos(3*gsmooth) / (2/3);
@@ -58,7 +58,7 @@ if ~bvw
     dsmooth  = linspace(d1,d2,ns);
     xdsmooth = cos(dsmooth).^4 / (3*pi/8);
 else
-    % use v-w coordinates of Tape and Tape (2015)
+    % use v-w coordinates of TapeTape2015
     g1 = -1/3; g2 = 1/3;
     d1 = -3*pi/8; d2 = 3*pi/8;
     glab = 'v (lune longitude)';

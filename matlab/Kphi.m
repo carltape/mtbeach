@@ -1,63 +1,68 @@
-function Klam = Kphi(phi)
+function [Klam,thetaK] = Kphi(phi)
 %KPHI given phi angle on the lune, return eigenvalues of crack tensor K
 %
 % A crack tensor is a moment tensor with normal vector and slip vector
 % parallel (opening/tensional crack) or opposite (closing/compressional crack).
 % This function  returns the eigenvalues of a crack tensor
-% given an input parameter phi. This implements Eq 39 of Tape and Tape (2013),
-% "The Classical Model for Moment Tensors". (See Figure 6.)
+% given an input parameter phi. This implements Eq 39 of TapeTape2013
+% "The classical model for moment tensors". (See Figure 6.)
 % 
 % INPUT
 %   phi     azimuthal angles on the lune (phi = 0 points toward +ISO), degrees
 %
 % OUTPUT 
-%   Klam    3 x n set of normalized eignevalues of the crack tensors
+%   Klam    3 x n set of normalized eigenvalues of the crack tensors
+% optional:
+%   thetaK  angular distance from DC to crack tensor
+%
+% See TapeTape2013 "The classical model for moment tensors"
 %
 % See example below.
 %
 % Carl Tape, 2013-12-18
 %
 
+deg = 180/pi;
+
 % ensure row vector
 phi = phi(:)';
 
-sinphi = sin(phi*pi/180);
-cosphi = cos(phi*pi/180);
+sinphi = sin(phi/deg);
+cosphi = cos(phi/deg);
 
-% Eq 14 of Tape and Tape (2013)
+% TT2013 Eq 14
 V = 1/sqrt(6) * [ sqrt(3) 0 -sqrt(3) ;
                   -1 2 -1 ;
                   sqrt(2) sqrt(2) sqrt(2) ];
 
-% Eq 39 of Tape and Tape (2013) [see Figure 6]
-% note: V-transpose = V-inverse for this V
+% TT2013 Eq 39 [see Figure 6]
+% rphi is the r coordinate of Lambda^K(phi) in the cylindrical coordinate
+% system attached to the vwu cartesian system.
 rphi = (4*sinphi.^2 + cosphi.^2).^(-1/2);
 ivec = [sqrt(3)*abs(sinphi) ; -sinphi ; cosphi];
-Klam =  repmat(rphi,3,1) .* (V'*ivec);
+% note: V-transpose = V-inverse for this V
+Klam = repmat(rphi,3,1) .* (V' * ivec);
+
+% the arc distance from the DC to Lambda^K (see note above about rphi)
+thetaK = asin(rphi) * deg;
 
 %==========================================================================
 % EXAMPLE
 
 if 0==1
     % values from Fig. 6 of TT2013
-    phi = [15:30:165 -165:30:-15];
+    phi = [15:30:165 -165:30:-15]';
     Klam = Kphi(phi);
-
     % check
-    lam1 = Klam(1,:);
-    lam2 = Klam(2,:);
-    lam3 = Klam(3,:);
-    % check that all points are on the lune boundary (gamma = +/- 30) (Eq 20b, TT2013)
-    gamma = 180/pi*atan( (-lam1 + 2*lam2 - lam3) ./ (sqrt(3)*(lam1-lam3)) );
-    % recover phi value using Eq 24 of TT2013 (note atan2 function)
-    phicheck = 180/pi*atan2( (lam1 - 2*lam2 + lam3) , (sqrt(2)*(lam1 + lam2 + lam3)) );
-    [phi' Klam' gamma' phicheck']
+    [thetadc,phi_check] = lam2tp(Klam);
+    [gamma,delta] = lam2lune(Klam);
+    [phi Klam' gamma phi_check]
     
     % alternatively we could convert phi to nu, then use nualpha2lam.m
-    nu = nu2phi(phi,false);
+    nu = phi2nu(phi);
     alpha = [0*ones(1,6) 180*ones(1,6)];    % half on each side of lune
-    Klamcheck = nualpha2lam(nu,alpha);
-    norm(Klam - Klamcheck)
+    Klam_check = nualpha2lam(nu,alpha);
+    norm(Klam - Klam_check)
 end
 
 %==========================================================================

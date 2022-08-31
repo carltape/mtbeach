@@ -22,13 +22,13 @@ function [rho,v,w,kappa,sigma,h,K,N,S,thetadc,lam,U] = CMT2TT15(M,bdisplay)
 %   U           basis (SOUTH-EAST-UP)
 %
 % Reverse program for TT152CMT.m
-% See WTape and CTape (2015) "A geometric setting for moment tensors"
+% See TapeTape2015 "A geometric setting for moment tensors"
 %
 % The one modification is that here we return w = 3*pi/8 - u, rather than
 % the u coordinate in TT2015. w is analagous to lune latitude delta,
 % whereas u is analagous to lune colatitude beta
 %
-% Carl Tape, 8/7/2015
+% Carl Tape, 2015-08-07
 %
 
 if nargin==1, bdisplay=false; end

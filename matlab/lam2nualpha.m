@@ -9,11 +9,11 @@ function [nu,alpha] = lam2nualpha(lam)
 %   alpha   n x 1 vector of angles between fault normal and slip vector, degrees [0,180]
 %
 % Reverse function is nualpha2lam.m
-% See Tape and Tape (2013), "The classical model for moment tensors"
+% See TapeTape2013 "The classical model for moment tensors"
 % 
 % Note that nu can take on any value for the double couple (alpha = 90).
 %
-% Carl Tape, 08-Jan-2013
+% Carl Tape, 2013-01-08
 %
 
 lam = lamsort(lam);
@@ -22,7 +22,7 @@ lam1 = lam(1,:);
 lam2 = lam(2,:);
 lam3 = lam(3,:);
 
-% TT2013, Eqs 32ab
+% TT2013 Eqs 32ab
 alpha = 180/pi* acos( (lam1 - 2*lam2 + lam3) ./ (lam1 - lam3) );
 nu = lam2 ./ (lam1 + lam3);
 

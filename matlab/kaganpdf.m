@@ -10,7 +10,7 @@ function [p,t] = kaganpdf(x,bfigure)
 %   p   PDF discretized based on input choice
 %   t   discretization of xi0 minimum rotation angles (IN RADIANS)
 %
-% See Tape and Tape (2012), "Angle between principal axis triples"
+% See TapeTape2012kagan "Angle between principal axis triples"
 %
 % EXAMPLES (see longer example below):
 %   t = linspace(0,2*pi/3,100); p = kaganpdf(t,true);
@@ -107,7 +107,7 @@ i1 = find(and(t >= t0, t <= t1));
 i2 = find(and(t > t1, t <= t2));
 i3 = find(and(t > t2, t <= t3));
 
-% Tape and Tape, 2012, Eq 59 amd B4
+% TapeTape2012kagan Eq 59 amd B4
 % first interval
 p(i1) = 4/pi*(1-cos(t(i1)));
 % second interval

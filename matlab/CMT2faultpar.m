@@ -18,7 +18,7 @@ function [nu,alpha,N1,N2,lam] = CMT2faultpar(M,bdisplay)
 % Note: N1 and N2 can point in any direction. You can flip the sign of BOTH
 %       N1 and N2 without changing the system.
 %
-% See Tape and Tape (2013), "The classical model for moment tensors",
+% See TapeTape2013 "The classical model for moment tensors",
 %    including the sample calculation in Appendix A (see TT2013AppA.m).
 %
 % Carl Tape, 2013-12-21
@@ -80,7 +80,7 @@ end
 %==========================================================================
 
 if 0==1
-    %% Tape and Tape (2013), Appendix A (and Tables A1 and A2) [TT2013AppA.m]
+    %% TapeTape2013 Appendix A (and Tables A1 and A2) [TT2013AppA.m]
     M = [  3.108304932835845
            3.044425632830430
            3.382269434333724
