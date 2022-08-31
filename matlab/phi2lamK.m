@@ -1,5 +1,5 @@
-function [lamK,thetaK] = Kphi(phi)
-%KPHI given phi angle on the lune, return eigenvalues of crack tensor K
+function [lamK,thetaK] = phi2lamK(phi)
+%PHI2LAMK given phi angle on the lune, return eigenvalues of crack tensor K
 %
 % A crack tensor is a moment tensor with normal vector and slip vector
 % parallel (opening/tensional crack) or opposite (closing/compressional crack).
@@ -54,7 +54,7 @@ thetaK = asin(rphi) * deg;
 if 0==1
     % values from Fig. 6 of TT2013
     phi = [15:30:165 -165:30:-15]';
-    lamK = Kphi(phi);
+    lamK = phi2lamK(phi);
     % check
     [thetadc,phi_check] = lam2tp(lamK);
     [gamma,delta] = lam2lune(lamK);

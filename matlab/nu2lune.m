@@ -20,7 +20,7 @@ function [gamma,delta,thetadc,phi] = nu2lune(nu,n,blune,brandom)
 %
 % TapeTape2013 "The classical model for moment tensors"
 %
-% calls Kphi.m, uniform_zeta.m, phizeta2lam.m, tp2lam.m
+% calls phi2lamK.m, uniform_zeta.m, phizeta2lam.m, tp2lam.m
 % 
 % Carl Tape, 2022-08-30
 %
@@ -51,7 +51,7 @@ phi     = [phi1vec ; phi2vec];
 
 if blune
     % angular distance from DC to crack tensor
-    [~,thetaK] = Kphi(phitar);
+    [~,thetaK] = phi2lamK(phitar);
     
     % get a set of uniform thetadc values
     if brandom
@@ -137,8 +137,8 @@ if 0
     deg = 180/pi;
     phi = [-180:180];
     % eigenvalues of crack tensor
-    [lamK,thetaK] = Kphi(phi);
-    % OPTION A: analytical (thetaK from Kphi.m)
+    [lamK,thetaK] = phi2lamK(phi);
+    % OPTION A: analytical (thetaK from phi2lamK.m)
     % OPTION B: numerical; from eigenvalues
     lam1 = lamK(1,:); lam2 = lamK(2,:); lam3 = lamK(3,:);
     lammag = sqrt(lam1.^2 + lam2.^2 + lam3.^2);
