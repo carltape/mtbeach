@@ -50,6 +50,7 @@ lam  = V' * Xrot * Yrot * F;
 
 if 0==1
     % generate grid of thetadc-phi values -- out to 30 deg only
+    % note: need to check cases where the input dots (Lambdas) are OUTSIDE the fundamental lune
     dphi = 45; dtheta = 10; THETADCMAX = 30;
     phivec = [(-180+dphi):dphi:180];
     thetadcvec = [dtheta:dtheta:THETADCMAX];

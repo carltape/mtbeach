@@ -1,4 +1,4 @@
-function [Klam,thetaK] = Kphi(phi)
+function [lamK,thetaK] = Kphi(phi)
 %KPHI given phi angle on the lune, return eigenvalues of crack tensor K
 %
 % A crack tensor is a moment tensor with normal vector and slip vector
@@ -11,13 +11,15 @@ function [Klam,thetaK] = Kphi(phi)
 %   phi     azimuthal angles on the lune (phi = 0 points toward +ISO), degrees
 %
 % OUTPUT 
-%   Klam    3 x n set of normalized eigenvalues of the crack tensors
+%   lamK    3 x n set of normalized eigenvalues of the crack tensors
 % optional:
 %   thetaK  angular distance from DC to crack tensor
 %
-% See TapeTape2013 "The classical model for moment tensors"
+% This function is a special case of tp2lam.m
 %
 % See example below.
+%
+% See TapeTape2013 "The classical model for moment tensors"
 %
 % Carl Tape, 2013-12-18
 %
@@ -41,7 +43,7 @@ V = 1/sqrt(6) * [ sqrt(3) 0 -sqrt(3) ;
 rphi = (4*sinphi.^2 + cosphi.^2).^(-1/2);
 ivec = [sqrt(3)*abs(sinphi) ; -sinphi ; cosphi];
 % note: V-transpose = V-inverse for this V
-Klam = repmat(rphi,3,1) .* (V' * ivec);
+lamK = repmat(rphi,3,1) .* (V' * ivec);
 
 % the arc distance from the DC to Lambda^K (see note above about rphi)
 thetaK = asin(rphi) * deg;
@@ -52,17 +54,18 @@ thetaK = asin(rphi) * deg;
 if 0==1
     % values from Fig. 6 of TT2013
     phi = [15:30:165 -165:30:-15]';
-    Klam = Kphi(phi);
+    lamK = Kphi(phi);
     % check
-    [thetadc,phi_check] = lam2tp(Klam);
-    [gamma,delta] = lam2lune(Klam);
-    [phi Klam' gamma phi_check]
+    [thetadc,phi_check] = lam2tp(lamK);
+    [gamma,delta] = lam2lune(lamK);
+    [phi lamK' gamma phi_check]
+    %Klam2 = tp2lam(thetadc,phi)
     
     % alternatively we could convert phi to nu, then use nualpha2lam.m
     nu = phi2nu(phi);
     alpha = [0*ones(1,6) 180*ones(1,6)];    % half on each side of lune
-    Klam_check = nualpha2lam(nu,alpha);
-    norm(Klam - Klam_check)
+    lamK_check = nualpha2lam(nu,alpha);
+    norm(lamK - lamK_check)
 end
 
 %==========================================================================

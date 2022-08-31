@@ -137,10 +137,10 @@ if 0
     deg = 180/pi;
     phi = [-180:180];
     % eigenvalues of crack tensor
-    [Klam,thetaK] = Kphi(phi);
+    [lamK,thetaK] = Kphi(phi);
     % OPTION A: analytical (thetaK from Kphi.m)
     % OPTION B: numerical; from eigenvalues
-    lam1 = Klam(1,:); lam2 = Klam(2,:); lam3 = Klam(3,:);
+    lam1 = lamK(1,:); lam2 = lamK(2,:); lam3 = lamK(3,:);
     lammag = sqrt(lam1.^2 + lam2.^2 + lam3.^2);
     % see lam2lune.m
     thetaK_num = acos( (lam1 - lam3) ./ (sqrt(2)*lammag) ) * deg;
