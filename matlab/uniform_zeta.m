@@ -11,6 +11,10 @@ function zeta = uniform_zeta(n,brandom)
 %
 % EXAMPLE: zeta = uniform_zeta(1e6); [set bfigure = true]
 %
+% The gist of this code is to generate samples of a given probability
+% density function. Presumably there are built-in functions in Matlab to do
+% this kind of thing.
+%
 % See TapeTape2013 "The classical model for moment tensors".
 %
 % Carl Tape, 2022-08-30
@@ -43,7 +47,7 @@ if bfigure
     figure; plot(zetai,pcum);
     figure; plot(pcum,zetai);
     figure; hold on;
-    plot_histo(zeta,linspace(0,pi/2,28),3,true);
+    plot_histo(zeta,linspace(0,pi/2,40),3,true);
     plot(zetai,p,'r','linewidth',2);
 end
 
