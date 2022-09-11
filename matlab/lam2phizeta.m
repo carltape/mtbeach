@@ -28,7 +28,7 @@ lam3 = lam(3,:);
 rho = sqrt(lam1.^2 + lam2.^2 + lam3.^2);
 
 % TT2013, Eqs 24
-% note: may want to add special cases for DC, +/-ISO (see lam2tp.m)
+% note: may want to add special cases for DC (zeta=0) and +/-ISO (gamma=0,zeta=90) (see lam2tp.m)
 phi = atan2( lam1 - 2*lam2 + lam3 , sqrt(2)*(lam1 + lam2 + lam3) ) * deg;
 
 zeta = acos( sqrt( 2*(lam1 - lam2) .* (lam2 - lam3) ) ./ rho ) * deg;
@@ -41,7 +41,7 @@ zeta = zeta(:);
 % EXAMPLES
 
 if 0==1
-    %% example from TT2013, App A.
+    %% example from TT2013 Appendix A
     lam = [ 8.802 2.584 -1.851]';
     [phi,zeta] = lam2phizeta(lam)
     lamcheck = phizeta2lam(phi,zeta)

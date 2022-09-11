@@ -2,13 +2,13 @@ function plotMT_cdc(nu,alpha,phi,zeta)
 %PLOTMT_CDC plot histograms of moment tensor parameters nu,alpha,phi,zeta
 %
 % CDC = crack-plus-double couple model for seismic moment tensors
-% See TapeTape2013 and also Minson et al. (2007 JGR).
+% See TapeTape2013 "The classical model for moment tensors"
 %
 % INPUT
-%   nu      vector of Poisson parameter from classical model (-infinity, infinity)
-%   alpha   vector of angles between fault normal and slip vector, degrees [0,180]
-%   phi     vector of phi angles on the lune, degrees [-180,180]
-%   zeta    vector of crack fraction within CDC model [0,90]
+%   nu      Poisson parameter from classical model (-infinity, infinity)
+%   alpha   angle between fault normal and slip vector, degrees [0,180]
+%   phi     azimuthal angle on the lune, degrees [-180,180]
+%   zeta    crack fraction within CDC model [0,90]
 % 
 % See also lam2nualpha.m, lam2phizeta.m
 % See run_uniformMT.m for examples.

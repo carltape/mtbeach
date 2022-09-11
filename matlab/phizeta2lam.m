@@ -2,7 +2,7 @@ function lam = phizeta2lam(phi,zeta)
 %PHIZETA2LAM converts phi and zeta to unit lambda vector
 %
 % INPUT
-%   phi     n x 1 vector of phi angles on the lune, degrees [-180,180]
+%   phi     n x 1 vector of azimuthal angles on the lune, degrees [-180,180]
 %   zeta    n x 1 vector of crack fraction within CDC model [0,90]
 %
 %  OUTPUT

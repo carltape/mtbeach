@@ -18,7 +18,8 @@ function [M,v,w,kappa,sigma,h,lam] = uniformMT(n,gamma0,delta0)
 %   kappa   strike angle, degrees (0 to 360)
 %   sigma   slip angle, degrees (-90 to 90)
 %   h       cos(dip angle), (0 to 1)
-%   lam     OPTIONAL: eigenvalues
+% optional
+%   lam     3 x n set of eigenvalues (lam1 >= lam2 >= lam2)
 %
 % See TapeTape2015 "A uniform parameterization of moment tensors"
 %

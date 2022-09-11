@@ -51,5 +51,3 @@ phi(abs(phi) < XEPS) = 0;
 % column vectors
 thetadc = thetadc(:);
 phi = phi(:);
-
-

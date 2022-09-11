@@ -15,6 +15,7 @@ bprint = false;
 
 % GET USER INPUT
 stlabs = {  'random full moment tensor',
+            'random moment tensors for fixed nu',
             'random deviatoric moment tensors',
             'random moment tensors with fixed eigenvalues',
             'random double couple moment tensors',
@@ -22,8 +23,7 @@ stlabs = {  'random full moment tensor',
             'regular grid of double couple moment tensors',
             'will generate error (intentionally)',
             'insights into the sin^4(omega) distribution',
-            'insights into random vs uniform grid',
-            'grid of moment tensor for fixed nu'};
+            'insights into random vs uniform grid'};
 nex = length(stlabs);
 disp('run_uniformMT.m examples:');
 for ii=1:nex, disp(sprintf('   %2i : %s',ii,stlabs{ii})); end
@@ -39,48 +39,65 @@ end
 % (alternatively you can choose a moment tensor that is in the set)
 Mref = 1/sqrt(2)*[1 0 -1 0 0 0]';
 
+% default number of moment tensors to generate
+n = 1e5;
+
 switch iex
     case 1
     % randomly generated uniform full moment tensors
-    n = 1e5;
     [M,v,w,kappa,sigma,h] = uniformMT(n);
     %iref = randi(n); Mref = M(:,iref);
     omega = CMT2omega(Mref,M);
     plot_omega(omega);  
 
     case 2
-    % many studies/catalogs constrain moment tensors to be deviatoric
+    % randomly generated uniform moment tensors for fixed nu (or phi)
+    nu0 = 0.25;
+    %nu0 = -1;   % deviatoric moment tensors
+    blune = false;
+    brandom = true;
+    [gamma,delta] = nu2lune(nu0,n,blune,brandom);
+    % random uniform orientations (see uniformMT.m)
+    kappa = randomvec(0,360,n);
+    sigma = randomvec(-90,90,n);
+    h     = randomvec(0,1,n);
+    theta = acos(h)*deg;
+    M0 = 1/sqrt(2);     % ensure that ||M|| = rho = 1
+    % moment tensors
+    M = TT2CMT(gamma,delta,M0,kappa,theta,sigma);
+    [v,w] = lune2rect(gamma,delta);
+    
+    case 3
+    % randomly generated uniform deviatoric moment tensors
+    % This is equivalent to case 2 with nu0 = -1.
     % WARNING: One cannot simply draw random points on a line segment
     %          between two points (v1,w1) and (v2,w2) in the vw plane, and
     %          then use random orientations. But this does work for the case
     %          of w = constant [line of latitude].
-    n = 1e5;
-    w0 = 0;  % could be any permissible w value
+    w0 = 0;  % could be any permissible w value +/-3pi/8 = +/- 1.1781
              % here we choose it for the deviatoric MTs
     [~,v,w,kappa,sigma,h] = uniformMT(n);
-    w = w0*ones(size(w));    % reassign w
+    w = w0*ones(size(w));    % reassign all w values to w0
     rho = sqrt(2)*ones(n,1);
     M = TT152CMT(rho,v,w,kappa,sigma,h);
 
-    case 3
+    case 4
     % randomly generated uniform moment tensors with fixed lune point
-    n = 1e5;
     gamma0 = -25; delta0 = 60;     % double couple
     %gamma0 = -75; delta0 = 60;     % will generate error exit
     [M,v,w,kappa,sigma,h] = uniformMT(n,gamma0,delta0);
     %iref = randi(n); Mref = M(:,iref);
     omega = CMT2omega(Mref,M);
 
-    case 4
+    case 5
     % randomly generated uniform double couple moment tensors
-    n = 1e5;
     gamma0 = 0; delta0 = 0;     % double couple
     [M,v,w,kappa,sigma,h] = uniformMT(n,gamma0,delta0);
     %iref = randi(n); Mref = M(:,iref);
     omega = CMT2omega(Mref,M);
     plot_omegadc(omega);  
 
-    case 5
+    case 6
     % regular grid of uniform full moment tensors
     %n = [2 3 5 4 2];
     %n = [6 18 18 9 5];    % 5-degree increments in strike/dip/rake
@@ -91,7 +108,7 @@ switch iex
     [M,v,w,kappa,sigma,h] = uniformMT(n);
     ntotal = length(v);
 
-    case 6
+    case 7
     % regular grid of uniform double couple moment tensors
     ntotal = 1e5;
     %ntotal = 46656;                 % number of points for n = [0 0 72 36 18]
@@ -108,7 +125,7 @@ switch iex
     omega = CMT2omega(Mref,M);
     plot_omegadc(omega); 
 
-    case 7
+    case 8
     %--> THIS WILL GENERATE AN ERROR, since the 0 0 indicates a fixed lune point,
     % but no lune point is specified as the 2nd and 3rd arguments of uniformMT
     n = [0 0 5 4 2];    % error
@@ -116,7 +133,7 @@ switch iex
     %n = [2 2 5 4 2];    % no error
     [M,v,w,kappa,sigma,h] = uniformMT(n);
 
-    case 8
+    case 9
     % insights into the sin^4(omega) distribution
     figure; nr=2; nc=1;
 
@@ -154,7 +171,7 @@ switch iex
     
     error
     
-    case 9
+    case 10
     % insights into random vs regular grid
     
     nb = 16;
@@ -174,22 +191,6 @@ switch iex
     title(sprintf('%i uniform grid points',length(ag)));
     
     error
-    
-    case 10
-        
-    % randomly generated uniform full moment tensors
-    % then take subset for fixed Poisson value
-    n = 1e6;
-    [M,v,w,kappa,sigma,h] = uniformMT(n);
-    lam = CMTdecom(M);
-    [nu,alpha] = lam2nualpha(lam);
-    NUTARGET = 0.25;
-    NUEPSILON = 0.01;
-    % get subset
-    isub = find( abs(nu-NUTARGET) < NUEPSILON );
-    M = M(:,isub);
-    v = v(isub); w = w(isub);
-    kappa = kappa(isub); sigma = sigma(isub); h = h(isub);
         
 end
 
@@ -300,7 +301,7 @@ plotMT_lam(lam);
 
 error
 
-%% ADDITIONAL HISTOGRAMS
+%% ADDITIONAL HISTOGRAMS (note: lam must be evaluated in previous block)
 
 % lune longitude and latitude within latitude bands and longitude bands
 plotMT_lune(gamma,delta);
@@ -308,7 +309,14 @@ plotMT_lune(gamma,delta);
 % classical model and CDC
 [nu,alpha] = lam2nualpha(lam);
 [phi,zeta] = lam2phizeta(lam);
-plotMT_cdc(nu,alpha,phi,zeta);
+plotMT_phizeta(phi,zeta);
+plotMT_nualpha(nu,alpha);
+if iex==2
+    [alpha,falpha] = pdf_alpha(nu0);
+    plot(alpha,falpha,'r--','linewidth',2);
+end
+
+%% ADDITIONAL HISTOGRAMS (note: U must be evaluated in prior block)
 
 % plunge-azimuth angles of eigenvectors
 Useu = convertv(1,5,U);

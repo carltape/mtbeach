@@ -2,7 +2,7 @@ function phi = nu2phi(nu)
 %NU2PHI convert nu [Poisson parameter] to azimuthal coordinate on the lune [phi]
 % 
 % INPUT
-%   nu      Poisson parameter [-infty,infty]
+%   nu      Poisson parameter (-infinity,infinity)
 %
 % OUTPUT
 %   phi     azimuthal angle on eigenvalue lune [0,180]

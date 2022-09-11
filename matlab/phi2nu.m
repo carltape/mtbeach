@@ -5,7 +5,7 @@ function nu = phi2nu(phi)
 %   phi     azimuthal angle on eigenvalue lune [-180,180]
 %
 % OUTPUT
-%   nu      Poisson parameter [-infty,infty]
+%   nu      Poisson parameter (infinity,infinity)
 %   
 % Note: Here nu is a mathematical parameter, and there are no restrictions
 %       on it, such as the allowable Poisson values of -1 <= nu <= 0.5.
