@@ -98,11 +98,13 @@ if ione_file == 1       % write to a single file
         m0 = CMT2m0(1,M(:,kk));
         mag = m02mw(1,1e-7*m0);  % assumes M is in dyne-cm
        
-        % SEE NOTES BELOW
-        fprintf(fid,'XXXX %4i %2i %2i %2i %2s %5.2f %8.4f %9.4f %5.1f %3.1f %3.1f %s\n',...
-            year(otime(kk)),month(otime(kk)),day(otime(kk)),...
-            hour(otime(kk)),datestr(otime(kk),'MM'),second(otime(kk)),...
-            lat(kk),lon(kk),dep(kk),mag,mag,elabel{kk});
+        %fprintf(fid,'XXXX %4i %2i %2i %2i %2s %5.2f %8.4f %9.4f %5.1f %3.1f %3.1f %s\n',...
+        %    year(otime(kk)),month(otime(kk)),day(otime(kk)),...
+        %    hour(otime(kk)),datestr(otime(kk),'MM'),second(otime(kk)),...
+        %    lat(kk),lon(kk),dep(kk),mag,mag,elabel{kk});
+        [y,m,d,h,mi,s] = datevec(otime(kk));
+        fprintf(fid,'XXXX %4i %2i %2i %2i %2i %5.2f %8.4f %9.4f %5.1f %3.1f %3.1f %s\n',...
+            y,m,d,h,mi,s,lat(kk),lon(kk),dep(kk),mag,mag,elabel{kk});
         
         fprintf(fid,'event name: %11s\n',eid{kk});
         fprintf(fid,'time shift: %11.4f\n',tshift(kk));
@@ -152,16 +154,9 @@ else            % write to individual files
         m0 = CMT2m0(1,M(:,kk));
         mag = m02mw(1,1e-7*m0);
 
-        %fprintf(fid,'XXXX %4i %2i %2i %2i %2i %5.2f -LA.TUDE -LON.TUDE DPT.H M.B M.S EVENT_NAME\n',...
-        %    year(otime(kk)),month(otime(kk)),day(otime(kk)),hour(otime(kk)),minute(otime(kk)),second(otime(kk)));
-
-       % NOTE: (1) cannot use the minute command, since it will round up (see below).
-       %       (2) but we need the second command to avoid round-off errors
-       %           of milliseconds from using datevec
-        fprintf(fid,'XXXX %4i %2i %2i %2i %2s %5.2f %8.4f %9.4f %5.1f %3.1f %3.1f %s\n',...
-            year(otime(kk)),month(otime(kk)),day(otime(kk)),...
-            hour(otime(kk)),datestr(otime(kk),'MM'),second(otime(kk)),...
-            lat(kk),lon(kk),dep(kk),mag,mag,elabel{kk});
+        [y,m,d,h,mi,s] = datevec(otime(kk));
+        fprintf(fid,'XXXX %4i %2i %2i %2i %2i %5.2f %8.4f %9.4f %5.1f %3.1f %3.1f %s\n',...
+            y,m,d,h,mi,s,lat(kk),lon(kk),dep(kk),mag,mag,elabel{kk});
         
         fprintf(fid,'event name: %s\n',eid{kk});
         fprintf(fid,'time shift: %11.4f\n',tshift(kk));
@@ -209,22 +204,22 @@ if 0==1
     otime = datenum(3000,1,1);
 	write_CMTSOLUTION('./',0,otime,0,0,34.1081,-118.9683,90,M);
     
-    % TECHNICAL NOTE
-    % The command 'minute' (and perhaps the others)
-    % will round up instead of using floor.
-    % WHAT ABOUT THE OTHER COMMANDS, like year, month, day, etc?
-    n0 = 7.310495416587963e+05;
-    hsec = 0.5/3600/24;                 % half second
-    nvec = [n0 ; n0+hsec];
-    
-    for kk=1:2
-        n = nvec(kk);
-        disp('-------------------');
-        fprintf('%s %s %i %s\n',datestr(n,31),datestr(n,'FFF'),minute(n),datestr(n,'MM'));
-        [y,m,d,h,mi,s] = datevec(n);
-        fprintf('%i %i %i %i %i %.4f\n',y,m,d,h,mi,s);
-        fprintf('%i %i %i %i %i %.4f\n',year(n),month(n),day(n),hour(n),minute(n),second(n));
-    end
+%     % TECHNICAL NOTE
+%     % The command 'minute' (and perhaps the others)
+%     % will round up instead of using floor.
+%     % WHAT ABOUT THE OTHER COMMANDS, like year, month, day, etc?
+%     n0 = 7.310495416587963e+05;
+%     hsec = 0.5/3600/24;                 % half second
+%     nvec = [n0 ; n0+hsec];
+%     
+%     for kk=1:2
+%         n = nvec(kk);
+%         disp('-------------------');
+%         fprintf('%s %s %i %s\n',datestr(n,31),datestr(n,'FFF'),minute(n),datestr(n,'MM'));
+%         [y,m,d,h,mi,s] = datevec(n);
+%         fprintf('%i %i %i %i %i %.4f\n',y,m,d,h,mi,s);
+%         fprintf('%i %i %i %i %i %.4f\n',year(n),month(n),day(n),hour(n),minute(n),second(n));
+%     end
     
 end
 
