@@ -1,12 +1,19 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
-NotebookDataPosition[         0,          0]
-NotebookDataLength[     24939,        636]
-NotebookOptionsPosition[     23685,        589]
-NotebookOutlinePosition[     24021,        604]
-CellTagsIndexPosition[     23978,        601]
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     25995,        659]
+NotebookOptionsPosition[     24885,        619]
+NotebookOutlinePosition[     25223,        634]
+CellTagsIndexPosition[     25180,        631]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -372,9 +379,11 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"PolyListForBeachball", "[", "\[CapitalLambda]_", "]"}], ":=", 
+   RowBox[{"PolyListForBeachball", "[", 
+    RowBox[{"\[CapitalLambda]_", ",", "WantEllipsoids_"}], "]"}], ":=", 
    RowBox[{
-    RowBox[{"PolyListForBeachball", "[", "\[CapitalLambda]", "]"}], "=", 
+    RowBox[{"PolyListForBeachball", "[", 
+     RowBox[{"\[CapitalLambda]", ",", "WantEllipsoids"}], "]"}], "=", 
     RowBox[{"Map", "[", 
      RowBox[{
       RowBox[{
@@ -384,17 +393,20 @@ Cell[BoxData[{
         "#"}], "&"}], ",", 
       RowBox[{"PolyListForBeachball0", "[", 
        RowBox[{
-        RowBox[{"CycleMat", "[", "\[CapitalLambda]", "]"}], ".", 
-        "\[CapitalLambda]"}], "]"}], ",", 
+        RowBox[{
+         RowBox[{"CycleMat", "[", "\[CapitalLambda]", "]"}], ".", 
+         "\[CapitalLambda]"}], ",", "WantEllipsoids"}], "]"}], ",", 
       RowBox[{"{", "2", "}"}]}], "]"}]}]}], ";"}]}], "Input",
  CellChangeTimes->{
   3.546731505425699*^9, {3.546731547779773*^9, 3.5467315596825943`*^9}, {
    3.5467461709688797`*^9, 3.546746210312148*^9}, {3.5468810551588306`*^9, 
    3.5468810569684334`*^9}, {3.5468811523002*^9, 3.5468811813786507`*^9}, {
    3.5468883843814273`*^9, 3.5468883904966383`*^9}, {3.600280149738731*^9, 
-   3.6002801697087584`*^9}}],
+   3.6002801697087584`*^9}, 3.875480365392573*^9}],
 
 Cell[BoxData[{
+ RowBox[{
+  RowBox[{"WantEllipsoids", "=", "True"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"\[CapitalLambda]", "=", 
    RowBox[{"{", 
@@ -417,7 +429,8 @@ Cell[BoxData[{
     RowBox[{"\[CapitalLambda]", ",", "u", ",", "c", ",", "BBrad"}], "]"}], 
    ",", 
    RowBox[{"ViewPoint", "\[Rule]", "eye"}], ",", 
-   RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}]}], "]"}]}], "Input",
+   RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", " ", 
+   RowBox[{"ImageSize", "\[Rule]", "200"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.54674739262261*^9, 3.5467474555843196`*^9}, {
    3.546747489670379*^9, 3.5467474928059845`*^9}, {3.546747595204563*^9, 
    3.546747680115511*^9}, {3.5467477303943987`*^9, 3.5467477874436984`*^9}, {
@@ -433,7 +446,8 @@ Cell[BoxData[{
    3.546964329241476*^9, {3.557848520391572*^9, 3.5578485217643747`*^9}, {
    3.5578486380001774`*^9, 3.5578486681082296`*^9}, 3.557934173358012*^9, {
    3.5579484727585306`*^9, 3.5579484768457375`*^9}, 3.5947439289348917`*^9, 
-   3.594746742942459*^9}],
+   3.594746742942459*^9, {3.8754804887284546`*^9, 3.875480492911153*^9}, 
+   3.8754806245456123`*^9}],
 
 Cell[TextData[StyleBox["The beachballs can be rotated with the mouse.",
  FontFamily->"Times New Roman",
@@ -484,8 +498,11 @@ Cell[BoxData[{
     RowBox[{"\[CapitalLambda]", ",", "u", ",", "c", ",", "BBrad"}], "]"}], 
    ",", 
    RowBox[{"ViewPoint", "\[Rule]", "eye"}], ",", 
-   RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}]}], "]"}]}], "Input",
- CellChangeTimes->{3.7111295944346743`*^9}]
+   RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", " ", 
+   RowBox[{"ImageSize", "\[Rule]", "200"}]}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.7111295944346743`*^9, {3.8754805828283234`*^9, 3.8754806097520943`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -507,7 +524,15 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"{", 
        RowBox[{"\"\<Ambient\>\"", ",", "White"}], "}"}], "}"}]}],
-    FontColor->RGBColor[1, 0, 0]]}], "]"}]], "Input",
+    FontColor->RGBColor[1, 0, 0]], 
+   StyleBox[",",
+    FontColor->RGBColor[1, 0, 0]], 
+   RowBox[{
+    StyleBox["Boxed",
+     FontColor->GrayLevel[0]], 
+    StyleBox["\[Rule]",
+     FontColor->GrayLevel[0]], "False"}], ",", " ", 
+   RowBox[{"ImageSize", "\[Rule]", "200"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.54674739262261*^9, 3.5467474555843196`*^9}, {
    3.546747489670379*^9, 3.5467474928059845`*^9}, {3.546747595204563*^9, 
    3.546747680115511*^9}, {3.5467477303943987`*^9, 3.5467477874436984`*^9}, {
@@ -523,7 +548,8 @@ Cell[BoxData[
    3.546964329241476*^9, {3.575683873515436*^9, 3.5756839058717933`*^9}, {
    3.575684003319564*^9, 3.5756840681982775`*^9}, {3.575684130144287*^9, 
    3.575684141703907*^9}, 3.5756842363686724`*^9, {3.575684304039791*^9, 
-   3.575684307112996*^9}, {3.5756847150702105`*^9, 3.5756847161073127`*^9}}]
+   3.575684307112996*^9}, {3.5756847150702105`*^9, 3.5756847161073127`*^9}, {
+   3.875480642169138*^9, 3.87548065371248*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -554,12 +580,12 @@ Cell[BoxData[{
    RowBox[{"Lighting", "\[Rule]", 
     RowBox[{"{", 
      RowBox[{"{", 
-      RowBox[{"\"\<Ambient\>\"", ",", "White"}], "}"}], "}"}]}]}], 
-  "]"}]}], "Input",
+      RowBox[{"\"\<Ambient\>\"", ",", "White"}], "}"}], "}"}]}], ",", " ", 
+   RowBox[{"ImageSize", "\[Rule]", "200"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.57568410347134*^9, 3.5756841110529537`*^9}, 
    3.5756842437630854`*^9, {3.575684542216208*^9, 3.5756845677141523`*^9}, {
    3.5756847468624663`*^9, 3.5756847573144846`*^9}, {3.5947487116827807`*^9, 
-   3.5947487199552927`*^9}}]
+   3.5947487199552927`*^9}, {3.875480725248908*^9, 3.875480767316408*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -582,13 +608,17 @@ Cell[BoxData[
       RowBox[{"\"\<Ambient\>\"", ",", "White"}], "}"}], "}"}]}], ",", 
    StyleBox[
     RowBox[{"Boxed", "\[Rule]", "False"}],
-    FontColor->RGBColor[1, 0, 0]]}], "]"}]], "Input",
+    FontColor->RGBColor[1, 0, 0]], 
+   StyleBox[",",
+    FontColor->RGBColor[1, 0, 0]], 
+   RowBox[{"ImageSize", "\[Rule]", "200"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.5756850071260214`*^9, 3.5756850116500297`*^9}, 
-   3.5756850477709928`*^9, {3.575685081390952*^9, 3.575685082467354*^9}}]
+   3.5756850477709928`*^9, {3.575685081390952*^9, 3.575685082467354*^9}, {
+   3.8754807773936553`*^9, 3.8754807783975782`*^9}}]
 }, Open  ]]
 },
-WindowSize->{975, 714},
-WindowMargins->{{Automatic, 98}, {Automatic, 32}},
+WindowSize->{1281, 750},
+WindowMargins->{{105, Automatic}, {77, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -604,34 +634,35 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[422, 15, 318, 6, 71, "Subsection"],
-Cell[743, 23, 2341, 44, 55, "Input"],
-Cell[3087, 69, 957, 26, 55, "Input"],
-Cell[4047, 97, 1565, 38, 121, "Input"],
-Cell[5615, 137, 1509, 37, 121, "Input"],
-Cell[7127, 176, 348, 7, 51, "Text"],
-Cell[7478, 185, 6142, 145, 385, "Input"],
-Cell[13623, 332, 2253, 62, 143, "Input"],
-Cell[15879, 396, 1975, 39, 55, "Input"],
-Cell[17857, 437, 255, 5, 31, "Text"]
+Cell[567, 22, 318, 6, 45, "Subsection"],
+Cell[888, 30, 2341, 44, 55, "Input"],
+Cell[3232, 76, 957, 26, 55, "Input"],
+Cell[4192, 104, 1565, 38, 99, "Input"],
+Cell[5760, 144, 1509, 37, 99, "Input"],
+Cell[7272, 183, 348, 7, 51, "Text"],
+Cell[7623, 192, 6142, 145, 275, "Input"],
+Cell[13768, 339, 2397, 65, 143, "Input"],
+Cell[16168, 406, 2190, 43, 77, "Input"],
+Cell[18361, 451, 255, 5, 31, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[18149, 447, 469, 8, 71, "Subsection"],
-Cell[18621, 457, 1015, 30, 55, "Input"]
+Cell[18653, 461, 469, 8, 71, "Subsection"],
+Cell[19125, 471, 1171, 33, 55, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19673, 492, 236, 3, 45, "Subsection"],
-Cell[19912, 497, 1629, 28, 32, "Input"]
+Cell[20333, 509, 236, 3, 45, "Subsection"],
+Cell[20572, 514, 1919, 37, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[21578, 530, 281, 6, 71, "Subsection"],
-Cell[21862, 538, 886, 23, 55, "Input"]
+Cell[22528, 556, 281, 6, 45, "Subsection"],
+Cell[22812, 564, 984, 23, 55, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22785, 566, 266, 3, 45, "Subsection"],
-Cell[23054, 571, 615, 15, 55, "Input"]
+Cell[23833, 592, 266, 3, 45, "Subsection"],
+Cell[24102, 597, 767, 19, 32, "Input"]
 }, Open  ]]
 }
 ]
 *)
 
+(* End of internal cache information *)
