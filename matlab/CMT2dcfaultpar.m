@@ -30,8 +30,9 @@ if nargin==1, idisplay=0; end
 [V1,V2,MDC,U,lams] = CMT2dcfaultvec(M,1,idisplay);
 
 % fault vectors to fault parameters
-F1 = dcfaultvec2faultpar(V1,1,idisplay);  % plane 1
-F2 = dcfaultvec2faultpar(V2,1,idisplay);  % plane 2
+itype = 1;
+F1 = dcfaultvec2faultpar(V1,itype,idisplay);  % plane 1
+F2 = dcfaultvec2faultpar(V2,itype,idisplay);  % plane 2
 
 % fault vectors
 k1 = V1(1:3,:); d1 = V1(4:6,:); n1 = V1(7:9,:);
@@ -41,26 +42,27 @@ k2 = V2(1:3,:); d2 = V2(4:6,:); n2 = V2(7:9,:);
 kap1 = F1(:,1); theta1 = F1(:,2); sig1 = F1(:,3);
 kap2 = F2(:,1); theta2 = F2(:,2); sig2 = F2(:,3);
 
-%-----------------------
-% to match CMT output, the first plane is taken to be the SHALLOW dip
-% note: is there a better way to swap elements of vectors in matlab?
-
-% % find dips of plane 1 that are greater than dips of plane 2
-% iswap = find(theta1 > theta2);
+% breorder = false;
+% if breorder
+%     % to match CMT output, the first plane is taken to be the SHALLOW dip
 % 
-% D1 = [kap1 theta1 sig1 k1' d1' n1'];
-% D2 = [kap2 theta2 sig2 k2' d2' n2'];
-% [D1,D2] = swap(D1,D2,iswap);
+%     % find dips of plane 1 that are greater than dips of plane 2
+%     iswap = find(theta1 > theta2);
 % 
-% kap1 = D1(:,1); theta1 = D1(:,2); sig1 = D1(:,3);
-% k1 = D1(:,4:6)';
-% d1 = D1(:,7:9)';
-% n1 = D1(:,10:12)';
+%     D1 = [kap1 theta1 sig1 k1' d1' n1'];
+%     D2 = [kap2 theta2 sig2 k2' d2' n2'];
+%     [D1,D2] = swap(D1,D2,iswap);    % replace this function
 % 
-% kap2 = D2(:,1); theta2 = D2(:,2); sig2 = D2(:,3);
-% k2 = D2(:,4:6)';
-% d2 = D2(:,7:9)';
-% n2 = D2(:,10:12)';
+%     kap1 = D1(:,1); theta1 = D1(:,2); sig1 = D1(:,3);
+%     k1 = D1(:,4:6)';
+%     d1 = D1(:,7:9)';
+%     n1 = D1(:,10:12)';
+% 
+%     kap2 = D2(:,1); theta2 = D2(:,2); sig2 = D2(:,3);
+%     k2 = D2(:,4:6)';
+%     d2 = D2(:,7:9)';
+%     n2 = D2(:,10:12)';
+% end
 
 if idisplay==1
     n = length(kap1);

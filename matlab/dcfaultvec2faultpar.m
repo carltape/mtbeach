@@ -24,7 +24,7 @@ function Xout = dcfaultvec2faultpar(Xin,itype,idisplay)
 %  OUTPUT:
 %    Xout       9 x n fault vectors [k1 ; d1 ; n1]
 %
-% Carl Tape, 31-Mar-2011
+% Carl Tape, 2011-03-21
 %
 
 deg = 180/pi;

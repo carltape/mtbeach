@@ -21,7 +21,7 @@ function [MDC,k1,d1,n1,p1,p2,p3] = dcfaultpar2CMT(kap1,theta1,sig1,idisplay)
 %
 % calls dcfaultvec2faultpar.m, CMT2dcfaultvec.m
 %
-% Carl Tape, 31-Mar-2011
+% Carl Tape, 2011-03-31
 %
 
 %deg = 180/pi;
@@ -73,4 +73,4 @@ if idisplay==1
     end
 end
 
-%=======================================================================
+%==========================================================================

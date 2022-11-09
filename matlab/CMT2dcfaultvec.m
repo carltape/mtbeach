@@ -33,7 +33,7 @@ function [Xout1,Xout2,Xout3,Xout4,Xout5] = CMT2dcfaultvec(Xin,itype,idisplay)
 %   fvec2fmat.m, fmat2fvec.m
 % called by CMT2dcfaultpar.m, dcfaultpar2CMT.m
 %
-% Carl Tape, 31-Mar-2011
+% Carl Tape, 2011-03-31
 %
 
 %deg = 180/pi;
@@ -114,7 +114,7 @@ if itype==1
     d1 = zeros(3,n); d2 = zeros(3,n);
     n1 = zeros(3,n); n2 = zeros(3,n);
 
-    % two different codes (defaul = 1)
+    % two different approaches (default = 1)
     iversion = 1;
     
     if iversion == 1
@@ -416,6 +416,7 @@ if vdot > 0
 elseif vdot < 0
     n = -nvec;
 else
+    nvec, evec, vdot
     error('very special case');
 end
 
