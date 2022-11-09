@@ -59,14 +59,14 @@ if itype==1
         % sign will return -1, 0, or 1
         % e.g., =0 if strike vector is opposite from slip vector, in which case
         %    we can let acos below return 180
-        sig1 = sign(det([k1(:,ii) d1(:,ii) n1(:,ii)]));
-        if sig1==0, sig1 = 1; end
+        sigx = sign(det([k1(:,ii) d1(:,ii) n1(:,ii)]));
+        if sigx==0, sigx = 1; end
         % compute rake
         dot1 = dot(k1(:,ii),d1(:,ii));
         % ugly correction to assure that rake is not imaginary
         if abs(dot1) > 1, dot1 = sign(dot1); end
         % note: acos operation to get sigma assumes UNIT vectors k and d
-        sig1(ii) = sig1 * acos( dot1 );
+        sig1(ii) = sigx * acos( dot1 );
     end
 
     % convert to degrees
