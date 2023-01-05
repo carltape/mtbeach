@@ -116,7 +116,7 @@ end
 if 0==1
     clc, close all, clear
     
-    %% EXAMPLE: given one nodel plane and slip direction,
+    % EXAMPLE: given one nodel plane and slip direction,
     %          get the other nodal plane and slip direction
     kap0 = 200; theta0 = 52; sigma0 = -85;
     [kap2,theta2,sigma2] = dcfaultpar2aux(kap0,theta0,sigma0);
@@ -131,7 +131,42 @@ if 0==1
     disp('only one triple is within the MT orientation space');
     disp('strike = [0,360], dip = [0,90], rake = [-90,90]');
     
-    %% EXAMPLE 1: two pairs of nodal planes -- 
+    % input strike, dip, rake:
+    % kap0 =
+    %    200
+    % theta0 =
+    %     52
+    % sigma0 =
+    %    -85
+    % other strike, dip, rake:
+    % kap2 =
+    %    11.9121
+    % theta2 =
+    %    38.2782
+    % sigma2 =
+    %   -96.3653
+    % check by converting to original:
+    % kap3 =
+    %   200.0000
+    % theta3 =
+    %     52
+    % sigma3 =
+    %    -85
+    % check that both triples correspond to the same MT:
+    % dcfaultvec2faultpar.m: 1 sets of input fault parameters
+    % convert_getbasis.m: south-east-up to up-south-east (GCMT)
+    % dcfaultvec2faultpar.m: 1 sets of input fault parameters
+    % convert_getbasis.m: south-east-up to up-south-east (GCMT)
+    %    -0.9666   -0.9666
+    %     0.0689    0.0689
+    %     0.8977    0.8977
+    %     0.1328    0.1328
+    %     0.2081    0.2081
+    %     0.2580    0.2580
+    % only one triple is within the MT orientation space
+    % strike = [0,360], dip = [0,90], rake = [-90,90]
+    
+    % EXAMPLE 1: two pairs of nodal planes -- 
     %            perform operation twice to recover the starting angles
     kap0 = [126 349.8 87 290]'; theta0 = [43 56 10 81]'; sigma0 = [-125 -61.9 67 93]';
     [kap2,theta2,sigma2] = dcfaultpar2aux(kap0,theta0,sigma0);
@@ -139,7 +174,7 @@ if 0==1
     [kap0 kap3 theta0 theta3 sigma0 sigma3]
     [kap0-kap3 theta0-theta3 sigma0-sigma3]
     
-    %% EXAMPLE 2: random points in strike-dip-rake space
+    % EXAMPLE 2: random points in strike-dip-rake space
     n = 1e5;
     kap0 = randomvec(0,360,n);
     h = randomvec(0,1,n);
@@ -158,7 +193,7 @@ if 0==1
     subplot(nr,nc,2); plot(theta3-theta0,'.'); xlabel('dip angle, degrees');
     subplot(nr,nc,3); plot(sigma3-sigma0,'.'); xlabel('rake angle, degrees');
     
-    %% fault angles listed in the GCMT catalog
+    % fault angles listed in the GCMT catalog
     % (here we are ignoring any non-double-couple components of the moment tensors)
     clc, close all, clear
     isub = [1:59681]';
