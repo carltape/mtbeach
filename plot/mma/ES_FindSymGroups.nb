@@ -10,16 +10,19 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    147472,       3515]
-NotebookOptionsPosition[    144221,       3408]
-NotebookOutlinePosition[    144558,       3423]
-CellTagsIndexPosition[    144515,       3420]
+NotebookDataLength[    151249,       3598]
+NotebookOptionsPosition[    147914,       3489]
+NotebookOutlinePosition[    148252,       3504]
+CellTagsIndexPosition[    148209,       3501]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[" "], "Input",
+ CellChangeTimes->{3.8866937957510467`*^9}],
 
 Cell[CellGroupData[{
+
 Cell["\<\
 This file will find the symmetry group for any given elastic map.
 To do so, evaluate all cells up to but not including Section 2. Then evaluate \
@@ -424,11 +427,16 @@ Cell[BoxData[{
        RowBox[{"Transpose", "[", "U", "]"}]}], "&"}], "]"}]}], ";"}], 
   "  "}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{
+   RowBox[{"MyRound", "[", 
+    RowBox[{"0.", ",", "k_"}], "]"}], ":=", "0"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"MyRound", "[", 
    RowBox[{"x_", ",", "k_"}], "]"}], ":=", 
   RowBox[{"(", 
    RowBox[{
-    RowBox[{"nn", "=", "1"}], ";", 
+    RowBox[{"nn", "=", "1"}], ";", "\[IndentingNewLine]", 
     RowBox[{"While", "[", 
      RowBox[{
       RowBox[{
@@ -484,7 +492,8 @@ Cell[BoxData[{
    3.8385136616545105`*^9}, {3.838514819535391*^9, 3.8385148207092237`*^9}, {
    3.8473829008383565`*^9, 3.847382927155428*^9}, {3.847382967814706*^9, 
    3.8473829736857033`*^9}, {3.847469599712659*^9, 3.847469600513344*^9}, 
-   3.869405046964196*^9, {3.870269804740378*^9, 3.8702698066811223`*^9}}],
+   3.869405046964196*^9, {3.870269804740378*^9, 3.8702698066811223`*^9}, {
+   3.8823260767752075`*^9, 3.8823261394351482`*^9}, 3.882326230586089*^9}],
 
 Cell[BoxData[
  RowBox[{"Table", "[", 
@@ -1349,198 +1358,227 @@ The commands for OutputFor[Tmat, ISO] and OutputFor[Tmat, TRIV] are later.\
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"OutputFor", "[", 
-   RowBox[{"Tmat_", ",", "\[CapitalSigma]_"}], "]"}], ":=", 
-  RowBox[{"(", 
-   RowBox[{
-    RowBox[{"Clear", "[", 
-     RowBox[{"\[Theta]", ",", "\[Sigma]", ",", "\[Phi]"}], "]"}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Print", "[", 
-     RowBox[{"DateSequence", "[", 
-      RowBox[{
-       RowBox[{"DateList", "[", "]"}], ",", "\"\<yes\>\""}], "]"}], "]"}], 
-    ";", "\[IndentingNewLine]", 
-    RowBox[{"GetTempAnd\[Theta]0\[Sigma]0\[Phi]0", "[", 
-     RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Print", "[", 
-     RowBox[{"\"\<NMinimize = \>\"", ",", 
-      RowBox[{"temp", "[", 
-       RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", 
-      "\"\<  (minimizing the function  (\[Theta], \[Sigma], \[Phi]) \>\"", 
-      ",", 
-      RowBox[{"Style", "[", 
-       RowBox[{"\"\<\[LongRightArrow]\>\"", " ", ",", "Bold", ",", "14"}], 
-       "]"}], ",", "\"\< d\>\"", ",", 
-      RowBox[{"Style", "[", 
-       RowBox[{"\"\<(\>\"", ",", "17"}], "]"}], ",", "\"\<T, \>\"", ",", 
-      RowBox[{"ScriptV", "[", 
-       RowBox[{"\[CapitalSigma]", ",", "\"\<U\>\""}], "]"}], ",", 
-      RowBox[{"Style", "[", 
-       RowBox[{"\"\<)\>\"", ",", "17"}], "]"}], ",", 
-      "\"\<, U = \!\(\*SubscriptBox[OverscriptBox[\(U\), \(^\)], \(S\)]\)(\
+  RowBox[{
+   RowBox[{"OutputFor", "[", 
+    RowBox[{"Tmat_", ",", "\[CapitalSigma]_"}], "]"}], ":=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"Clear", "[", 
+      RowBox[{"\[Theta]", ",", "\[Sigma]", ",", "\[Phi]"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"DateSequence", "[", 
+       RowBox[{
+        RowBox[{"DateList", "[", "]"}], ",", "\"\<yes\>\""}], "]"}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"GetTempAnd\[Theta]0\[Sigma]0\[Phi]0", "[", 
+      RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<NMinimize = \>\"", ",", 
+       RowBox[{"temp", "[", 
+        RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", 
+       "\"\<  (minimizing the function  (\[Theta], \[Sigma], \[Phi]) \>\"", 
+       ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<\[LongRightArrow]\>\"", " ", ",", "Bold", ",", "14"}], 
+        "]"}], ",", "\"\< d\>\"", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(\>\"", ",", "17"}], "]"}], ",", "\"\<T, \>\"", ",", 
+       RowBox[{"ScriptV", "[", 
+        RowBox[{"\[CapitalSigma]", ",", "\"\<U\>\""}], "]"}], ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<)\>\"", ",", "17"}], "]"}], ",", 
+       "\"\<, U = \!\(\*SubscriptBox[OverscriptBox[\(U\), \(^\)], \(S\)]\)(\
 \[Theta],\[Sigma],\[Phi]))\>\""}], " ", "]"}], ";", "\[IndentingNewLine]", 
-    RowBox[{"Print", "[", 
-     RowBox[{
-     "\"\<    ((\!\(\*SubscriptBox[\(\[Theta]\), \(0\)]\), \
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<    ((\!\(\*SubscriptBox[\(\[Theta]\), \(0\)]\), \
 \!\(\*SubscriptBox[\(\[Sigma]\), \(0\)]\), \!\(\*SubscriptBox[\(\[Phi]\), \(0\
 \)]\)) in degrees are \>\"", ",", 
-      RowBox[{"Round", "[", 
-       RowBox[{
+       RowBox[{"Round", "[", 
         RowBox[{
-         RowBox[{"{", 
-          RowBox[{"\[Theta]0", ",", "\[Sigma]0", ",", "\[Phi]0"}], "}"}], "/",
-          "Degree"}], " ", ",", ".1"}], "]"}], ",", "\"\<)\>\""}], "]"}], ";",
-     "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"UT", "[", 
-      RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "=", 
-     RowBox[{"UsHat", "[", 
-      RowBox[{"{", 
-       RowBox[{"\[Theta]0", ",", "\[Sigma]0", ",", "\[Phi]0"}], "}"}], 
-      "]"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{"Print", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\[Theta]0", ",", "\[Sigma]0", ",", "\[Phi]0"}], "}"}], 
+          "/", "Degree"}], " ", ",", ".1"}], "]"}], ",", "\"\<)\>\""}], "]"}],
+      ";", "\[IndentingNewLine]", 
      RowBox[{
-     "\"\<\!\(\*SubscriptBox[\(U\), \(0\)]\) = \
+      RowBox[{"UT", "[", 
+       RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "=", 
+      RowBox[{"UsHat", "[", 
+       RowBox[{"{", 
+        RowBox[{"\[Theta]0", ",", "\[Sigma]0", ",", "\[Phi]0"}], "}"}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{
+      "\"\<\!\(\*SubscriptBox[\(U\), \(0\)]\) = \
 \!\(\*SubscriptBox[OverscriptBox[\(U\), \(^\)], \
 \(S\)]\)(\!\(\*SubscriptBox[\(\[Theta]\), \(0\)]\),\!\(\*SubscriptBox[\(\
 \[Sigma]\), \(0\)]\),\!\(\*SubscriptBox[\(\[Phi]\), \(0\)]\)) = \>\"", ",", 
-      RowBox[{"MatrixForm", "[", 
-       RowBox[{"Chop", "[", 
-        RowBox[{
-         RowBox[{"UT", "[", 
-          RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", 
-         SuperscriptBox["10", 
-          RowBox[{"-", "7"}]]}], "]"}], "]"}], ",", 
-      "\"\<  (minimizes the function  U \>\"", ",", 
-      RowBox[{"Style", "[", 
-       RowBox[{"\"\<\[LongRightArrow]\>\"", " ", ",", "Bold", ",", "14"}], 
-       "]"}], ",", "\"\< d\>\"", ",", 
-      RowBox[{"Style", "[", 
-       RowBox[{"\"\<(\>\"", ",", "18"}], "]"}], ",", "\"\<T, \>\"", ",", 
-      RowBox[{"ScriptV", "[", 
-       RowBox[{"\[CapitalSigma]", ",", "\"\<U\>\""}], "]"}], ",", 
-      RowBox[{"Style", "[", 
-       RowBox[{"\"\<)\>\"", ",", "18"}], "]"}], ",", "\"\<)\>\""}], "]"}], 
-    ";", " ", 
-    RowBox[{"(*", " ", 
-     StyleBox["minimizer",
-      FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"dT", "[", 
-      RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "=", 
-     RowBox[{
-      RowBox[{"temp", "[", 
-       RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "[", 
-      RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
-    RowBox[{"(*", " ", 
-     StyleBox[
-      RowBox[{
-       RowBox[{"NormMatrix", "[", "Tmat", "]"}], " ", "removed", " ", "Oct", 
-       " ", "2021"}],
-      FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"\[Beta]Tinitial", "[", 
-      RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "=", 
-     RowBox[{"ArcSin", "[", 
-      FractionBox[
-       RowBox[{"dT", "[", 
-        RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], 
-       RowBox[{"NormMatrix", "[", "Tmat", "]"}]], "]"}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"\[Beta]T", "[", 
-      RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "=", 
-     RowBox[{"Chop\[Beta]", "[", 
-      RowBox[{"\[Beta]Tinitial", "[", 
-       RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "]"}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Print", "[", 
-     RowBox[{"\"\<d(T, \>\"", ",", 
-      RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}], ",", "\"\<) = \>\"", 
-      ",", 
-      RowBox[{"MyRound", "[", 
-       RowBox[{
-        RowBox[{"dT", "[", 
-         RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", "3"}], "]"}], 
-      ",", "\"\< (Distance from T to \>\"", ",", 
-      RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}], ",", "\"\<)\>\""}], 
-     "]"}], ";", "  ", 
-    RowBox[{"(*", " ", 
-     StyleBox["dT",
-      FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-    "\[IndentingNewLine]", 
-    RowBox[{"If", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"\[Beta]T", "[", 
-        RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ">", "0"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{"Print", "[", 
-       RowBox[{
-        RowBox[{"text\[Beta]T", "[", "\[CapitalSigma]", "]"}], ",", 
-        "\"\< = \>\"", ",", 
-        RowBox[{"MyRound", "[", 
+       RowBox[{"MatrixForm", "[", 
+        RowBox[{"Chop", "[", 
          RowBox[{
-          RowBox[{"\[Beta]Tinitial", "[", 
-           RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", "3"}], "]"}],
-         ",", "\"\< = \>\"", ",", 
-        SuperscriptBox[
-         RowBox[{"MyRound", "[", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"\[Beta]Tinitial", "[", 
-             RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "/", "Degree"}],
-            ",", "2"}], "]"}], "o"], ",", "\"\< (Angle betweem T and \>\"", 
-        ",", 
-        RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}], ",", "\"\<)\>\""}], 
-       "]"}]}], "]"}], ";", " ", 
-    RowBox[{"(*", " ", 
-     StyleBox[
-      RowBox[{"BETA", ",", " ", 
-       RowBox[{"initial", " ", "but", " ", "rounded"}]}],
-      FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-    "\[IndentingNewLine]", 
-    RowBox[{"If", "[", 
+          RowBox[{"UT", "[", 
+           RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", 
+          SuperscriptBox["10", 
+           RowBox[{"-", "7"}]]}], "]"}], "]"}], ",", 
+       "\"\<  (minimizes the function  U \>\"", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<\[LongRightArrow]\>\"", " ", ",", "Bold", ",", "14"}], 
+        "]"}], ",", "\"\< d\>\"", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(\>\"", ",", "18"}], "]"}], ",", "\"\<T, \>\"", ",", 
+       RowBox[{"ScriptV", "[", 
+        RowBox[{"\[CapitalSigma]", ",", "\"\<U\>\""}], "]"}], ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<)\>\"", ",", "18"}], "]"}], ",", "\"\<)\>\""}], "]"}], 
+     ";", " ", 
+     RowBox[{"(*", " ", 
+      StyleBox["minimizer",
+       FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
      RowBox[{
+      RowBox[{"dT", "[", 
+       RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "=", 
       RowBox[{
-       RowBox[{"\[Beta]T", "[", 
-        RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "\[Equal]", "0"}], 
-      ",", "\[IndentingNewLine]", 
+       RowBox[{"temp", "[", 
+        RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", " ", 
+     RowBox[{"(*", " ", 
+      StyleBox[
+       RowBox[{
+        RowBox[{"NormMatrix", "[", "Tmat", "]"}], " ", "removed", " ", "Oct", 
+        " ", "2021"}],
+       FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\[Beta]Tinitial", "[", 
+       RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "=", 
+      RowBox[{"ArcSin", "[", 
+       FractionBox[
+        RowBox[{"dT", "[", 
+         RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], 
+        RowBox[{"NormMatrix", "[", "Tmat", "]"}]], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\[Beta]T", "[", 
+       RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "=", 
+      RowBox[{"Chop\[Beta]", "[", 
+       RowBox[{"\[Beta]Tinitial", "[", 
+        RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
       RowBox[{
+       RowBox[{
+        RowBox[{"\[Beta]T", "[", 
+         RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "\[Equal]", "0"}], 
+       ",", 
+       RowBox[{"Print", "[", 
+        RowBox[{
+         RowBox[{"ScriptV", "[", 
+          RowBox[{
+          "\[CapitalSigma]", ",", 
+           "\"\<\!\(\*SubscriptBox[\(U\), \(0\)]\)\>\""}], "]"}], ",", 
+         "\"\< contains T\>\""}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"\[Beta]T", "[", 
+         RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ">", "0"}], ",", 
+       RowBox[{"Print", "[", 
+        RowBox[{
+         RowBox[{"ScriptV", "[", 
+          RowBox[{
+          "\[CapitalSigma]", ",", 
+           "\"\<\!\(\*SubscriptBox[\(U\), \(0\)]\)\>\""}], "]"}], ",", 
+         "\"\<contains a closest map to T in \>\"", ",", 
+         RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}]}], "]"}]}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<d(T, \>\"", ",", 
+       RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}], ",", "\"\<) = \>\"", 
+       ",", 
+       RowBox[{"MyRound", "[", 
+        RowBox[{
+         RowBox[{"dT", "[", 
+          RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", "3"}], "]"}], 
+       ",", "\"\< (Distance from T to \>\"", ",", 
+       RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}], ",", "\"\<)\>\""}], 
+      "]"}], ";", "  ", 
+     RowBox[{"(*", " ", 
+      StyleBox["dT",
+       FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"\[Beta]T", "[", 
+         RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ">", "0"}], ",", 
+       "\[IndentingNewLine]", 
        RowBox[{"Print", "[", 
         RowBox[{
          RowBox[{"text\[Beta]T", "[", "\[CapitalSigma]", "]"}], ",", 
          "\"\< = \>\"", ",", 
-         RowBox[{"\[Beta]T", "[", 
-          RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", 
-         "\"\< (Angle betweem T and \>\"", ",", 
-         RowBox[{
-          RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}], ".", " ", 
-          "\"\< The initial \>\""}], ",", 
-         RowBox[{"text\[Beta]T", "[", "\[CapitalSigma]", "]"}], " ", ",", 
-         "\"\< = \>\"", ",", " ", 
          RowBox[{"MyRound", "[", 
           RowBox[{
            RowBox[{"\[Beta]Tinitial", "[", 
             RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", "3"}], 
-          "]"}], ",", 
-         "\"\< is here chopped to zero, since the chop threshold is set at \>\
-\"", ",", 
+          "]"}], ",", "\"\< = \>\"", ",", 
          SuperscriptBox[
-          RowBox[{"(", 
-           RowBox[{"ChopT", "/", "Degree"}], ")"}], "o"], ",", "\"\<)\>\""}], 
-        "]"}], ";", "  ", 
-       RowBox[{"(*", " ", 
-        StyleBox[
-         RowBox[{"BETA", ",", " ", "chopped"}],
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"Print", "[", 
-        RowBox[{"SequenceForm", "[", 
-         RowBox[{"\"\<Since \>\"", " ", ",", 
-          RowBox[{"text\[Beta]T", "[", "\[CapitalSigma]", "]"}], ",", 
-          "\"\< = 0, \!\(\*
+          RowBox[{"MyRound", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Beta]Tinitial", "[", 
+              RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "/", 
+             "Degree"}], ",", "2"}], "]"}], "o"], ",", 
+         "\"\< (Angle betweem T and \>\"", ",", 
+         RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}], ",", "\"\<)\>\""}],
+         "]"}]}], "]"}], ";", " ", 
+     RowBox[{"(*", " ", 
+      StyleBox[
+       RowBox[{"BETA", ",", " ", 
+        RowBox[{"initial", " ", "but", " ", "rounded"}]}],
+       FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"\[Beta]T", "[", 
+          RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "\[Equal]", "0"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          RowBox[{
+           RowBox[{"text\[Beta]T", "[", "\[CapitalSigma]", "]"}], ",", 
+           "\"\< = \>\"", ",", 
+           RowBox[{"\[Beta]T", "[", 
+            RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", 
+           "\"\< (Angle betweem T and \>\"", ",", 
+           RowBox[{
+            RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}], ".", " ", 
+            "\"\< The initial \>\""}], ",", 
+           RowBox[{"text\[Beta]T", "[", "\[CapitalSigma]", "]"}], " ", ",", 
+           "\"\< = \>\"", ",", " ", 
+           RowBox[{"MyRound", "[", 
+            RowBox[{
+             RowBox[{"\[Beta]Tinitial", "[", 
+              RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ",", "3"}], 
+            "]"}], ",", 
+           "\"\< is here chopped to zero, since the chop threshold is set at \
+\>\"", ",", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"ChopT", "/", "Degree"}], ")"}], "o"], ",", 
+           "\"\<)\>\""}], "]"}], ";", "  ", 
+         RowBox[{"(*", " ", 
+          StyleBox[
+           RowBox[{"BETA", ",", " ", "chopped"}],
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Print", "[", 
+          RowBox[{"SequenceForm", "[", 
+           RowBox[{"\"\<Since \>\"", " ", ",", 
+            RowBox[{"text\[Beta]T", "[", "\[CapitalSigma]", "]"}], ",", 
+            "\"\< = 0, \!\(\*
 StyleBox[\"T\",
 FontColor->RGBColor[1, 0, 0]]\)\!\(\*
 StyleBox[\" \",
@@ -1563,91 +1601,91 @@ StyleBox[\" \",
 FontColor->RGBColor[1, 0, 0]]\)\!\(\*
 StyleBox[\"least\",
 FontColor->RGBColor[1, 0, 0]]\) \>\"", ",", 
-          RowBox[{"Style", "[", 
-           RowBox[{"\[CapitalSigma]", ",", "Red"}], "]"}], ",", "\"\<.\>\""}],
-          "]"}], "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
-    "\[IndentingNewLine]", 
-    RowBox[{"If", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"\[Beta]T", "[", 
-        RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ">", "0"}], ",", 
-      "   ", 
-      RowBox[{"(*", " ", 
-       StyleBox[
-        RowBox[{"closest", " ", "elastic", " ", "map"}],
-        FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"Print", "[", 
-        RowBox[{"\"\<P\>\"", ",", 
-         RowBox[{"Style", "[", 
-          RowBox[{"\"\<(\>\"", ",", "18"}], "]"}], ",", "\"\<T, \>\"", ",", 
-         RowBox[{"ScriptV", "[", 
-          RowBox[{
-          "\[CapitalSigma]", ",", 
-           "\"\<\!\(\*SubscriptBox[\(U\), \(0\)]\)\>\""}], "]"}], ",", 
-         RowBox[{"Style", "[", 
-          RowBox[{"\"\<)\>\"", ",", "18"}], "]"}], ",", 
-         "\[IndentingNewLine]", "\"\< = \>\"", ",", 
-         RowBox[{"MatrixForm", "[", 
-          RowBox[{"Chop", "[", 
-           RowBox[{
-            RowBox[{"ProjToVSigOfU", "[", 
-             RowBox[{"Tmat", ",", 
-              RowBox[{"UT", "[", 
-               RowBox[{"Tmat", ",", 
-                StyleBox["\[CapitalSigma]",
-                 FontColor->GrayLevel[0]]}], "]"}], ",", 
-              StyleBox["\[CapitalSigma]",
-               FontColor->GrayLevel[0]]}], "]"}], ",", 
-            SuperscriptBox["10", 
-             RowBox[{"-", "7"}]]}], "]"}], "]"}], ",", 
-         "\"\<  (a closest elastic map to T having symmetry at least \>\"", 
-         ",", "\[CapitalSigma]", ",", "\"\<)\>\""}], "]"}], ";"}]}], "]"}], 
-    ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-    RowBox[{"If", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"\[Beta]T", "[", 
-        RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "\[Equal]", "0"}], 
-      ",", "   ", 
-      RowBox[{"(*", " ", 
-       StyleBox[
-        RowBox[{"\[CapitalSigma]", "-", 
-         RowBox[{"reference", " ", "matrix", " ", "for", " ", "T"}]}],
-        FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-      RowBox[{"Print", "[", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\[CapitalSigma]", ",", "Red"}], "]"}], ",", 
+            "\"\<.\>\""}], "]"}], "]"}], ";"}]}], "]"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
        RowBox[{
         RowBox[{
-         RowBox[{"SubscriptBox", "[", 
-          RowBox[{"\"\<T\>\"", ",", "\[CapitalSigma]"}], "]"}], "//", 
-         "DisplayForm"}], ",", 
-        "\"\< = [\!\(\*OverscriptBox[SubscriptBox[\(U\), \(0\)], \(_\)]\)\!\(\
-\*SuperscriptBox[\(]\), \(T\)]\)[T][\!\(\*OverscriptBox[SubscriptBox[\(U\), \
-\(0\)], \(_\)]\)] = \>\"", ",", 
-        RowBox[{"MatrixForm", "[", 
-         RowBox[{"Chop", "[", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"Transpose", "[", 
-             RowBox[{"MatrixUbar", "[", 
-              RowBox[{"UT", "[", 
+         RowBox[{"\[Beta]T", "[", 
+          RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ">", "0"}], ",", 
+        "   ", 
+        RowBox[{"(*", " ", 
+         StyleBox[
+          RowBox[{"closest", " ", "elastic", " ", "map"}],
+          FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          RowBox[{"\"\<P\>\"", ",", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<(\>\"", ",", "18"}], "]"}], ",", "\"\<T, \>\"", ",", 
+           RowBox[{"ScriptV", "[", 
+            RowBox[{
+            "\[CapitalSigma]", ",", 
+             "\"\<\!\(\*SubscriptBox[\(U\), \(0\)]\)\>\""}], "]"}], ",", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<)\>\"", ",", "18"}], "]"}], ",", 
+           "\[IndentingNewLine]", "\"\< = \>\"", ",", 
+           RowBox[{"MatrixForm", "[", 
+            RowBox[{"Chop", "[", 
+             RowBox[{
+              RowBox[{"ProjToVSigOfU", "[", 
                RowBox[{"Tmat", ",", 
+                RowBox[{"UT", "[", 
+                 RowBox[{"Tmat", ",", 
+                  StyleBox["\[CapitalSigma]",
+                   FontColor->GrayLevel[0]]}], "]"}], ",", 
                 StyleBox["\[CapitalSigma]",
-                 FontWeight->"Plain",
-                 FontColor->GrayLevel[0]]}], "]"}], "]"}], "]"}], ".", "Tmat",
-             ".", 
-            RowBox[{"MatrixUbar", "[", 
-             RowBox[{"UT", "[", 
-              RowBox[{"Tmat", ",", 
-               StyleBox["\[CapitalSigma]",
-                FontWeight->"Plain",
-                FontColor->GrayLevel[0]]}], "]"}], "]"}]}], ",", 
-           SuperscriptBox["10", 
-            RowBox[{"-", "6"}]]}], "]"}], "]"}], ",", 
-        "\"\<  (Should be a \>\"", ",", "\[CapitalSigma]", ",", 
-        "\"\<-ref matrix for T. If not, consider decreasing ChopT.)\>\""}], 
-       "]"}]}], "]"}]}], ")"}]}]], "Input",
+                 FontColor->GrayLevel[0]]}], "]"}], ",", 
+              SuperscriptBox["10", 
+               RowBox[{"-", "7"}]]}], "]"}], "]"}], ",", 
+           "\"\<  (a closest elastic map to T having symmetry at least \>\"", 
+           ",", "\[CapitalSigma]", ",", "\"\<)\>\""}], "]"}], ";"}]}], "]"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"\[Beta]T", "[", 
+          RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "\[Equal]", "0"}], 
+        ",", "   ", 
+        RowBox[{"(*", " ", 
+         StyleBox[
+          RowBox[{"\[CapitalSigma]", "-", 
+           RowBox[{"reference", " ", "matrix", " ", "for", " ", "T"}]}],
+          FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"SubscriptBox", "[", 
+            RowBox[{"\"\<T\>\"", ",", "\[CapitalSigma]"}], "]"}], "//", 
+           "DisplayForm"}], ",", 
+          "\"\< = [\!\(\*OverscriptBox[SubscriptBox[\(U\), \(0\)], \(_\)]\)\!\
+\(\*SuperscriptBox[\(]\), \(T\)]\)[T][\!\(\*OverscriptBox[SubscriptBox[\(U\), \
+\(0\)], \(_\)]\)] = \>\"", ",", 
+          RowBox[{"MatrixForm", "[", 
+           RowBox[{"Chop", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Transpose", "[", 
+               RowBox[{"MatrixUbar", "[", 
+                RowBox[{"UT", "[", 
+                 RowBox[{"Tmat", ",", 
+                  StyleBox["\[CapitalSigma]",
+                   FontWeight->"Plain",
+                   FontColor->GrayLevel[0]]}], "]"}], "]"}], "]"}], ".", 
+              "Tmat", ".", 
+              RowBox[{"MatrixUbar", "[", 
+               RowBox[{"UT", "[", 
+                RowBox[{"Tmat", ",", 
+                 StyleBox["\[CapitalSigma]",
+                  FontWeight->"Plain",
+                  FontColor->GrayLevel[0]]}], "]"}], "]"}]}], ",", 
+             SuperscriptBox["10", 
+              RowBox[{"-", "6"}]]}], "]"}], "]"}], ",", 
+          "\"\<  (Should be a \>\"", ",", "\[CapitalSigma]", ",", 
+          "\"\<-ref matrix for T. If not, consider decreasing ChopT.)\>\""}], 
+         "]"}]}], "]"}]}], ";"}], ")"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.838816725963194*^9, 3.838816881281695*^9}, 
    3.8388169161073084`*^9, 3.8388172423383355`*^9, {3.8388174538902965`*^9, 
    3.8388174643868694`*^9}, {3.838817649748008*^9, 3.8388177312967*^9}, 
@@ -1866,7 +1904,50 @@ FontColor->RGBColor[1, 0, 0]]\) \>\"", ",",
    3.8702655604378414`*^9, {3.870265684274582*^9, 3.8702656904840426`*^9}, 
    3.870269013291187*^9, 3.870272128627182*^9, 3.870304322501058*^9, {
    3.870304544583524*^9, 3.870304585939337*^9}, {3.870352848591296*^9, 
-   3.870352856561077*^9}}]
+   3.870352856561077*^9}, 3.8823253598328114`*^9, {3.882325491176525*^9, 
+   3.8823254926639643`*^9}, 3.8823268101849017`*^9, {3.88232723688542*^9, 
+   3.882327237933923*^9}, 3.8823273446185055`*^9, {3.8826502693413277`*^9, 
+   3.882650283792097*^9}, {3.8826565579952106`*^9, 3.8826565697583704`*^9}, 
+   3.8826569373811784`*^9, 3.882657059809675*^9, 3.8887629875980577`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[CapitalSigma]", "=", "TRIG"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[Beta]T", "[", 
+      RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], "\[Equal]", "0"}], ",", 
+    RowBox[{"Print", "[", 
+     RowBox[{
+      RowBox[{"ScriptV", "[", 
+       RowBox[{
+       "\[CapitalSigma]", ",", "\"\<\!\(\*SubscriptBox[\(U\), \(0\)]\)\>\""}],
+        "]"}], ",", "\"\< contains T\>\""}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[Beta]T", "[", 
+      RowBox[{"Tmat", ",", "\[CapitalSigma]"}], "]"}], ">", "0"}], ",", 
+    RowBox[{"Print", "[", 
+     RowBox[{
+      RowBox[{"ScriptV", "[", 
+       RowBox[{
+       "\[CapitalSigma]", ",", "\"\<\!\(\*SubscriptBox[\(U\), \(0\)]\)\>\""}],
+        "]"}], ",", "\"\<contains a closest map to T in \>\"", ",", 
+      RowBox[{"ScriptT", "[", "\[CapitalSigma]", "]"}]}], "]"}]}], "]"}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.882327080288923*^9, 3.8823271527041516`*^9}, {
+   3.882327191670047*^9, 3.8823271945491247`*^9}, {3.8826500939950557`*^9, 
+   3.8826501300088024`*^9}, {3.8826501607310095`*^9, 3.882650161364363*^9}, 
+   3.8826502095769625`*^9, {3.882650486057517*^9, 3.882650622926161*^9}, 
+   3.882650857012598*^9, {3.8826565002724204`*^9, 3.882656501112804*^9}, {
+   3.8826566785004177`*^9, 3.8826567020440617`*^9}, {3.8826567394642715`*^9, 
+   3.882656767199774*^9}, {3.8826568090042305`*^9, 3.882656849419461*^9}, {
+   3.8826570223851805`*^9, 3.882657033563915*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3406,8 +3487,8 @@ Cell[BoxData[{
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1273, 944},
-WindowMargins->{{Automatic, 221}, {Automatic, 0}},
+WindowSize->{1080, 778},
+WindowMargins->{{Automatic, 293}, {40, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -3422,99 +3503,101 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 71, 1, 32, "Input"],
 Cell[CellGroupData[{
-Cell[580, 22, 718, 11, 123, "Subsection"],
-Cell[1301, 35, 2253, 46, 139, "Subsubsection"],
+Cell[654, 25, 718, 11, 149, "Subsection"],
+Cell[1375, 38, 2253, 46, 163, "Subsubsection"],
 Cell[CellGroupData[{
-Cell[3579, 85, 1248, 22, 31, "Subsubsection"],
-Cell[4830, 109, 996, 19, 55, "Input"],
-Cell[5829, 130, 5945, 158, 455, "Input"],
-Cell[11777, 290, 7180, 196, 457, "Input"],
-Cell[18960, 488, 601, 12, 32, "Input"],
-Cell[19564, 502, 1998, 50, 99, "Input"],
-Cell[21565, 554, 15957, 406, 1221, "Input"]
+Cell[3653, 88, 1248, 22, 31, "Subsubsection"],
+Cell[4904, 112, 996, 19, 55, "Input"],
+Cell[5903, 133, 5945, 158, 455, "Input"],
+Cell[11851, 293, 7413, 202, 510, "Input"],
+Cell[19267, 497, 601, 12, 32, "Input"],
+Cell[19871, 511, 1998, 50, 143, "Input"],
+Cell[21872, 563, 15957, 406, 1350, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[37571, 966, 125, 2, 81, "Section"],
-Cell[37699, 970, 535, 12, 55, "Input"],
-Cell[38237, 984, 554, 17, 55, "Input"],
-Cell[38794, 1003, 455, 13, 32, "Input"],
-Cell[39252, 1018, 10103, 276, 429, "Input"],
-Cell[49358, 1296, 1763, 41, 77, "Input"],
+Cell[37878, 975, 125, 2, 81, "Section"],
+Cell[38006, 979, 535, 12, 55, "Input"],
+Cell[38544, 993, 554, 17, 55, "Input"],
+Cell[39101, 1012, 455, 13, 32, "Input"],
+Cell[39559, 1027, 10103, 276, 495, "Input"],
+Cell[49665, 1305, 1763, 41, 77, "Input"],
 Cell[CellGroupData[{
-Cell[51146, 1341, 381, 6, 35, "Subsubsection"],
-Cell[51530, 1349, 28266, 519, 893, "Input"]
+Cell[51453, 1350, 381, 6, 35, "Subsubsection"],
+Cell[51837, 1358, 30052, 552, 1047, "Input"],
+Cell[81892, 1912, 1597, 37, 77, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[79833, 1873, 163, 2, 35, "Subsubsection"],
-Cell[79999, 1877, 1592, 45, 182, "Input"],
-Cell[81594, 1924, 16290, 338, 774, "Input"]
+Cell[83526, 1954, 163, 2, 35, "Subsubsection"],
+Cell[83692, 1958, 1592, 45, 182, "Input"],
+Cell[85287, 2005, 16290, 338, 818, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[97921, 2267, 213, 3, 35, "Subsubsection"],
-Cell[98137, 2272, 5617, 96, 149, "Input"]
+Cell[101614, 2348, 213, 3, 35, "Subsubsection"],
+Cell[101830, 2353, 5617, 96, 149, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[103791, 2373, 252, 3, 35, "Subsubsection"],
-Cell[104046, 2378, 3228, 81, 187, "Input"],
-Cell[107277, 2461, 1743, 46, 99, "Input"],
-Cell[109023, 2509, 4063, 85, 174, "Input"]
+Cell[107484, 2454, 252, 3, 35, "Subsubsection"],
+Cell[107739, 2459, 3228, 81, 187, "Input"],
+Cell[110970, 2542, 1743, 46, 121, "Input"],
+Cell[112716, 2590, 4063, 85, 174, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[113123, 2599, 307, 4, 35, "Subsubsection"],
-Cell[113433, 2605, 1737, 47, 79, "Input"],
-Cell[115173, 2654, 17316, 412, 479, "Input"]
+Cell[116816, 2680, 307, 4, 35, "Subsubsection"],
+Cell[117126, 2686, 1737, 47, 123, "Input"],
+Cell[118866, 2735, 17316, 412, 479, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[132538, 3072, 188, 2, 81, "Section"],
+Cell[136231, 3153, 188, 2, 70, "Section"],
 Cell[CellGroupData[{
-Cell[132751, 3078, 1466, 24, 107, "Subsubsection"],
-Cell[134220, 3104, 3132, 96, 240, "Input"]
+Cell[136444, 3159, 1466, 24, 107, "Subsubsection"],
+Cell[137913, 3185, 3132, 96, 240, "Input"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[137401, 3206, 264, 3, 81, "Section"],
+Cell[141094, 3287, 264, 3, 81, "Section"],
 Cell[CellGroupData[{
-Cell[137690, 3213, 191, 2, 35, "Subsubsection"],
-Cell[137884, 3217, 159, 3, 32, "Input"]
+Cell[141383, 3294, 191, 2, 35, "Subsubsection"],
+Cell[141577, 3298, 159, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[138080, 3225, 193, 2, 35, "Subsubsection"],
-Cell[138276, 3229, 161, 3, 32, "Input"]
+Cell[141773, 3306, 193, 2, 35, "Subsubsection"],
+Cell[141969, 3310, 161, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[138474, 3237, 142, 2, 35, "Subsubsection"],
-Cell[138619, 3241, 156, 3, 32, "Input"]
+Cell[142167, 3318, 142, 2, 35, "Subsubsection"],
+Cell[142312, 3322, 156, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[138812, 3249, 189, 2, 35, "Subsubsection"],
-Cell[139004, 3253, 159, 3, 32, "Input"]
+Cell[142505, 3330, 189, 2, 35, "Subsubsection"],
+Cell[142697, 3334, 159, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[139200, 3261, 191, 2, 35, "Subsubsection"],
-Cell[139394, 3265, 161, 3, 32, "Input"]
+Cell[142893, 3342, 191, 2, 35, "Subsubsection"],
+Cell[143087, 3346, 161, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[139592, 3273, 191, 2, 35, "Subsubsection"],
-Cell[139786, 3277, 161, 3, 32, "Input"]
+Cell[143285, 3354, 191, 2, 35, "Subsubsection"],
+Cell[143479, 3358, 161, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[139984, 3285, 190, 2, 35, "Subsubsection"],
-Cell[140177, 3289, 132, 3, 32, "Input"]
+Cell[143677, 3366, 190, 2, 35, "Subsubsection"],
+Cell[143870, 3370, 132, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[140346, 3297, 311, 8, 40, "Subsubsection"],
-Cell[140660, 3307, 353, 7, 79, "Input"]
+Cell[144039, 3378, 311, 8, 40, "Subsubsection"],
+Cell[144353, 3388, 353, 7, 79, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[141050, 3319, 601, 11, 35, "Subsubsection"],
-Cell[141654, 3332, 163, 3, 32, "Input"]
+Cell[144743, 3400, 601, 11, 35, "Subsubsection"],
+Cell[145347, 3413, 163, 3, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[141854, 3340, 1203, 34, 50, "Subsubsection"],
-Cell[143060, 3376, 1133, 28, 80, "Input"]
+Cell[145547, 3421, 1203, 34, 50, "Subsubsection"],
+Cell[146753, 3457, 1133, 28, 80, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
