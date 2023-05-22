@@ -72,19 +72,22 @@ BBsWithOptions_Tonga_Thurin2022.nb
 PART B: ELASTIC MAPS, ELASTIC SYMMETRY
 =====================================================================
 
-The following notebooks on elastic symmetry do not require any library notebooks:
+These are the two core notebooks and do not require any library notebooks:
 
 ES_ContourPlots.nb
   contour plots on the sphere, showing 2-fold axes [TT2022]
-ES_FindSymGroups.nb
+ES_FindSymGroups.nb + ES_FindSymGroups_output.nb
   calculations and lattice diagrams for finding the symmetry group of an elastic map [TT2022]
 
+-----------
+This notebook requires first running ES_ContourPlots.nb:
+
 ES_RefMatricesForCollage.nb
-   reference elastic maps for figures in TT2022; must first run ES_ContourPlots.nb
+   reference elastic maps for figures in TT2022
    (this may take several minutes to run)
 
 -----------
-For other notebooks, you must first open and evaluate these two notebooks, in order:
+The following notebooks require first running these two notebooks, in order:
   common_funs.nb
   common_MTfuns.nb
 
@@ -105,8 +108,18 @@ ES_DerivationOfRefMatrices.nb
   derivation of the reference matrices for elastic symmetry classes
 
 -----------
-ES_FarFromMONO.nb -- requires common_funs.nb, then ES_FindSymGroups.nb
+The following notebooks require first running these two notebooks, in order:
+  common_funs.nb
+  ES_FindSymGroups.nb
+
+ES_FarFromMONO.nb
   find elastic maps that are highly anisotropic (i.e., far from monoclinic)
+
+ES_voigt2betas.nb
+  input C in voigt, find closest C in each symmetry class, list beta angles
+
+LatticeOfClosestMaps.nb
+  lattice diagram with a spherical plot of fMONO at each lattice node
 
 =====================================================================
 
@@ -119,6 +132,8 @@ FaultBlockPicture.nb               <-- FaultBlockPictureWithKappa_2018-04-04.nb
 BBsWithOptions.nb                  <-- BBsWithOptions_2022-10-22.nb
 BBsWithOptions_NK_Alvizuri2018.nb  <-- CarlAndCelsoEvents_2022.nb
 elastic_mapping.nb                 <-- SSM_ForPublicAbridged.nb
+ES_FarFromMONO.nb                  <-- ES_FarFromMONO_2023-03-25.nb
+LatticeOfClosestMaps.nb            <-- BC_LatticeOfClosestSigmaMaps_2023-08-19.nb
 
 To remove output before saving: Cell --> Delete All Output
 
