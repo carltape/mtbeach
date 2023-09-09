@@ -1,0 +1,2925 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    107806,       2917]
+NotebookOptionsPosition[    101965,       2822]
+NotebookOutlinePosition[    102358,       2838]
+CellTagsIndexPosition[    102315,       2835]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Examine the elastic map of Brown et al. (2016)
+INSTRUCTIONS: Run common_funs.nb, then ES_FindSymGroups.nb, then this notebook\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.890830810901332*^9, 3.8908308426026735`*^9}, {
+  3.893278661162142*^9, 3.8932786741393857`*^9}, {3.893278756078294*^9, 
+  3.8932787740663166`*^9}, {3.8932788180017567`*^9, 3.8932788415078044`*^9}, {
+  3.8935160470543633`*^9, 3.8935160486827707`*^9}, {3.893780658218905*^9, 
+  3.8937806912963953`*^9}, {3.895828355430451*^9, 3.895828376021146*^9}, {
+  3.898974131225287*^9, 3.898974170088593*^9}, {3.902362904867437*^9, 
+  3.902362913814007*^9}, {3.9023917948390293`*^9, 3.9023918360936317`*^9}, {
+  3.903263546406204*^9, 
+  3.903263559516178*^9}},ExpressionUUID->"11c425f8-ecc2-46ac-91e9-\
+9bcd32b344e0"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Read the local text file Brown2016_Table2.txt, then compare BT2 with Brown\
+\[CloseCurlyQuote]s Table2.\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.86302887242859*^9, 3.8630289753722973`*^9}, {
+  3.863031292419156*^9, 3.863031316691181*^9}, {3.903263570106227*^9, 
+  3.903263588118533*^9}},ExpressionUUID->"e9409d90-03a7-403e-b0d5-\
+6f820e035a28"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "fname", "=", 
+   "\"\<C:\\\\Users\\\\Walter\\\\Documents\\\\seismology\\\\MomentTensor\\\\\
+ConsolidatedFiles\\\\Brown2016_Table2.txt\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "fname", " ", "=", 
+   "\"\</Users/carltape/Desktop/REPOSITORIES/mtbeach/mathematica/Brown2016_\
+Table2.txt\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"BT2", "=", 
+   RowBox[{"ReadList", "[", 
+    RowBox[{"fname", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Number", ",", "Number"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Number", ",", "Number"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Number", ",", "Number"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Number", ",", "Number"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Number", ",", "Number"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Number", ",", "Number"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Number", ",", "Number"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Number", ",", "Number"}], "}"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "[", "BT2", "]"}]}], "Input",
+ CellChangeTimes->{{3.8629661325119405`*^9, 3.8629661459720926`*^9}, {
+   3.862966190694953*^9, 3.8629662044352684`*^9}, {3.862966287102553*^9, 
+   3.862966297667802*^9}, {3.862966390286927*^9, 3.8629664016514635`*^9}, {
+   3.862967193338065*^9, 3.862967194925519*^9}, 3.862967960556091*^9, 
+   3.8629681163757353`*^9, {3.8629682732725983`*^9, 3.8629682737679243`*^9}, {
+   3.862968386588336*^9, 3.862968408743415*^9}, {3.862968475143181*^9, 
+   3.8629684762945538`*^9}, {3.862968674670817*^9, 3.862968695050798*^9}, {
+   3.862968737134621*^9, 3.862968739977167*^9}, {3.8629688258618746`*^9, 
+   3.862968895887966*^9}, {3.8629689732471933`*^9, 3.862968987493281*^9}, {
+   3.862973240882493*^9, 3.862973251076474*^9}, 3.863028509344551*^9, {
+   3.8630285844437237`*^9, 3.8630287185937457`*^9}, {3.863028768074045*^9, 
+   3.8630287769779973`*^9}, {3.863031503251246*^9, 3.86303150750419*^9}, {
+   3.903261247298148*^9, 3.903261270152286*^9}, {3.90326130617052*^9, 
+   3.903261344290792*^9}, {3.903263035140595*^9, 3.9032630875066843`*^9}, {
+   3.90326687895497*^9, 3.903266894670588*^9}},
+ CellLabel->
+  "In[1348]:=",ExpressionUUID->"a82fa88a-0d75-4f62-8b85-be1f198de280"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Example entries in the table", "Subsubsection",
+ CellChangeTimes->{{3.8630293457523613`*^9, 3.863029385032812*^9}, {
+  3.9032636048717327`*^9, 
+  3.903263607958856*^9}},ExpressionUUID->"bc1ecda0-c156-4aae-aaef-\
+38fd2b8be7b0"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<The third entry of the 20th row is BT2[[20, 3]] = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"BT2", "[", 
+      RowBox[{"[", 
+       RowBox[{"20", ",", "3"}], "]"}], "]"}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<Its first entry is BT2[[20, 3, 1]] = \>\"", ",", 
+   RowBox[{"BT2", "[", 
+    RowBox[{"[", 
+     RowBox[{"20", ",", "3", ",", "1"}], "]"}], "]"}]}], "]"}]}], "Input",
+ CellLabel->
+  "In[1295]:=",ExpressionUUID->"f31a757a-5d3c-4f10-ada2-03c5e1a2ec74"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+KEY COMMAND: enter the column index to pick an elastic map (j = 1, ..., 8)\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.8630293457523613`*^9, 3.863029385032812*^9}, {
+  3.903263626464755*^9, 3.903263628460999*^9}, {3.903263852610031*^9, 
+  3.9032638537921963`*^9}, {3.903263983434958*^9, 3.903264022227314*^9}, {
+  3.9032642969521093`*^9, 
+  3.9032642982501993`*^9}},ExpressionUUID->"c5e7325a-4f08-498f-85cf-\
+04b857922999"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"j", "=", "3"}], ";"}], "   ", 
+  RowBox[{"(*", " ", 
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "j", " ", "determines", " ", "the", " ", "column", " ", "of", " ", 
+       RowBox[{"BT2", ".", "  ", "j"}]}], " ", "=", " ", "1"}], ",", " ", "2",
+      ",", "...", ",", " ", "8"}],
+    FontColor->RGBColor[1, 0, 0]], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.9032640509429893`*^9, 3.903264051038714*^9}, {
+  3.9032642945175943`*^9, 3.903264294588065*^9}, {3.903264596773728*^9, 
+  3.90326459685294*^9}, {3.903264819574183*^9, 3.903264819975746*^9}, {
+  3.903265297111677*^9, 3.9032652973816013`*^9}, {3.903265692111759*^9, 
+  3.903265692507084*^9}, {3.9032665064883947`*^9, 3.903266506813675*^9}, {
+  3.903266758027973*^9, 
+  3.9032667580901117`*^9}},ExpressionUUID->"af540f5a-781d-47e1-a4e7-\
+33fd11e1e29d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Formatting functions", "Subsubsection",
+ CellChangeTimes->{{3.8630293457523613`*^9, 3.863029385032812*^9}, {
+  3.903263626464755*^9, 
+  3.903263628460999*^9}},ExpressionUUID->"fd58c64e-7721-4a75-a055-\
+282c68618745"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"PrintTextForJ", "[", "j_", "]"}], ":=", 
+   RowBox[{"Print", "[", 
+    RowBox[{
+    "\"\<j = \>\"", ",", "j", ",", "\"\<, so Brown's column heading is \>\"", 
+     ",", 
+     RowBox[{"BrownColumnText", "[", "j", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BrownColumnText", "[", "1", "]"}], "=", 
+   RowBox[{"SequenceForm", "[", 
+    RowBox[{
+     RowBox[{"Style", "[", 
+      RowBox[{"\"\<\!\(\*SubscriptBox[\(An\), \(0\)]\)\>\"", ",", "18"}], 
+      "]"}], ",", "\"\<, all albite\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BrownColumnText", "[", "2", "]"}], "=", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<\!\(\*SubscriptBox[\(An\), \(25\)]\)\>\"", ",", "18"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BrownColumnText", "[", "3", "]"}], "=", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<\!\(\*SubscriptBox[\(An\), \(37\)]\)\>\"", ",", "18"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BrownColumnText", "[", "4", "]"}], "=", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<\!\(\*SubscriptBox[\(An\), \(48\)]\)\>\"", ",", "18"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BrownColumnText", "[", "5", "]"}], "=", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<\!\(\*SubscriptBox[\(An\), \(60\)]\)\>\"", ",", "18"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BrownColumnText", "[", "6", "]"}], "=", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<\!\(\*SubscriptBox[\(An\), \(67\)]\)\>\"", ",", "18"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BrownColumnText", "[", "7", "]"}], "=", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<\!\(\*SubscriptBox[\(An\), \(78\)]\)\>\"", ",", "18"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"BrownColumnText", "[", "8", "]"}], "=", 
+   RowBox[{"SequenceForm", "[", 
+    RowBox[{
+     RowBox[{"Style", "[", 
+      RowBox[{"\"\<\!\(\*SubscriptBox[\(An\), \(96\)]\)\>\"", ",", "18"}], 
+      "]"}], ",", "\"\<, almost all anorthite\>\""}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.863029677755295*^9, 3.863029875656831*^9}, {
+   3.8630302105153103`*^9, 3.863030236690275*^9}, {3.8630320190455475`*^9, 
+   3.863032054680225*^9}, {3.86304684732205*^9, 3.8630468774318256`*^9}, {
+   3.863046978078142*^9, 3.863047048963744*^9}, {3.863047149984646*^9, 
+   3.863047365920212*^9}, 3.8630473994662547`*^9, {3.863121463258704*^9, 
+   3.8631214638503137`*^9}},
+ CellLabel->
+  "In[1298]:=",ExpressionUUID->"494d2d79-a94b-47fc-8ffb-272a5d8f1304"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Display output for choice of j", "Subsubsection",
+ CellChangeTimes->{{3.8630293457523613`*^9, 3.863029385032812*^9}, {
+  3.903263626464755*^9, 3.903263628460999*^9}, {3.903264041372854*^9, 
+  3.9032640450695467`*^9}},ExpressionUUID->"1319962c-ccb1-4485-9329-\
+a4cc057f9ece"],
+
+Cell[BoxData[{
+ RowBox[{"PrintTextForJ", "[", "j", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CmatBrown", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"7", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"8", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"14", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"10", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"15", ",", "j", ",", "1"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"7", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"9", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"16", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"11", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"17", ",", "j", ",", "1"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"8", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"9", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"18", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"12", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"19", ",", "j", ",", "1"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"14", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"16", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"18", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"4", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"20", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"13", ",", "j", ",", "1"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"10", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"11", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"12", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"20", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"5", ",", " ", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"21", ",", "j", ",", "1"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"15", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"17", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"19", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"13", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"21", ",", "j", ",", "1"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"6", ",", " ", "j", ",", "1"}], "]"}], "]"}]}
+     }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CmatUncertaintiesBrown", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"7", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"8", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"14", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"10", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"15", ",", "j", ",", "2"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"7", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"9", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"16", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"11", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"17", ",", "j", ",", "2"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"8", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"9", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"18", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"12", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"19", ",", "j", ",", "2"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"14", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"16", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"18", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"4", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"20", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"13", ",", "j", ",", "2"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"10", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"11", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"12", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"20", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"5", ",", " ", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"21", ",", "j", ",", "2"}], "]"}], "]"}]},
+      {
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"15", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"17", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"19", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"13", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"21", ",", "j", ",", "2"}], "]"}], "]"}], 
+       RowBox[{"BT2", "[", 
+        RowBox[{"[", 
+         RowBox[{"6", ",", " ", "j", ",", "2"}], "]"}], "]"}]}
+     }], "\[NoBreak]", ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Tmat", "=", 
+   RowBox[{"TmatOfCmat", "[", "CmatBrown", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"denominator", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Brown's Voigt matrix would be CmatBrown = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", "CmatBrown", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Brown's Voigt matrix uncertainties      = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", "CmatUncertaintiesBrown", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Our matrix would be Tmat                = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"Round", "[", 
+      RowBox[{"Tmat", ",", ".01"}], "]"}], "]"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.862973413494517*^9, 3.86297351658986*^9}, {
+   3.8629736264123516`*^9, 3.8629736487174587`*^9}, {3.8629736799210224`*^9, 
+   3.862973793101609*^9}, {3.862973855796689*^9, 3.862973951020648*^9}, {
+   3.8629740507035065`*^9, 3.8629740614205008`*^9}, {3.8629740960116653`*^9, 
+   3.8629743055523005`*^9}, {3.862974993547243*^9, 3.8629750645628214`*^9}, {
+   3.862976237721548*^9, 3.8629762494815793`*^9}, 3.8629762911328535`*^9, {
+   3.863029551311556*^9, 3.863029578823573*^9}, {3.863029904402776*^9, 
+   3.863029932332605*^9}, {3.863030094242121*^9, 3.86303012484995*^9}, {
+   3.8630301837462587`*^9, 3.863030204640707*^9}, {3.863030271430809*^9, 
+   3.8630302771445365`*^9}, {3.863031439520488*^9, 3.8630314650561876`*^9}, 
+   3.8630315491357055`*^9, {3.863031672548973*^9, 3.8630317459625177`*^9}, {
+   3.863791847528064*^9, 3.863791921516472*^9}, {3.8637919524472685`*^9, 
+   3.863791980188687*^9}, 3.86387928523594*^9, 3.8638793517778244`*^9, 
+   3.863879417696005*^9, 3.8638795039767056`*^9, 3.863879578134581*^9, 
+   3.863879656606738*^9, 3.86387970967818*^9, {3.8638798438387346`*^9, 
+   3.8638799604368167`*^9}, 3.863914732572055*^9, {3.903263690142795*^9, 
+   3.903263710370612*^9}, {3.903263844246018*^9, 3.9032638457667217`*^9}},
+ CellLabel->
+  "In[1307]:=",ExpressionUUID->"b3cce61a-d2ab-4a6c-94d3-2b41cac4bcf7"],
+
+Cell[BoxData[
+ RowBox[{"CmatBrown", "\[Equal]", 
+  RowBox[{"Transpose", "[", "CmatBrown", "]"}]}]], "Input",
+ CellChangeTimes->{{3.8629750772111454`*^9, 3.862975085357811*^9}},
+ CellLabel->
+  "In[1315]:=",ExpressionUUID->"7d40f149-a921-4895-a0b6-d772d6bef129"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Check for stability:", "Subsubsection",
+ CellChangeTimes->{{3.862974002967579*^9, 3.86297401595472*^9}, {
+  3.8630303828347893`*^9, 
+  3.8630303945310216`*^9}},ExpressionUUID->"202b653d-4261-42d8-9421-\
+2ef19096ed3c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"PrintTextForJ", "[", "j", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Eigenvalues", "[", "CmatBrown", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Eigenvalues", "[", "Tmat", "]"}]}], "Input",
+ CellChangeTimes->{{3.8629751067755013`*^9, 3.8629751274190526`*^9}, {
+  3.862975237610055*^9, 3.8629752425702505`*^9}, {3.862976277273538*^9, 
+  3.8629762787135663`*^9}, {3.863030323536759*^9, 3.8630303270338974`*^9}},
+ CellLabel->
+  "In[1316]:=",ExpressionUUID->"97ebbbb6-70c7-4c61-b320-ab7ca0aebcf7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"denominator", "=", "1"}], ";"}]], "Input",
+ CellLabel->
+  "In[1319]:=",ExpressionUUID->"15e1ed13-29ff-4966-a293-747c4d6604b8"],
+
+Cell[BoxData[
+ RowBox[{"WantDetails", "=", "\"\<WantDetails\>\""}]], "Input",
+ CellChangeTimes->{{3.9018059988926706`*^9, 3.901806011043153*^9}, {
+  3.9020184869162645`*^9, 3.9020184871236925`*^9}},
+ CellLabel->
+  "In[1320]:=",ExpressionUUID->"333e301e-d675-41f5-87da-3c88e6b0602b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalSigma] = MONO", "Subsubsection",
+ CellChangeTimes->{{3.838513797013299*^9, 3.8385138124723115`*^9}, 
+   3.8474658580485945`*^9, {3.847465888431259*^9, 
+   3.8474658899987445`*^9}},ExpressionUUID->"6eeaea42-2515-46da-89f3-\
+79a6506f5b1a"],
+
+Cell[BoxData[
+ RowBox[{"OutputFor", "[", 
+  RowBox[{"Tmat", ",", "MONO"}], "]"}]], "Input",
+ CellChangeTimes->{{3.847383512965294*^9, 3.8473835197018547`*^9}},
+ CellLabel->
+  "In[1321]:=",ExpressionUUID->"04c16535-a66f-4fa8-a62f-fbf04e1f3828"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Expanded output", "Subsubsection",
+ CellChangeTimes->{{3.863914784013018*^9, 3.8639148021133966`*^9}, {
+  3.90326377638585*^9, 
+  3.90326377802802*^9}},ExpressionUUID->"a26365f0-2621-47ff-941e-\
+4ef3225e9198"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"PrintTextForJ", "[", "j", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<Tmat                                              = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"Round", "[", 
+      RowBox[{"Tmat", ",", ".01"}], "]"}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<Tmat for a closest (may not be unique)            = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"Round", "[", 
+      RowBox[{
+       RowBox[{"ProjToVSigOfU", "[", 
+        RowBox[{"Tmat", ",", 
+         RowBox[{"UT", "[", 
+          RowBox[{"Tmat", ",", 
+           StyleBox["MONO",
+            FontColor->GrayLevel[0]]}], "]"}], ",", 
+         StyleBox["MONO",
+          FontColor->GrayLevel[0]]}], "]"}], ",", ".01"}], "]"}], "]"}]}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<Cmat for a closest                                = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"Round", "[", 
+      RowBox[{
+       RowBox[{"CmatOfTmat", "[", 
+        RowBox[{"ProjToVSigOfU", "[", 
+         RowBox[{"Tmat", ",", 
+          RowBox[{"UT", "[", 
+           RowBox[{"Tmat", ",", 
+            StyleBox["MONO",
+             FontColor->GrayLevel[0]]}], "]"}], ",", 
+          StyleBox["MONO",
+           FontColor->GrayLevel[0]]}], "]"}], "]"}], ",", ".01"}], "]"}], 
+     "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<Cmat uncertainties                                = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", "CmatUncertaintiesBrown", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{
+   "\"\<|Cmat - Cmat for a closest|                       = \>\"", ",", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"Round", "[", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"CmatBrown", "-", 
+         RowBox[{"CmatOfTmat", "[", 
+          RowBox[{"ProjToVSigOfU", "[", 
+           RowBox[{"Tmat", ",", 
+            RowBox[{"UT", "[", 
+             RowBox[{"Tmat", ",", 
+              StyleBox["MONO",
+               FontColor->GrayLevel[0]]}], "]"}], ",", 
+            StyleBox["MONO",
+             FontColor->GrayLevel[0]]}], "]"}], "]"}]}], "]"}], ",", ".1"}], 
+      "]"}], "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Cmat uncertainties - |Cmat - Cmat for a closest| = \>\"", 
+    RowBox[{"MatrixForm", "[", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"#", "<", "0"}], ",", "Red", ",", "Black"}], "]"}]}], 
+         "]"}], "&"}], ",", 
+       RowBox[{"Round", "[", 
+        RowBox[{
+         RowBox[{"CmatUncertaintiesBrown", "-", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"CmatBrown", "-", 
+            RowBox[{"CmatOfTmat", "[", 
+             RowBox[{"ProjToVSigOfU", "[", 
+              RowBox[{"Tmat", ",", 
+               RowBox[{"UT", "[", 
+                RowBox[{"Tmat", ",", 
+                 StyleBox["MONO",
+                  FontColor->GrayLevel[0]]}], "]"}], ",", 
+               StyleBox["MONO",
+                FontColor->GrayLevel[0]]}], "]"}], "]"}]}], "]"}]}], ",", 
+         ".1"}], "]"}], ",", 
+       RowBox[{"{", "2", "}"}]}], "]"}], "]"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8637913884225254`*^9, 3.8637914299814034`*^9}, {
+   3.8637914722035837`*^9, 3.863791480028572*^9}, {3.8637915281060896`*^9, 
+   3.8637915408664536`*^9}, {3.8637931624127026`*^9, 3.863793163488411*^9}, 
+   3.863793203720068*^9, {3.86379324958106*^9, 3.8637932934261537`*^9}, 
+   3.8637933411158657`*^9, {3.863793376497394*^9, 3.8637933906773577`*^9}, {
+   3.863793464047181*^9, 3.8637935293594913`*^9}, {3.8637935928665648`*^9, 
+   3.863793712856705*^9}, {3.863793787106157*^9, 3.863793840652731*^9}, {
+   3.86379391426904*^9, 3.8637939400765452`*^9}, {3.8638757158685255`*^9, 
+   3.863875756966609*^9}, {3.863875816841541*^9, 3.863875909808482*^9}, 
+   3.863875994006939*^9, {3.863876721725723*^9, 3.863876759259427*^9}, {
+   3.8638768014362903`*^9, 3.8638768754596095`*^9}, {3.8638769474659753`*^9, 
+   3.863877001236137*^9}, {3.8638770391333666`*^9, 3.8638770612557054`*^9}, {
+   3.8638771159377546`*^9, 3.8638771292104163`*^9}, {3.86387716377273*^9, 
+   3.863877181285269*^9}, {3.8638773218954897`*^9, 3.8638773274226966`*^9}, {
+   3.8638774113625526`*^9, 3.86387743574199*^9}, {3.8638775287282257`*^9, 
+   3.8638775339556437`*^9}, {3.863877647905816*^9, 3.8638776807117863`*^9}, {
+   3.863877780368407*^9, 3.863877795057094*^9}, 3.863877863760828*^9, {
+   3.863878224829144*^9, 3.863878270622512*^9}, 3.8638784021031375`*^9, {
+   3.8638785439095173`*^9, 3.8638785513646855`*^9}, {3.863878607297024*^9, 
+   3.863878617669569*^9}, {3.8638786885674806`*^9, 3.8638786942627163`*^9}, 
+   3.8638790391877384`*^9, {3.8638790721844625`*^9, 3.8638790751772985`*^9}, {
+   3.8638791618101993`*^9, 3.8638791683215427`*^9}},
+ CellLabel->
+  "In[1322]:=",ExpressionUUID->"07629efc-6593-4ddd-85ad-786f6645c8f2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalSigma] = ORTH", "Subsubsection",
+ CellChangeTimes->{{3.838513797013299*^9, 3.8385138124723115`*^9}, 
+   3.8474658580485945`*^9, {3.8474659279186954`*^9, 
+   3.8474659288307657`*^9}},ExpressionUUID->"e1c64826-f7f5-4d2b-85c0-\
+794c1215b724"],
+
+Cell[BoxData[
+ RowBox[{"OutputFor", "[", 
+  RowBox[{"Tmat", ",", "ORTH"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8473835478931985`*^9, 3.8473835494771986`*^9}},
+ CellLabel->
+  "In[1329]:=",ExpressionUUID->"aa4e4977-ddb8-4309-b660-4e2ffb1cc41a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalSigma] = TET", "Subsubsection",
+ CellChangeTimes->{{3.838513797013299*^9, 3.8385138124723115`*^9}, 
+   3.8474658580485945`*^9},ExpressionUUID->"dff238f8-2cd7-4af4-b5b7-\
+a8f24c1f4215"],
+
+Cell[BoxData[
+ RowBox[{"OutputFor", "[", 
+  RowBox[{"Tmat", ",", "TET"}], "]"}]], "Input",
+ CellChangeTimes->{{3.838820719330266*^9, 3.838820722034267*^9}, 
+   3.8469469543932877`*^9},
+ CellLabel->
+  "In[1330]:=",ExpressionUUID->"df54e9d6-2b23-41ca-9a6e-b3cba0e92177"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalSigma] = CUBE", "Subsubsection",
+ CellChangeTimes->{{3.838513797013299*^9, 3.8385138124723115`*^9}, 
+   3.8474658580485945`*^9, {3.8474659537422743`*^9, 
+   3.8474659545748*^9}},ExpressionUUID->"906a16d2-bef3-4c20-aadd-\
+1fb0494c44c7"],
+
+Cell[BoxData[
+ RowBox[{"OutputFor", "[", 
+  RowBox[{"Tmat", ",", "CUBE"}], "]"}]], "Input",
+ CellChangeTimes->{{3.847383598132439*^9, 3.8473836000513563`*^9}},
+ CellLabel->
+  "In[1331]:=",ExpressionUUID->"d8b7203a-dfa9-4d3e-b37a-fcb4251a07af"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalSigma] = TRIG", "Subsubsection",
+ CellChangeTimes->{{3.838513797013299*^9, 3.8385138124723115`*^9}, 
+   3.8474658580485945`*^9, {3.847465975054532*^9, 
+   3.8474659759660044`*^9}},ExpressionUUID->"2382869b-2df3-4f7e-9c0c-\
+0b2facfbae45"],
+
+Cell[BoxData[
+ RowBox[{"OutputFor", "[", 
+  RowBox[{"Tmat", ",", "TRIG"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8473836049655914`*^9, 3.8473836065335913`*^9}},
+ CellLabel->
+  "In[1332]:=",ExpressionUUID->"1fab6870-d5c4-4786-95d2-9dcfafc47820"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalSigma] = XISO", "Subsubsection",
+ CellChangeTimes->{{3.838513797013299*^9, 3.8385138124723115`*^9}, 
+   3.8474658580485945`*^9, {3.847465979918194*^9, 
+   3.8474659810204673`*^9}},ExpressionUUID->"1231e8d9-a47d-46e9-bb52-\
+4425d74d0e2a"],
+
+Cell[BoxData[
+ RowBox[{"OutputFor", "[", 
+  RowBox[{"Tmat", ",", "XISO"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8473836103896775`*^9, 3.8473836123256693`*^9}},
+ CellLabel->
+  "In[1333]:=",ExpressionUUID->"74e313b8-3296-4f16-a040-b5750f1c6a78"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[CapitalSigma] = ISO", "Subsubsection",
+ CellChangeTimes->{{3.838513797013299*^9, 3.8385138124723115`*^9}, 
+   3.8474658580485945`*^9, {3.847465984206537*^9, 
+   3.8474659850863657`*^9}},ExpressionUUID->"90732bca-09e1-4c11-9dac-\
+13481e73e638"],
+
+Cell[BoxData[
+ RowBox[{"OutputFor", "[", 
+  RowBox[{"Tmat", ",", "ISO"}], "]"}]], "Input",
+ CellChangeTimes->{3.853778549079392*^9},
+ CellLabel->
+  "In[1334]:=",ExpressionUUID->"2a6ac31d-4b2b-4d79-8fb8-d4018da65cc7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"PrintTextForJ", "[", "j", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"LatticeOfDTs", "[", "Tmat", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<[T] = \>\"", ",", 
+   FractionBox["1", "denominator"], ",", 
+   RowBox[{"MatrixForm", "[", 
+    RowBox[{"denominator", " ", "Tmat"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8388290082793417`*^9, 3.8388290096673193`*^9}, {
+  3.8630311178545623`*^9, 3.863031119819401*^9}, {3.9032639053554583`*^9, 
+  3.9032639082774076`*^9}, {3.9032639589167013`*^9, 3.903263961189274*^9}},
+ CellLabel->
+  "In[1335]:=",ExpressionUUID->"8e9f96d6-3769-403b-9433-a14c8a7d6d4f"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"From", " ", "the", " ", "lattice", " ", "and", " ", "the", " ", 
+  "appropriate", " ", "U", " ", "you", " ", "get", " ", "the", " ", 
+  "symmetry", " ", "group", " ", "of", " ", 
+  RowBox[{"T", ".", " ", "See"}], " ", "Theorem", " ", "3", "of", " ", 
+  RowBox[{"TapeTape2022", "."}]}]], "Subsubsection",
+ CellChangeTimes->{{3.83855837890737*^9, 3.8385584512677436`*^9}, {
+   3.847469407376854*^9, 3.847469420928855*^9}, 3.8474695098243237`*^9, {
+   3.853778629736019*^9, 3.8537786314937043`*^9}, 3.853778662866192*^9},
+ FontFamily->"Arial",ExpressionUUID->"70a8cd69-6e39-4f26-ae0e-2d8f646907e6"],
+
+Cell["\<\
+To get the result for Brown' s other 7 columns, change j and re-run.\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.8630318890652285`*^9, 3.8630319380526543`*^9}, 
+   3.863031978907915*^9, {3.903264683432349*^9, 
+   3.9032646958437033`*^9}},ExpressionUUID->"2073c8c5-e1f2-483c-838d-\
+de3e4b957d66"],
+
+Cell[CellGroupData[{
+
+Cell["For reference", "Section",
+ CellChangeTimes->{{3.903263809659974*^9, 
+  3.90326381124828*^9}},ExpressionUUID->"3b87f379-a73e-4d18-8be5-\
+af346da0bb5d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"j = \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\", so Brown's column heading is \"\>", 
+   "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(An\\), \\(0\\)]\\)\"\>",
+      StripOnInput->False,
+      FontSize->18], "\[InvisibleSpace]", "\<\", all albite\"\>"}],
+    SequenceForm[
+     Style["\!\(\*SubscriptBox[\(An\), \(0\)]\)", 18], ", all albite"],
+    Editable->False]}],
+  SequenceForm["j = ", 1, ", so Brown's column heading is ", 
+   SequenceForm[
+    Style["\!\(\*SubscriptBox[\(An\), \(0\)]\)", 18], ", all albite"]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346680688*^9, 
+  3.8639149051643705`*^9, 3.863915029345065*^9, 3.903263377701665*^9, 
+  3.903263508885459*^9, 3.903263927113687*^9, 3.903263961602247*^9, 
+  3.903264250136121*^9},
+ CellLabel->
+  "During evaluation of \
+In[1053]:=",ExpressionUUID->"5c42faee-4f5b-4d41-9fd4-53927e17bca7"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.006], Arrowheads[0.08], ArrowBox[{{0, -0.13}, {0, 1}}, 0.25], 
+   ArrowBox[{{0, 1}, {1.7, 2}}, 0.5], ArrowBox[{{1.7, 1.9}, {1.7, 3}}, 0.2], 
+   ArrowBox[{{1.7, 2.9}, {1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 2.9}, {-1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 3}, {1.7, 4}}, 0.8], ArrowBox[{{1.7, 3}, {-1.7, 4}}, 0.7],
+    ArrowBox[{{0, 1}, {-1.7, 3}}, 0.3], ArrowBox[{{1.7, 4}, {0, 5}}, 0.5], 
+   ArrowBox[{{-1.7, 4}, {0, 5}}, 0.55], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIV", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox["0",
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIV, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[0, 20]],
+     Editable->False], {0, 0}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["MONO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["5.`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`MONO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[5.^"o", 20]],
+     Editable->False], {0, 1}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ORTH", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["6.300000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ORTH, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[6.300000000000001^"o", 20]],
+     Editable->False], {1.7, 2}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TET", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["13.200000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TET, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[13.200000000000001`^"o", 20]],
+     Editable->False], {1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["CUBE", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["24.3`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`CUBE, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[24.3^"o", 20]],
+     Editable->False], {1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["XISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["20.3`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`XISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[20.3^"o", 20]],
+     Editable->False], {-1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIG", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["19.1`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIG, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[19.1^"o", 20]],
+     Editable->False], {-1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["29.6`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[29.6^"o", 20]],
+     Editable->False], {0, 5}]},
+  AspectRatio->Automatic]], "Output",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346696554*^9, 
+  3.863914905239484*^9, 3.863915029345065*^9, 3.903263377705536*^9, 
+  3.903263508889039*^9, 3.903263927118064*^9, 3.903263961647985*^9, 
+  3.903264250141625*^9},ExpressionUUID->"0cdd97ed-aec2-4cdb-b80a-\
+564d07eff636"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"j = \"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\", so Brown's column heading is \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(An\\), \\(25\\)]\\)\"\>",
+    StripOnInput->False,
+    FontSize->18]}],
+  SequenceForm["j = ", 2, ", so Brown's column heading is ", 
+   Style["\!\(\*SubscriptBox[\(An\), \(25\)]\)", 18]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346680688*^9, 
+  3.8639149051643705`*^9, 3.863915029345065*^9, 3.903263377701665*^9, 
+  3.903263508885459*^9, 3.903263927113687*^9, 3.903263961602247*^9, 
+  3.903264250136121*^9, 3.903264481610528*^9},
+ CellLabel->
+  "During evaluation of \
+In[1100]:=",ExpressionUUID->"6344072d-3347-4ec7-8136-be2ce81e91b5"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.006], Arrowheads[0.08], ArrowBox[{{0, -0.13}, {0, 1}}, 0.25], 
+   ArrowBox[{{0, 1}, {1.7, 2}}, 0.5], ArrowBox[{{1.7, 1.9}, {1.7, 3}}, 0.2], 
+   ArrowBox[{{1.7, 2.9}, {1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 2.9}, {-1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 3}, {1.7, 4}}, 0.8], ArrowBox[{{1.7, 3}, {-1.7, 4}}, 0.7],
+    ArrowBox[{{0, 1}, {-1.7, 3}}, 0.3], ArrowBox[{{1.7, 4}, {0, 5}}, 0.5], 
+   ArrowBox[{{-1.7, 4}, {0, 5}}, 0.55], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIV", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox["0",
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIV, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[0, 20]],
+     Editable->False], {0, 0}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["MONO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["4.3`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`MONO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[4.3^"o", 20]],
+     Editable->False], {0, 1}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ORTH", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["6.`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ORTH, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[6.^"o", 20]],
+     Editable->False], {1.7, 2}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TET", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["7.1000000000000005`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TET, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[7.1000000000000005`^"o", 20]],
+     Editable->False], {1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["CUBE", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["16.400000000000002`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`CUBE, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[16.400000000000002`^"o", 20]],
+     Editable->False], {1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["XISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["14.700000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`XISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[14.700000000000001`^"o", 20]],
+     Editable->False], {-1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIG", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["13.600000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIG, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[13.600000000000001`^"o", 20]],
+     Editable->False], {-1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["20.400000000000002`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[20.400000000000002`^"o", 20]],
+     Editable->False], {0, 5}]},
+  AspectRatio->Automatic]], "Output",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346696554*^9, 
+  3.863914905239484*^9, 3.863915029345065*^9, 3.903263377705536*^9, 
+  3.903263508889039*^9, 3.903263927118064*^9, 3.903263961647985*^9, 
+  3.903264250141625*^9, 
+  3.903264481615872*^9},ExpressionUUID->"1397881c-d5b7-486f-acc5-\
+382c1072063d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"j = \"\>", "\[InvisibleSpace]", "3", 
+   "\[InvisibleSpace]", "\<\", so Brown's column heading is \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(An\\), \\(37\\)]\\)\"\>",
+    StripOnInput->False,
+    FontSize->18]}],
+  SequenceForm["j = ", 3, ", so Brown's column heading is ", 
+   Style["\!\(\*SubscriptBox[\(An\), \(37\)]\)", 18]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346680688*^9, 
+  3.8639149051643705`*^9, 3.863915029345065*^9, 3.903263377701665*^9, 
+  3.903263508885459*^9, 3.903263927113687*^9, 3.903263961602247*^9},
+ CellLabel->
+  "During evaluation of \
+In[1006]:=",ExpressionUUID->"304e4349-7fa8-4538-901b-d2f3ad66828d"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.006], Arrowheads[0.08], ArrowBox[{{0, -0.13}, {0, 1}}, 0.25], 
+   ArrowBox[{{0, 1}, {1.7, 2}}, 0.5], ArrowBox[{{1.7, 1.9}, {1.7, 3}}, 0.2], 
+   ArrowBox[{{1.7, 2.9}, {1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 2.9}, {-1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 3}, {1.7, 4}}, 0.8], ArrowBox[{{1.7, 3}, {-1.7, 4}}, 0.7],
+    ArrowBox[{{0, 1}, {-1.7, 3}}, 0.3], ArrowBox[{{1.7, 4}, {0, 5}}, 0.5], 
+   ArrowBox[{{-1.7, 4}, {0, 5}}, 0.55], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIV", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox["0",
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIV, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[0, 20]],
+     Editable->False], {0, 0}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["MONO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["3.7`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`MONO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[3.7^"o", 20]],
+     Editable->False], {0, 1}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ORTH", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["5.4`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ORTH, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[5.4^"o", 20]],
+     Editable->False], {1.7, 2}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TET", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["6.300000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TET, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[6.300000000000001^"o", 20]],
+     Editable->False], {1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["CUBE", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["16.1`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`CUBE, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[16.1^"o", 20]],
+     Editable->False], {1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["XISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["14.100000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`XISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[14.100000000000001`^"o", 20]],
+     Editable->False], {-1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIG", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["13.5`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIG, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[13.5^"o", 20]],
+     Editable->False], {-1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["20.5`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[20.5^"o", 20]],
+     Editable->False], {0, 5}]},
+  AspectRatio->Automatic]], "Output",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346696554*^9, 
+  3.863914905239484*^9, 3.863915029345065*^9, 3.903263377705536*^9, 
+  3.903263508889039*^9, 3.903263927118064*^9, 
+  3.903263961647985*^9},ExpressionUUID->"40fd617b-d7e4-4f01-aec0-\
+918bae5dd0c6"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"j = \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\", so Brown's column heading is \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(An\\), \\(48\\)]\\)\"\>",
+    StripOnInput->False,
+    FontSize->18]}],
+  SequenceForm["j = ", 4, ", so Brown's column heading is ", 
+   Style["\!\(\*SubscriptBox[\(An\), \(48\)]\)", 18]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346680688*^9, 
+  3.8639149051643705`*^9, 3.863915029345065*^9, 3.903263377701665*^9, 
+  3.903263508885459*^9, 3.903263927113687*^9, 3.903263961602247*^9, 
+  3.903264250136121*^9, 3.903264481610528*^9, 3.903264796366137*^9},
+ CellLabel->
+  "During evaluation of \
+In[1147]:=",ExpressionUUID->"0bc4b6bc-58c8-41bd-b22e-198e2b333e5e"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.006], Arrowheads[0.08], ArrowBox[{{0, -0.13}, {0, 1}}, 0.25], 
+   ArrowBox[{{0, 1}, {1.7, 2}}, 0.5], ArrowBox[{{1.7, 1.9}, {1.7, 3}}, 0.2], 
+   ArrowBox[{{1.7, 2.9}, {1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 2.9}, {-1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 3}, {1.7, 4}}, 0.8], ArrowBox[{{1.7, 3}, {-1.7, 4}}, 0.7],
+    ArrowBox[{{0, 1}, {-1.7, 3}}, 0.3], ArrowBox[{{1.7, 4}, {0, 5}}, 0.5], 
+   ArrowBox[{{-1.7, 4}, {0, 5}}, 0.55], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIV", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox["0",
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIV, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[0, 20]],
+     Editable->False], {0, 0}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["MONO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["3.1`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`MONO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[3.1^"o", 20]],
+     Editable->False], {0, 1}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ORTH", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["4.2`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ORTH, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[4.2^"o", 20]],
+     Editable->False], {1.7, 2}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TET", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["5.9`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TET, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[5.9^"o", 20]],
+     Editable->False], {1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["CUBE", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["15.700000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`CUBE, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[15.700000000000001`^"o", 20]],
+     Editable->False], {1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["XISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["12.9`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`XISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[12.9^"o", 20]],
+     Editable->False], {-1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIG", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["12.5`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIG, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[12.5^"o", 20]],
+     Editable->False], {-1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["20.400000000000002`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[20.400000000000002`^"o", 20]],
+     Editable->False], {0, 5}]},
+  AspectRatio->Automatic]], "Output",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346696554*^9, 
+  3.863914905239484*^9, 3.863915029345065*^9, 3.903263377705536*^9, 
+  3.903263508889039*^9, 3.903263927118064*^9, 3.903263961647985*^9, 
+  3.903264250141625*^9, 3.903264481615872*^9, 
+  3.9032647963742332`*^9},ExpressionUUID->"fdbc9f2d-c2f1-43e4-bee1-\
+b18e3de40ab8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"j = \"\>", "\[InvisibleSpace]", "5", 
+   "\[InvisibleSpace]", "\<\", so Brown's column heading is \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(An\\), \\(60\\)]\\)\"\>",
+    StripOnInput->False,
+    FontSize->18]}],
+  SequenceForm["j = ", 5, ", so Brown's column heading is ", 
+   Style["\!\(\*SubscriptBox[\(An\), \(60\)]\)", 18]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346680688*^9, 
+  3.8639149051643705`*^9, 3.863915029345065*^9, 3.903263377701665*^9, 
+  3.903263508885459*^9, 3.903263927113687*^9, 3.903263961602247*^9, 
+  3.903264250136121*^9, 3.903264481610528*^9, 3.903264796366137*^9, 
+  3.903265006005579*^9},
+ CellLabel->
+  "During evaluation of \
+In[1194]:=",ExpressionUUID->"d6b0fa5a-6267-4cf3-848d-103d252c03a9"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.006], Arrowheads[0.08], ArrowBox[{{0, -0.13}, {0, 1}}, 0.25], 
+   ArrowBox[{{0, 1}, {1.7, 2}}, 0.5], ArrowBox[{{1.7, 1.9}, {1.7, 3}}, 0.2], 
+   ArrowBox[{{1.7, 2.9}, {1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 2.9}, {-1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 3}, {1.7, 4}}, 0.8], ArrowBox[{{1.7, 3}, {-1.7, 4}}, 0.7],
+    ArrowBox[{{0, 1}, {-1.7, 3}}, 0.3], ArrowBox[{{1.7, 4}, {0, 5}}, 0.5], 
+   ArrowBox[{{-1.7, 4}, {0, 5}}, 0.55], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIV", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox["0",
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIV, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[0, 20]],
+     Editable->False], {0, 0}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["MONO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["2.5`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`MONO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[2.5^"o", 20]],
+     Editable->False], {0, 1}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ORTH", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["4.`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ORTH, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[4.^"o", 20]],
+     Editable->False], {1.7, 2}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TET", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["5.6000000000000005`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TET, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[5.6000000000000005`^"o", 20]],
+     Editable->False], {1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["CUBE", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["13.600000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`CUBE, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[13.600000000000001`^"o", 20]],
+     Editable->False], {1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["XISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["11.700000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`XISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[11.700000000000001`^"o", 20]],
+     Editable->False], {-1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIG", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["11.100000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIG, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[11.100000000000001`^"o", 20]],
+     Editable->False], {-1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["17.5`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[17.5^"o", 20]],
+     Editable->False], {0, 5}]},
+  AspectRatio->Automatic]], "Output",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346696554*^9, 
+  3.863914905239484*^9, 3.863915029345065*^9, 3.903263377705536*^9, 
+  3.903263508889039*^9, 3.903263927118064*^9, 3.903263961647985*^9, 
+  3.903264250141625*^9, 3.903264481615872*^9, 3.9032647963742332`*^9, 
+  3.903265006013023*^9},ExpressionUUID->"2f3f96e3-82c5-493c-aac7-\
+1debcfae0786"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"j = \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\", so Brown's column heading is \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(An\\), \\(67\\)]\\)\"\>",
+    StripOnInput->False,
+    FontSize->18]}],
+  SequenceForm["j = ", 6, ", so Brown's column heading is ", 
+   Style["\!\(\*SubscriptBox[\(An\), \(67\)]\)", 18]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346680688*^9, 
+  3.8639149051643705`*^9, 3.863915029345065*^9, 3.903263377701665*^9, 
+  3.903263508885459*^9, 3.903263927113687*^9, 3.903263961602247*^9, 
+  3.903264250136121*^9, 3.903264481610528*^9, 3.903264796366137*^9, 
+  3.903265006005579*^9, 3.903265485285215*^9},
+ CellLabel->
+  "During evaluation of \
+In[1241]:=",ExpressionUUID->"5e4d48c3-81e0-4198-b171-f2fd1a7adcfd"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.006], Arrowheads[0.08], ArrowBox[{{0, -0.13}, {0, 1}}, 0.25], 
+   ArrowBox[{{0, 1}, {1.7, 2}}, 0.5], ArrowBox[{{1.7, 1.9}, {1.7, 3}}, 0.2], 
+   ArrowBox[{{1.7, 2.9}, {1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 2.9}, {-1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 3}, {1.7, 4}}, 0.8], ArrowBox[{{1.7, 3}, {-1.7, 4}}, 0.7],
+    ArrowBox[{{0, 1}, {-1.7, 3}}, 0.3], ArrowBox[{{1.7, 4}, {0, 5}}, 0.5], 
+   ArrowBox[{{-1.7, 4}, {0, 5}}, 0.55], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIV", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox["0",
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIV, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[0, 20]],
+     Editable->False], {0, 0}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["MONO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["3.8000000000000003`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`MONO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[3.8000000000000003`^"o", 20]],
+     Editable->False], {0, 1}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ORTH", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["5.2`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ORTH, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[5.2^"o", 20]],
+     Editable->False], {1.7, 2}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TET", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["6.5`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TET, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[6.5^"o", 20]],
+     Editable->False], {1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["CUBE", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["13.200000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`CUBE, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[13.200000000000001`^"o", 20]],
+     Editable->False], {1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["XISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["12.200000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`XISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[12.200000000000001`^"o", 20]],
+     Editable->False], {-1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIG", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["11.5`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIG, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[11.5^"o", 20]],
+     Editable->False], {-1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["18.`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[18.^"o", 20]],
+     Editable->False], {0, 5}]},
+  AspectRatio->Automatic]], "Output",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346696554*^9, 
+  3.863914905239484*^9, 3.863915029345065*^9, 3.903263377705536*^9, 
+  3.903263508889039*^9, 3.903263927118064*^9, 3.903263961647985*^9, 
+  3.903264250141625*^9, 3.903264481615872*^9, 3.9032647963742332`*^9, 
+  3.903265006013023*^9, 
+  3.9032654852919197`*^9},ExpressionUUID->"dab2d5b0-8496-481b-8480-\
+ebd02ac158f1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"j = \"\>", "\[InvisibleSpace]", "7", 
+   "\[InvisibleSpace]", "\<\", so Brown's column heading is \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(An\\), \\(78\\)]\\)\"\>",
+    StripOnInput->False,
+    FontSize->18]}],
+  SequenceForm["j = ", 7, ", so Brown's column heading is ", 
+   Style["\!\(\*SubscriptBox[\(An\), \(78\)]\)", 18]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346680688*^9, 
+  3.8639149051643705`*^9, 3.863915029345065*^9, 3.903263377701665*^9, 
+  3.903263508885459*^9, 3.903263927113687*^9, 3.903263961602247*^9, 
+  3.903264250136121*^9, 3.903264481610528*^9, 3.903264796366137*^9, 
+  3.903265006005579*^9, 3.903265485285215*^9, 3.9032658684082336`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1288]:=",ExpressionUUID->"7f58e3b4-521c-493e-b9f0-207c30857433"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.006], Arrowheads[0.08], ArrowBox[{{0, -0.13}, {0, 1}}, 0.25], 
+   ArrowBox[{{0, 1}, {1.7, 2}}, 0.5], ArrowBox[{{1.7, 1.9}, {1.7, 3}}, 0.2], 
+   ArrowBox[{{1.7, 2.9}, {1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 2.9}, {-1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 3}, {1.7, 4}}, 0.8], ArrowBox[{{1.7, 3}, {-1.7, 4}}, 0.7],
+    ArrowBox[{{0, 1}, {-1.7, 3}}, 0.3], ArrowBox[{{1.7, 4}, {0, 5}}, 0.5], 
+   ArrowBox[{{-1.7, 4}, {0, 5}}, 0.55], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIV", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox["0",
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIV, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[0, 20]],
+     Editable->False], {0, 0}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["MONO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["4.3`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`MONO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[4.3^"o", 20]],
+     Editable->False], {0, 1}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ORTH", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["6.1000000000000005`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ORTH, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[6.1000000000000005`^"o", 20]],
+     Editable->False], {1.7, 2}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TET", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["7.4`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TET, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[7.4^"o", 20]],
+     Editable->False], {1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["CUBE", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["12.8`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`CUBE, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[12.8^"o", 20]],
+     Editable->False], {1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["XISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["10.700000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`XISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[10.700000000000001`^"o", 20]],
+     Editable->False], {-1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIG", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["10.`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIG, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[10.^"o", 20]],
+     Editable->False], {-1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["16.900000000000002`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[16.900000000000002`^"o", 20]],
+     Editable->False], {0, 5}]},
+  AspectRatio->Automatic]], "Output",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346696554*^9, 
+  3.863914905239484*^9, 3.863915029345065*^9, 3.903263377705536*^9, 
+  3.903263508889039*^9, 3.903263927118064*^9, 3.903263961647985*^9, 
+  3.903264250141625*^9, 3.903264481615872*^9, 3.9032647963742332`*^9, 
+  3.903265006013023*^9, 3.9032654852919197`*^9, 
+  3.9032658684150047`*^9},ExpressionUUID->"41ba39d2-a5d4-4659-ac92-\
+0ffbc3ea5eb2"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"j = \"\>", "\[InvisibleSpace]", "8", 
+   "\[InvisibleSpace]", "\<\", so Brown's column heading is \"\>", 
+   "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(An\\), \\(96\\)]\\)\"\>",
+      StripOnInput->False,
+      FontSize->18], "\[InvisibleSpace]", "\<\", almost all anorthite\"\>"}],
+    SequenceForm[
+     Style["\!\(\*SubscriptBox[\(An\), \(96\)]\)", 18], 
+     ", almost all anorthite"],
+    Editable->False]}],
+  SequenceForm["j = ", 8, ", so Brown's column heading is ", 
+   SequenceForm[
+    Style["\!\(\*SubscriptBox[\(An\), \(96\)]\)", 18], 
+    ", almost all anorthite"]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346680688*^9, 
+  3.8639149051643705`*^9, 3.863915029345065*^9, 3.903263377701665*^9, 
+  3.903263508885459*^9, 3.903263927113687*^9, 3.903263961602247*^9, 
+  3.903264250136121*^9, 3.903264481610528*^9, 3.903264796366137*^9, 
+  3.903265006005579*^9, 3.903265485285215*^9, 3.9032658684082336`*^9, 
+  3.903266685302404*^9},
+ CellLabel->
+  "During evaluation of \
+In[1335]:=",ExpressionUUID->"26b2020b-ea5d-4f0b-82c1-844bdee01e7a"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {Thickness[0.006], Arrowheads[0.08], ArrowBox[{{0, -0.13}, {0, 1}}, 0.25], 
+   ArrowBox[{{0, 1}, {1.7, 2}}, 0.5], ArrowBox[{{1.7, 1.9}, {1.7, 3}}, 0.2], 
+   ArrowBox[{{1.7, 2.9}, {1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 2.9}, {-1.7, 4}}, 0.2], 
+   ArrowBox[{{-1.7, 3}, {1.7, 4}}, 0.8], ArrowBox[{{1.7, 3}, {-1.7, 4}}, 0.7],
+    ArrowBox[{{0, 1}, {-1.7, 3}}, 0.3], ArrowBox[{{1.7, 4}, {0, 5}}, 0.5], 
+   ArrowBox[{{-1.7, 4}, {0, 5}}, 0.55], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIV", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox["0",
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIV, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[0, 20]],
+     Editable->False], {0, 0}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["MONO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["4.3`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`MONO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[4.3^"o", 20]],
+     Editable->False], {0, 1}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ORTH", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["6.5`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ORTH, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[6.5^"o", 20]],
+     Editable->False], {1.7, 2}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TET", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["8.200000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TET, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[8.200000000000001^"o", 20]],
+     Editable->False], {1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["CUBE", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["12.700000000000001`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`CUBE, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[12.700000000000001`^"o", 20]],
+     Editable->False], {1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["XISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["10.4`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`XISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[10.4^"o", 20]],
+     Editable->False], {-1.7, 4}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["TRIG", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["9.9`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`TRIG, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[9.9^"o", 20]],
+     Editable->False], {-1.7, 3}], InsetBox[
+    InterpretationBox[
+     RowBox[{
+      TemplateBox[{
+        StyleBox["\"\[Beta]\"", 22, StripOnInput -> False], 
+        StyleBox["ISO", 14, StripOnInput -> False], 
+        OverscriptBox[
+         StyleBox["\" \"", 5, StripOnInput -> False], 
+         StyleBox["\"T\"", Bold, 15, StripOnInput -> False]]},
+       "Subsuperscript"], "\[InvisibleSpace]", 
+      StyleBox["\<\" = \"\>",
+       StripOnInput->False,
+       FontSize->20], "\[InvisibleSpace]", 
+      StyleBox[
+       SuperscriptBox["16.`", "\<\"o\"\>"],
+       StripOnInput->False,
+       FontSize->20]}],
+     SequenceForm[
+      Subsuperscript[
+       Style["\[Beta]", 22], 
+       Style[$CellContext`ISO, 14], 
+       Overscript[
+        Style[" ", 5], 
+        Style["T", Bold, 15]]], 
+      Style[" = ", 20], 
+      Style[16.^"o", 20]],
+     Editable->False], {0, 5}]},
+  AspectRatio->Automatic]], "Output",
+ CellChangeTimes->{3.8631990528868985`*^9, 3.863272346696554*^9, 
+  3.863914905239484*^9, 3.863915029345065*^9, 3.903263377705536*^9, 
+  3.903263508889039*^9, 3.903263927118064*^9, 3.903263961647985*^9, 
+  3.903264250141625*^9, 3.903264481615872*^9, 3.9032647963742332`*^9, 
+  3.903265006013023*^9, 3.9032654852919197`*^9, 3.9032658684150047`*^9, 
+  3.903266685307989*^9},
+ CellLabel->
+  "Out[1336]=",ExpressionUUID->"2f0ea061-67a5-40fc-947d-81514edcddc9"]
+}, Open  ]]
+},
+WindowSize->{1163, 1017},
+WindowMargins->{{Automatic, 30}, {Automatic, 0}},
+FrontEndVersion->"13.3 for Mac OS X x86 (64-bit) (June 3, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"aa48d4e9-b387-4e1c-9256-92c8f4147222"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 785, 13, 71, "Subsubsection",ExpressionUUID->"11c425f8-ecc2-46ac-91e9-9bcd32b344e0"],
+Cell[CellGroupData[{
+Cell[1368, 37, 358, 7, 37, "Subsubsection",ExpressionUUID->"e9409d90-03a7-403e-b0d5-6f820e035a28"],
+Cell[1729, 46, 2395, 52, 115, "Input",ExpressionUUID->"a82fa88a-0d75-4f62-8b85-be1f198de280"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4161, 103, 232, 4, 45, "Subsubsection",ExpressionUUID->"bc1ecda0-c156-4aae-aaef-38fd2b8be7b0"],
+Cell[4396, 109, 593, 15, 52, "Input",ExpressionUUID->"f31a757a-5d3c-4f10-ada2-03c5e1a2ec74"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5026, 129, 434, 8, 45, "Subsubsection",ExpressionUUID->"c5e7325a-4f08-498f-85cf-04b857922999"],
+Cell[5463, 139, 874, 20, 30, "Input",ExpressionUUID->"af540f5a-781d-47e1-a4e7-33fd11e1e29d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6374, 164, 222, 4, 45, "Subsubsection",ExpressionUUID->"fd58c64e-7721-4a75-a055-282c68618745"],
+Cell[6599, 170, 2694, 70, 199, "Input",ExpressionUUID->"494d2d79-a94b-47fc-8ffb-272a5d8f1304"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9330, 245, 280, 4, 45, "Subsubsection",ExpressionUUID->"1319962c-ccb1-4485-9329-a4cc057f9ece"],
+Cell[9613, 251, 10688, 278, 394, "Input",ExpressionUUID->"b3cce61a-d2ab-4a6c-94d3-2b41cac4bcf7"],
+Cell[20304, 531, 260, 5, 30, "Input",ExpressionUUID->"7d40f149-a921-4895-a0b6-d772d6bef129"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20601, 541, 223, 4, 45, "Subsubsection",ExpressionUUID->"202b653d-4261-42d8-9421-2ef19096ed3c"],
+Cell[20827, 547, 531, 9, 73, "Input",ExpressionUUID->"97ebbbb6-70c7-4c61-b320-ab7ca0aebcf7"],
+Cell[21361, 558, 161, 4, 30, "Input",ExpressionUUID->"15e1ed13-29ff-4966-a293-747c4d6604b8"],
+Cell[21525, 564, 282, 5, 30, "Input",ExpressionUUID->"333e301e-d675-41f5-87da-3c88e6b0602b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21844, 574, 252, 4, 45, "Subsubsection",ExpressionUUID->"6eeaea42-2515-46da-89f3-79a6506f5b1a"],
+Cell[22099, 580, 243, 5, 30, "Input",ExpressionUUID->"04c16535-a66f-4fa8-a62f-fbf04e1f3828"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22379, 590, 215, 4, 45, "Subsubsection",ExpressionUUID->"a26365f0-2621-47ff-941e-4ef3225e9198"],
+Cell[22597, 596, 5234, 121, 241, "Input",ExpressionUUID->"07629efc-6593-4ddd-85ad-786f6645c8f2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27868, 722, 254, 4, 45, "Subsubsection",ExpressionUUID->"e1c64826-f7f5-4d2b-85c0-794c1215b724"],
+Cell[28125, 728, 245, 5, 30, "Input",ExpressionUUID->"aa4e4977-ddb8-4309-b660-4e2ffb1cc41a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28407, 738, 199, 3, 45, "Subsubsection",ExpressionUUID->"dff238f8-2cd7-4af4-b5b7-a8f24c1f4215"],
+Cell[28609, 743, 268, 6, 30, "Input",ExpressionUUID->"df54e9d6-2b23-41ca-9a6e-b3cba0e92177"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28914, 754, 250, 4, 45, "Subsubsection",ExpressionUUID->"906a16d2-bef3-4c20-aadd-1fb0494c44c7"],
+Cell[29167, 760, 243, 5, 30, "Input",ExpressionUUID->"d8b7203a-dfa9-4d3e-b37a-fcb4251a07af"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29447, 770, 252, 4, 45, "Subsubsection",ExpressionUUID->"2382869b-2df3-4f7e-9c0c-0b2facfbae45"],
+Cell[29702, 776, 245, 5, 30, "Input",ExpressionUUID->"1fab6870-d5c4-4786-95d2-9dcfafc47820"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29984, 786, 252, 4, 45, "Subsubsection",ExpressionUUID->"1231e8d9-a47d-46e9-bb52-4425d74d0e2a"],
+Cell[30239, 792, 245, 5, 30, "Input",ExpressionUUID->"74e313b8-3296-4f16-a040-b5750f1c6a78"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30521, 802, 251, 4, 45, "Subsubsection",ExpressionUUID->"90732bca-09e1-4c11-9dac-13481e73e638"],
+Cell[30775, 808, 216, 5, 30, "Input",ExpressionUUID->"2a6ac31d-4b2b-4d79-8fb8-d4018da65cc7"],
+Cell[30994, 815, 674, 13, 90, "Input",ExpressionUUID->"8e9f96d6-3769-403b-9433-a14c8a7d6d4f"]
+}, Open  ]],
+Cell[31683, 831, 619, 9, 42, "Subsubsection",ExpressionUUID->"70a8cd69-6e39-4f26-ae0e-2d8f646907e6"],
+Cell[32305, 842, 306, 6, 37, "Subsubsection",ExpressionUUID->"2073c8c5-e1f2-483c-838d-de3e4b957d66"],
+Cell[CellGroupData[{
+Cell[32636, 852, 157, 3, 53, "Section",ExpressionUUID->"3b87f379-a73e-4d18-8be5-af346da0bb5d"],
+Cell[32796, 857, 1011, 23, 26, "Print",ExpressionUUID->"5c42faee-4f5b-4d41-9fd4-53927e17bca7"],
+Cell[33810, 882, 7650, 221, 399, "Output",ExpressionUUID->"0cdd97ed-aec2-4cdb-b80a-564d07eff636"],
+Cell[41463, 1105, 800, 17, 26, "Print",ExpressionUUID->"6344072d-3347-4ec7-8136-be2ce81e91b5"],
+Cell[42266, 1124, 7763, 222, 399, "Output",ExpressionUUID->"1397881c-d5b7-486f-acc5-382c1072063d"],
+Cell[50032, 1348, 753, 16, 26, "Print",ExpressionUUID->"304e4349-7fa8-4538-901b-d2f3ad66828d"],
+Cell[50788, 1366, 7628, 221, 399, "Output",ExpressionUUID->"40fd617b-d7e4-4f01-aec0-918bae5dd0c6"],
+Cell[58419, 1589, 822, 17, 26, "Print",ExpressionUUID->"0bc4b6bc-58c8-41bd-b22e-198e2b333e5e"],
+Cell[59244, 1608, 7700, 222, 399, "Output",ExpressionUUID->"fdbc9f2d-c2f1-43e4-bee1-b18e3de40ab8"],
+Cell[66947, 1832, 847, 18, 26, "Print",ExpressionUUID->"d6b0fa5a-6267-4cf3-848d-103d252c03a9"],
+Cell[67797, 1852, 7780, 222, 399, "Output",ExpressionUUID->"2f3f96e3-82c5-493c-aac7-1debcfae0786"],
+Cell[75580, 2076, 869, 18, 26, "Print",ExpressionUUID->"5e4d48c3-81e0-4198-b171-f2fd1a7adcfd"],
+Cell[76452, 2096, 7778, 223, 399, "Output",ExpressionUUID->"dab2d5b0-8496-481b-8480-ebd02ac158f1"],
+Cell[84233, 2321, 893, 18, 26, "Print",ExpressionUUID->"7f58e3b4-521c-493e-b9f0-207c30857433"],
+Cell[85129, 2341, 7802, 223, 399, "Output",ExpressionUUID->"41ba39d2-a5d4-4659-ac92-0ffbc3ea5eb2"],
+Cell[92934, 2566, 1195, 27, 26, "Print",ExpressionUUID->"26b2020b-ea5d-4f0b-82c1-844bdee01e7a"],
+Cell[94132, 2595, 7817, 224, 399, "Output",ExpressionUUID->"2f0ea061-67a5-40fc-947d-81514edcddc9"]
+}, Open  ]]
+}
+]
+*)
+
