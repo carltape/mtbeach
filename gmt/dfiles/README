@@ -1,8 +1,9 @@
-mtbeach/plot/gmt/dfiles/README
+mtbeach/gmt/dfiles/README
 
 This directory contains published data sets of full moment tensors, as well as some reference files for making lune plots. These files may be useful even if you do not use the perl/GMT script lune.pl.
 
-The files listed below were made by Carl Tape using a matlab script (beach_arcs.m).
+The files listed below were made by Carl Tape using the matlab script beach_arcs.m,
+which is in the mtbeach repository at the relative path ../../matlab/beach_arcs.m
 
 ---
 [1] lune points from published data sets
@@ -30,16 +31,23 @@ ln -s /home/carltape/PROJECTS/cmt/figs/bfiles/beachpts_* .
 ---
 [2] reference files for lune plots (see beach_arcs.m)
 
+[2a] reference lune points and text labels
+
+A typical plot on the lune would include a subset of these points.
+The user can choose what type of text label for the reference points.
+
 sourcetype_points_lune.dat
 sourcetype_points_rect.dat
 
 columns:
 1 gamma or v
 2 delta or w
-3 text eigenvalue triple
+3 text eigenvalue triple (unnormalized eigenvalues)
 4 text label
 5 justification code
 6 text label shift
+
+[2b] reference arcs on the lune (and vw rectangle)
 
 sourcetype_arc_XX.lonlat
 
@@ -52,17 +60,51 @@ XX:
 06: lambda2=0 (nu=0)
 07: CDC(nu=0.36)
 
-columns: gamma / delta / v / w
+columns:
+1 gamma
+2 delta
+3 v
+4 w
+
+[2c] patches of regions on the lune (and vw rectangle)
+
+These patches can be used to emphasize various regions on the lune (or rectangle).
 
 sourcetype_patch_XX.lonlat
 
-patches of regions on the lune (and vw rectangle); see beach_arcs.m
+columns:
+1 gamma
+2 delta
+3 v
+4 w
 
-columns: gamma / delta / v / w
+---
+[3] sets of reference moment tensors for plotting (psmeca format)
 
-beachballs_iptsX_irefX_lune_psmeca
-beachballs_iptsX_irefX_vw_psmeca
+beachballs_iptsZ_irefX_lune_psmeca
+beachballs_iptsZ_irefX_vw_psmeca
 
-various sets of reference beachballs in psmeca file format
+The Z denotes the set of points on the lune.
+
+Z:
+1: regular spacing on the lune (dlon = dlat = 15 deg)
+2: the arc for lam2 = 0 (shown in TapeTape2013, Alvizuri2018)
+
+The X denotes the orientation of the reference moment tensor appearing at the center of the lune.
+
+X: strike dip rake fault-type
+1:   0 45  90 thrust (T vertical)
+2:   0 45 -90 normal (T east)
+3:  45 90   0 strike-slip (T east)
+4: -45 90   0 strike-slip (T north)
+5:  40 50  60 oblique
+
+code from beach_arcs.m:
+    % CHOICE OF REFERENCE ORIENTATION 
+    if kk==1, str = 0; dip = 45; rk = 90; end
+    if kk==2, str = 0; dip = 45; rk = -90; end
+    if kk==3, str = 45; dip = 90; rk = 0; end
+    if kk==4, str = -45; dip = 90; rk = 0; end
+    if kk==5, str = 40; dip = 50; rk = 60; end
 
 ---
