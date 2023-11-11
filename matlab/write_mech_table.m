@@ -150,18 +150,21 @@ if 0==1
     % The MT is directly out of MTUQ, in N-m and the ordering is Mrr, Mtt, Mpp, Mrt, Mrp, Mtp.
     M = load('~/Downloads/mts.csv')';
     n = length(M(1,:));
-    otime0 = datenum(2022,1,15,04,15,19.6);
-    otime = otime0 + [0 205.60 243.78 268.57]/86400;
+    otime_usgs = datenum(2022,1,15,04,14,45);
+    otime = otime_usgs + [50.88 256.47 294.30 320.47]/86400;
     lon = -175.390; lat = -20.546; dep = 1;
     eids = {'TT23-S1','TT23-S2','TT23-S3','TT23-S4'};
     filetag = '~/ThurinTape2023';
     x = ones(n,1);
-    [kappa,theta,sigma,gamma,delta,nu,alpha,phi,zeta,v,w,thetadc,lam,Mw] = write_mech_table(filetag,otime,lon*x,lat*x,dep*x,M,eids);
-    %lam = CMTdecom(M)
+    write_mech_table(filetag,otime,lon*x,lat*x,dep*x,M,eids);
+    % check eigenvalues
+    %[lam,U_use] = CMTdecom(M);
     % 10^18
     %2.2020    4.7546    1.5545    2.0023
     %1.0069    1.9596    0.6493    0.8054
     %0.9647    1.8771    0.6493    0.6015
+    % display Mij entries (for Mathematica, to make ellipsoids)
+    %displayCMTshort(M/1e16,'%8.2f')
 end
     
 %==========================================================================
