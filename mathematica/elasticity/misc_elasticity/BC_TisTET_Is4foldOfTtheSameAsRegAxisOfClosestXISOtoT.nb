@@ -1,0 +1,4374 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    165049,       4366]
+NotebookOptionsPosition[    155945,       4227]
+NotebookOutlinePosition[    156337,       4243]
+CellTagsIndexPosition[    156294,       4240]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Here is a TET elastic map T where the regular axis of Closest[T, XISO] is the \
+same as the 4-fold axis of T. The matrix of T is\
+\>", "Section",
+ CellChangeTimes->{{3.934735869386056*^9, 3.9347359373816953`*^9}, {
+  3.9347359789584017`*^9, 
+  3.934736090688633*^9}},ExpressionUUID->"997861ca-b130-4735-9db2-\
+6d90af117a17"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Tmat", "=", 
+   RowBox[{"(", "\[NoBreak]", GridBox[{
+      {"3", "0", "0", "0", "0", "0"},
+      {"0", "3", "0", "0", "0", "0"},
+      {"0", "0", "4", "0", "0", "0"},
+      {"0", "0", "0", "5", "0", "0"},
+      {"0", "0", "0", "0", "2", "1"},
+      {"0", "0", "0", "0", "1", "5"}
+     }], "\[NoBreak]", ")"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.934587634932703*^9, 3.934587699639219*^9}, {
+  3.9347360215330296`*^9, 3.9347360365807943`*^9}},
+ CellLabel->
+  "In[1923]:=",ExpressionUUID->"00952fd6-88f3-4640-a046-d2b9bf8f825f"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "You can run MinimizationFacts[Tmat, TET] if you want to, but there is no \
+need to, since Tmat is a TET reference matrix . The the symmetry group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalS]", 
+    StyleBox["T",
+     FontSlant->"Plain"]], TraditionalForm]],ExpressionUUID->
+  "a47a1b87-dc64-47ee-a7f2-715ec6468cf1"],
+ " must contain ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalU]", "TET"], TraditionalForm]],
+  ExpressionUUID->"ea38f241-928e-4f3c-8760-dbc9567dc165"],
+ ", so ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ " is the 4-fold axis of T."
+}], "Subsubsection",
+ CellChangeTimes->{{3.9347352005032797`*^9, 3.9347354236860857`*^9}, {
+  3.934735456620055*^9, 
+  3.9347354649315844`*^9}},ExpressionUUID->"5af98033-5088-4f76-afea-\
+c8e86eb0fb47"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nRuns", "=", "1"}], ";"}]], "Input",
+ CellChangeTimes->{{3.934735649980899*^9, 3.934735654824619*^9}, {
+  3.934812283194352*^9, 3.93481228325749*^9}},
+ CellLabel->
+  "In[1924]:=",ExpressionUUID->"9a9cb500-fb50-4eb1-8bca-2d0ef5037e08"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MinimizationFacts", "[", 
+  RowBox[{"Tmat", ",", "TET"}], "]"}]], "Input",
+ CellChangeTimes->{{3.934812394377983*^9, 3.93481239491914*^9}},
+ CellLabel->
+  "In[1925]:=",ExpressionUUID->"70d9aa45-9c95-41da-84bc-c7f960eb8df7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"nRuns = \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"  (must have been entered)\"\>"}],
+  SequenceForm["nRuns = ", 1, "  (must have been entered)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412574353*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"f076a638-a413-46e3-b607-baa00a34e215"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Minimizing the function (\[Theta], \[Sigma], \[Phi]) \
+\\!\\(\\*StyleBox[\\\"\[LongRightArrow]\\\",FontSize->14,FontWeight->\\\"Bold\
+\\\"]\\) \\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*\
+StyleBox[\\\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\
+\"Bold\\\"]\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], 
+       StyleBox["TET",
+        StripOnInput->False,
+        LineColor->RGBColor[1, 0, 0],
+        FrontFaceColor->RGBColor[1, 0, 0],
+        BackFaceColor->RGBColor[1, 0, 0],
+        GraphicsColor->RGBColor[1, 0, 0],
+        FontWeight->Bold,
+        FontColor->RGBColor[1, 0, 0]]],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], 
+       Style[$CellContext`TET, 
+        RGBColor[1, 0, 0], Bold]]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\), \
+\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\" \\\",FontSlant->\\\"Italic\\\"]\\)= \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{\\\"\[Theta]\\\", \\\",\\\", \\\"\
+\[Sigma]\\\", \\\",\\\", \\\"\[Phi]\\\"}], \\\")\\\"}]]\\):\"\>"}],
+  SequenceForm[
+  "Minimizing the function (\[Theta], \[Sigma], \[Phi]) \!\(\*StyleBox[\"\
+\[LongRightArrow]\",FontSize->14,FontWeight->\"Bold\"]\) \
+\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSize->\
+14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], 
+      Style[$CellContext`TET, 
+       RGBColor[1, 0, 0], Bold]]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\), \
+\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \",FontSlant->\
+\"Italic\"]\)= \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{\"\[Theta]\", \",\", \"\[Sigma]\", \",\", \"\
+\[Phi]\"}], \")\"}]]\):"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412576243*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"6e88b00c-f0c0-4748-9301-3dd6e3b380b0"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"seed\"\>", 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{
+        StyleBox["d",
+         FontSlant->"Italic"], " "}], "TET", "T"],
+      DisplayForm], 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{"\[Beta]", " "}], "TET", "T"],
+      DisplayForm], "\<\"  \\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\)\"\>", "\<\"  \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \
+\\(0\\)]\\)\"\>", "\<\"   \\!\\(\\*SubscriptBox[\\(\[Phi]\\), \
+\\(0\\)]\\)\"\>"},
+    {"0", "1.26322594417096`*^-9", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       TagBox[
+        InterpretationBox[
+         StyleBox[
+          RowBox[{"\<\"8.\"\>", "\[Times]", 
+           SuperscriptBox["10", "\<\"-9\"\>"]}],
+          ShowStringCharacters->False],
+         8.*^-9,
+         AutoDelete->True],
+        NumberForm[#, 9]& ], ")"}], "\<\"\[SmallCircle]\"\>"], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  1.574826\"\>",
+        ShowStringCharacters->False],
+       1.5748263949982555`,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  3.137563\"\>",
+        ShowStringCharacters->False],
+       3.1375625849398165`,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  0.000000\"\>",
+        ShowStringCharacters->False],
+       0.,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412579383*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"00c071d2-1bf0-4cc4-b67a-92cd03f331e9"],
+
+Cell[BoxData["\<\"-------------------------------------------\"\>"], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.9348424125811367`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"2cf9033a-33ea-4f56-a8ed-e2702c918615"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Here seed = \"\>", "\[InvisibleSpace]", "0", 
+   "\[InvisibleSpace]", "\<\". Then (\\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\), \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \\(0\\)]\\), \
+\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(0\\)]\\)) = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"1.5748263949982555`", ",", "3.1375625849398165`", ",", "0.`"}], 
+    "}"}], "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SuperscriptBox[
+      "90.2`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"], ",", 
+     SuperscriptBox[
+      "179.8`", \
+"\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"Plain\\\"]\\)\"\
+\>"], ",", 
+     SuperscriptBox[
+      "0.`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"]}], "}"}]}],
+  SequenceForm[
+  "Here seed = ", 0, 
+   ". Then (\!\(\*SubscriptBox[\(\[Theta]\), \(0\)]\), \!\(\*SubscriptBox[\(\
+\[Sigma]\), \(0\)]\), \!\(\*SubscriptBox[\(\[Phi]\), \(0\)]\)) = ", {
+   1.5748263949982555`, 3.1375625849398165`, 0.}, " = ", {
+   90.2^"\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)", 179.8^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)", 0.^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)"}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412582479*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"67c0884b-5524-48ea-91ee-eff8d8a187f8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\
+\\\"], \\\"0\\\"]\\) = \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{SubscriptBox[\\\"\[Theta]\\\", \\\
+\"0\\\"], \\\",\\\", SubscriptBox[\\\"\[Sigma]\\\", \\\"0\\\"], \\\",\\\", \
+SubscriptBox[\\\"\[Phi]\\\", \\\"0\\\"]}], \\\")\\\"}]]\\) = \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", "1.`", "0"},
+       {
+        RowBox[{"-", "1.`"}], "0", "0"},
+       {"0", "0", "1.`"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], 
+   "\[InvisibleSpace]", "\<\"  \
+\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)One of at least \"\>", 
+   "\[InvisibleSpace]", "16", "\[InvisibleSpace]", "\<\" \"\>", 
+   "\[InvisibleSpace]", "TET", 
+   "\[InvisibleSpace]", "\<\"-minimizers for \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\). It minimizes the \
+function  \\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\) \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\[LongRightArrow]\"\>",
+    StripOnInput->False,
+    FontSize->14,
+    FontWeight->Bold], 
+   "\[InvisibleSpace]", "\<\" \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "TET"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->16]\\)\"\>"}],
+  SequenceForm[
+  "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\) = \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{SubscriptBox[\"\[Theta]\", \"0\"], \",\", \
+SubscriptBox[\"\[Sigma]\", \"0\"], \",\", SubscriptBox[\"\[Phi]\", \"0\"]}], \
+\")\"}]]\) = ", 
+   MatrixForm[{{0, 1., 0}, {-1., 0, 0}, {0, 0, 1.}}], 
+   "  \!\(\*StyleBox[\"(\",FontSize->16]\)One of at least ", 16, 
+   " ", $CellContext`TET, 
+   "-minimizers for \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\). It \
+minimizes the function  \!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\) ", 
+   Style["\[LongRightArrow]", Bold, 14], 
+   " \!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",\
+FontSize->14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\)\!\(\*StyleBox[\")\",FontSize->16]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.9348424125846*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"1ae4ddf5-866f-4018-82d3-a8f936400686"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "TET", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), P\\!\\(\\*StyleBox[\\\"(\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\"T\\\",\
+FontWeight->\\\"Bold\\\"]\\),\"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "TET"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->14]\\) = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox[
+      RowBox[{"\<\"1.26\"\>", "\[Times]", 
+       SuperscriptBox["10", "\<\"-9\"\>"]}],
+      ShowStringCharacters->False],
+     1.26*^-9,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], 
+   "\[InvisibleSpace]", "\<\" (Distance between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox[
+     StyleBox["\<\"\[ScriptCapitalT]\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], "TET"],
+    DisplayForm], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`TET, "T"]],
+    " = \!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",\
+FontSize->14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), P\!\(\*StyleBox[\
+\"(\",FontSize->12]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\),", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], "\!\(\*StyleBox[\")\",FontSize->12]\)\!\(\*StyleBox[\")\",FontSize->\
+14]\) = ", 
+   NumberForm[1.26*^-9, 9], 
+   " (Distance between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   DisplayForm[
+    SubscriptBox[
+     Style["\[ScriptCapitalT]", Bold], $CellContext`TET]], ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412587172*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"3ef16eae-ac57-4c80-9362-b2527cfdd00d"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "TET", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \\!\\(\\*SuperscriptBox[\\(sin\\), \
+\\(-1\\)]\\)\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "TET", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"/\\\",FontSize->16]\\)\"\>", "\[InvisibleSpace]", 
+   RowBox[{"\[LeftBracketingBar]", "\<\"T\"\>", "\[RightBracketingBar]"}], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", "0", 
+   "\[InvisibleSpace]", "\<\" (Angle between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    TagBox[
+     SubscriptBox[
+      StyleBox["\<\"\[ScriptCapitalT]\"\>",
+       StripOnInput->False,
+       FontWeight->Bold], "TET"],
+     DisplayForm], ".", "\<\" The initial \"\>"}], "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "TET", "T"],
+    DisplayForm], "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox[
+      RowBox[{"\<\"1.33\"\>", "\[Times]", 
+       SuperscriptBox["10", "\<\"-10\"\>"]}],
+      ShowStringCharacters->False],
+     1.33*^-10,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], 
+   "\[InvisibleSpace]", "\<\" is here chopped to zero, since the chop \
+threshold is set at \"\>", "\[InvisibleSpace]", 
+   SuperscriptBox["0.01`", "o"], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`TET, "T"]], 
+   " = \!\(\*SuperscriptBox[\(sin\), \
+\(-1\)]\)\!\(\*StyleBox[\"(\",FontSize->16]\)", 
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`TET, "T"]],
+    "\!\(\*StyleBox[\"/\",FontSize->16]\)", 
+   BracketingBar["T"], "\!\(\*StyleBox[\")\",FontSize->16]\)", " = ", 0, 
+   " (Angle between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   Dot[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalT]", Bold], $CellContext`TET]], " The initial "], 
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`TET, "T"]], " = ", 
+   NumberForm[1.33*^-10, 9], 
+   " is here chopped to zero, since the chop threshold is set at ", 
+   0.01^$CellContext`o, ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412589459*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"bd74bef7-a933-433f-8b86-74248892ed4a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Since \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "TET", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = 0, \
+\\!\\(\\*StyleBox[\\\"T\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"is\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"assigned\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"symmetry\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"at\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"least\\\",FontColor->RGBColor[1, 0, 0]]\\) \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["TET",
+    StripOnInput->False,
+    LineColor->RGBColor[1, 0, 0],
+    FrontFaceColor->RGBColor[1, 0, 0],
+    BackFaceColor->RGBColor[1, 0, 0],
+    GraphicsColor->RGBColor[1, 0, 0],
+    FontColor->RGBColor[1, 0, 0]], "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["Since ", 
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`TET, "T"]], 
+   " = 0, \!\(\*StyleBox[\"T\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\
+\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"is\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\" \
+\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"assigned\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"symmetry\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"at\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\" \
+\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"least\",FontColor->RGBColor[1, 0, 0]]\) ", 
+   Style[$CellContext`TET, 
+    RGBColor[1, 0, 0]], "."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412591467*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"ce39ffd6-88dc-45d2-9703-81e7820eb171"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "TET"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\" contains \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\)\"\>"}],
+  SequenceForm[
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], " contains \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412593313*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"c2eea501-8c8b-4a71-a7f8-d048eea76c23"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubscriptBox["T", "TET"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \
+[\\!\\(\\*OverscriptBox[SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\
+\\\"], \\\"0\\\"], \\\"_\\\"]\\)\\!\\(\\*SuperscriptBox[\\(]\\), \\(T\\)]\\)[\
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\)][\\!\\(\\*\
+OverscriptBox[SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"], \\\"_\\\"]\\)] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"2.9999999999999987`", "0", "0", "0", "0", "0"},
+       {"0", "2.9999999999999987`", "0", "0", "0", "0"},
+       {"0", "0", "3.9999999999999982`", "0", "0", "0"},
+       {"0", "0", "0", "4.999999999999998`", "0", "0"},
+       {"0", "0", "0", "0", "2.`", "1.0000000000000004`"},
+       {"0", "0", "0", "0", "1.0000000000000007`", "5.000000000000002`"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], "\[InvisibleSpace]", "\<\"  (Should be a \"\>",
+    "\[InvisibleSpace]", "TET", 
+   "\[InvisibleSpace]", "\<\" ref matrix for \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\). If not, consider \
+decreasing ChopT.)\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubscriptBox["T", $CellContext`TET]], 
+   " = [\!\(\*OverscriptBox[SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"]\
+, \"0\"], \"_\"]\)\!\(\*SuperscriptBox[\(]\), \
+\(T\)]\)[\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\)][\!\(\*OverscriptBox[\
+SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"], \"_\"]\)] = ", 
+   MatrixForm[{{2.9999999999999987`, 0, 0, 0, 0, 0}, {
+     0, 2.9999999999999987`, 0, 0, 0, 0}, {
+     0, 0, 3.9999999999999982`, 0, 0, 0}, {
+     0, 0, 0, 4.999999999999998, 0, 0}, {
+     0, 0, 0, 0, 2., 1.0000000000000004`}, {
+     0, 0, 0, 0, 1.0000000000000007`, 5.000000000000002}}], 
+   "  (Should be a ", $CellContext`TET, 
+   " ref matrix for \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\). If not, \
+consider decreasing ChopT.)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412594967*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"bbd03424-b09f-4d81-90e0-db3a6968b194"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Thus \\!\\(\\*SuperscriptBox[SubscriptBox[\\(U\\), \\(0\\)], \
+\\(T\\)]\\) will reorient the material so that its symmetry group contains \"\
+\>", "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox["\[DoubleStruckCapitalU]", "TET"],
+    DisplayForm]}],
+  SequenceForm[
+  "Thus \!\(\*SuperscriptBox[SubscriptBox[\(U\), \(0\)], \(T\)]\) will \
+reorient the material so that its symmetry group contains ", 
+   DisplayForm[
+    SubscriptBox["\[DoubleStruckCapitalU]", $CellContext`TET]]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812395317647*^9, 3.934842412596822*^9},
+ CellLabel->
+  "During evaluation of \
+In[1925]:=",ExpressionUUID->"8af5d458-8fef-4554-b81a-82bed2113fdb"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Closest to XISO", "Subsubsection",
+ CellChangeTimes->{{3.9347352005032797`*^9, 3.9347354236860857`*^9}, {
+  3.934735456620055*^9, 3.9347354649315844`*^9}, {3.934812587718144*^9, 
+  3.934812589710635*^9}},ExpressionUUID->"e2aa06e3-92d7-479e-bceb-\
+d7366df253c4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DispMat", "[", 
+  RowBox[{"Closest", "[", 
+   RowBox[{"Tmat", ",", "XISO"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.93467565743916*^9, 3.9346756973527613`*^9}, {
+  3.934812287910638*^9, 3.934812290436331*^9}},
+ CellLabel->
+  "In[1926]:=",ExpressionUUID->"3d64db03-52e4-47d5-92f0-2814b39056e4"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"3.00\"\>",
+         ShowStringCharacters->False],
+        2.999999999999999,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"3.00\"\>",
+         ShowStringCharacters->False],
+        2.999999999999999,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"4.50\"\>",
+         ShowStringCharacters->False],
+        4.4999999999999964`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"4.50\"\>",
+         ShowStringCharacters->False],
+        4.4999999999999964`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"2.00\"\>",
+         ShowStringCharacters->False],
+        2.,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"1.00\"\>",
+         ShowStringCharacters->False],
+        1.0000000000000022`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"1.00\"\>",
+         ShowStringCharacters->False],
+        1.000000000000002,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"5.00\"\>",
+         ShowStringCharacters->False],
+        5.0000000000000036`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Right}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$, TableAlignments -> Right]]]], "Output",
+ CellChangeTimes->{{3.9346756822617493`*^9, 3.9346756981666174`*^9}, 
+   3.934735664151862*^9, {3.934812291484653*^9, 3.934812302615095*^9}, 
+   3.934842412629426*^9},
+ CellLabel->
+  "Out[1926]//MatrixForm=",ExpressionUUID->"3804c898-0c7a-40bd-bd75-\
+49f87b808b7b"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Again there is no need to run MinimizationFacts[Closest[Tmat, XISO], XISO], \
+since Closest[Tmat, XISO] is an XISO reference matrix. The symmetry group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[ScriptCapitalS]", 
+    StyleBox[
+     RowBox[{"Closest", "[", 
+      RowBox[{"Tmat", ",", "XISO"}], "]"}],
+     FontSlant->"Plain"]], TraditionalForm]],ExpressionUUID->
+  "45ba9248-41a0-4af1-833e-3c3ff303a8e9"],
+ " must contain ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[DoubleStruckCapitalU]", "XISO"], TraditionalForm]],
+  ExpressionUUID->"7da845a2-faef-4c33-a383-d29ac876c9c4"],
+ ", and ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ " must be a regular axis of Closest[Tmat, XISO]."
+}], "Subsubsection",
+ CellChangeTimes->{{3.9347352005032797`*^9, 3.9347354236860857`*^9}, {
+   3.934735456620055*^9, 3.9347354649315844`*^9}, {3.934735701462696*^9, 
+   3.934735790906989*^9}, {3.934735826092643*^9, 3.9347358337637453`*^9}, 
+   3.9347380724576125`*^9, {3.9348067290538425`*^9, 
+   3.934806755249714*^9}},ExpressionUUID->"93b30aa8-ee7c-4ca0-a8b3-\
+5ad88334a085"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MinimizationFacts", "[", 
+  RowBox[{
+   RowBox[{"Closest", "[", 
+    RowBox[{"Tmat", ",", "XISO"}], "]"}], ",", "XISO"}], "]"}]], "Input",
+ CellChangeTimes->{{3.93481260314601*^9, 3.934812612731698*^9}},
+ CellLabel->
+  "In[1927]:=",ExpressionUUID->"31b02640-8b04-4939-9abe-a7de8f6177aa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"nRuns = \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"  (must have been entered)\"\>"}],
+  SequenceForm["nRuns = ", 1, "  (must have been entered)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412636178*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"15d5039b-82ad-44ef-b4d6-e5e406b1e366"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Minimizing the function (\[Theta], \[Sigma], \[Phi]) \
+\\!\\(\\*StyleBox[\\\"\[LongRightArrow]\\\",FontSize->14,FontWeight->\\\"Bold\
+\\\"]\\) \\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*\
+StyleBox[\\\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\
+\"Bold\\\"]\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], 
+       StyleBox["XISO",
+        StripOnInput->False,
+        LineColor->RGBColor[1, 0, 0],
+        FrontFaceColor->RGBColor[1, 0, 0],
+        BackFaceColor->RGBColor[1, 0, 0],
+        GraphicsColor->RGBColor[1, 0, 0],
+        FontWeight->Bold,
+        FontColor->RGBColor[1, 0, 0]]],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], 
+       Style[$CellContext`XISO, 
+        RGBColor[1, 0, 0], Bold]]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\), \
+\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\" \\\",FontSlant->\\\"Italic\\\"]\\)= \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{\\\"\[Theta]\\\", \\\",\\\", \\\"\
+\[Sigma]\\\", \\\",\\\", \\\"\[Phi]\\\"}], \\\")\\\"}]]\\):\"\>"}],
+  SequenceForm[
+  "Minimizing the function (\[Theta], \[Sigma], \[Phi]) \!\(\*StyleBox[\"\
+\[LongRightArrow]\",FontSize->14,FontWeight->\"Bold\"]\) \
+\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSize->\
+14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], 
+      Style[$CellContext`XISO, 
+       RGBColor[1, 0, 0], Bold]]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\), \
+\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \",FontSlant->\
+\"Italic\"]\)= \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{\"\[Theta]\", \",\", \"\[Sigma]\", \",\", \"\
+\[Phi]\"}], \")\"}]]\):"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412637663*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"ef6a60af-bb55-43ce-b723-7883064df749"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"seed\"\>", 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{
+        StyleBox["d",
+         FontSlant->"Italic"], " "}], "XISO", "T"],
+      DisplayForm], 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{"\[Beta]", " "}], "XISO", "T"],
+      DisplayForm], "\<\"  \\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\)\"\>", "\<\"  \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \
+\\(0\\)]\\)\"\>", "\<\"   \\!\\(\\*SubscriptBox[\\(\[Phi]\\), \
+\\(0\\)]\\)\"\>"},
+    {"0", "3.373925066260054`*^-9", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       TagBox[
+        InterpretationBox[
+         StyleBox[
+          RowBox[{"\<\"2.\"\>", "\[Times]", 
+           SuperscriptBox["10", "\<\"-8\"\>"]}],
+          ShowStringCharacters->False],
+         2.*^-8,
+         AutoDelete->True],
+        NumberForm[#, 9]& ], ")"}], "\<\"\[SmallCircle]\"\>"], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  5.373545\"\>",
+        ShowStringCharacters->False],
+       5.373544884214984,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  0.415448\"\>",
+        ShowStringCharacters->False],
+       0.41544788486904494`,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  3.141593\"\>",
+        ShowStringCharacters->False],
+       3.141592652632766,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412640275*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"6378191a-ce9e-4d08-8cb0-d025f9eccb11"],
+
+Cell[BoxData["\<\"-------------------------------------------\"\>"], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412642049*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"41094ff1-4973-4db6-99b6-c255063ab5a2"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Here seed = \"\>", "\[InvisibleSpace]", "0", 
+   "\[InvisibleSpace]", "\<\". Then (\\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\), \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \\(0\\)]\\), \
+\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(0\\)]\\)) = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "5.373544884214984`", ",", "0.41544788486904494`", ",", 
+     "3.141592652632766`"}], "}"}], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SuperscriptBox[
+      "307.90000000000003`", \
+"\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"Plain\\\"]\\)\"\
+\>"], ",", 
+     SuperscriptBox[
+      "23.8`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"], ",", 
+     SuperscriptBox[
+      "180.`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"]}], "}"}]}],
+  SequenceForm[
+  "Here seed = ", 0, 
+   ". Then (\!\(\*SubscriptBox[\(\[Theta]\), \(0\)]\), \!\(\*SubscriptBox[\(\
+\[Sigma]\), \(0\)]\), \!\(\*SubscriptBox[\(\[Phi]\), \(0\)]\)) = ", {
+   5.373544884214984, 0.41544788486904494`, 3.141592652632766}, " = ", {
+   307.90000000000003`^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)", 23.8^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)", 180.^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)"}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412643278*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"81d8d7e1-c759-40de-a82d-6224c6ba929b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\
+\\\"], \\\"0\\\"]\\) = \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{SubscriptBox[\\\"\[Theta]\\\", \\\
+\"0\\\"], \\\",\\\", SubscriptBox[\\\"\[Sigma]\\\", \\\"0\\\"], \\\",\\\", \
+SubscriptBox[\\\"\[Phi]\\\", \\\"0\\\"]}], \\\")\\\"}]]\\) = \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", "0.2432431395566501`"}], "0.9699653473493905`", "0"},
+       {"0.9699653473493905`", "0.2432431395566501`", "0"},
+       {"0", "0", 
+        RowBox[{"-", "1.`"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], 
+   "\[InvisibleSpace]", "\<\"  \
+\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)One of at least \"\>", 
+   "\[InvisibleSpace]", "\[Infinity]", "\[InvisibleSpace]", "\<\" \"\>", 
+   "\[InvisibleSpace]", "XISO", 
+   "\[InvisibleSpace]", "\<\"-minimizers for \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\). It minimizes the \
+function  \\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\) \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\[LongRightArrow]\"\>",
+    StripOnInput->False,
+    FontSize->14,
+    FontWeight->Bold], 
+   "\[InvisibleSpace]", "\<\" \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->16]\\)\"\>"}],
+  SequenceForm[
+  "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\) = \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{SubscriptBox[\"\[Theta]\", \"0\"], \",\", \
+SubscriptBox[\"\[Sigma]\", \"0\"], \",\", SubscriptBox[\"\[Phi]\", \"0\"]}], \
+\")\"}]]\) = ", 
+   MatrixForm[{{-0.2432431395566501, 0.9699653473493905, 0}, {
+     0.9699653473493905, 0.2432431395566501, 0}, {0, 0, -1.}}], 
+   "  \!\(\*StyleBox[\"(\",FontSize->16]\)One of at least ", 
+   DirectedInfinity[1], " ", $CellContext`XISO, 
+   "-minimizers for \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\). It \
+minimizes the function  \!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\) ", 
+   Style["\[LongRightArrow]", Bold, 14], 
+   " \!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",\
+FontSize->14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\)\!\(\*StyleBox[\")\",FontSize->16]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412645356*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"5f33d348-38b5-49ad-a90a-03b9ecc0b5b5"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), P\\!\\(\\*StyleBox[\\\"(\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\"T\\\",\
+FontWeight->\\\"Bold\\\"]\\),\"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->14]\\) = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox[
+      RowBox[{"\<\"3.37\"\>", "\[Times]", 
+       SuperscriptBox["10", "\<\"-9\"\>"]}],
+      ShowStringCharacters->False],
+     3.3699999999999997`*^-9,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], 
+   "\[InvisibleSpace]", "\<\" (Distance between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox[
+     StyleBox["\<\"\[ScriptCapitalT]\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], "XISO"],
+    DisplayForm], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`XISO, 
+     "T"]], " = \
+\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSize->\
+14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), \
+P\!\(\*StyleBox[\"(\",FontSize->12]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"\
+]\),", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], "\!\(\*StyleBox[\")\",FontSize->12]\)\!\(\*StyleBox[\")\",FontSize->\
+14]\) = ", 
+   NumberForm[3.3699999999999997`*^-9, 9], 
+   " (Distance between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   DisplayForm[
+    SubscriptBox[
+     Style["\[ScriptCapitalT]", Bold], $CellContext`XISO]], ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412648067*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"3cfa70b7-11f3-4b61-8392-c6ee57c68cbf"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \\!\\(\\*SuperscriptBox[\\(sin\\), \
+\\(-1\\)]\\)\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"/\\\",FontSize->16]\\)\"\>", "\[InvisibleSpace]", 
+   RowBox[{"\[LeftBracketingBar]", "\<\"T\"\>", "\[RightBracketingBar]"}], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", "0", 
+   "\[InvisibleSpace]", "\<\" (Angle between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    TagBox[
+     SubscriptBox[
+      StyleBox["\<\"\[ScriptCapitalT]\"\>",
+       StripOnInput->False,
+       FontWeight->Bold], "XISO"],
+     DisplayForm], ".", "\<\" The initial \"\>"}], "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "XISO", "T"],
+    DisplayForm], "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox[
+      RowBox[{"\<\"3.57\"\>", "\[Times]", 
+       SuperscriptBox["10", "\<\"-10\"\>"]}],
+      ShowStringCharacters->False],
+     3.57*^-10,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], 
+   "\[InvisibleSpace]", "\<\" is here chopped to zero, since the chop \
+threshold is set at \"\>", "\[InvisibleSpace]", 
+   SuperscriptBox["0.01`", "o"], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`XISO, "T"]], 
+   " = \!\(\*SuperscriptBox[\(sin\), \
+\(-1\)]\)\!\(\*StyleBox[\"(\",FontSize->16]\)", 
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`XISO, 
+     "T"]], "\!\(\*StyleBox[\"/\",FontSize->16]\)", 
+   BracketingBar["T"], "\!\(\*StyleBox[\")\",FontSize->16]\)", " = ", 0, 
+   " (Angle between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   Dot[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalT]", Bold], $CellContext`XISO]], " The initial "], 
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`XISO, "T"]], " = ", 
+   NumberForm[3.57*^-10, 9], 
+   " is here chopped to zero, since the chop threshold is set at ", 
+   0.01^$CellContext`o, ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.9348424126508083`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"c7f13e73-7b2b-469a-a6f5-f2cabd64f137"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Since \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = 0, \
+\\!\\(\\*StyleBox[\\\"T\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"is\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"assigned\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"symmetry\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"at\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"least\\\",FontColor->RGBColor[1, 0, 0]]\\) \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["XISO",
+    StripOnInput->False,
+    LineColor->RGBColor[1, 0, 0],
+    FrontFaceColor->RGBColor[1, 0, 0],
+    BackFaceColor->RGBColor[1, 0, 0],
+    GraphicsColor->RGBColor[1, 0, 0],
+    FontColor->RGBColor[1, 0, 0]], "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["Since ", 
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`XISO, "T"]], 
+   " = 0, \!\(\*StyleBox[\"T\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\
+\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"is\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\" \
+\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"assigned\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"symmetry\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"at\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\" \
+\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"least\",FontColor->RGBColor[1, 0, 0]]\) ", 
+   Style[$CellContext`XISO, 
+    RGBColor[1, 0, 0]], "."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412652804*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"7cf80100-9414-4d0d-aaa1-2eed9b33b69a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\" contains \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\)\"\>"}],
+  SequenceForm[
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], " contains \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.9348424126546097`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"67cf4d42-7dd2-493f-8d7d-27f31cc85b68"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubscriptBox["T", "XISO"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \
+[\\!\\(\\*OverscriptBox[SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\
+\\\"], \\\"0\\\"], \\\"_\\\"]\\)\\!\\(\\*SuperscriptBox[\\(]\\), \\(T\\)]\\)[\
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\)][\\!\\(\\*\
+OverscriptBox[SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"], \\\"_\\\"]\\)] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"2.999999999999997`", "0", "0", "0", "0", "0"},
+       {"0", "2.999999999999997`", "0", "0", "0", "0"},
+       {"0", "0", "4.499999999999993`", "0", "0", "0"},
+       {"0", "0", "0", "4.499999999999993`", "0", "0"},
+       {"0", "0", "0", "0", "2.`", "1.0000000000000027`"},
+       {"0", "0", "0", "0", "1.0000000000000022`", "5.000000000000005`"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], "\[InvisibleSpace]", "\<\"  (Should be a \"\>",
+    "\[InvisibleSpace]", "XISO", 
+   "\[InvisibleSpace]", "\<\" ref matrix for \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\). If not, consider \
+decreasing ChopT.)\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubscriptBox["T", $CellContext`XISO]], 
+   " = [\!\(\*OverscriptBox[SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"]\
+, \"0\"], \"_\"]\)\!\(\*SuperscriptBox[\(]\), \
+\(T\)]\)[\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\)][\!\(\*OverscriptBox[\
+SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"], \"_\"]\)] = ", 
+   MatrixForm[{{2.999999999999997, 0, 0, 0, 0, 0}, {
+     0, 2.999999999999997, 0, 0, 0, 0}, {0, 0, 4.499999999999993, 0, 0, 0}, {
+     0, 0, 0, 4.499999999999993, 0, 0}, {
+     0, 0, 0, 0, 2., 1.0000000000000027`}, {
+     0, 0, 0, 0, 1.0000000000000022`, 5.000000000000005}}], 
+   "  (Should be a ", $CellContext`XISO, 
+   " ref matrix for \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\). If not, \
+consider decreasing ChopT.)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412656446*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"414cd6a9-5748-4da0-8c00-3da1ec6576fb"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Thus \\!\\(\\*SuperscriptBox[SubscriptBox[\\(U\\), \\(0\\)], \
+\\(T\\)]\\) will reorient the material so that its symmetry group contains \"\
+\>", "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox["\[DoubleStruckCapitalU]", "XISO"],
+    DisplayForm]}],
+  SequenceForm[
+  "Thus \!\(\*SuperscriptBox[SubscriptBox[\(U\), \(0\)], \(T\)]\) will \
+reorient the material so that its symmetry group contains ", 
+   DisplayForm[
+    SubscriptBox["\[DoubleStruckCapitalU]", $CellContext`XISO]]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.934812613864069*^9, 3.934842412658249*^9},
+ CellLabel->
+  "During evaluation of \
+In[1927]:=",ExpressionUUID->"557b902c-b173-467e-8ee7-3f8090d02ccf"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Next is a TET elastic map T where the regular axis of Closest[T, XISO] is NOT \
+the same as the 4-fold axis of T. Here the matrix of T is TmatJuly22TET (same \
+as in Section 10.4 of TT2024) \
+\>", "Section",
+ CellChangeTimes->{{3.934735869386056*^9, 3.9347359373816953`*^9}, {
+  3.9347359789584017`*^9, 3.934736090688633*^9}, {3.934736169207051*^9, 
+  3.934736170894109*^9}, {3.934736218011446*^9, 3.934736241960245*^9}, {
+  3.934736287892964*^9, 
+  3.9347363562410736`*^9}},ExpressionUUID->"3531d614-6cfc-4628-8487-\
+41a70fe6d294"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TmatJuly22TET", "=", "TT24TETa"}], ";"}]], "Input",
+ CellChangeTimes->{{3.934812232667638*^9, 3.934812239698958*^9}},
+ CellLabel->
+  "In[1928]:=",ExpressionUUID->"360dece9-a211-4dd2-86b7-378b1106ea00"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Again you see that ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ " is the 4 - fold axis of TmatJuly22TET."
+}], "Subsubsection",
+ CellChangeTimes->{{3.9347364404198103`*^9, 
+  3.934736529995569*^9}},ExpressionUUID->"97142814-c300-4c89-a201-\
+44dd3bf38a9a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MatrixForm", "[", "TmatJuly22TET", "]"}]], "Input",
+ CellChangeTimes->{{3.934736368066679*^9, 3.9347363798151445`*^9}},
+ CellLabel->
+  "In[1929]:=",ExpressionUUID->"96ae0f18-2b6c-4035-8fd2-e60fad5fd744"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"60", "0", "0", "0", "0", "0"},
+     {"0", "60", "0", "0", "0", "0"},
+     {"0", "0", "15", "0", "0", "0"},
+     {"0", "0", "0", "71", "0", "0"},
+     {"0", "0", "0", "0", "58", "6"},
+     {"0", "0", "0", "0", "6", "15"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.9347363817062345`*^9, 3.93481230264012*^9, 
+  3.934842412691327*^9},
+ CellLabel->
+  "Out[1929]//MatrixForm=",ExpressionUUID->"f30f0566-bcc6-477a-9c65-\
+3c55beb2bb89"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MinimizationFacts", "[", 
+  RowBox[{"TmatJuly22TET", ",", "TET"}], "]"}]], "Input",
+ CellChangeTimes->{{3.934812273861642*^9, 3.9348122774082203`*^9}, {
+  3.934812323785871*^9, 3.934812323962885*^9}},
+ CellLabel->
+  "In[1930]:=",ExpressionUUID->"bd91c9ca-2a46-4a47-b892-b037da69aa4c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"nRuns = \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"  (must have been entered)\"\>"}],
+  SequenceForm["nRuns = ", 1, "  (must have been entered)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412712307*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"24073dba-f852-44e5-be0b-131a30792039"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Minimizing the function (\[Theta], \[Sigma], \[Phi]) \
+\\!\\(\\*StyleBox[\\\"\[LongRightArrow]\\\",FontSize->14,FontWeight->\\\"Bold\
+\\\"]\\) \\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*\
+StyleBox[\\\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\
+\"Bold\\\"]\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], 
+       StyleBox["TET",
+        StripOnInput->False,
+        LineColor->RGBColor[1, 0, 0],
+        FrontFaceColor->RGBColor[1, 0, 0],
+        BackFaceColor->RGBColor[1, 0, 0],
+        GraphicsColor->RGBColor[1, 0, 0],
+        FontWeight->Bold,
+        FontColor->RGBColor[1, 0, 0]]],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], 
+       Style[$CellContext`TET, 
+        RGBColor[1, 0, 0], Bold]]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\), \
+\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\" \\\",FontSlant->\\\"Italic\\\"]\\)= \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{\\\"\[Theta]\\\", \\\",\\\", \\\"\
+\[Sigma]\\\", \\\",\\\", \\\"\[Phi]\\\"}], \\\")\\\"}]]\\):\"\>"}],
+  SequenceForm[
+  "Minimizing the function (\[Theta], \[Sigma], \[Phi]) \!\(\*StyleBox[\"\
+\[LongRightArrow]\",FontSize->14,FontWeight->\"Bold\"]\) \
+\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSize->\
+14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], 
+      Style[$CellContext`TET, 
+       RGBColor[1, 0, 0], Bold]]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\), \
+\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \",FontSlant->\
+\"Italic\"]\)= \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{\"\[Theta]\", \",\", \"\[Sigma]\", \",\", \"\
+\[Phi]\"}], \")\"}]]\):"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412713985*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"3f55a3a2-0c2e-4078-8c27-67d7dd1d972c"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"seed\"\>", 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{
+        StyleBox["d",
+         FontSlant->"Italic"], " "}], "TET", "T"],
+      DisplayForm], 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{"\[Beta]", " "}], "TET", "T"],
+      DisplayForm], "\<\"  \\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\)\"\>", "\<\"  \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \
+\\(0\\)]\\)\"\>", "\<\"   \\!\\(\\*SubscriptBox[\\(\[Phi]\\), \
+\\(0\\)]\\)\"\>"},
+    {"0", "4.803373386882286`*^-14", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       TagBox[
+        InterpretationBox[
+         StyleBox[
+          RowBox[{"\<\"2.2\"\>", "\[Times]", 
+           SuperscriptBox["10", "\<\"-14\"\>"]}],
+          ShowStringCharacters->False],
+         2.2*^-14,
+         AutoDelete->True],
+        NumberForm[#, 9]& ], ")"}], "\<\"\[SmallCircle]\"\>"], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  3.651777\"\>",
+        ShowStringCharacters->False],
+       3.6517768638187365`,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\" -0.510184\"\>",
+        ShowStringCharacters->False],
+       -0.5101842102289432,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox[
+        RowBox[{"\<\"  7.135122\"\>", "\[Times]", 
+         SuperscriptBox["10", "\<\"-16\"\>"]}],
+        ShowStringCharacters->False],
+       7.135121895327711*^-16,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412718337*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"97a90cf1-07be-498d-9892-85e822e86507"],
+
+Cell[BoxData["\<\"-------------------------------------------\"\>"], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412720047*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"f6f00fab-056a-4e3c-8209-c7b30db4e299"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Here seed = \"\>", "\[InvisibleSpace]", "0", 
+   "\[InvisibleSpace]", "\<\". Then (\\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\), \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \\(0\\)]\\), \
+\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(0\\)]\\)) = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"3.6517768638187365`", ",", 
+     RowBox[{"-", "0.5101842102289432`"}], ",", "7.135121895327711`*^-16"}], 
+    "}"}], "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SuperscriptBox[
+      "209.20000000000002`", \
+"\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"Plain\\\"]\\)\"\
+\>"], ",", 
+     RowBox[{"-", 
+      SuperscriptBox["29.200000000000003`", "\<\"\[SmallCircle]\"\>"]}], ",", 
+     SuperscriptBox[
+      "0.`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"]}], "}"}]}],
+  SequenceForm[
+  "Here seed = ", 0, 
+   ". Then (\!\(\*SubscriptBox[\(\[Theta]\), \(0\)]\), \!\(\*SubscriptBox[\(\
+\[Sigma]\), \(0\)]\), \!\(\*SubscriptBox[\(\[Phi]\), \(0\)]\)) = ", {
+   3.6517768638187365`, -0.5101842102289432, 7.135121895327711*^-16}, " = ", {
+   209.20000000000002`^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)", \
+-29.200000000000003`^"\[SmallCircle]", 0.^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)"}],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412721285*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"4170c6ce-9c6b-47c2-ade9-92d043072a8a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\
+\\\"], \\\"0\\\"]\\) = \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{SubscriptBox[\\\"\[Theta]\\\", \\\
+\"0\\\"], \\\",\\\", SubscriptBox[\\\"\[Sigma]\\\", \\\"0\\\"], \\\",\\\", \
+SubscriptBox[\\\"\[Phi]\\\", \\\"0\\\"]}], \\\")\\\"}]]\\) = \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", "0.9999999999999999`"}], "0", "0"},
+       {"0", 
+        RowBox[{"-", "0.9999999999999999`"}], "0"},
+       {"0", "0", "1.`"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], 
+   "\[InvisibleSpace]", "\<\"  \
+\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)One of at least \"\>", 
+   "\[InvisibleSpace]", "16", "\[InvisibleSpace]", "\<\" \"\>", 
+   "\[InvisibleSpace]", "TET", 
+   "\[InvisibleSpace]", "\<\"-minimizers for \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\). It minimizes the \
+function  \\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\) \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\[LongRightArrow]\"\>",
+    StripOnInput->False,
+    FontSize->14,
+    FontWeight->Bold], 
+   "\[InvisibleSpace]", "\<\" \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "TET"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->16]\\)\"\>"}],
+  SequenceForm[
+  "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\) = \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{SubscriptBox[\"\[Theta]\", \"0\"], \",\", \
+SubscriptBox[\"\[Sigma]\", \"0\"], \",\", SubscriptBox[\"\[Phi]\", \"0\"]}], \
+\")\"}]]\) = ", 
+   MatrixForm[{{-0.9999999999999999, 0, 0}, {0, -0.9999999999999999, 0}, {
+     0, 0, 1.}}], "  \!\(\*StyleBox[\"(\",FontSize->16]\)One of at least ", 
+   16, " ", $CellContext`TET, 
+   "-minimizers for \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\). It \
+minimizes the function  \!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\) ", 
+   Style["\[LongRightArrow]", Bold, 14], 
+   " \!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",\
+FontSize->14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\)\!\(\*StyleBox[\")\",FontSize->16]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412723279*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"41a42a1e-11f7-4a85-a1f3-16347e0efde6"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "TET", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), P\\!\\(\\*StyleBox[\\\"(\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\"T\\\",\
+FontWeight->\\\"Bold\\\"]\\),\"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "TET"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->14]\\) = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox[
+      RowBox[{"\<\"4.8\"\>", "\[Times]", 
+       SuperscriptBox["10", "\<\"-14\"\>"]}],
+      ShowStringCharacters->False],
+     4.8*^-14,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], 
+   "\[InvisibleSpace]", "\<\" (Distance between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox[
+     StyleBox["\<\"\[ScriptCapitalT]\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], "TET"],
+    DisplayForm], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`TET, "T"]],
+    " = \!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",\
+FontSize->14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), P\!\(\*StyleBox[\
+\"(\",FontSize->12]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\),", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], "\!\(\*StyleBox[\")\",FontSize->12]\)\!\(\*StyleBox[\")\",FontSize->\
+14]\) = ", 
+   NumberForm[4.8*^-14, 9], 
+   " (Distance between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   DisplayForm[
+    SubscriptBox[
+     Style["\[ScriptCapitalT]", Bold], $CellContext`TET]], ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412725816*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"07544be9-9334-4905-bff0-71c82c93a882"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "TET", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \\!\\(\\*SuperscriptBox[\\(sin\\), \
+\\(-1\\)]\\)\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "TET", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"/\\\",FontSize->16]\\)\"\>", "\[InvisibleSpace]", 
+   RowBox[{"\[LeftBracketingBar]", "\<\"T\"\>", "\[RightBracketingBar]"}], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", "0", 
+   "\[InvisibleSpace]", "\<\" (Angle between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    TagBox[
+     SubscriptBox[
+      StyleBox["\<\"\[ScriptCapitalT]\"\>",
+       StripOnInput->False,
+       FontWeight->Bold], "TET"],
+     DisplayForm], ".", "\<\" The initial \"\>"}], "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "TET", "T"],
+    DisplayForm], "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox[
+      RowBox[{"\<\"3.78\"\>", "\[Times]", 
+       SuperscriptBox["10", "\<\"-16\"\>"]}],
+      ShowStringCharacters->False],
+     3.7800000000000003`*^-16,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], 
+   "\[InvisibleSpace]", "\<\" is here chopped to zero, since the chop \
+threshold is set at \"\>", "\[InvisibleSpace]", 
+   SuperscriptBox["0.01`", "o"], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`TET, "T"]], 
+   " = \!\(\*SuperscriptBox[\(sin\), \
+\(-1\)]\)\!\(\*StyleBox[\"(\",FontSize->16]\)", 
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`TET, "T"]],
+    "\!\(\*StyleBox[\"/\",FontSize->16]\)", 
+   BracketingBar["T"], "\!\(\*StyleBox[\")\",FontSize->16]\)", " = ", 0, 
+   " (Angle between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   Dot[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalT]", Bold], $CellContext`TET]], " The initial "], 
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`TET, "T"]], " = ", 
+   NumberForm[3.7800000000000003`*^-16, 9], 
+   " is here chopped to zero, since the chop threshold is set at ", 
+   0.01^$CellContext`o, ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412727894*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"b7b95da6-ec57-41a8-a1c5-5fd8acda1347"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Since \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "TET", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = 0, \
+\\!\\(\\*StyleBox[\\\"T\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"is\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"assigned\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"symmetry\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"at\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"least\\\",FontColor->RGBColor[1, 0, 0]]\\) \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["TET",
+    StripOnInput->False,
+    LineColor->RGBColor[1, 0, 0],
+    FrontFaceColor->RGBColor[1, 0, 0],
+    BackFaceColor->RGBColor[1, 0, 0],
+    GraphicsColor->RGBColor[1, 0, 0],
+    FontColor->RGBColor[1, 0, 0]], "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["Since ", 
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`TET, "T"]], 
+   " = 0, \!\(\*StyleBox[\"T\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\
+\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"is\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\" \
+\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"assigned\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"symmetry\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"at\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\" \
+\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"least\",FontColor->RGBColor[1, 0, 0]]\) ", 
+   Style[$CellContext`TET, 
+    RGBColor[1, 0, 0]], "."],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412729838*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"146742f8-7236-46a2-86d2-9e82369799c9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "TET"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\" contains \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\)\"\>"}],
+  SequenceForm[
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`TET]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], " contains \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412731583*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"e9371417-a067-4037-a002-1decf625d5a1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubscriptBox["T", "TET"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \
+[\\!\\(\\*OverscriptBox[SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\
+\\\"], \\\"0\\\"], \\\"_\\\"]\\)\\!\\(\\*SuperscriptBox[\\(]\\), \\(T\\)]\\)[\
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\)][\\!\\(\\*\
+OverscriptBox[SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"], \\\"_\\\"]\\)] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"59.99999999999996`", "0", "0", "0", "0", "0"},
+       {"0", "59.99999999999996`", "0", "0", "0", "0"},
+       {"0", "0", "14.999999999999986`", "0", "0", "0"},
+       {"0", "0", "0", "70.99999999999994`", "0", "0"},
+       {"0", "0", "0", "0", "58.`", "5.999999999999993`"},
+       {"0", "0", "0", "0", "5.999999999999993`", "15.`"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], "\[InvisibleSpace]", "\<\"  (Should be a \"\>",
+    "\[InvisibleSpace]", "TET", 
+   "\[InvisibleSpace]", "\<\" ref matrix for \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\). If not, consider \
+decreasing ChopT.)\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubscriptBox["T", $CellContext`TET]], 
+   " = [\!\(\*OverscriptBox[SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"]\
+, \"0\"], \"_\"]\)\!\(\*SuperscriptBox[\(]\), \
+\(T\)]\)[\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\)][\!\(\*OverscriptBox[\
+SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"], \"_\"]\)] = ", 
+   MatrixForm[{{59.99999999999996, 0, 0, 0, 0, 0}, {
+     0, 59.99999999999996, 0, 0, 0, 0}, {
+     0, 0, 14.999999999999986`, 0, 0, 0}, {
+     0, 0, 0, 70.99999999999994, 0, 0}, {
+     0, 0, 0, 0, 58., 5.999999999999993}, {
+     0, 0, 0, 0, 5.999999999999993, 15.}}], 
+   "  (Should be a ", $CellContext`TET, 
+   " ref matrix for \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\). If not, \
+consider decreasing ChopT.)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412733048*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"6a1179f8-9d17-4ac0-b4de-5773e6c18ac7"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Thus \\!\\(\\*SuperscriptBox[SubscriptBox[\\(U\\), \\(0\\)], \
+\\(T\\)]\\) will reorient the material so that its symmetry group contains \"\
+\>", "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox["\[DoubleStruckCapitalU]", "TET"],
+    DisplayForm]}],
+  SequenceForm[
+  "Thus \!\(\*SuperscriptBox[SubscriptBox[\(U\), \(0\)], \(T\)]\) will \
+reorient the material so that its symmetry group contains ", 
+   DisplayForm[
+    SubscriptBox["\[DoubleStruckCapitalU]", $CellContext`TET]]],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.934812278918597*^9, 3.934812324346505*^9}, 
+   3.934842412734735*^9},
+ CellLabel->
+  "During evaluation of \
+In[1930]:=",ExpressionUUID->"636e72b1-7dd4-45f5-94b3-ba7e8112f1f9"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MinimizationFacts", "[", 
+  RowBox[{"TmatJuly22TET", ",", "XISO"}], "]"}]], "Input",
+ CellChangeTimes->{{3.934812273861642*^9, 3.9348122774082203`*^9}, {
+  3.934812323785871*^9, 3.934812323962885*^9}, {3.9348124621839333`*^9, 
+  3.934812462571362*^9}},
+ CellLabel->
+  "In[1931]:=",ExpressionUUID->"b08517a4-e90a-4c85-9bb6-8793f67ce232"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"nRuns = \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"  (must have been entered)\"\>"}],
+  SequenceForm["nRuns = ", 1, "  (must have been entered)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.934842412740885*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"3251b3d0-01a4-44ef-87a0-6f7a8cf0f44b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Minimizing the function (\[Theta], \[Sigma], \[Phi]) \
+\\!\\(\\*StyleBox[\\\"\[LongRightArrow]\\\",FontSize->14,FontWeight->\\\"Bold\
+\\\"]\\) \\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*\
+StyleBox[\\\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\
+\"Bold\\\"]\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], 
+       StyleBox["XISO",
+        StripOnInput->False,
+        LineColor->RGBColor[1, 0, 0],
+        FrontFaceColor->RGBColor[1, 0, 0],
+        BackFaceColor->RGBColor[1, 0, 0],
+        GraphicsColor->RGBColor[1, 0, 0],
+        FontWeight->Bold,
+        FontColor->RGBColor[1, 0, 0]]],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], 
+       Style[$CellContext`XISO, 
+        RGBColor[1, 0, 0], Bold]]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\), \
+\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\" \\\",FontSlant->\\\"Italic\\\"]\\)= \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{\\\"\[Theta]\\\", \\\",\\\", \\\"\
+\[Sigma]\\\", \\\",\\\", \\\"\[Phi]\\\"}], \\\")\\\"}]]\\):\"\>"}],
+  SequenceForm[
+  "Minimizing the function (\[Theta], \[Sigma], \[Phi]) \!\(\*StyleBox[\"\
+\[LongRightArrow]\",FontSize->14,FontWeight->\"Bold\"]\) \
+\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSize->\
+14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], 
+      Style[$CellContext`XISO, 
+       RGBColor[1, 0, 0], Bold]]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\), \
+\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \",FontSlant->\
+\"Italic\"]\)= \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{\"\[Theta]\", \",\", \"\[Sigma]\", \",\", \"\
+\[Phi]\"}], \")\"}]]\):"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.9348424127425127`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"9014c99b-b2d1-4e30-ad5d-1784ad0d21eb"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"seed\"\>", 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{
+        StyleBox["d",
+         FontSlant->"Italic"], " "}], "XISO", "T"],
+      DisplayForm], 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{"\[Beta]", " "}], "XISO", "T"],
+      DisplayForm], "\<\"  \\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\)\"\>", "\<\"  \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \
+\\(0\\)]\\)\"\>", "\<\"   \\!\\(\\*SubscriptBox[\\(\[Phi]\\), \
+\\(0\\)]\\)\"\>"},
+    {"0", "29.818723145030877`", 
+     SuperscriptBox[
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"13.58\"\>",
+         ShowStringCharacters->False],
+        13.58,
+        AutoDelete->True],
+       NumberForm[#, 9]& ], "\<\"\[SmallCircle]\"\>"], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  0.785398\"\>",
+        ShowStringCharacters->False],
+       0.7853981633974483,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  0.319895\"\>",
+        ShowStringCharacters->False],
+       0.3198945658351784,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  1.570796\"\>",
+        ShowStringCharacters->False],
+       1.5707963267948966`,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.9348424127470093`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"72fb769f-4cf4-477d-885f-6a407a02247d"],
+
+Cell[BoxData["\<\"-------------------------------------------\"\>"], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.934842412748596*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"c6783749-acbb-4c67-9232-015eec666283"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Here seed = \"\>", "\[InvisibleSpace]", "0", 
+   "\[InvisibleSpace]", "\<\". Then (\\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\), \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \\(0\\)]\\), \
+\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(0\\)]\\)) = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.7853981633974483`", ",", "0.3198945658351784`", ",", 
+     "1.5707963267948966`"}], "}"}], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SuperscriptBox[
+      "45.`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"], ",", 
+     SuperscriptBox[
+      "18.3`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"], ",", 
+     SuperscriptBox[
+      "90.`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"]}], "}"}]}],
+  SequenceForm[
+  "Here seed = ", 0, 
+   ". Then (\!\(\*SubscriptBox[\(\[Theta]\), \(0\)]\), \!\(\*SubscriptBox[\(\
+\[Sigma]\), \(0\)]\), \!\(\*SubscriptBox[\(\[Phi]\), \(0\)]\)) = ", {
+   0.7853981633974483, 0.3198945658351784, 1.5707963267948966`}, " = ", {
+   45.^"\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)", 18.3^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)", 90.^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)"}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.9348424127497873`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"bb7f2e14-660b-4ced-bf5b-d20228ff25d9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\
+\\\"], \\\"0\\\"]\\) = \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{SubscriptBox[\\\"\[Theta]\\\", \\\
+\"0\\\"], \\\",\\\", SubscriptBox[\\\"\[Sigma]\\\", \\\"0\\\"], \\\",\\\", \
+SubscriptBox[\\\"\[Phi]\\\", \\\"0\\\"]}], \\\")\\\"}]]\\) = \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", "0.22236137835976894`"}], 
+        RowBox[{"-", "0.6712342492855558`"}], "0.7071067811865476`"},
+       {"0.22236137835976902`", "0.6712342492855559`", "0.7071067811865475`"},
+       {
+        RowBox[{"-", "0.949268578868956`"}], "0.31446647702436054`", "0"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], 
+   "\[InvisibleSpace]", "\<\"  \
+\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)One of at least \"\>", 
+   "\[InvisibleSpace]", "\[Infinity]", "\[InvisibleSpace]", "\<\" \"\>", 
+   "\[InvisibleSpace]", "XISO", 
+   "\[InvisibleSpace]", "\<\"-minimizers for \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\). It minimizes the \
+function  \\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\) \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\[LongRightArrow]\"\>",
+    StripOnInput->False,
+    FontSize->14,
+    FontWeight->Bold], 
+   "\[InvisibleSpace]", "\<\" \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->16]\\)\"\>"}],
+  SequenceForm[
+  "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\) = \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{SubscriptBox[\"\[Theta]\", \"0\"], \",\", \
+SubscriptBox[\"\[Sigma]\", \"0\"], \",\", SubscriptBox[\"\[Phi]\", \"0\"]}], \
+\")\"}]]\) = ", 
+   MatrixForm[{{-0.22236137835976894`, -0.6712342492855558, 
+     0.7071067811865476}, {0.22236137835976902`, 0.6712342492855559, 
+     0.7071067811865475}, {-0.949268578868956, 0.31446647702436054`, 0}}], 
+   "  \!\(\*StyleBox[\"(\",FontSize->16]\)One of at least ", 
+   DirectedInfinity[1], " ", $CellContext`XISO, 
+   "-minimizers for \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\). It \
+minimizes the function  \!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\) ", 
+   Style["\[LongRightArrow]", Bold, 14], 
+   " \!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",\
+FontSize->14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\)\!\(\*StyleBox[\")\",FontSize->16]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.934842412751741*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"01b58133-e2c1-441e-a0a5-e28fb4d93add"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), P\\!\\(\\*StyleBox[\\\"(\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\"T\\\",\
+FontWeight->\\\"Bold\\\"]\\),\"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->14]\\) = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox["\<\"29.819\"\>",
+      ShowStringCharacters->False],
+     29.819,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], 
+   "\[InvisibleSpace]", "\<\" (Distance between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox[
+     StyleBox["\<\"\[ScriptCapitalT]\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], "XISO"],
+    DisplayForm], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`XISO, 
+     "T"]], " = \
+\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSize->\
+14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), \
+P\!\(\*StyleBox[\"(\",FontSize->12]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"\
+]\),", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], "\!\(\*StyleBox[\")\",FontSize->12]\)\!\(\*StyleBox[\")\",FontSize->\
+14]\) = ", 
+   NumberForm[29.819, 9], 
+   " (Distance between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   DisplayForm[
+    SubscriptBox[
+     Style["\[ScriptCapitalT]", Bold], $CellContext`XISO]], ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.934842412754188*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"f9a82ca4-7720-44e8-b6e8-ab1b8dae66ac"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \\!\\(\\*SuperscriptBox[\\(sin\\), \
+\\(-1\\)]\\)\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"/\\\",FontSize->16]\\)\"\>", "\[InvisibleSpace]", 
+   RowBox[{"\[LeftBracketingBar]", "\<\"T\"\>", "\[RightBracketingBar]"}], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox["\<\"0.237\"\>",
+      ShowStringCharacters->False],
+     0.23700000000000002`,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   SuperscriptBox[
+    TagBox[
+     InterpretationBox[
+      StyleBox["\<\"13.58\"\>",
+       ShowStringCharacters->False],
+      13.58,
+      AutoDelete->True],
+     NumberForm[#, 9]& ], "o"], 
+   "\[InvisibleSpace]", "\<\" (Angle between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox[
+     StyleBox["\<\"\[ScriptCapitalT]\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], "XISO"],
+    DisplayForm], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`XISO, "T"]], 
+   " = \!\(\*SuperscriptBox[\(sin\), \
+\(-1\)]\)\!\(\*StyleBox[\"(\",FontSize->16]\)", 
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`XISO, 
+     "T"]], "\!\(\*StyleBox[\"/\",FontSize->16]\)", 
+   BracketingBar["T"], "\!\(\*StyleBox[\")\",FontSize->16]\)", " = ", 
+   NumberForm[0.23700000000000002`, 9], " = ", 
+   NumberForm[13.58, 9]^$CellContext`o, 
+   " (Angle between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   DisplayForm[
+    SubscriptBox[
+     Style["\[ScriptCapitalT]", Bold], $CellContext`XISO]], ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.934842412756176*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"eae73078-8e2c-4516-b672-bc8babd42c7a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\" contains a closest map to \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) in \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox[
+     StyleBox["\<\"\[ScriptCapitalT]\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], "XISO"],
+    DisplayForm]}],
+  SequenceForm[
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], " contains a closest map to \!\(\*StyleBox[\"T\",FontWeight->\"Bold\
+\"]\) in ", 
+   DisplayForm[
+    SubscriptBox[
+     Style["\[ScriptCapitalT]", Bold], $CellContext`XISO]]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.9348424127577667`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"641aa46a-034d-457a-9a1d-0f335e07bce9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\\!\\(\\*StyleBox[\\\"P\\\",FontWeight->\\\"Bold\\\"]\\)\\!\\(\
+\\*StyleBox[\\\"(\\\",FontSize->16]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\
+\\\"Bold\\\"]\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->16]\\)= \"\
+\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"59.562499999999964`", "5.9375`", "0", "0", "0", "0"},
+       {"5.9375`", "59.56249999999997`", "0", "0", "0", "0"},
+       {"0", "0", "32.71875`", "0", 
+        RowBox[{"-", "12.070229065245602`"}], "2.5980762113533173`"},
+       {"0", "0", "0", "65.49999999999997`", "0", "0"},
+       {"0", "0", 
+        RowBox[{"-", "12.070229065245604`"}], "0", "46.65625000000001`", 
+        "1.4999999999999982`"},
+       {"0", "0", "2.598076211353318`", "0", "1.499999999999998`", "15.`"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], 
+   "\[InvisibleSpace]", "\<\"  \\!\\(\\*StyleBox[\\\"(\\\",FontSize->14]\\)a \
+closest elastic map to \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) having symmetry at \
+least \"\>", "\[InvisibleSpace]", "XISO", 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\)\"\>"}],
+  SequenceForm[
+  "\!\(\*StyleBox[\"P\",FontWeight->\"Bold\"]\)\!\(\*StyleBox[\"(\",FontSize->\
+16]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], "\!\(\*StyleBox[\")\",FontSize->16]\)= ", 
+   MatrixForm[{{59.562499999999964`, 5.9375, 0, 0, 0, 0}, {
+     5.9375, 59.56249999999997, 0, 0, 0, 0}, {
+     0, 0, 32.71875, 0, -12.070229065245602`, 2.5980762113533173`}, {
+     0, 0, 0, 65.49999999999997, 0, 0}, {
+     0, 0, -12.070229065245604`, 0, 46.65625000000001, 1.4999999999999982`}, {
+     0, 0, 2.598076211353318, 0, 1.499999999999998, 15.}}], 
+   "  \!\(\*StyleBox[\"(\",FontSize->14]\)a closest elastic map to \
+\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) having symmetry at least ", \
+$CellContext`XISO, "\!\(\*StyleBox[\")\",FontSize->14]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.93481246301783*^9, 3.9348424127592897`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1931]:=",ExpressionUUID->"4872b81f-3209-407d-9535-51ca37f0ff07"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DispMat", "[", 
+  RowBox[{"Closest", "[", 
+   RowBox[{"TmatJuly22TET", ",", "XISO"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.934675777025879*^9, 3.934675828066139*^9}, {
+  3.934812247377235*^9, 3.934812252084663*^9}},
+ CellLabel->
+  "In[1932]:=",ExpressionUUID->"a68d2cc6-6676-488e-9229-c7a199986713"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"59.56\"\>",
+         ShowStringCharacters->False],
+        59.562499999999964`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"5.94\"\>",
+         ShowStringCharacters->False],
+        5.9375,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"5.94\"\>",
+         ShowStringCharacters->False],
+        5.9375,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"59.56\"\>",
+         ShowStringCharacters->False],
+        59.56249999999997,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"32.72\"\>",
+         ShowStringCharacters->False],
+        32.71875,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"-12.07\"\>",
+         ShowStringCharacters->False],
+        -12.070229065245602`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"2.60\"\>",
+         ShowStringCharacters->False],
+        2.5980762113533173`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"65.50\"\>",
+         ShowStringCharacters->False],
+        65.49999999999997,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"-12.07\"\>",
+         ShowStringCharacters->False],
+        -12.070229065245604`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"46.66\"\>",
+         ShowStringCharacters->False],
+        46.65625000000001,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"1.50\"\>",
+         ShowStringCharacters->False],
+        1.4999999999999982`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"2.60\"\>",
+         ShowStringCharacters->False],
+        2.598076211353318,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"1.50\"\>",
+         ShowStringCharacters->False],
+        1.499999999999998,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"15.00\"\>",
+         ShowStringCharacters->False],
+        15.,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Right}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$, TableAlignments -> Right]]]], "Output",
+ CellChangeTimes->{{3.934675788035249*^9, 3.9346758292704153`*^9}, 
+   3.934812302705203*^9, 3.934842412791353*^9},
+ CellLabel->
+  "Out[1932]//MatrixForm=",ExpressionUUID->"b9dcf609-8aef-4d44-ab37-\
+d50aeb50b53d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+Now you DO need to run MinimizationFacts[Closest[TmatJuly22TET, XISO], XISO]\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.934675996201295*^9, 3.9346760449953537`*^9}, {
+  3.9346763610789475`*^9, 3.93467636667006*^9}, {3.9347365897020426`*^9, 
+  3.9347366068398867`*^9}, {3.934738103920709*^9, 
+  3.934738104592366*^9}},ExpressionUUID->"ec0355cf-4edd-4180-a8e2-\
+7516e6d0de57"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+In the following output remember that T means Closest[TmatJuly22TET, XISO], \
+not Tmat or TmatJuly22TET.\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.934675996201295*^9, 3.9346760449953537`*^9}, {
+  3.9346763610789475`*^9, 3.93467636667006*^9}, {3.934736642521413*^9, 
+  3.9347366495667686`*^9}},ExpressionUUID->"5a831b42-6fe8-41a6-a6cf-\
+6abcbe51543e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MinimizationFacts", "[", 
+  RowBox[{
+   RowBox[{"Closest", "[", 
+    RowBox[{"TmatJuly22TET", ",", "XISO"}], "]"}], ",", "XISO"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9346758834826612`*^9, 3.9346758892163963`*^9}},
+ CellLabel->
+  "In[1933]:=",ExpressionUUID->"3f4520de-898d-4898-872b-4f011bb1c454"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"nRuns = \"\>", "\[InvisibleSpace]", "1", 
+   "\[InvisibleSpace]", "\<\"  (must have been entered)\"\>"}],
+  SequenceForm["nRuns = ", 1, "  (must have been entered)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.9348424127990417`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"75e231b6-3e22-4eb5-ac75-7d9467450236"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Minimizing the function (\[Theta], \[Sigma], \[Phi]) \
+\\!\\(\\*StyleBox[\\\"\[LongRightArrow]\\\",FontSize->14,FontWeight->\\\"Bold\
+\\\"]\\) \\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*\
+StyleBox[\\\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\
+\"Bold\\\"]\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], 
+       StyleBox["XISO",
+        StripOnInput->False,
+        LineColor->RGBColor[1, 0, 0],
+        FrontFaceColor->RGBColor[1, 0, 0],
+        BackFaceColor->RGBColor[1, 0, 0],
+        GraphicsColor->RGBColor[1, 0, 0],
+        FontWeight->Bold,
+        FontColor->RGBColor[1, 0, 0]]],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], 
+       Style[$CellContext`XISO, 
+        RGBColor[1, 0, 0], Bold]]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\), \
+\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\" \\\",FontSlant->\\\"Italic\\\"]\\)= \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{\\\"\[Theta]\\\", \\\",\\\", \\\"\
+\[Sigma]\\\", \\\",\\\", \\\"\[Phi]\\\"}], \\\")\\\"}]]\\):\"\>"}],
+  SequenceForm[
+  "Minimizing the function (\[Theta], \[Sigma], \[Phi]) \!\(\*StyleBox[\"\
+\[LongRightArrow]\",FontSize->14,FontWeight->\"Bold\"]\) \
+\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSize->\
+14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], 
+      Style[$CellContext`XISO, 
+       RGBColor[1, 0, 0], Bold]]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\), \
+\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \",FontSlant->\
+\"Italic\"]\)= \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{\"\[Theta]\", \",\", \"\[Sigma]\", \",\", \"\
+\[Phi]\"}], \")\"}]]\):"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.934842412800523*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"3a8cd9f2-6110-44ad-95a3-955f09e473a5"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"seed\"\>", 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{
+        StyleBox["d",
+         FontSlant->"Italic"], " "}], "XISO", "T"],
+      DisplayForm], 
+     TagBox[
+      SubsuperscriptBox[
+       RowBox[{"\[Beta]", " "}], "XISO", "T"],
+      DisplayForm], "\<\"  \\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\)\"\>", "\<\"  \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \
+\\(0\\)]\\)\"\>", "\<\"   \\!\\(\\*SubscriptBox[\\(\[Phi]\\), \
+\\(0\\)]\\)\"\>"},
+    {"0", "6.337580983052953`*^-7", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       TagBox[
+        InterpretationBox[
+         StyleBox[
+          RowBox[{"\<\"2.9\"\>", "\[Times]", 
+           SuperscriptBox["10", "\<\"-7\"\>"]}],
+          ShowStringCharacters->False],
+         2.9000000000000003`*^-7,
+         AutoDelete->True],
+        NumberForm[#, 9]& ], ")"}], "\<\"\[SmallCircle]\"\>"], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  0.785398\"\>",
+        ShowStringCharacters->False],
+       0.7853981637405383,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  1.417792\"\>",
+        ShowStringCharacters->False],
+       1.4177919221805155`,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ], 
+     TagBox[
+      InterpretationBox[
+       StyleBox["\<\"  1.570796\"\>",
+        ShowStringCharacters->False],
+       1.5707963204976192`,
+       AutoDelete->True],
+      PaddedForm[#, {8, 6}]& ]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.934842412804885*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"3758272f-e214-4b17-b9a9-e2ecb2eb0550"],
+
+Cell[BoxData["\<\"-------------------------------------------\"\>"], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.9348424128064823`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"9e783f81-910a-4e21-b695-951e51c8424a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Here seed = \"\>", "\[InvisibleSpace]", "0", 
+   "\[InvisibleSpace]", "\<\". Then (\\!\\(\\*SubscriptBox[\\(\[Theta]\\), \
+\\(0\\)]\\), \\!\\(\\*SubscriptBox[\\(\[Sigma]\\), \\(0\\)]\\), \
+\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(0\\)]\\)) = \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.7853981637405383`", ",", "1.4177919221805155`", ",", 
+     "1.5707963204976192`"}], "}"}], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SuperscriptBox[
+      "45.`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"], ",", 
+     SuperscriptBox[
+      "81.2`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"], ",", 
+     SuperscriptBox[
+      "90.`", "\<\"\\!\\(\\*StyleBox[\\\"\[SmallCircle]\\\",FontWeight->\\\"\
+Plain\\\"]\\)\"\>"]}], "}"}]}],
+  SequenceForm[
+  "Here seed = ", 0, 
+   ". Then (\!\(\*SubscriptBox[\(\[Theta]\), \(0\)]\), \!\(\*SubscriptBox[\(\
+\[Sigma]\), \(0\)]\), \!\(\*SubscriptBox[\(\[Phi]\), \(0\)]\)) = ", {
+   0.7853981637405383, 1.4177919221805155`, 1.5707963204976192`}, " = ", {
+   45.^"\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)", 81.2^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)", 90.^
+    "\!\(\*StyleBox[\"\[SmallCircle]\",FontWeight->\"Plain\"]\)"}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.9348424128076963`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"72baa1c3-196f-45ab-9c08-5b17ced2b507"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\
+\\\"], \\\"0\\\"]\\) = \
+\\!\\(\\*SubscriptBox[OverscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\
+\"], \\\"^\\\"], RowBox[{\\\"(\\\", RowBox[{SubscriptBox[\\\"\[Theta]\\\", \\\
+\"0\\\"], \\\",\\\", SubscriptBox[\\\"\[Sigma]\\\", \\\"0\\\"], \\\",\\\", \
+SubscriptBox[\\\"\[Phi]\\\", \\\"0\\\"]}], \\\")\\\"}]]\\) = \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", "0.6988461072145694`"}], 
+        RowBox[{"-", "0.10776882097403023`"}], "0.7071067809439463`"},
+       {"0.6988461080923355`", "0.1077688120984258`", "0.7071067814291487`"},
+       {
+        RowBox[{"-", "0.15240812194643155`"}], "0.9883176434551605`", "0"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], 
+   "\[InvisibleSpace]", "\<\"  \
+\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)One of at least \"\>", 
+   "\[InvisibleSpace]", "\[Infinity]", "\[InvisibleSpace]", "\<\" \"\>", 
+   "\[InvisibleSpace]", "XISO", 
+   "\[InvisibleSpace]", "\<\"-minimizers for \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\). It minimizes the \
+function  \\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\) \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["\<\"\[LongRightArrow]\"\>",
+    StripOnInput->False,
+    FontSize->14,
+    FontWeight->Bold], 
+   "\[InvisibleSpace]", "\<\" \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), \"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"]\\)\"\>", 
+     "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->16]\\)\"\>"}],
+  SequenceForm[
+  "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\) = \
+\!\(\*SubscriptBox[OverscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \
+\"^\"], RowBox[{\"(\", RowBox[{SubscriptBox[\"\[Theta]\", \"0\"], \",\", \
+SubscriptBox[\"\[Sigma]\", \"0\"], \",\", SubscriptBox[\"\[Phi]\", \"0\"]}], \
+\")\"}]]\) = ", 
+   MatrixForm[{{-0.6988461072145694, -0.10776882097403023`, 
+     0.7071067809439463}, {0.6988461080923355, 0.1077688120984258, 
+     0.7071067814291487}, {-0.15240812194643155`, 0.9883176434551605, 0}}], 
+   "  \!\(\*StyleBox[\"(\",FontSize->16]\)One of at least ", 
+   DirectedInfinity[1], " ", $CellContext`XISO, 
+   "-minimizers for \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\). It \
+minimizes the function  \!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\) ", 
+   Style["\[LongRightArrow]", Bold, 14], 
+   " \!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",\
+FontSize->14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), ", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*StyleBox[\"U\",FontSlant->\"Italic\"]\)", ")"], 
+   "\!\(\*StyleBox[\")\",FontSize->14]\)\!\(\*StyleBox[\")\",FontSize->16]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.934842412809972*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"5570a0a5-472c-482e-ac4d-59e2196ef3a9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \
+\\!\\(\\*StyleBox[\\\"d\\\",FontSlant->\\\"Italic\\\"]\\)\\!\\(\\*StyleBox[\\\
+\"(\\\",FontSize->14]\\)\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\
+\\), P\\!\\(\\*StyleBox[\\\"(\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\"T\\\",\
+FontWeight->\\\"Bold\\\"]\\),\"\>", "\[InvisibleSpace]", 
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->12]\\)\\!\\(\\*StyleBox[\\\")\\\",\
+FontSize->14]\\) = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox[
+      RowBox[{"\<\"6.3\"\>", "\[Times]", 
+       SuperscriptBox["10", "\<\"-7\"\>"]}],
+      ShowStringCharacters->False],
+     6.3*^-7,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], 
+   "\[InvisibleSpace]", "\<\" (Distance between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox[
+     StyleBox["\<\"\[ScriptCapitalT]\"\>",
+      StripOnInput->False,
+      FontWeight->Bold], "XISO"],
+    DisplayForm], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`XISO, 
+     "T"]], " = \
+\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSize->\
+14]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\), \
+P\!\(\*StyleBox[\"(\",FontSize->12]\)\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"\
+]\),", 
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], "\!\(\*StyleBox[\")\",FontSize->12]\)\!\(\*StyleBox[\")\",FontSize->\
+14]\) = ", 
+   NumberForm[6.3*^-7, 9], 
+   " (Distance between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   DisplayForm[
+    SubscriptBox[
+     Style["\[ScriptCapitalT]", Bold], $CellContext`XISO]], ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.934842412812584*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"4bdba882-9773-4dd6-849e-fa42ea66e39a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \\!\\(\\*SuperscriptBox[\\(sin\\), \
+\\(-1\\)]\\)\\!\\(\\*StyleBox[\\\"(\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{
+      StyleBox["d",
+       FontSlant->"Italic"], " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\"/\\\",FontSize->16]\\)\"\>", "\[InvisibleSpace]", 
+   RowBox[{"\[LeftBracketingBar]", "\<\"T\"\>", "\[RightBracketingBar]"}], 
+   "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*StyleBox[\\\")\\\",FontSize->16]\\)\"\>", 
+   "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", "0", 
+   "\[InvisibleSpace]", "\<\" (Angle between \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\) and \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{
+    TagBox[
+     SubscriptBox[
+      StyleBox["\<\"\[ScriptCapitalT]\"\>",
+       StripOnInput->False,
+       FontWeight->Bold], "XISO"],
+     DisplayForm], ".", "\<\" The initial \"\>"}], "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "XISO", "T"],
+    DisplayForm], "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox[
+      RowBox[{"\<\"5.1\"\>", "\[Times]", 
+       SuperscriptBox["10", "\<\"-9\"\>"]}],
+      ShowStringCharacters->False],
+     5.1*^-9,
+     AutoDelete->True],
+    NumberForm[#, 9]& ], 
+   "\[InvisibleSpace]", "\<\" is here chopped to zero, since the chop \
+threshold is set at \"\>", "\[InvisibleSpace]", 
+   SuperscriptBox["0.01`", "o"], "\[InvisibleSpace]", "\<\")\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`XISO, "T"]], 
+   " = \!\(\*SuperscriptBox[\(sin\), \
+\(-1\)]\)\!\(\*StyleBox[\"(\",FontSize->16]\)", 
+   DisplayForm[
+    SubsuperscriptBox[
+    "\!\(\*StyleBox[\"d\",FontSlant->\"Italic\"]\) ", $CellContext`XISO, 
+     "T"]], "\!\(\*StyleBox[\"/\",FontSize->16]\)", 
+   BracketingBar["T"], "\!\(\*StyleBox[\")\",FontSize->16]\)", " = ", 0, 
+   " (Angle between \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\) and ", 
+   Dot[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalT]", Bold], $CellContext`XISO]], " The initial "], 
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`XISO, "T"]], " = ", 
+   NumberForm[5.1*^-9, 9], 
+   " is here chopped to zero, since the chop threshold is set at ", 
+   0.01^$CellContext`o, ")"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.9348424128148527`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"8cb98f00-f259-403f-aa99-66cdbaf9bc57"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Since \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    SubsuperscriptBox[
+     RowBox[{"\[Beta]", " "}], "XISO", "T"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = 0, \
+\\!\\(\\*StyleBox[\\\"T\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"is\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"assigned\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"symmetry\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"at\\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\" \\\",FontColor->RGBColor[1, 0, \
+0]]\\)\\!\\(\\*StyleBox[\\\"least\\\",FontColor->RGBColor[1, 0, 0]]\\) \"\>", 
+   "\[InvisibleSpace]", 
+   StyleBox["XISO",
+    StripOnInput->False,
+    LineColor->RGBColor[1, 0, 0],
+    FrontFaceColor->RGBColor[1, 0, 0],
+    BackFaceColor->RGBColor[1, 0, 0],
+    GraphicsColor->RGBColor[1, 0, 0],
+    FontColor->RGBColor[1, 0, 0]], "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["Since ", 
+   DisplayForm[
+    SubsuperscriptBox["\[Beta] ", $CellContext`XISO, "T"]], 
+   " = 0, \!\(\*StyleBox[\"T\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\
+\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"is\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\" \
+\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"assigned\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"symmetry\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\" \",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"at\",FontColor->RGBColor[1, 0, 0]]\)\!\(\*StyleBox[\" \
+\",FontColor->RGBColor[1, 0, \
+0]]\)\!\(\*StyleBox[\"least\",FontColor->RGBColor[1, 0, 0]]\) ", 
+   Style[$CellContext`XISO, 
+    RGBColor[1, 0, 0]], "."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.9348424128167553`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"e4ddaa11-a49f-41d4-86c8-42cb91a3b113"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   InterpretationBox[
+    RowBox[{
+     TagBox[
+      SubscriptBox[
+       StyleBox["\<\"\[ScriptCapitalV]\"\>",
+        StripOnInput->False,
+        FontSize->13,
+        FontWeight->Bold], "XISO"],
+      DisplayForm], "\[InvisibleSpace]", "\<\"(\"\>", 
+     "\[InvisibleSpace]", \
+"\<\"\\!\\(\\*SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"]\\)\"\>", "\[InvisibleSpace]", "\<\")\"\>"}],
+    SequenceForm[
+     DisplayForm[
+      SubscriptBox[
+       Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+     "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+     ")"],
+    Editable->False], 
+   "\[InvisibleSpace]", "\<\" contains \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\)\"\>"}],
+  SequenceForm[
+   SequenceForm[
+    DisplayForm[
+     SubscriptBox[
+      Style["\[ScriptCapitalV]", 13, Bold], $CellContext`XISO]], "(", 
+    "\!\(\*SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"]\)", 
+    ")"], " contains \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.93484241281855*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"43b84e3f-4e10-45ac-aaad-b8be87f2d0f1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox[
+    SubscriptBox["T", "XISO"],
+    DisplayForm], 
+   "\[InvisibleSpace]", "\<\" = \
+[\\!\\(\\*OverscriptBox[SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\
+\\\"], \\\"0\\\"], \\\"_\\\"]\\)\\!\\(\\*SuperscriptBox[\\(]\\), \\(T\\)]\\)[\
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\)][\\!\\(\\*\
+OverscriptBox[SubscriptBox[StyleBox[\\\"U\\\",FontSlant->\\\"Italic\\\"], \
+\\\"0\\\"], \\\"_\\\"]\\)] = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"65.49999999999994`", "0", "0", "0", "0", "0"},
+       {"0", "65.49999999999996`", "0", "0", "0", "0"},
+       {"0", "0", "53.62499999999997`", "0", "0", "0"},
+       {"0", "0", "0", "53.62499999999999`", "0", "0"},
+       {"0", "0", "0", "0", "25.75000000000001`", 
+        RowBox[{"-", "2.9999999999999996`"}]},
+       {"0", "0", "0", "0", 
+        RowBox[{"-", "3.`"}], "15.000000000000007`"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], "\[InvisibleSpace]", "\<\"  (Should be a \"\>",
+    "\[InvisibleSpace]", "XISO", 
+   "\[InvisibleSpace]", "\<\" ref matrix for \
+\\!\\(\\*StyleBox[\\\"T\\\",FontWeight->\\\"Bold\\\"]\\). If not, consider \
+decreasing ChopT.)\"\>"}],
+  SequenceForm[
+   DisplayForm[
+    SubscriptBox["T", $CellContext`XISO]], 
+   " = [\!\(\*OverscriptBox[SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"]\
+, \"0\"], \"_\"]\)\!\(\*SuperscriptBox[\(]\), \
+\(T\)]\)[\!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\)][\!\(\*OverscriptBox[\
+SubscriptBox[StyleBox[\"U\",FontSlant->\"Italic\"], \"0\"], \"_\"]\)] = ", 
+   MatrixForm[{{65.49999999999994, 0, 0, 0, 0, 0}, {
+     0, 65.49999999999996, 0, 0, 0, 0}, {0, 0, 53.62499999999997, 0, 0, 0}, {
+     0, 0, 0, 53.62499999999999, 0, 0}, {
+     0, 0, 0, 0, 25.75000000000001, -2.9999999999999996`}, {
+     0, 0, 0, 0, -3., 15.000000000000007`}}], 
+   "  (Should be a ", $CellContext`XISO, 
+   " ref matrix for \!\(\*StyleBox[\"T\",FontWeight->\"Bold\"]\). If not, \
+consider decreasing ChopT.)"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.934842412820046*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"b010b6e3-eaad-4c3d-89b0-aa1c729b41ff"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Thus \\!\\(\\*SuperscriptBox[SubscriptBox[\\(U\\), \\(0\\)], \
+\\(T\\)]\\) will reorient the material so that its symmetry group contains \"\
+\>", "\[InvisibleSpace]", 
+   TagBox[
+    SubscriptBox["\[DoubleStruckCapitalU]", "XISO"],
+    DisplayForm]}],
+  SequenceForm[
+  "Thus \!\(\*SuperscriptBox[SubscriptBox[\(U\), \(0\)], \(T\)]\) will \
+reorient the material so that its symmetry group contains ", 
+   DisplayForm[
+    SubscriptBox["\[DoubleStruckCapitalU]", $CellContext`XISO]]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9346758923566294`*^9, 3.934736668627067*^9, 
+  3.934812302712851*^9, 3.934842412821637*^9},
+ CellLabel->
+  "During evaluation of \
+In[1933]:=",ExpressionUUID->"fc8ec71c-78ae-4560-a708-0d8c8be1ca61"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DispMat", "[", 
+  RowBox[{"Amat", "[", 
+   RowBox[{
+    RowBox[{"Closest", "[", 
+     RowBox[{"TmatJuly22TET", ",", "XISO"}], "]"}], ",", 
+    RowBox[{"UT", "[", 
+     RowBox[{
+      RowBox[{"Closest", "[", 
+       RowBox[{"TmatJuly22TET", ",", "XISO"}], "]"}], ",", "XISO"}], "]"}]}], 
+   "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.934813049294806*^9, 3.934813063928574*^9}},
+ CellLabel->
+  "In[1934]:=",ExpressionUUID->"da37ef85-5153-4c65-8a4e-1f54f0589259"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"65.50\"\>",
+         ShowStringCharacters->False],
+        65.49999999999994,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"65.50\"\>",
+         ShowStringCharacters->False],
+        65.49999999999996,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"53.62\"\>",
+         ShowStringCharacters->False],
+        53.62499999999997,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"53.62\"\>",
+         ShowStringCharacters->False],
+        53.62499999999999,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"25.75\"\>",
+         ShowStringCharacters->False],
+        25.75000000000001,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"-3.00\"\>",
+         ShowStringCharacters->False],
+        -2.9999999999999996`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]},
+     {
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"0\"\>",
+         ShowStringCharacters->False],
+        0,
+        Editable->False],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"-3.00\"\>",
+         ShowStringCharacters->False],
+        -3.,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ], 
+      TagBox[
+       InterpretationBox[
+        StyleBox["\<\"15.00\"\>",
+         ShowStringCharacters->False],
+        15.000000000000007`,
+        AutoDelete->True],
+       PaddedForm[#, {
+         DirectedInfinity[1], 2}, NumberPadding -> {"", "0"}]& ]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Right}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$, TableAlignments -> Right]]]], "Output",
+ CellChangeTimes->{3.934813065707275*^9, 3.934842412850751*^9},
+ CellLabel->
+  "Out[1934]//MatrixForm=",ExpressionUUID->"57792113-0233-4a28-9b8d-\
+b0406b9f087c"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+From the above U0 you see that (1,1,0) is a regular axis for \
+Closest[TmatJuly22TET, XISO].\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.934675996201295*^9, 3.9346760449953537`*^9}, {
+  3.9346763610789475`*^9, 3.93467636667006*^9}, {3.934736642521413*^9, 
+  3.9347366495667686`*^9}, {3.934736785059312*^9, 
+  3.9347368336129427`*^9}},ExpressionUUID->"007d79b9-78e4-4599-9999-\
+b7f3fd00c6f1"],
+
+Cell["\<\
+Also see Section 10.4 and Fig 10 of TT2024.
+The old OutputFor treatment of this example is in the Mathematica file \
+BC_July22_TETwithTwoClosestXISO.nb, but I doubt you need it here.\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.934675996201295*^9, 3.9346760449953537`*^9}, {
+  3.9346763610789475`*^9, 3.93467636667006*^9}, {3.934736642521413*^9, 
+  3.9347366495667686`*^9}, {3.934736785059312*^9, 3.9347368336129427`*^9}, {
+  3.934736956587182*^9, 3.934737032186364*^9}, {3.934737111083542*^9, 
+  3.93473716888828*^9}, {3.9347381399720125`*^9, 
+  3.9347381474088774`*^9}},ExpressionUUID->"d39108d3-7b85-4867-be33-\
+2a9de4422d07"]
+}, Open  ]]
+},
+WindowSize->{973, 926},
+WindowMargins->{{Automatic, 51}, {38, Automatic}},
+FrontEndVersion->"13.3 for Mac OS X x86 (64-bit) (June 3, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0e1f8563-b35a-457e-ae63-4f216d1833cb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 334, 7, 105, "Section",ExpressionUUID->"997861ca-b130-4735-9db2-6d90af117a17"],
+Cell[917, 31, 566, 14, 113, "Input",ExpressionUUID->"00952fd6-88f3-4640-a046-d2b9bf8f825f"],
+Cell[CellGroupData[{
+Cell[1508, 49, 806, 22, 71, "Subsubsection",ExpressionUUID->"5af98033-5088-4f76-afea-c8e86eb0fb47"],
+Cell[2317, 73, 269, 6, 30, "Input",ExpressionUUID->"9a9cb500-fb50-4eb1-8bca-2d0ef5037e08"],
+Cell[CellGroupData[{
+Cell[2611, 83, 247, 5, 30, "Input",ExpressionUUID->"70d9aa45-9c95-41da-84bc-c7f960eb8df7"],
+Cell[CellGroupData[{
+Cell[2883, 92, 416, 9, 24, "Print",ExpressionUUID->"f076a638-a413-46e3-b607-baa00a34e215"],
+Cell[3302, 103, 2767, 63, 27, "Print",ExpressionUUID->"6e88b00c-f0c0-4748-9301-3dd6e3b380b0"],
+Cell[6072, 168, 2007, 63, 46, "Print",ExpressionUUID->"00c071d2-1bf0-4cc4-b67a-92cd03f331e9"],
+Cell[8082, 233, 250, 4, 24, "Print",ExpressionUUID->"2cf9033a-33ea-4f56-a8ed-e2702c918615"],
+Cell[8335, 239, 1559, 33, 27, "Print",ExpressionUUID->"67c0884b-5524-48ea-91ee-eff8d8a187f8"],
+Cell[9897, 274, 3778, 87, 79, "Print",ExpressionUUID->"1ae4ddf5-866f-4018-82d3-a8f936400686"],
+Cell[13678, 363, 2936, 77, 26, "Print",ExpressionUUID->"3ef16eae-ac57-4c80-9362-b2527cfdd00d"],
+Cell[16617, 442, 2737, 72, 46, "Print",ExpressionUUID->"bd74bef7-a933-433f-8b86-74248892ed4a"],
+Cell[19357, 516, 2203, 47, 26, "Print",ExpressionUUID->"ce39ffd6-88dc-45d2-9703-81e7820eb171"],
+Cell[21563, 565, 1285, 35, 24, "Print",ExpressionUUID->"c2eea501-8c8b-4a71-a7f8-d048eea76c23"],
+Cell[22851, 602, 2537, 55, 108, "Print",ExpressionUUID->"bbd03424-b09f-4d81-90e0-db3a6968b194"],
+Cell[25391, 659, 733, 17, 25, "Print",ExpressionUUID->"8af5d458-8fef-4554-b81a-82bed2113fdb"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26185, 683, 267, 4, 45, "Subsubsection",ExpressionUUID->"e2aa06e3-92d7-479e-bceb-d7366df253c4"],
+Cell[CellGroupData[{
+Cell[26477, 691, 324, 7, 30, "Input",ExpressionUUID->"3d64db03-52e4-47d5-92f0-2814b39056e4"],
+Cell[26804, 700, 9430, 313, 131, "Output",ExpressionUUID->"3804c898-0c7a-40bd-bd75-49f87b808b7b"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36283, 1019, 1082, 26, 99, "Subsubsection",ExpressionUUID->"93b30aa8-ee7c-4ca0-a8b3-5ad88334a085"],
+Cell[CellGroupData[{
+Cell[37390, 1049, 311, 7, 30, "Input",ExpressionUUID->"31b02640-8b04-4939-9abe-a7de8f6177aa"],
+Cell[CellGroupData[{
+Cell[37726, 1060, 416, 9, 24, "Print",ExpressionUUID->"15d5039b-82ad-44ef-b4d6-e5e406b1e366"],
+Cell[38145, 1071, 2770, 63, 27, "Print",ExpressionUUID->"ef6a60af-bb55-43ce-b723-7883064df749"],
+Cell[40918, 1136, 2024, 63, 46, "Print",ExpressionUUID->"6378191a-ce9e-4d08-8cb0-d025f9eccb11"],
+Cell[42945, 1201, 248, 4, 24, "Print",ExpressionUUID->"41094ff1-4973-4db6-99b6-c255063ab5a2"],
+Cell[43196, 1207, 1634, 36, 27, "Print",ExpressionUUID->"81d8d7e1-c759-40de-a82d-6224c6ba929b"],
+Cell[44833, 1245, 3976, 89, 79, "Print",ExpressionUUID->"5f33d348-38b5-49ad-a90a-03b9ecc0b5b5"],
+Cell[48812, 1336, 2979, 79, 26, "Print",ExpressionUUID->"3cfa70b7-11f3-4b61-8392-c6ee57c68cbf"],
+Cell[51794, 1417, 2749, 72, 46, "Print",ExpressionUUID->"c7f13e73-7b2b-469a-a6f5-f2cabd64f137"],
+Cell[54546, 1491, 2207, 47, 26, "Print",ExpressionUUID->"7cf80100-9414-4d0d-aaa1-2eed9b33b69a"],
+Cell[56756, 1540, 1290, 35, 24, "Print",ExpressionUUID->"67cf4d42-7dd2-493f-8d7d-27f31cc85b68"],
+Cell[58049, 1577, 2526, 54, 108, "Print",ExpressionUUID->"414cd6a9-5748-4da0-8c00-3da1ec6576fb"],
+Cell[60578, 1633, 735, 17, 25, "Print",ExpressionUUID->"557b902c-b173-467e-8ee7-3f8090d02ccf"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[61386, 1658, 542, 10, 143, "Section",ExpressionUUID->"3531d614-6cfc-4628-8487-41a70fe6d294"],
+Cell[61931, 1670, 236, 5, 30, "Input",ExpressionUUID->"360dece9-a211-4dd2-86b7-378b1106ea00"],
+Cell[CellGroupData[{
+Cell[62192, 1679, 269, 8, 45, "Subsubsection",ExpressionUUID->"97142814-c300-4c89-a201-44dd3bf38a9a"],
+Cell[CellGroupData[{
+Cell[62486, 1691, 227, 4, 30, "Input",ExpressionUUID->"96ae0f18-2b6c-4035-8fd2-e60fad5fd744"],
+Cell[62716, 1697, 864, 24, 131, "Output",ExpressionUUID->"f30f0566-bcc6-477a-9c65-3c55beb2bb89"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63617, 1726, 308, 6, 30, "Input",ExpressionUUID->"bd91c9ca-2a46-4a47-b892-b037da69aa4c"],
+Cell[CellGroupData[{
+Cell[63950, 1736, 444, 10, 24, "Print",ExpressionUUID->"24073dba-f852-44e5-be0b-131a30792039"],
+Cell[64397, 1748, 2795, 64, 27, "Print",ExpressionUUID->"3f55a3a2-0c2e-4078-8c27-67d7dd1d972c"],
+Cell[67195, 1814, 2139, 66, 46, "Print",ExpressionUUID->"97a90cf1-07be-498d-9892-85e822e86507"],
+Cell[69337, 1882, 276, 5, 24, "Print",ExpressionUUID->"f6f00fab-056a-4e3c-8209-c7b30db4e299"],
+Cell[69616, 1889, 1620, 35, 27, "Print",ExpressionUUID->"4170c6ce-9c6b-47c2-ade9-92d043072a8a"],
+Cell[71239, 1926, 3899, 89, 79, "Print",ExpressionUUID->"41a42a1e-11f7-4a85-a1f3-16347e0efde6"],
+Cell[75141, 2017, 2964, 78, 26, "Print",ExpressionUUID->"07544be9-9334-4905-bff0-71c82c93a882"],
+Cell[78108, 2097, 2795, 73, 46, "Print",ExpressionUUID->"b7b95da6-ec57-41a8-a1c5-5fd8acda1347"],
+Cell[80906, 2172, 2231, 48, 26, "Print",ExpressionUUID->"146742f8-7236-46a2-86d2-9e82369799c9"],
+Cell[83140, 2222, 1313, 36, 24, "Print",ExpressionUUID->"e9371417-a067-4037-a002-1decf625d5a1"],
+Cell[84456, 2260, 2527, 56, 138, "Print",ExpressionUUID->"6a1179f8-9d17-4ac0-b4de-5773e6c18ac7"],
+Cell[86986, 2318, 761, 18, 25, "Print",ExpressionUUID->"636e72b1-7dd4-45f5-94b3-ba7e8112f1f9"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87796, 2342, 360, 7, 30, "Input",ExpressionUUID->"b08517a4-e90a-4c85-9bb6-8793f67ce232"],
+Cell[CellGroupData[{
+Cell[88181, 2353, 415, 9, 24, "Print",ExpressionUUID->"3251b3d0-01a4-44ef-87a0-6f7a8cf0f44b"],
+Cell[88599, 2364, 2771, 63, 27, "Print",ExpressionUUID->"9014c99b-b2d1-4e30-ad5d-1784ad0d21eb"],
+Cell[91373, 2429, 1910, 60, 44, "Print",ExpressionUUID->"72fb769f-4cf4-477d-885f-6a407a02247d"],
+Cell[93286, 2491, 247, 4, 24, "Print",ExpressionUUID->"c6783749-acbb-4c67-9232-015eec666283"],
+Cell[93536, 2497, 1597, 34, 27, "Print",ExpressionUUID->"bb7f2e14-660b-4ced-bf5b-d20228ff25d9"],
+Cell[95136, 2533, 4150, 91, 79, "Print",ExpressionUUID->"01b58133-e2c1-441e-a0a5-e28fb4d93add"],
+Cell[99289, 2626, 2873, 77, 26, "Print",ExpressionUUID->"f9a82ca4-7720-44e8-b6e8-ab1b8dae66ac"],
+Cell[102165, 2705, 2403, 67, 26, "Print",ExpressionUUID->"eae73078-8e2c-4516-b672-bc8babd42c7a"],
+Cell[104571, 2774, 1605, 46, 24, "Print",ExpressionUUID->"641aa46a-034d-457a-9a1d-0f335e07bce9"],
+Cell[106179, 2822, 3415, 76, 138, "Print",ExpressionUUID->"4872b81f-3209-407d-9535-51ca37f0ff07"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[109643, 2904, 332, 7, 30, "Input",ExpressionUUID->"a68d2cc6-6676-488e-9229-c7a199986713"],
+Cell[109978, 2913, 9482, 312, 131, "Output",ExpressionUUID->"b9dcf609-8aef-4d44-ab37-d50aeb50b53d"]
+}, Open  ]]
+}, Open  ]],
+Cell[119487, 3229, 386, 7, 45, "Subsubsection",ExpressionUUID->"ec0355cf-4edd-4180-a8e2-7516e6d0de57"],
+Cell[CellGroupData[{
+Cell[119898, 3240, 363, 7, 37, "Subsubsection",ExpressionUUID->"5a831b42-6fe8-41a6-a6cf-6abcbe51543e"],
+Cell[CellGroupData[{
+Cell[120286, 3251, 328, 8, 30, "Input",ExpressionUUID->"3f4520de-898d-4898-872b-4f011bb1c454"],
+Cell[CellGroupData[{
+Cell[120639, 3263, 467, 10, 24, "Print",ExpressionUUID->"75e231b6-3e22-4eb5-ac75-7d9467450236"],
+Cell[121109, 3275, 2819, 64, 27, "Print",ExpressionUUID->"3a8cd9f2-6110-44ad-95a3-955f09e473a5"],
+Cell[123931, 3341, 2093, 64, 46, "Print",ExpressionUUID->"3758272f-e214-4b17-b9a9-e2ecb2eb0550"],
+Cell[126027, 3407, 299, 5, 24, "Print",ExpressionUUID->"9e783f81-910a-4e21-b695-951e51c8424a"],
+Cell[126329, 3414, 1648, 35, 27, "Print",ExpressionUUID->"72baa1c3-196f-45ab-9c08-5b17ced2b507"],
+Cell[127980, 3451, 4199, 92, 79, "Print",ExpressionUUID->"5570a0a5-472c-482e-ac4d-59e2196ef3a9"],
+Cell[132182, 3545, 2995, 80, 26, "Print",ExpressionUUID->"4bdba882-9773-4dd6-849e-fa42ea66e39a"],
+Cell[135180, 3627, 2792, 73, 46, "Print",ExpressionUUID->"8cb98f00-f259-403f-aa99-66cdbaf9bc57"],
+Cell[137975, 3702, 2258, 48, 26, "Print",ExpressionUUID->"e4ddaa11-a49f-41d4-86c8-42cb91a3b113"],
+Cell[140236, 3752, 1336, 36, 24, "Print",ExpressionUUID->"43b84e3f-4e10-45ac-aaad-b8be87f2d0f1"],
+Cell[141575, 3790, 2625, 57, 138, "Print",ExpressionUUID->"b010b6e3-eaad-4c3d-89b0-aa1c729b41ff"],
+Cell[144203, 3849, 784, 18, 25, "Print",ExpressionUUID->"fc8ec71c-78ae-4560-a708-0d8c8be1ca61"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[145036, 3873, 487, 13, 30, "Input",ExpressionUUID->"da37ef85-5153-4c65-8a4e-1f54f0589259"],
+Cell[145526, 3888, 9332, 311, 131, "Output",ExpressionUUID->"57792113-0233-4a28-9b8d-b0406b9f087c"]
+}, Open  ]]
+}, Open  ]],
+Cell[154885, 4203, 402, 8, 45, "Subsubsection",ExpressionUUID->"007d79b9-78e4-4599-9999-b7f3fd00c6f1"],
+Cell[155290, 4213, 639, 11, 89, "Subsubsection",ExpressionUUID->"d39108d3-7b85-4867-be33-2a9de4422d07"]
+}, Open  ]]
+}
+]
+*)
+
