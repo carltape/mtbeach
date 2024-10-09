@@ -16,24 +16,31 @@ system requirements:
 Mathematica 13.3. (2023) -- we have also tested with 9.0 (2012) and 10.0 (2014)
 https://www.wolfram.com/mathematica/quick-revision-history.html
 
-These are the two core notebooks and do not require any library notebooks:
+Starting users should go here:
+https://community.wolfram.com/groups/-/m/t/3180725
+The code and output can be viewed without running Mathematica.
+If you have Mathematica, download the notebook DOWNLOAD-DESKTOP-NOTEBOOK.nb and run it.
 
-ES_ContourPlots.nb
-  contour plots on the sphere, showing 2-fold axes [TT2022]
-ES_FindSymGroups.nb + ES_FindSymGroups_output.nb
-  calculations and lattice diagrams for finding the symmetry group of an elastic map [TT2022]
+Subfolders:
+misc_elasticity
+christoffel      - in progress
+TT21_ES          - ES = elastic symmetry
+TT22_SSM         - SSM = stress strain map
+data             - Mathematica output files for loading
 
-See subfolders:
-TT21_ES    - ES = elastic symmetry
-TT22_SSM   - SSM = stress strain map
+-----------
+The following notebooks require first running common_funs.nb:
+
+ChooseTmat.nb
+  large set of elastic maps, in addition to other custom functions
+
+elastic_mapping_voigt.nb
+  relations between Tbb and Cij voigt notation (TT2021 supplement)
 
 -----------
 The following notebooks require first running these two notebooks, in order:
   common_funs.nb
   common_MTfuns.nb
-
-elastic_mapping_voigt.nb
-  relations between Tbb and Cij voigt notation (TT2021 supplement)
 
 elastic_polyhedra.nb
   figure of 7 polyhedra representing elastic symmetry classes
@@ -41,35 +48,25 @@ elastic_polyhedra.nb
 -----------
 The following notebooks require first running these notebooks, in order:
   common_funs.nb
-  ES_FindSymGroups.nb
-
-ES_FindSymGroups_output.nb
-  Sections 2 and 3 of the original notebook -- find symmetry group of a given elastic map
-
------------
-The following notebooks require first running these notebooks, in order:
-  common_funs.nb
-  ES_FindSymGroups.nb
-  BC_ChooseTmat.nb
+  ChooseTmat.nb
 
 BC_DirectPath.nb
   calculate the maps on the direct path between T1(=Tmat) and T2(=closest ISO to Tmat)
 
-BC_CumulativeBeta.nb
+CumulativeInternodalAngle.nb
   calculate a densified lattice of node maps,
   then calculate cumulative beta curves for different node modes and node sequences
 
 -----------
 The following notebooks require first running these notebooks, in order:
   common_funs.nb
-  ES_FindSymGroups.nb
-  BC_ChooseTmat.nb
-  BC_CumulativeBeta.nb
+  ChooseTmat.nb
+  CumulativeInternodalAngle.nb
 
 BC_Checkerboard.nb
   display internodal beta angles in a colored matrix plot
 
-BC_Superlattice.nb
+SuperLattice.nb
    different node sequences (pathways) and node modes
 
 BC_LatticeOfNodeMaps.nb
