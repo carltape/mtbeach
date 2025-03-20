@@ -11,7 +11,8 @@
 clear, clc, close all
 
 deg = 180/pi;
-bprint = false;
+bprint = false;   % print figures
+brunall = false;  % make additional plots
 
 % GET USER INPUT
 stlabs = {  'random full moment tensor',
@@ -48,7 +49,9 @@ switch iex
     [M,v,w,kappa,sigma,h] = uniformMT(n);
     %iref = randi(n); Mref = M(:,iref);
     omega = CMT2omega(Mref,M);
+    if bprint, print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_omega1',iex)); end
     plot_omega(omega);  
+    if bprint, orient tall; print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_omega2',iex)); end
 
     case 2
     % randomly generated uniform moment tensors for fixed nu (or phi)
@@ -169,7 +172,7 @@ switch iex
     xlabel('angular distance, deg');
     %figure; hold on; plot(xlon,ylat,'.'); plot(xlon(ipick),ylat(ipick),'ro');
     
-    error
+    error('exit here')
     
     case 10
     % insights into random vs regular grid
@@ -190,7 +193,7 @@ switch iex
     subplot(nr,nc,2); plot(ag,bg,'.'); axis equal, axis([a1 a2 b1 b2]);
     title(sprintf('%i uniform grid points',length(ag)));
     
-    error
+    error('exit here')
         
 end
 
@@ -255,10 +258,11 @@ theta = acos(h)*deg;
 
 % lune longitude, lune latitude, strike, dip, slip
 plotMT_TT(gamma,delta,M0,kappa,theta,sigma);
-if bprint, orient tall; print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_hist1',iex)); end
+if bprint, orient tall; print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_hist_TTlune',iex)); end
 % v, w, strike, dip, slip
+% note: two plots will be generated
 plotMT_TT(v,w,M0,kappa,theta,sigma,true);
-if bprint, orient tall; print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_hist2',iex)); end
+if bprint, orient tall; print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_hist_TTrect',iex)); end
 
 % plot correlation matrices
 figure; nr=2; nc=1; clims = [-1 1];
@@ -282,8 +286,9 @@ subplot(1,2,1); plot(gamma,delta,'.'); axis equal, axis([-30 30 -90 90])
 xlabel('lune longitude'); ylabel('lune latitude');
 subplot(1,2,2); plot(v,w,'.'); xlabel('v'); ylabel('w');
 axis equal, axis([-1/3 1/3 -3*pi/8 3*pi/8])
+if bprint, orient tall; print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_dots',iex)); end
 
-error
+if ~brunall, error('exit here'); end
 
 %% ADDITIONAL HISTOGRAMS
 
@@ -294,23 +299,28 @@ mfac = mean(rho);
 %Medges = [-sqrt(2):0.1:sqrt(2)];
 Medges = linspace(-mfac,mfac,21);
 plotMT_Mij(M,Medges);
+if bprint, orient tall; print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_hist_Mij',iex)); end
 
 % eigenvalues
 [lam,U] = CMTdecom(M);
 plotMT_lam(lam);
+if bprint, orient tall; print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_hist_lam',iex)); end
 
-error
+if ~brunall, error('exit here'); end
 
 %% ADDITIONAL HISTOGRAMS (note: lam must be evaluated in previous block)
 
 % lune longitude and latitude within latitude bands and longitude bands
+% note: these figures are not printed to file
 plotMT_lune(gamma,delta);
 
 % classical model and CDC
 [nu,alpha] = lam2nualpha(lam);
 [phi,zeta] = lam2phizeta(lam);
 plotMT_phizeta(phi,zeta);
+if bprint, print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_hist_phizeta',iex)); end
 plotMT_nualpha(nu,alpha);
+if bprint, print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_hist_nualpha',iex)); end
 if iex==2
     [alpha,falpha] = pdf_alpha(nu0);
     plot(alpha,falpha,'r--','linewidth',2);
@@ -322,5 +332,6 @@ end
 Useu = convertv(1,5,U);
 Uout = U2pa(Useu,1);
 plotMT_eigvec(Uout(:,1),Uout(:,2),Uout(:,3),Uout(:,4),Uout(:,5),Uout(:,6));
+if bprint, print(gcf,'-dpng',sprintf('run_uniformMT_iex%i_hist_eigvec',iex)); end
 
 %==========================================================================

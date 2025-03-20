@@ -14,7 +14,7 @@ function plotMT_nualpha(nu,alpha)
 
 PLOT_UNIFORM_CURVES = true;
 PLOT_AS_PDFS = true;
-buse_greek = false;             % =true unless you have an issue rendering latex fonts
+buse_greek = true;             % =true unless you have an issue rendering latex fonts
 
 if PLOT_AS_PDFS, itype = 3; else itype = 2; end
 

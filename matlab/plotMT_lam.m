@@ -39,7 +39,7 @@ if PLOT_UNIFORM_CURVES
     uplot = plam(xplot,1,mfac);
     plot(xplot,uplot,'r','linewidth',2);
 end
-xlabel('fist eigenvalue');
+xlabel('first eigenvalue');
 xlim(1.05*lmax*[-1 1]);
 
 subplot(nr,nc,2); hold on;

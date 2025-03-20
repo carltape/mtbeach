@@ -18,9 +18,8 @@ function plotMT_TT(gamma,delta,M0,kappa,theta,sigma,bvw)
 %   gamma is v (TapeTape2015)
 %   delta is w = 3*pi/8 - u (TapeTape2015)
 %
-% Note that h = cos(dip) is the parameter needed for uniformity of
-% orientations. Instead of plotting the histograms for dip, we could plot
-% histograms for h.
+% Note that h = cos(dip) is the parameter needed for uniformity of orientations. 
+% If bvw = true, then the histogram will display h.
 % 
 % See example in run_uniformMT.m
 %
@@ -61,8 +60,8 @@ else
     % use v-w coordinates of TapeTape2015
     g1 = -1/3; g2 = 1/3;
     d1 = -3*pi/8; d2 = 3*pi/8;
-    glab = 'v (lune longitude)';
-    dlab = 'w (lune latitude)';
+    glab = 'v';
+    dlab = 'w';
     stag = 'vw';
     
     gsmooth  = linspace(g1,g2,ns);
@@ -130,12 +129,12 @@ xlabel(dlab);
 subplot(nr,nc,3);
 plot_histo(pM0,magbin); xlabel(stM0); 
 
-% strike angle
+% strike angle, degrees
 subplot(nr,nc,4); hold on;
 plot_histo(kappa,kappabin); xlabel('strike, deg'); set(gca,'xtick',0:60:360);
 plot([0 360], hflat*[1 1],'r','linewidth',2);
 
-% dip angle
+% dip angle, degrees
 tsmooth = linspace(0,90,ns)/deg;
 fsmooth = sin(tsmooth);
 subplot(nr,nc,5); hold on;
@@ -152,7 +151,7 @@ xlabs = [0:30:90];
 set(gca,'xtick',xlabs/deg,'xticklabel',numvec2cell(xlabs));
 xlabel('dip, deg');
 
-% slip angle (rake)
+% slip angle (rake), degrees
 subplot(nr,nc,6); hold on;
 plot_histo(sigma,sigmabin); xlabel('rake, deg'); set(gca,'xtick',-180:30:180);
 plot([-90 90], hflat*[1 1],'r','linewidth',2);
@@ -181,7 +180,7 @@ if bvw
     subplot(nr,nc,3);
     plot_histo(pM0,magbin); xlabel(stM0); 
 
-    % strike angle
+    % strike angle, radians
     subplot(nr,nc,4); hold on;
     plot_histo(kappa/deg,kappabin/deg); xlabel('strike, radians');
     plot([0 360]/deg, hflat*[1 1],'r','linewidth',2);
@@ -192,7 +191,7 @@ if bvw
     plot_histo(cos(theta),thetabin,2); xlabel('h = cos(dip)');
     plot([0 90]/deg, hflat*[1 1],'r','linewidth',2);
 
-    % slip angle (rake)
+    % slip angle (rake), radians
     subplot(nr,nc,6); hold on;
     plot_histo(sigma/deg,sigmabin/deg); xlabel('rake, radians');
     plot([-90 90]/deg, hflat*[1 1],'r','linewidth',2);
