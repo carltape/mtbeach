@@ -92,6 +92,13 @@ if 0==1
     display_eq_summary(otime,lon,lat,dep,Mw);
     [gammac,deltac,M0c,kappac,thetac,sigmac] = CMT2TT(M);
     
+    % Mij listed in a USGS xml file (Mrr, Mtt, Mpp, Mrt, Mrp, Mtp; units in N-m)
+    % https://earthquake.usgs.gov/product/moment-tensor/us_7000ar1r_mwr/us/1601139517040/quakeml.xml
+    % 2020-07-19 00:35:27 Alaska event
+    M = [-159500000000000 828490000000000 -668990000000000 244900000000000 -314060000000000 -161080000000000];
+    [gamma,delta,M0,kappa,theta,sigma] = CMT2TT(M,1)
+    %Mw = m02mw(1,M0)
+    %plot_beachballs(M)
 end
 
 %==========================================================================
