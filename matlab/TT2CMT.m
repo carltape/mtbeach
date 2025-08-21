@@ -85,7 +85,7 @@ if 0==1
     kappa = 320; theta = 10; sigma = 20;
     M = TT2CMT(0,0,M0,kappa,theta,sigma)
     [gamma,delta,M0,kappa,theta,sigma] = CMT2TT(M)
-    
+
     % compare with Mathematica calculations
     deg = 180/pi;
     theta = (pi/4)*deg;
@@ -98,6 +98,12 @@ if 0==1
     delta = 90-beta;
     M = TT2CMT(gamma,delta,M0,kappa,theta,sigma);
     Maki = Mvec2Mmat(convert_MT(1,2,M),1)
+
+    % example: TT coordinates for of -M (for a double couple)
+    M0 = 1;
+    kappa = 320; theta = 10; sigma = 20;
+    M = TT2CMT(0,0,M0,kappa,theta,sigma);
+    [gamma,delta,M0,kappa,theta,sigma] = CMT2TT(-M)
 end
 
 %==========================================================================
