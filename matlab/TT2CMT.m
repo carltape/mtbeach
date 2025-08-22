@@ -104,6 +104,20 @@ if 0==1
     kappa = 320; theta = 10; sigma = 20;
     M = TT2CMT(0,0,M0,kappa,theta,sigma);
     [gamma,delta,M0,kappa,theta,sigma] = CMT2TT(-M)
+
+    % convert from MTUQ parameters of M to find the TT parameters of -M
+    rho = 1260419164186480.0;
+    v = 0.0;
+    w = 0.0;
+    kappa = 210.0;
+    sigma = -9.0;
+    h = 0.7833333333333333;
+    theta = acosd(h);
+    M0 = rho/sqrt(2);
+    [gamma,delta] = rect2lune(v,w);
+    M = TT2CMT(gamma,delta,M0,kappa,theta,sigma)
+    [gammaX,deltaX,M0X,kappaX,thetaX,sigmaX] = CMT2TT(-M);
+    [kappaX,thetaX,sigmaX]   % since the input is a DC
 end
 
 %==========================================================================
