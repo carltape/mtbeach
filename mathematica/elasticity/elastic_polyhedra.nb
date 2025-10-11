@@ -10,14 +10,16 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     38198,        926]
-NotebookOptionsPosition[     36508,        886]
-NotebookOutlinePosition[     37212,        911]
-CellTagsIndexPosition[     37169,        908]
+NotebookDataLength[     41839,        992]
+NotebookOptionsPosition[     39833,        947]
+NotebookOutlinePosition[     40537,        972]
+CellTagsIndexPosition[     40494,        969]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[TextData[{
  "elastic_polyhedra.nb\nPolyhedra that represent each symmetry class.\n(The \
 8th class, trivial, does not have a shape.)\nFirst run common_funs.nb\n",
@@ -33,6 +35,25 @@ Cell[TextData[{
    3.969182503706477*^9, 
    3.969182529497567*^9}},ExpressionUUID->"56afdcfe-8195-4b06-88f5-\
 1479c5d1e180"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"PrintFigures", "=", "False"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"isize", "=", 
+   RowBox[{"If", "[", 
+    RowBox[{"PrintFigures", ",", "1600", ",", "800"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fsize", "=", 
+   RowBox[{"If", "[", 
+    RowBox[{"PrintFigures", ",", "32", ",", "16"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.969183032260255*^9, 3.969183035528591*^9}, {
+  3.969183453837545*^9, 3.969183500453512*^9}, {3.96918359437188*^9, 
+  3.969183594754562*^9}, {3.969183636750833*^9, 
+  3.9691836374207277`*^9}},ExpressionUUID->"3b7e5ef7-42e9-4e4b-b834-\
+e4a12d811e18"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -184,7 +205,7 @@ Cell[BoxData[
   3.8638720241865697`*^9, 3.863872067956636*^9}, {3.8638725980062404`*^9, 
   3.8638726129572525`*^9}, {3.8644008453288107`*^9, 3.864400847908299*^9}},
  CellLabel->
-  "In[1642]:=",ExpressionUUID->"57570454-86e3-41f3-b498-1a57ec430bd2"]
+  "In[1783]:=",ExpressionUUID->"57570454-86e3-41f3-b498-1a57ec430bd2"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -218,7 +239,7 @@ Cell[BoxData[
   3.8644010372027893`*^9, 3.864401077573743*^9}, {3.864401141217453*^9, 
   3.864401310525951*^9}, {3.864401341390706*^9, 3.864401341764501*^9}},
  CellLabel->
-  "In[1643]:=",ExpressionUUID->"12743f80-bf35-4f09-a2a9-924da0e9e797"]
+  "In[1784]:=",ExpressionUUID->"12743f80-bf35-4f09-a2a9-924da0e9e797"]
 }, Open  ]],
 
 Cell["\<\
@@ -269,261 +290,266 @@ Cell[BoxData[
     RowBox[{"zshift", " ", "=", " ", "0.5"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"xlen", "=", "2.5"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"Graphics3D", "[", 
-    RowBox[{
-     RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"p1", "=", 
+     RowBox[{"Graphics3D", "[", 
       RowBox[{
-       RowBox[{"Paxes", "[", 
+       RowBox[{"{", "\[IndentingNewLine]", 
         RowBox[{
-         StyleBox["False",
-          FontColor->RGBColor[1, 0, 0]], ",", 
-         StyleBox["False",
-          FontColor->RGBColor[1, 0, 0]], ",", "True", ",", "id", ",", 
-         RowBox[{"{", 
-          RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "xlen", ",", "0", 
-         ",", "ArrowScale", ",", 
-         RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
-        "]"}], ",", " ", 
-       RowBox[{"(*", " ", 
-        StyleBox["wedge",
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-         RowBox[{"EdgeForm", "[", 
-          RowBox[{"Thickness", "[", 
-           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
-         "\[IndentingNewLine]", 
-         RowBox[{"Polygon", "/@", 
-          RowBox[{"Map", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0", ",", "0", ",", "zshift"}], "}"}], "+", 
-              RowBox[{"1.6", " ", 
-               RowBox[{
-                RowBox[{"ZRot", "[", 
-                 RowBox[{"30", " ", "Degree"}], "]"}], ".", "#"}]}]}], " ", 
-             "&"}], ",", "wedgePolys", ",", 
-            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", " ", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Paxes", "[", 
-        RowBox[{
-         StyleBox["False",
-          FontColor->RGBColor[1, 0, 0]], ",", 
-         StyleBox["False",
-          FontColor->RGBColor[1, 0, 0]], ",", "True", ",", "id", ",", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", "Xtranslate"}], ",",
-          "xlen", ",", "0", ",", "ArrowScale", ",", 
-         RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
-        "]"}], ",", " ", 
-       RowBox[{"(*", " ", 
-        StyleBox[
-         RowBox[{"triangular", " ", "prism"}],
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-         RowBox[{"EdgeForm", "[", 
-          RowBox[{"Thickness", "[", 
-           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
-         "\[IndentingNewLine]", 
-         RowBox[{"Polygon", "/@", 
-          RowBox[{"Map", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"#", "+", "Xtranslate"}], " ", "&"}], ",", 
-            "TriangularPrismPolys", ",", 
-            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Paxes", "[", 
-        RowBox[{"True", ",", "True", ",", "True", ",", "id", ",", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
-          RowBox[{"2", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
-         "ArrowScale", ",", 
-         RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
-        "]"}], ",", 
-       RowBox[{"(*", " ", 
-        StyleBox["brick",
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-         RowBox[{"EdgeForm", "[", 
-          RowBox[{"Thickness", "[", 
-           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
-         "\[IndentingNewLine]", 
-         RowBox[{"Polygon", "/@", 
-          RowBox[{"Map", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"#", "+", 
-              RowBox[{"2", "Xtranslate"}]}], " ", "&"}], ",", "BrickPolys", 
-            ",", 
-            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{"True", ",", 
-         RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{"Paxes", "[", 
           RowBox[{
-           RowBox[{"Text", "[", 
-            RowBox[{
-             RowBox[{"Style", "[", 
-              RowBox[{"\"\<x\>\"", ",", "16"}], "]"}], ",", 
+           StyleBox["False",
+            FontColor->RGBColor[1, 0, 0]], ",", 
+           StyleBox["False",
+            FontColor->RGBColor[1, 0, 0]], ",", "True", ",", "id", ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "xlen", ",", "0", 
+           ",", "ArrowScale", ",", 
+           RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
+          "]"}], ",", " ", 
+         RowBox[{"(*", " ", 
+          StyleBox["wedge",
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+           RowBox[{"EdgeForm", "[", 
+            RowBox[{"Thickness", "[", 
+             RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Polygon", "/@", 
+            RowBox[{"Map", "[", 
              RowBox[{
-              RowBox[{"2", "Xtranslate"}], "+", 
-              RowBox[{"{", 
+              RowBox[{
                RowBox[{
-                RowBox[{"xlen", "+", "0.7"}], ",", "0", ",", "0"}], "}"}]}]}],
-             "]"}], ",", "\[IndentingNewLine]", 
-           RowBox[{"Text", "[", 
-            RowBox[{
-             RowBox[{"Style", "[", 
-              RowBox[{"\"\<y\>\"", ",", "16"}], "]"}], ",", 
-             RowBox[{
-              RowBox[{"2", "Xtranslate"}], "+", 
-              RowBox[{"{", 
-               RowBox[{"0", ",", 
-                RowBox[{"xlen", "+", "0.3"}], ",", "0"}], "}"}]}]}], "]"}], 
-           ",", "\[IndentingNewLine]", 
-           RowBox[{"Text", "[", 
-            RowBox[{
-             RowBox[{"Style", "[", 
-              RowBox[{"\"\<z\>\"", ",", "16"}], "]"}], ",", 
-             RowBox[{
-              RowBox[{"2", "Xtranslate"}], "+", 
-              RowBox[{"{", 
-               RowBox[{"0", ",", "0", ",", 
-                RowBox[{"xlen", "+", "0.5"}]}], "}"}]}]}], "]"}]}], "}"}]}], 
-        "]"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"Paxes", "[", 
-        RowBox[{"True", ",", "True", ",", "True", ",", "id", ",", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
-          RowBox[{"3", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
-         "ArrowScale", ",", 
-         RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
-        "]"}], ",", 
-       RowBox[{"(*", " ", 
-        StyleBox[
-         RowBox[{"square", " ", "prism"}],
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-         RowBox[{"EdgeForm", "[", 
-          RowBox[{"Thickness", "[", 
-           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0", ",", "zshift"}], "}"}], "+", 
+                RowBox[{"1.6", " ", 
+                 RowBox[{
+                  RowBox[{"ZRot", "[", 
+                   RowBox[{"30", " ", "Degree"}], "]"}], ".", "#"}]}]}], " ", 
+               "&"}], ",", "wedgePolys", ",", 
+              RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", " ", 
          "\[IndentingNewLine]", 
-         RowBox[{"Polygon", "/@", 
-          RowBox[{"Map", "[", 
+         RowBox[{"Paxes", "[", 
+          RowBox[{
+           StyleBox["False",
+            FontColor->RGBColor[1, 0, 0]], ",", 
+           StyleBox["False",
+            FontColor->RGBColor[1, 0, 0]], ",", "True", ",", "id", ",", 
            RowBox[{
-            RowBox[{
-             RowBox[{
-              RowBox[{"2.2", "#"}], "+", 
-              RowBox[{"3", "Xtranslate"}]}], " ", "&"}], ",", 
-            "SquarePrismPolys", ",", 
-            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Paxes", "[", 
-        RowBox[{"True", ",", "True", ",", "True", ",", "id", ",", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
-          RowBox[{"4", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
-         "ArrowScale", ",", 
-         RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
-        "]"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-         RowBox[{"EdgeForm", "[", 
-          RowBox[{"Thickness", "[", 
-           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", "Xtranslate"}], 
+           ",", "xlen", ",", "0", ",", "ArrowScale", ",", 
+           RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
+          "]"}], ",", " ", 
          RowBox[{"(*", " ", 
-          StyleBox["cube",
+          StyleBox[
+           RowBox[{"triangular", " ", "prism"}],
            FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-         RowBox[{"Polygon", "/@", 
-          RowBox[{"Map", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"#", "+", 
-              RowBox[{"4", "Xtranslate"}]}], " ", "&"}], ",", 
-            StyleBox["CubePolysBasic",
-             FontColor->RGBColor[1, 0, 0]], ",", 
-            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Paxes", "[", 
-        RowBox[{
-         StyleBox["False",
-          FontColor->RGBColor[1, 0, 0]], ",", 
-         StyleBox["False",
-          FontColor->RGBColor[1, 0, 0]], ",", "True", ",", "id", ",", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
-          RowBox[{"5", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
-         "ArrowScale", ",", 
-         RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
-        "]"}], ",", " ", 
-       RowBox[{"(*", " ", 
-        StyleBox["cylinder",
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-         RowBox[{"EdgeForm", "[", "]"}], ",", "  ", "\[IndentingNewLine]", 
-         RowBox[{"Polygon", "/@", 
-          RowBox[{"Map", "[", 
-           RowBox[{
-            RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+           RowBox[{"EdgeForm", "[", 
+            RowBox[{"Thickness", "[", 
+             RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Polygon", "/@", 
+            RowBox[{"Map", "[", 
              RowBox[{
-              RowBox[{".8", "#"}], "+", 
-              RowBox[{"5", "Xtranslate"}]}], " ", "&"}], ",", 
-            "CylinderPolysPrelim", ",", 
-            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-         RowBox[{"EdgeForm", "[", "]"}], ",", "  ", 
+              RowBox[{
+               RowBox[{"#", "+", "Xtranslate"}], " ", "&"}], ",", 
+              "TriangularPrismPolys", ",", 
+              RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Paxes", "[", 
+          RowBox[{"True", ",", "True", ",", "True", ",", "id", ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
+            RowBox[{"2", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
+           "ArrowScale", ",", 
+           RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
+          "]"}], ",", 
          RowBox[{"(*", " ", 
-          StyleBox["sphere",
+          StyleBox["brick",
            FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-         RowBox[{"Polygon", "/@", 
-          RowBox[{"Map", "[", 
-           RowBox[{
-            RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+           RowBox[{"EdgeForm", "[", 
+            RowBox[{"Thickness", "[", 
+             RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Polygon", "/@", 
+            RowBox[{"Map", "[", 
              RowBox[{
-              RowBox[{"1.6", "#"}], "+", 
-              RowBox[{"6", "Xtranslate"}]}], " ", "&"}], ",", "SpherePolys", 
-            ",", 
-            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Paxes", "[", 
-        RowBox[{
-         StyleBox["False",
-          FontColor->RGBColor[1, 0, 0]], ",", 
-         StyleBox["False",
-          FontColor->RGBColor[1, 0, 0]], ",", 
-         StyleBox["False",
-          FontColor->RGBColor[1, 0, 0]], ",", "id", ",", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
-          RowBox[{"6", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
-         "ArrowScale", ",", 
-         RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
-        "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
-     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
-     RowBox[{"ViewPoint", "\[Rule]", "eye"}], ",", 
-     RowBox[{"ImageSize", "\[Rule]", "800"}]}], "]"}]}]}]], "Input",
+              RowBox[{
+               RowBox[{"#", "+", 
+                RowBox[{"2", "Xtranslate"}]}], " ", "&"}], ",", "BrickPolys", 
+              ",", 
+              RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{"True", ",", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"Text", "[", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<x\>\"", ",", "fsize"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"2", "Xtranslate"}], "+", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"xlen", "+", "0.7"}], ",", "0", ",", "0"}], 
+                 "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Text", "[", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<y\>\"", ",", "fsize"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"2", "Xtranslate"}], "+", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", 
+                  RowBox[{"xlen", "+", "0.3"}], ",", "0"}], "}"}]}]}], "]"}], 
+             ",", "\[IndentingNewLine]", 
+             RowBox[{"Text", "[", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                RowBox[{"\"\<z\>\"", ",", "fsize"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"2", "Xtranslate"}], "+", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0", ",", 
+                  RowBox[{"xlen", "+", "0.5"}]}], "}"}]}]}], "]"}]}], "}"}]}],
+           "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Paxes", "[", 
+          RowBox[{"True", ",", "True", ",", "True", ",", "id", ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
+            RowBox[{"3", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
+           "ArrowScale", ",", 
+           RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
+          "]"}], ",", 
+         RowBox[{"(*", " ", 
+          StyleBox[
+           RowBox[{"square", " ", "prism"}],
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+           RowBox[{"EdgeForm", "[", 
+            RowBox[{"Thickness", "[", 
+             RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Polygon", "/@", 
+            RowBox[{"Map", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"2.2", "#"}], "+", 
+                RowBox[{"3", "Xtranslate"}]}], " ", "&"}], ",", 
+              "SquarePrismPolys", ",", 
+              RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Paxes", "[", 
+          RowBox[{"True", ",", "True", ",", "True", ",", "id", ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
+            RowBox[{"4", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
+           "ArrowScale", ",", 
+           RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
+          "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+           RowBox[{"EdgeForm", "[", 
+            RowBox[{"Thickness", "[", 
+             RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+           RowBox[{"(*", " ", 
+            StyleBox["cube",
+             FontColor->RGBColor[1, 0, 0]], " ", "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"Polygon", "/@", 
+            RowBox[{"Map", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "+", 
+                RowBox[{"4", "Xtranslate"}]}], " ", "&"}], ",", 
+              StyleBox["CubePolysBasic",
+               FontColor->RGBColor[1, 0, 0]], ",", 
+              RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Paxes", "[", 
+          RowBox[{
+           StyleBox["False",
+            FontColor->RGBColor[1, 0, 0]], ",", 
+           StyleBox["False",
+            FontColor->RGBColor[1, 0, 0]], ",", "True", ",", "id", ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
+            RowBox[{"5", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
+           "ArrowScale", ",", 
+           RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
+          "]"}], ",", " ", 
+         RowBox[{"(*", " ", 
+          StyleBox["cylinder",
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+           RowBox[{"EdgeForm", "[", "]"}], ",", "  ", "\[IndentingNewLine]", 
+           RowBox[{"Polygon", "/@", 
+            RowBox[{"Map", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{".8", "#"}], "+", 
+                RowBox[{"5", "Xtranslate"}]}], " ", "&"}], ",", 
+              "CylinderPolysPrelim", ",", 
+              RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+           RowBox[{"EdgeForm", "[", "]"}], ",", "  ", 
+           RowBox[{"(*", " ", 
+            StyleBox["sphere",
+             FontColor->RGBColor[1, 0, 0]], " ", "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"Polygon", "/@", 
+            RowBox[{"Map", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"1.6", "#"}], "+", 
+                RowBox[{"6", "Xtranslate"}]}], " ", "&"}], ",", "SpherePolys",
+               ",", 
+              RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Paxes", "[", 
+          RowBox[{
+           StyleBox["False",
+            FontColor->RGBColor[1, 0, 0]], ",", 
+           StyleBox["False",
+            FontColor->RGBColor[1, 0, 0]], ",", 
+           StyleBox["False",
+            FontColor->RGBColor[1, 0, 0]], ",", "id", ",", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
+            RowBox[{"6", "Xtranslate"}]}], ",", "xlen", ",", "0", ",", 
+           "ArrowScale", ",", 
+           RowBox[{"2", "tkns"}], ",", "\"\<Gray\>\"", ",", "ArrowColor"}], 
+          "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+       RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+       RowBox[{"ViewPoint", "\[Rule]", "eye"}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "isize"}]}], "]"}]}], 
+    ";"}]}]}]], "Input",
  CellChangeTimes->{{3.8638229607121162`*^9, 3.8638229794389915`*^9}, {
    3.863869037283667*^9, 3.86386905309441*^9}, {3.863869159671821*^9, 
    3.863869188093607*^9}, {3.8638692520961103`*^9, 3.863869263022097*^9}, {
@@ -564,9 +590,24 @@ Cell[BoxData[
    3.9691174188307652`*^9}, {3.96911749171072*^9, 3.9691175225377855`*^9}, {
    3.969181779345728*^9, 3.969181779921152*^9}, {3.96918220900631*^9, 
    3.969182262810892*^9}, {3.969182341048449*^9, 3.969182385727195*^9}, {
-   3.9691826474477882`*^9, 3.969182655363206*^9}},
+   3.9691826474477882`*^9, 3.969182655363206*^9}, {3.969183019550776*^9, 
+   3.9691830232132597`*^9}, {3.969183282096897*^9, 3.969183315424156*^9}, {
+   3.969183353044827*^9, 3.969183353140215*^9}, {3.969183412369257*^9, 
+   3.969183458265092*^9}, {3.969183559020389*^9, 3.969183559858014*^9}},
  CellLabel->
-  "In[1644]:=",ExpressionUUID->"8a45d2e0-a3fd-4619-8fd8-4932a213fe4f"]
+  "In[1785]:=",ExpressionUUID->"8a45d2e0-a3fd-4619-8fd8-4932a213fe4f"],
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{"PrintFigures", ",", 
+   RowBox[{"Export", "[", 
+    RowBox[{"\"\<~/Downloads/elastic_polyhedra_p1.pdf\>\"", ",", "p1"}], 
+    "]"}], ",", "p1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.969183038635215*^9, 3.9691830514346647`*^9}, {
+  3.969183082856881*^9, 3.969183091403401*^9}, {3.9691831362173567`*^9, 
+  3.969183142504306*^9}, {3.969183261977541*^9, 3.969183262997733*^9}},
+ CellLabel->
+  "In[1791]:=",ExpressionUUID->"362e6b66-3c01-4dc4-b1c5-99cdc4193171"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -604,227 +645,233 @@ Cell[BoxData[{
      RowBox[{"30", "Degree"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"xlen", "=", "2.5"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{"Graphics3D", "[", 
-  RowBox[{
-   RowBox[{"{", "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"p2", "=", 
+   RowBox[{"Graphics3D", "[", 
     RowBox[{
-     RowBox[{"If", "[", 
-      RowBox[{"True", ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"Paxes", "[", 
-          RowBox[{"True", ",", "True", ",", "True", ",", "Uorient", ",", 
-           RowBox[{"{", 
-            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "xlen", ",", "0", 
-           ",", 
-           RowBox[{"1.3", " ", "ArrowScale"}], ",", 
-           RowBox[{"2", " ", "tkns"}], ",", "\"\<Gray\>\"", ",", 
-           "ArrowColor"}], "]"}], ",", 
-         RowBox[{"Text", "[", 
-          RowBox[{
-           RowBox[{"Style", "[", 
-            RowBox[{"\"\<x\>\"", ",", "14", ",", 
-             RowBox[{"FontFamily", "->", "Helvetica"}]}], "]"}], ",", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
-            RowBox[{"Uorient", ".", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"xlen", "+", "0.5"}], ",", "0", ",", "0"}], 
-              "}"}]}]}]}], "]"}], ",", 
-         RowBox[{"Text", "[", 
-          RowBox[{
-           RowBox[{"Style", "[", 
-            RowBox[{"\"\<y\>\"", ",", "14", ",", 
-             RowBox[{"FontFamily", "->", "Helvetica"}]}], "]"}], ",", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
-            RowBox[{"Uorient", ".", 
-             RowBox[{"{", 
-              RowBox[{"0", ",", 
-               RowBox[{"xlen", "+", "0.5"}], ",", "0"}], "}"}]}]}]}], "]"}], 
-         ",", 
-         RowBox[{"Text", "[", 
-          RowBox[{
-           RowBox[{"Style", "[", 
-            RowBox[{"\"\<z\>\"", ",", "14", ",", 
-             RowBox[{"FontFamily", "->", "Helvetica"}]}], "]"}], ",", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
-            RowBox[{"Uorient", ".", 
-             RowBox[{"{", 
-              RowBox[{"0", ",", "0", ",", 
-               RowBox[{"xlen", "+", "0.5"}]}], "}"}]}]}]}], "]"}]}], "}"}]}], 
-      "]"}], ",", " ", "\[IndentingNewLine]", 
-     RowBox[{"If", " ", "[", 
+     RowBox[{"{", "\[IndentingNewLine]", 
       RowBox[{
-       RowBox[{"Uorient", "!=", "id"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{"True", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Paxes", "[", 
+            RowBox[{"True", ",", "True", ",", "True", ",", "Uorient", ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "xlen", ",", "0",
+              ",", 
+             RowBox[{"1.3", " ", "ArrowScale"}], ",", 
+             RowBox[{"2", " ", "tkns"}], ",", "\"\<Gray\>\"", ",", 
+             "ArrowColor"}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<x\>\"", ",", 
+               RowBox[{"fsize", "-", "2"}], ",", 
+               RowBox[{"FontFamily", "->", "Helvetica"}]}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
+              RowBox[{"Uorient", ".", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"xlen", "+", "0.5"}], ",", "0", ",", "0"}], 
+                "}"}]}]}]}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<y\>\"", ",", 
+               RowBox[{"fsize", "-", "2"}], ",", 
+               RowBox[{"FontFamily", "->", "Helvetica"}]}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
+              RowBox[{"Uorient", ".", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", 
+                 RowBox[{"xlen", "+", "0.5"}], ",", "0"}], "}"}]}]}]}], "]"}],
+            ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\<z\>\"", ",", 
+               RowBox[{"fsize", "-", "2"}], ",", 
+               RowBox[{"FontFamily", "->", "Helvetica"}]}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
+              RowBox[{"Uorient", ".", 
+               RowBox[{"{", 
+                RowBox[{"0", ",", "0", ",", 
+                 RowBox[{"xlen", "+", "0.5"}]}], "}"}]}]}]}], "]"}]}], 
+          "}"}]}], "]"}], ",", " ", "\[IndentingNewLine]", 
+       RowBox[{"If", " ", "[", 
+        RowBox[{
+         RowBox[{"Uorient", "!=", "id"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"PointSize", "[", ".001", "]"}], ",", 
+           RowBox[{"Point", "/@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "1.3", ",", "0"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "30.3", ",", "0"}], "}"}]}], "}"}]}]}], 
+          "}"}]}], "]"}], ",", 
+       RowBox[{"(*", " ", 
+        StyleBox[
+         RowBox[{"fake", " ", 
+          RowBox[{"points", ".", " ", "Make"}], " ", "PointSize", " ", 
+          "smaller", " ", "to", " ", "hide", " ", 
+          RowBox[{"them", "."}]}],
+         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
        RowBox[{"{", 
         RowBox[{
-         RowBox[{"PointSize", "[", ".001", "]"}], ",", 
-         RowBox[{"Point", "/@", 
-          RowBox[{"{", 
+         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+         RowBox[{"EdgeForm", "[", 
+          RowBox[{"Thickness", "[", 
+           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+         RowBox[{"(*", " ", 
+          StyleBox["wedge",
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Polygon", "/@", 
+          RowBox[{"Map", "[", 
            RowBox[{
-            RowBox[{"{", 
-             RowBox[{"0", ",", "1.3", ",", "0"}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"0", ",", "30.3", ",", "0"}], "}"}]}], "}"}]}]}], 
-        "}"}]}], "]"}], ",", 
-     RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "0", ",", "zshift"}], "}"}], "+", 
+              RowBox[{"1.6", " ", 
+               RowBox[{"Uorient", ".", 
+                RowBox[{"ZRot", "[", 
+                 RowBox[{"30", " ", "Degree"}], "]"}], ".", "#"}]}], " ", "+",
+               " ", "Xtranslate"}], "&"}], ",", "wedgePolys", ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+         RowBox[{"EdgeForm", "[", 
+          RowBox[{"Thickness", "[", 
+           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+         RowBox[{"(*", " ", 
+          StyleBox[
+           RowBox[{"triangular", " ", "prism"}],
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Polygon", "/@", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"Uorient", ".", "#"}], "+", 
+              RowBox[{"2", "Xtranslate"}]}], " ", "&"}], ",", 
+            "TriangularPrismPolys", ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+         RowBox[{"EdgeForm", "[", 
+          RowBox[{"Thickness", "[", 
+           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+         RowBox[{"(*", " ", 
+          StyleBox["brick",
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Polygon", "/@", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"Uorient", ".", "##"}], "+", 
+              RowBox[{"3", "Xtranslate"}]}], " ", "&"}], ",", "BrickPolys", 
+            ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+         RowBox[{"EdgeForm", "[", 
+          RowBox[{"Thickness", "[", 
+           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+         RowBox[{"(*", " ", 
+          StyleBox[
+           RowBox[{"square", " ", "prism"}],
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Polygon", "/@", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"2.2", 
+               RowBox[{"Uorient", ".", "#"}]}], "+", 
+              RowBox[{"4", "Xtranslate"}]}], " ", "&"}], ",", 
+            "SquarePrismPolys", ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+         RowBox[{"EdgeForm", "[", 
+          RowBox[{"Thickness", "[", 
+           RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
+         RowBox[{"(*", " ", 
+          StyleBox["cube",
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Polygon", "/@", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"Uorient", ".", "#"}], "+", 
+              RowBox[{"5", "Xtranslate"}]}], " ", "&"}], ",", 
+            "CubePolysBasic", ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+         RowBox[{"EdgeForm", "[", "]"}], ",", "  ", 
+         RowBox[{"(*", " ", 
+          StyleBox["cylinder",
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Polygon", "/@", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{".8", 
+               RowBox[{"Uorient", ".", "#"}]}], "+", 
+              RowBox[{"6", "Xtranslate"}]}], " ", "&"}], ",", 
+            "CylinderPolysPrelim", ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
+         RowBox[{"EdgeForm", "[", "]"}], ",", "  ", 
+         RowBox[{"(*", " ", 
+          StyleBox["sphere",
+           FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"Polygon", "/@", 
+          RowBox[{"Map", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"1.6", 
+               RowBox[{"Uorient", ".", "##"}]}], "+", 
+              RowBox[{"7", "Xtranslate"}]}], " ", "&"}], ",", "SpherePolys", 
+            ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+     RowBox[{"ViewPoint", "\[Rule]", 
       StyleBox[
-       RowBox[{"fake", " ", 
-        RowBox[{"points", ".", " ", "Make"}], " ", "PointSize", " ", 
-        "smaller", " ", "to", " ", "hide", " ", 
-        RowBox[{"them", "."}]}],
-       FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-       RowBox[{"EdgeForm", "[", 
-        RowBox[{"Thickness", "[", 
-         RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
-       RowBox[{"(*", " ", 
-        StyleBox["wedge",
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"Polygon", "/@", 
-        RowBox[{"Map", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"0", ",", "0", ",", "zshift"}], "}"}], "+", 
-            RowBox[{"1.6", " ", 
-             RowBox[{"Uorient", ".", 
-              RowBox[{"ZRot", "[", 
-               RowBox[{"30", " ", "Degree"}], "]"}], ".", "#"}]}], " ", "+", 
-            " ", "Xtranslate"}], "&"}], ",", "wedgePolys", ",", 
-          RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", " ", 
-     "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-       RowBox[{"EdgeForm", "[", 
-        RowBox[{"Thickness", "[", 
-         RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
-       RowBox[{"(*", " ", 
-        StyleBox[
-         RowBox[{"triangular", " ", "prism"}],
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"Polygon", "/@", 
-        RowBox[{"Map", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"Uorient", ".", "#"}], "+", 
-            RowBox[{"2", "Xtranslate"}]}], " ", "&"}], ",", 
-          "TriangularPrismPolys", ",", 
-          RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-       RowBox[{"EdgeForm", "[", 
-        RowBox[{"Thickness", "[", 
-         RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
-       RowBox[{"(*", " ", 
-        StyleBox["brick",
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"Polygon", "/@", 
-        RowBox[{"Map", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"Uorient", ".", "##"}], "+", 
-            RowBox[{"3", "Xtranslate"}]}], " ", "&"}], ",", "BrickPolys", ",", 
-          RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-       RowBox[{"EdgeForm", "[", 
-        RowBox[{"Thickness", "[", 
-         RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
-       RowBox[{"(*", " ", 
-        StyleBox[
-         RowBox[{"square", " ", "prism"}],
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"Polygon", "/@", 
-        RowBox[{"Map", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"2.2", 
-             RowBox[{"Uorient", ".", "#"}]}], "+", 
-            RowBox[{"4", "Xtranslate"}]}], " ", "&"}], ",", 
-          "SquarePrismPolys", ",", 
-          RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-       RowBox[{"EdgeForm", "[", 
-        RowBox[{"Thickness", "[", 
-         RowBox[{".4", "tkns"}], "]"}], "]"}], ",", "  ", 
-       RowBox[{"(*", " ", 
-        StyleBox["cube",
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"Polygon", "/@", 
-        RowBox[{"Map", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"Uorient", ".", "#"}], "+", 
-            RowBox[{"5", "Xtranslate"}]}], " ", "&"}], ",", "CubePolysBasic", 
-          ",", 
-          RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-       RowBox[{"EdgeForm", "[", "]"}], ",", "  ", 
-       RowBox[{"(*", " ", 
-        StyleBox["cylinder",
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"Polygon", "/@", 
-        RowBox[{"Map", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{".8", 
-             RowBox[{"Uorient", ".", "#"}]}], "+", 
-            RowBox[{"6", "Xtranslate"}]}], " ", "&"}], ",", 
-          "CylinderPolysPrelim", ",", 
-          RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"GrayLevel", "[", ".9", "]"}], ",", 
-       RowBox[{"EdgeForm", "[", "]"}], ",", "  ", 
-       RowBox[{"(*", " ", 
-        StyleBox["sphere",
-         FontColor->RGBColor[1, 0, 0]], " ", "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"Polygon", "/@", 
-        RowBox[{"Map", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"1.6", 
-             RowBox[{"Uorient", ".", "##"}]}], "+", 
-            RowBox[{"7", "Xtranslate"}]}], " ", "&"}], ",", "SpherePolys", 
-          ",", 
-          RowBox[{"{", "2", "}"}]}], "]"}]}]}], "}"}]}], "}"}], ",", 
-   "\[IndentingNewLine]", 
-   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
-   RowBox[{"ViewPoint", "\[Rule]", 
-    StyleBox[
-     RowBox[{"{", 
-      RowBox[{"40", ",", "0", ",", "0"}], "}"}],
-     FontColor->RGBColor[1, 0, 0]]}], ",", 
-   RowBox[{"ImageSize", "\[Rule]", "800"}], ",", 
-   RowBox[{"PlotRange", "->", "All"}]}], "]"}]}], "Input",
+       RowBox[{"{", 
+        RowBox[{"40", ",", "0", ",", "0"}], "}"}],
+       FontColor->RGBColor[1, 0, 0]]}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "isize"}], ",", 
+     RowBox[{"PlotRange", "->", "All"}]}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.8638229607121162`*^9, 3.8638229794389915`*^9}, {
    3.863869037283667*^9, 3.86386905309441*^9}, {3.863869159671821*^9, 
    3.863869188093607*^9}, {3.8638692520961103`*^9, 3.863869263022097*^9}, {
@@ -879,9 +926,23 @@ Cell[BoxData[{
    3.96918164567836*^9}, {3.969181684559888*^9, 3.969181686264041*^9}, {
    3.969181824635861*^9, 3.969181837838657*^9}, {3.9691819375050573`*^9, 
    3.969182092343926*^9}, {3.969182133222495*^9, 3.969182139653001*^9}, {
-   3.969182657047236*^9, 3.969182661834257*^9}},
+   3.969182657047236*^9, 3.969182661834257*^9}, {3.9691831528129377`*^9, 
+   3.969183156601252*^9}, {3.9691832982231693`*^9, 3.96918329868412*^9}, {
+   3.969183581650546*^9, 3.9691835903379717`*^9}},
  CellLabel->
-  "In[1650]:=",ExpressionUUID->"67cf340d-c62e-4d8c-9b94-0d430658c86a"]
+  "In[1792]:=",ExpressionUUID->"67cf340d-c62e-4d8c-9b94-0d430658c86a"],
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{"PrintFigures", ",", 
+   RowBox[{"Export", "[", 
+    RowBox[{"\"\<~/Downloads/elastic_polyhedra_p2.pdf\>\"", ",", "p2"}], 
+    "]"}], ",", "p2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.969183038635215*^9, 3.9691830514346647`*^9}, {
+  3.969183082856881*^9, 3.969183091403401*^9}, {3.9691831362173567`*^9, 
+  3.96918316686653*^9}, {3.969183253604273*^9, 3.969183275511333*^9}},
+ CellLabel->
+  "In[1796]:=",ExpressionUUID->"c7885af3-febe-457d-9f88-b30c7679dbb1"]
 }, Open  ]]
 },
 WindowSize->{1206, 915},
@@ -910,23 +971,28 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 830, 14, 149, "Subsubsection",ExpressionUUID->"56afdcfe-8195-4b06-88f5-1479c5d1e180"],
 Cell[CellGroupData[{
-Cell[1413, 38, 254, 4, 37, "Subsubsection",ExpressionUUID->"c02786b3-83cb-42eb-9a75-e1ace576ce3a"],
-Cell[1670, 44, 4953, 142, 162, "Input",ExpressionUUID->"57570454-86e3-41f3-b498-1a57ec430bd2"]
+Cell[580, 22, 830, 14, 149, "Subsubsection",ExpressionUUID->"56afdcfe-8195-4b06-88f5-1479c5d1e180"],
+Cell[1413, 38, 661, 16, 73, "Input",ExpressionUUID->"3b7e5ef7-42e9-4e4b-b834-e4a12d811e18"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[6660, 191, 383, 7, 45, "Subsubsection",ExpressionUUID->"06d646a1-3d77-46de-a8b0-417594fcea19"],
-Cell[7046, 200, 784, 20, 52, "Input",ExpressionUUID->"12743f80-bf35-4f09-a2a9-924da0e9e797"]
-}, Open  ]],
-Cell[7845, 223, 420, 8, 71, "Subsubsection",ExpressionUUID->"3db5a8e5-3ca7-45f0-a237-57389c47977b"],
-Cell[CellGroupData[{
-Cell[8290, 235, 480, 10, 63, "Subsubsection",ExpressionUUID->"12316c6a-f8c7-4fc1-b3cb-98f0b7c29002"],
-Cell[8773, 247, 14001, 321, 703, "Input",ExpressionUUID->"8a45d2e0-a3fd-4619-8fd8-4932a213fe4f"]
+Cell[2111, 59, 254, 4, 45, "Subsubsection",ExpressionUUID->"c02786b3-83cb-42eb-9a75-e1ace576ce3a"],
+Cell[2368, 65, 4953, 142, 162, "Input",ExpressionUUID->"57570454-86e3-41f3-b498-1a57ec430bd2"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22811, 573, 612, 12, 97, "Subsubsection",ExpressionUUID->"0494aa9d-11a1-4af4-8505-ce86b7255a07"],
-Cell[23426, 587, 13066, 296, 514, "Input",ExpressionUUID->"67cf340d-c62e-4d8c-9b94-0d430658c86a"]
+Cell[7358, 212, 383, 7, 45, "Subsubsection",ExpressionUUID->"06d646a1-3d77-46de-a8b0-417594fcea19"],
+Cell[7744, 221, 784, 20, 52, "Input",ExpressionUUID->"12743f80-bf35-4f09-a2a9-924da0e9e797"]
+}, Open  ]],
+Cell[8543, 244, 420, 8, 71, "Subsubsection",ExpressionUUID->"3db5a8e5-3ca7-45f0-a237-57389c47977b"],
+Cell[CellGroupData[{
+Cell[8988, 256, 480, 10, 63, "Subsubsection",ExpressionUUID->"12316c6a-f8c7-4fc1-b3cb-98f0b7c29002"],
+Cell[9471, 268, 14843, 329, 703, "Input",ExpressionUUID->"8a45d2e0-a3fd-4619-8fd8-4932a213fe4f"],
+Cell[24317, 599, 506, 10, 30, "Input",ExpressionUUID->"362e6b66-3c01-4dc4-b1c5-99cdc4193171"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24860, 614, 612, 12, 97, "Subsubsection",ExpressionUUID->"0494aa9d-11a1-4af4-8505-ce86b7255a07"],
+Cell[25475, 628, 13834, 304, 514, "Input",ExpressionUUID->"67cf340d-c62e-4d8c-9b94-0d430658c86a"],
+Cell[39312, 934, 505, 10, 30, "Input",ExpressionUUID->"c7885af3-febe-457d-9f88-b30c7679dbb1"]
 }, Open  ]]
 }
 ]
