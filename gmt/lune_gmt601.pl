@@ -11,7 +11,7 @@
 #  See also examples in TT2013
 #
 #  Set kmax=2 to also plot source types on the vw rectangle plot of TT2015
-#  
+#
 #  Abbreviations
 #    gCDC = generalized crack-plus-double-couple model (TT2013)
 #
@@ -21,8 +21,8 @@
 #    TT2013: W. Tape and C. Tape, "The classical model for moment tensors," Geophysical J. International, 2013
 #    TT2015: W. Tape and C. Tape, "A uniform parameterization for seismic moment tensors," Geophysical J. International, 2015
 #
-#  Last tested 2019-04-19 with GMT 4.5.3
-#  Our psmeca (for plotting beachballs) uses a modified version of utilmeca.c by Doug Dreger.
+#  Last tested 2026-03-07 with GMT 4.5.3
+#  Previously we used GMT 4.5.3 with a psmeca having a modified version of utilmeca.c by Doug Dreger.
 #
 #===================================================================================
 
@@ -100,14 +100,18 @@ $dgray = 120;
 # Poisson values considered for gCDC model
 @nus = (0.25,0.36);
 
-# PLOTTING OPTIONS
+# KEY PLOTTING OPTIONS
 $iplot = 2;  # =0 (reference lune)
              # =1 (dots from published studies)
              # =2 (reference beachballs)
              # =3 (catalog of full moment tensors)
-$lplot = 1;  # =1-4: reference MTs on the lune (iplot=2 only)
+$lplot = 1;  # =1-3: reference MTs on the lune (iplot=2 only)
+             #       (this is the choice of source types on the lune)
+             #       see beach_arcs.m for additional options
 $kplot = 1;  # =1-5: orientation of MT at center of lune (iplot=2 only)
 $splot = 0;  # =0-5: text labels above reference beachballs (iplot=2 only, lplot=3 only)
+
+# OTHER PLOTTING OPTIONS
 @splotlabs = ("","_lam","_gammadelta","_alphanu","_zetaphi","_vw");
 $slabel = $splotlabs[$splot];
 if($iplot==2) {

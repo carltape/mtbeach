@@ -65,4 +65,4 @@ awk '{print $1,$2}' ../dfiles//sourcetype_arc_03.dat | gmt psxy -W3p,30/144/255 
 awk '{print $1,$2}' ../dfiles//sourcetype_arc_04.dat | gmt psxy -W3p,30/144/255 -J -R -K -O -V >>lune_hammer_iplot2_lplot1_kplot1_gmt611.ps
 awk '{print $1,$2}' ../dfiles//sourcetype_arc_06.dat | gmt psxy -W3p,30/144/255 -J -R -K -O -V >>lune_hammer_iplot2_lplot1_kplot1_gmt611.ps
 gmt psmeca ../dfiles//beachballs_ipts2_iref3_lune_psmeca -JH0/2.8i -R-30/30/-90/90 -Sm0.45/8p -L0.5p,0/0/0 -G255/0/0 -N -K -O -V >> lune_hammer_iplot2_lplot1_kplot1_gmt611.ps
-psxy -R -J -O -T -V >> lune_hammer_iplot2_lplot1_kplot1_gmt611.ps
+gmt psxy -JH0/2.8i -R-30/30/-90/90 -O -T -V >> lune_hammer_iplot2_lplot1_kplot1_gmt611.ps

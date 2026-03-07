@@ -295,7 +295,7 @@ if ($ititle==1 && $x==1) {
 }  # for loop over $x
 
 # any command with no -K should work
-print CSH "psxy -R -J -O -T -V >> $psfile\n";
+print CSH "gmt psxy $J $R -O -T -V >> $psfile\n";
 
 close (CSH);
 system("csh -f $cshfile");
