@@ -13,9 +13,10 @@ clear, clc, close all
 deg = 180/pi;
 
 bwrite = false;
+bwrite_CMTSOLUTION = false;
 
 % odir = '/home/carltape/PROJECTS/cmt/figs/bfiles/';
-odir = '/home/carltape/REPOSITORIES/REPOSITORIES/mtbeach/gmt/dfiles/';
+odir = '/home/ctape/REPOSITORIES/mtbeach/gmt/dfiles/';
 
 % min and max limits for each parameter
 u1 = 0;         u2 = 3*pi/4;    % similar to lune latitude (ISO)
@@ -211,7 +212,7 @@ end
 
 %--------------------------------------------------------------------------
 
-irefpts = 1;            % choose a reference set of lune points
+irefpts = 4;            % choose a reference set of lune points
 M0ref = mw2m0(1,5);     % specify a magnitude for all beachballs
 
 switch irefpts
@@ -316,37 +317,42 @@ switch irefpts
         %M = transform_MT(Uref,[Lam_all ; zeros(3,nlam)]);
         
     case 4
-        NPT = 5;
+        % number of points per arc portion
+        NPT = 7;
 
-        % dev
-        delta0 = 0;
-        gamma = linspace(-30,0,NPT);
-        gamma([end]) = [];
-        lam1 = lune2lam(gamma,delta0*ones(size(gamma)));
-        
         % DC + iso
         gamma0 = 0;
-        delta = linspace(0,90,NPT+1);
-        delta([1 end]) = [];
-        lam2 = lune2lam(gamma0*ones(size(delta)),delta);
-        
+        delta = linspace(0,89.999,NPT+1);
+        %delta([1]) = [];
+        lamiso = lune2lam(gamma0*ones(size(delta)),delta);
+
         % NW boundary of lune
         %zeta0 = 90;
         %phi = linspace(0,90,NPT+1); phi(1) = [];
         %lam3 = phizeta2lam(phi,zeta0*ones(size(phi)));
         gamma0 = -30;
-        delta = linspace(0,90,NPT+1);
+        delta = linspace(90,0,NPT+1);
         delta([1 end]) = [];
-        lam3 = lune2lam(gamma0*ones(size(delta)),delta);
+        lamcrack = lune2lam(gamma0*ones(size(delta)),delta);
 
-        % nu=0.25 in NW quadrant of lune
+        % deviatoric
+        delta0 = 0;
+        gamma = linspace(-30,0,NPT);
+        gamma([end]) = [];
+        lamdev = lune2lam(gamma,delta0*ones(size(gamma)));
+
+        % nu=0.25 in NW quadrant of lune (exclude the DC)
         nu0 = 0.25;
-        lam0 = nualpha2lam(nu0,0);
-        [phi0,zeta0] = lam2phizeta(lam0);
-        zeta = linspace(0,90,NPT);
-        lam4 = phizeta2lam(phi0*ones(size(zeta)),zeta);
+        %lam0 = nualpha2lam(nu0,0);
+        %[phi0,zeta0] = lam2phizeta(lam0);
+        %zeta = linspace(0,90,NPT);
+        %lam4 = phizeta2lam(phi0*ones(size(zeta)),zeta);
+        [~,~,thetadc,~,lamnu] = nu2lune(nu0,2*NPT-1);
+        lamnu(:,NPT:end) = [];
 
-        lam = [lam1 lam2 lam3 lam4];
+        % the ordering of points is determined by this order of subsets and
+        % also the ordering within each subset
+        lam = [lamiso lamcrack lamdev lamnu];
         [~,n] = size(lam);
 
         lam = lam*M0ref*sqrt(2);
@@ -384,7 +390,9 @@ v(find(abs(v) < 0.001)) = 0;
 nu(find(and(gam==0,del==0))) = 0;   % nu is undefined at DC
 phi(abs(abs(phi)-180) < 0.01) = 180;
 
-figure; plot(gam,del,'.'); axis equal; axis tight;
+figure; hold on;
+plot(gam,del,'.'); axis equal; axis tight;
+text(gam,del,numvec2cell([1:n]));
 
 % loop over reference orientations
 for kk=1:5
@@ -394,11 +402,22 @@ for kk=1:5
     if kk==3, str = 45; dip = 90; rk = 0; end
     if kk==4, str = -45; dip = 90; rk = 0; end
     if kk==5, str = 40; dip = 50; rk = 60; end
+    % file tag
+    ftag0 = sprintf('ipts%i_iref%i',irefpts,kk);
+
     MDC = dcfaultpar2CMT(str,dip,rk,0);
     [~,Uref] = CMTdecom(MDC);
     Uref
     Mdiag = [lam ; zeros(3,n)];
     M = transform_MT(Uref,Mdiag)
+
+    if bwrite_CMTSOLUTION
+        otime = now*ones(n,1);
+        lon = 0*ones(n,1); lat = 0*ones(n,1); dep = 0*ones(n,1);
+        tshift = 0*ones(n,1); hdur = 0*ones(n,1);
+        eid = cellstr(compose("lune_%s_%03d",ftag0,1:n));
+        write_CMTSOLUTION(odir,0,otime,tshift,hdur,lat,lon,dep,M,eid,[],[],[]);
+    end
 
     % psmeca does not handle tiny numbers well
     % -- it can even flip the sign of the mechanism!
@@ -407,7 +426,7 @@ for kk=1:5
     
     if bwrite
         % FUTURE WORK: add set of files for rect (vw) coordinates
-        ftag = sprintf('%sbeachballs_ipts%i_iref%i',odir,irefpts,kk);
+        ftag = sprintf('%sbeachballs_i%s',odir,ftag0);
         %write_psmeca(filename,datenum(0,0,0)*ones(n,1),del,gam,0*ones(n,1),M);
         
         for jj=1:5
