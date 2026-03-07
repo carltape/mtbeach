@@ -1,4 +1,4 @@
-function [gamma,delta,thetadc,phi] = nu2lune(nu,n,blune,brandom)
+function [gamma,delta,thetadc,phi,lam] = nu2lune(nu,n,blune,brandom)
 %NU2LUNE get a set of lune points for a fixed nu value
 %
 % INPUT
@@ -14,6 +14,7 @@ function [gamma,delta,thetadc,phi] = nu2lune(nu,n,blune,brandom)
 % optional:
 %   thetadc polar angle on the lune [0,90]
 %   phi     azimuthal angle on the lune [-180,180]
+%   lam     eigenvalues
 %
 % See examples below.
 % TapeTape2013 "The classical model for moment tensors"
@@ -36,13 +37,14 @@ phitar  = nu2phi(nu);
 phitar2 = wrapTo180(phitar + 180);
 disp(sprintf('nu = %.2f phi1 = %.2f phi2 = %.2f',nu,phitar,phitar2));
 
-if brandom
+% OBTAIN THE POINTS ON THE LUNE THAT DEFINE THE nu ARC
+if brandom  % randomly spaced points
     ivec = round(1 + rand(n,1));
     phi = NaN(n,1);
     phi(ivec==1) = phitar;
     phi(ivec==2) = phitar2;
     
-else
+else        % regularly spaced points
     % number of points on the arc between the DC and the lune boundary
     nh = floor(n/2);
     phi1vec = phitar  * ones(nh,1);
