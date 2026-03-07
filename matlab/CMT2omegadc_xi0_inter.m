@@ -1,4 +1,4 @@
-function [omegaMat,xiMat,omegaxiMat] = CMT2omegadc_xi0_inter(M,bfigure)
+function [omegaMat,xiMat,omegaxiMat] = CMT2omegadc_xi0_inter(M,Mtags,bfigure)
 %CMT2OMEGADC_XI0 compute the omegadc and xi0 angles between two moment tensors
 %
 % INPUT
@@ -14,8 +14,30 @@ function [omegaMat,xiMat,omegaxiMat] = CMT2omegadc_xi0_inter(M,bfigure)
 % Carl Tape, 2024-09-19
 %
 
-if nargin==1, bfigure=true; end
+% parse optional inputs
+if nargin < 2, Mtags = []; end
+if nargin < 3, bfigure = true; end
+
+% Backward-compatible call: CMT2omegadc_xi0_inter(M,bfigure)
+if nargin == 2 && (islogical(Mtags) || (isnumeric(Mtags) && isscalar(Mtags)))
+    bfigure = logical(Mtags);
+    Mtags = [];
+end
+
 [~,n] = size(M);
+
+% validate/standardize labels
+if isempty(Mtags)
+    Mtags = arrayfun(@(k) sprintf('M%d', k), 1:n, 'UniformOutput', false);
+else
+    if isstring(Mtags), Mtags = cellstr(Mtags); end
+    if ~iscell(Mtags)
+        error('Mtags must be a string array or cell array of character vectors.');
+    end
+    if numel(Mtags) ~= n
+        error('Mtags must have the same number of elements as columns of M (expected %d).', n);
+    end
+end
 
 omegaMat = zeros(n,n);
 xiMat = zeros(n,n);
@@ -63,7 +85,8 @@ if bfigure
     end
     
     if bticklabels
-        Mlabels = arrayfun(@(x) sprintf('M_{%d}', x), 1:nCols, 'UniformOutput', false);
+        %Mlabels = arrayfun(@(x) sprintf('M_{%d}', x), 1:nCols, 'UniformOutput', false);
+        Mlabels = Mtags;
         set(gca, 'XTick',1:nCols,'YTick',1:nRows,'XTickLabel',Mlabels,'YTickLabel',Mlabels,...
             'TickLength',[0 0],'XAxisLocation','top');
     else
@@ -99,6 +122,12 @@ if 0==1
     [omegaMat,xiMat,omegaxiMat] = CMT2omegadc_xi0_inter(M);
     figure(1); print(gcf,'-dpng',sprintf('~/omegadc_xi0_matrix_n%i',n));
     figure(2); print(gcf,'-dpng',sprintf('~/omegadc_xi0_scatter_n%i',n));
+
+    % custom labels
+    n = 5;
+    M = uniformMT(n,0,0);
+    Mtags = {'26','26','23','22','25'};
+    [omegaMat,xiMat,omegaxiMat] = CMT2omegadc_xi0_inter(M,Mtags);
 end
 
 %==========================================================================
