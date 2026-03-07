@@ -68,7 +68,6 @@ lamdev = lam - lamiso;
 % column vectors
 delta = delta(:);
 gamma = gamma(:);
-M0 = M0(:);
 thetadc = thetadc(:);
 
 %==========================================================================
