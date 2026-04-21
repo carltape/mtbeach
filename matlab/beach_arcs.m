@@ -212,7 +212,7 @@ end
 
 %--------------------------------------------------------------------------
 
-irefpts = 4;            % choose a reference set of lune points
+irefpts = 7;            % choose a reference set of lune points
 M0ref = mw2m0(1,5);     % specify a magnitude for all beachballs
 
 switch irefpts
@@ -374,6 +374,32 @@ switch irefpts
         lam = lam*M0ref*sqrt(2);
         [gam,del,M0] = lam2lune(lam);
 
+    case 7
+        % number of points per arc portion
+        NPT = 14;
+
+        % DC + iso
+        gamma0 = 0;
+        delta = linspace(0,89.999,NPT+1);
+        %delta([1]) = [];
+        lamiso = lune2lam(gamma0*ones(size(delta)),delta);
+
+        % NW boundary of lune
+        %zeta0 = 90;
+        %phi = linspace(0,90,NPT+1); phi(1) = [];
+        %lam3 = phizeta2lam(phi,zeta0*ones(size(phi)));
+        gamma0 = -30;
+        delta = linspace(90,0,NPT+1);
+        delta(1) = [];
+        lamcrack = lune2lam(gamma0*ones(size(delta)),delta);
+
+        % the ordering of points is determined by this order of subsets and
+        % also the ordering within each subset
+        lam = [lamiso lamcrack];
+        [~,n] = size(lam);
+
+        lam = lam*M0ref*sqrt(2);
+        [gam,del,M0] = lam2lune(lam);
 end
 
 [v,w] = lune2rect(gam,del);
@@ -426,7 +452,7 @@ for kk=1:5
     
     if bwrite
         % FUTURE WORK: add set of files for rect (vw) coordinates
-        ftag = sprintf('%sbeachballs_i%s',odir,ftag0);
+        ftag = sprintf('%sbeachballs_%s',odir,ftag0);
         %write_psmeca(filename,datenum(0,0,0)*ones(n,1),del,gam,0*ones(n,1),M);
         
         for jj=1:5
