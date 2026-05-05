@@ -1,10 +1,11 @@
 function hdur = m02hdur(M0)
 %M02HDUR input seismic moment in N-m and output half-duration in seconds
-%
-% Equation: empirical formula stated on p. 178 of Dahlen and Tromp (1999), p. 178
 
 M0 = M0(:);
-hdur = 2.4e-6 * M0.^(1/3);
+%K = 2.4e-6;                 % Ekstrom, 1996: Dahlen and Tromp (1999), p. 178
+K = 1.05e-8 * 10^(7/3);     % Ekstrom et al. (2012), Eq. 1, converted for N-m
+
+hdur = K * M0.^(1/3);
 
 %--------------------------------------------------------------------------
 
