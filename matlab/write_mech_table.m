@@ -80,9 +80,9 @@ for kk=1:2
     fprintf(fid,'    The strike angle kappa ranges from 0 to 360.\n');
     fprintf(fid,'    The dip angle theta ranges from 0 to 90.\n');
     fprintf(fid,'    The slip (or rake) angle sigma ranges from -90 to 90.\n');
-    fprintf(fid,'    These angles define a plane for the closest double couple\n');
+    fprintf(fid,'    The strike and dip angles define a plane for the closest double couple\n');
     fprintf(fid,'        and are not physically meaningful for a moment tensor that is far from a double couple.\n');
-    fprintf(fid,'    If the moment tensor is a close to a double couple,\n');
+    fprintf(fid,'    If the moment tensor is close to a double couple,\n');
     fprintf(fid,'        then the angles define either the fault plane or the auxiliary plane.\n');
     if kk==1
         fprintf(fid,'The moment tensor source type is represented by lune longitude (gamma) and lune latitude (delta) (Tape and Tape, 2012, GJI).\n');
