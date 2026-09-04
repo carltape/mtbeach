@@ -437,6 +437,30 @@ for kk=1:5
     Mdiag = [lam ; zeros(3,n)];
     M = transform_MT(Uref,Mdiag)
 
+    %---------------------------------------
+    % OPTIONAL: zero-out the tiny entries
+    % ntoe: prior to 2026-08-27, we only did this for the psmeca entries,
+    % not the CMTSOLUTION entries
+
+    if true
+        FTRESH = 1e-12;
+        M0 = CMT2m0(1,M);   % to be safe (all events should have the same magnitude)
+        Mnorm = M ./ M0;
+        bzero = abs(M) < FTRESH*M0ref;
+        izero = find(bzero);
+        %disp(double(bzero))
+        length(izero)
+    
+        fprintf('%4s %10s %10s %10s %10s %10s %10s\n','ID','Mrr','Mtt','Mpp','Mrt','Mrp','Mtp');
+        Mfac = 1e16;   % will depend on the data set
+        for ii = 1:size(Mnorm,2)
+            fprintf('%4d %10.5f %10.5f %10.5f %10.5f %10.5f %10.5f\n',ii,M(:,ii)/Mfac);
+        end
+    
+        M(izero) = 0;
+    end
+    %---------------------------------------
+
     if bwrite_CMTSOLUTION
         otime = now*ones(n,1);
         lon = 0*ones(n,1); lat = 0*ones(n,1); dep = 0*ones(n,1);
@@ -447,8 +471,8 @@ for kk=1:5
 
     % psmeca does not handle tiny numbers well
     % -- it can even flip the sign of the mechanism!
-    izero = find(abs(M) < 1e-12*M0ref);
-    M(izero) = 0;
+    %izero = find(abs(M) < 1e-12*M0ref);
+    %M(izero) = 0;
     
     if bwrite
         % FUTURE WORK: add set of files for rect (vw) coordinates
