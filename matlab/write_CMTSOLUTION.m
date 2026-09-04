@@ -145,7 +145,8 @@ else            % write to individual files
             eidx = eid{kk};
         end
         if ~isempty(ftag)
-            ofile = strcat(dir0,'CMTSOLUTION_',eid{kk},'_',ftag);
+            %ofile = strcat(dir0,'CMTSOLUTION_',eid{kk},'_',ftag);
+            ofile = strcat(dir0,'CMTSOLUTION_',ftag,'_',eid{kk});
         else
             ofile = strcat(dir0,'CMTSOLUTION_',eid{kk});
         end
