@@ -27,8 +27,9 @@ function omega = CMT2omega(M1,M2)
 % Carl Tape 2015-02-20
 %
 
+% USER CHOICES
+bfigure = false;   % =true to plot a histogram
 bdisplay = false;
-bfigure = true;
 
 if nargin==1        % M1 only specified
     [M,n] = Mdim(M1);
@@ -94,8 +95,8 @@ if and(bfigure, n>1)
    figure; hold on; plot_histo(omega,[0:5:180]);
    plot([90 90],[0 OMAX],'r','linewidth',2);
    set(gca,'xtick',0:10:180); %axis([0 120 0 OMAX]);
-   xlabel('omega angle: angular distance to other moment tensors');
-   title(sprintf('OMEGA: min = %.2f, max = %.2f',min(omega),max(omega)));
+   xlabel('\omega: angular distance to other moment tensors');
+   title(sprintf('omega: min = %.2f, max = %.2f',min(omega),max(omega)));
 end
 
 %==========================================================================

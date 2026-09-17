@@ -1,5 +1,5 @@
 function [omegaMat,xiMat,omegaxiMat] = CMT2omegadc_xi0_inter(M,Mtags,bfigure)
-%CMT2OMEGADC_XI0 compute the omegadc and xi0 angles between two moment tensors
+%CMT2OMEGADC_XI0_INTER matrix plot of omegaDC and xi0 angles among n moment tensors
 %
 % INPUT
 %   M           6 x n moment tensors: M = [M11 M22 M33 M12 M13 M23]
@@ -10,6 +10,8 @@ function [omegaMat,xiMat,omegaxiMat] = CMT2omegadc_xi0_inter(M,Mtags,bfigure)
 %   omegaxiMat  n x n matrix with omegaDC on lower ttriangl, xi0 on upper triangle
 %
 % See CMT2omegadc_xi0.m for details.
+% These plots were featured in Figure 6 of McPherson, Tape, Peter (GJI 2026).
+% (The published figures were made in Python.)
 % 
 % Carl Tape, 2024-09-19
 %
@@ -66,8 +68,10 @@ if bfigure
     btextlabels = true;
     bticklabels = true;
     dotsize = 4;
+    NMAX = 10;
     
-    if n > 10, btextlabels = false; bticklabels = false; bgridlines = false; dotsize = 2; end
+    % do not plot text labels or gridlines if there are more than NMAX events
+    if n > NMAX, btextlabels = false; bticklabels = false; bgridlines = false; dotsize = 2; end
     
     Z = omegaxiMat;
     
@@ -118,12 +122,13 @@ end
 if 0==1
     %M = load('~/Downloads/MT_4_Carl.txt')';
     n = 100;  % try 10 or 100
-    M = uniformMT(n,0,0);
+    M = uniformMT(n,0,0);    % DC only (gamma = 0, delta = 0)
     [omegaMat,xiMat,omegaxiMat] = CMT2omegadc_xi0_inter(M);
     figure(1); print(gcf,'-dpng',sprintf('~/omegadc_xi0_matrix_n%i',n));
     figure(2); print(gcf,'-dpng',sprintf('~/omegadc_xi0_scatter_n%i',n));
 
-    % custom labels
+    % custom text labels for the rows and columns
+    % note: Mtags is an input variable
     n = 5;
     M = uniformMT(n,0,0);
     Mtags = {'26','26','23','22','25'};

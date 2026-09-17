@@ -32,7 +32,8 @@ function [omegadc,xi0,U] = CMT2omegadc_xi0(X1,X2,iorthoU,idisplay)
 % Carl Tape, 2012-08-11
 %
 
-bfigure = true;
+% change this to true if you want to see histograms
+bfigure = false;
 
 % default: no information displayed
 if ~exist('idisplay','var'), idisplay = 0; end 
@@ -105,15 +106,15 @@ if and(bfigure, n>1)
    subplot(nr,nc,1); hold on; plot_histo(omegadc,[0:5:180]);
    plot([90 90],[0 OMAX],'r','linewidth',2);
    set(gca,'xtick',0:10:180); %axis([0 120 0 OMAX]);
-   xlabel('omegadc angle describing difference in orientation');
+   xlabel('\omega_{DC} angle describing difference in orientation');
    title(sprintf('omegadc: min = %.2f, max = %.2f',min(omegadc),max(omegadc)));
    
    PMAX = 0.12;  % will depend on bin size
    subplot(nr,nc,2); hold on; plot_histo(xi0,[0:5:120]);
    plot([90 90],[0 PMAX],'r','linewidth',2);
    set(gca,'xtick',0:10:120); %axis([0 120 0 PMAX]);
-   xlabel('xi0 angle describing difference in orientation');
-   title(sprintf('XI: min = %.2f, max = %.2f',min(xi0),max(xi0)));
+   xlabel('\xi_0 angle describing difference in orientation');
+   title(sprintf('xi0 : min = %.2f, max = %.2f',min(xi0),max(xi0)));
 end
 
 %==========================================================================
