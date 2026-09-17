@@ -85,10 +85,10 @@ if bfigure
     % NOTE: Modifications will be needed to generalize the plotting in order
     %       to best display the values for a particular set of data.
     figure; nr=4; nc=2;
-    ihist = 1;
+    ihist = 1; bmanual_ticks = true; dtick = 30;
 
     subplot(nr,nc,1); hold on; plot_histo(omega,[0:5:180],ihist);
-    set(gca,'xtick',0:10:180);
+    if bmanual_ticks, set(gca,'xtick',0:dtick:180); end
     xlabel('\omega : difference between moment tensors');
     title(sprintf('min = %.2f, max = %.2f',min(omega),max(omega)));
 
@@ -98,32 +98,32 @@ if bfigure
     title(sprintf('min = %.2f, max = %.2f',min(dM),max(dM)));
 
     subplot(nr,nc,3); hold on; plot_histo(omegadc,[0:5:180],ihist);
-    set(gca,'xtick',0:10:180);
+    if bmanual_ticks, set(gca,'xtick',0:dtick:180); end
     xlabel('\omega_{DC} : difference in orientation');
-    title(sprintf('omega: min = %.2f, max = %.2f',min(omega),max(omega)));
+    title(sprintf('min = %.2f, max = %.2f',min(omega),max(omega)));
 
     subplot(nr,nc,4); hold on; plot_histo(xi0,[0:5:120],1);
-    set(gca,'xtick',0:10:120);
+    if bmanual_ticks, set(gca,'xtick',0:dtick:120); end
     xlabel('\xi_0 : difference in orientation');
-    title(sprintf('xi0 : min = %.2f, max = %.2f',min(xi0),max(xi0)));
+    title(sprintf('min = %.2f, max = %.2f',min(xi0),max(xi0)));
 
     subplot(nr,nc,5); hold on; plot_histo(dgamma,[-60:5:60],ihist);
-    set(gca,'xtick',-60:10:60);
+    if bmanual_ticks, set(gca,'xtick',-60:dtick:60); end
     xlabel('\gamma_2 - \gamma_1 : change in lune longitude');
     title(sprintf('min = %.2f, max = %.2f',min(dgamma),max(dgamma)));
 
     subplot(nr,nc,6); hold on; plot_histo(ddelta,[-180:10:180],1);
-    set(gca,'xtick',-180:30:180);
+    if bmanual_ticks, set(gca,'xtick',-180:dtick:180); end
     xlabel('\delta_2 - \delta_1 : change in lune latitude');
     title(sprintf('min = %.2f, max = %.2f',min(ddelta),max(ddelta)));
 
     subplot(nr,nc,7); hold on; plot_histo(Delta,[0:10:180],ihist);
-    set(gca,'xtick',0:10:180);
+    if bmanual_ticks, set(gca,'xtick',0:dtick:180); end
     xlabel('\Delta : distance on the lune');
     title(sprintf('min = %.2f, max = %.2f',min(Delta),max(Delta)));
 
-    subplot(nr,nc,8); hold on; plot_histo(dthetaDC,[0:5:90],1);
-    set(gca,'xtick',0:10:90);
+    subplot(nr,nc,8); hold on; plot_histo(dthetaDC,[-90:5:90],1);
+    if bmanual_ticks, set(gca,'xtick',-90:dtick:90); end
     xlabel('\theta_{DC2} - \theta_{DC1} : change in DC angle');
     title(sprintf('min = %.2f, max = %.2f',min(dthetaDC),max(dthetaDC)));
 end
@@ -134,7 +134,6 @@ end
 if 0==1
     % specify a set of moment tensors M1 and M2
     % here we choose a set of uniformly distributed moment tensors
-    close all, clc, clear
     n = 10000;
     M1o = uniformMT(n);
     M2o = uniformMT(n);
